@@ -1,0 +1,79 @@
+<div id="main_wrapper" class="col-md-12">
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="table_title_bar" id="title-1"><i class="fa fa-photo padding5"></i>{'myalbum_photo_title'} ({'total_count'})</h2>
+        {'myalbum_toolbar'}
+    </div>
+<form name="ecardmax_form" class="form-horizontal" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="{'what'}" />
+<input type="hidden" name="action" value="" />
+<input type="hidden" name="next_step" value="{'next_step'}" />
+<input type="hidden" name="album_id" value="" />
+<div class="col-md-12 clearfix">
+{'display_albums_pictures_list'}
+</div>
+</form>
+</div>
+</div>
+<script type="text/javascript">
+function showLoadingImage(){
+	$('#loading').show();
+	
+}
+function hideLoadingImage(){
+	 $('#loading').hide();
+}
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNew(){
+	var file_upload=false;
+	for(i=1;i<=7;i++){
+		if(document.getElementById("file"+i).value!=""){
+			file_upload=true;
+			break;
+		}
+	}
+	if(file_upload){
+		document.ecardmax_form.action.value="add_new";
+		document.ecardmax_form.submit();
+	}
+	else{
+		showNotification("{'myalbum_js_alert_must_input_file'}");
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			showNotification("{'js_alert_must_select_checkbox'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&what=photo&action=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}&album_id={'album_id'}";
+	if(window.confirm("{'myalbum_member_delete_image_confirm'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>

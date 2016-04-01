@@ -1,0 +1,178 @@
+<div class="clearfix"></div>
+<div id="show_personalize_table" class="elm-toggle-collapse">
+	
+	<form name="ecardmax_personalize" method="post" action="index.php">
+	<input type="hidden" name="step" value="{'step'}" />
+	<input type="hidden" name="next_step" value="show_birthday_card" />
+	<input type="hidden" name="action" value="save_setting" />
+	<input type="hidden" name="list_email" value="" />
+	<input type="hidden" name="cs_poem" value="" />
+	<input type="hidden" name="cs_poem_align" value="center" />
+	<input type="hidden" name="cs_music_filename" value="{'cs_music_filename'}" />
+	<input type="hidden" name="cs_skin_name" value="{'cs_skin_name'}" />
+	<input type="hidden" name="cs_stamp_filename" value="{'cs_stamp_filename'}" />
+	<input type="hidden" name="cs_java" value="{'cs_java'}" />
+
+	<input type="hidden" name="ec_id" value="{'ec_id'}" />
+
+					<div class="table_border">
+                    	
+						 <div class="col-sm-12">
+                         <h1 id="title-3" class="table_title_bar">{'txt_title_personalize_your_card'}</h1>
+                         </div>
+                        <div class="preview_thumb_personalize col-sm-3">
+                        <div class="panel panel-default" {'hide_if_media_grabber'}>
+                            <div class="panel-heading">{'fieldset_preview_thumb_card'}</div>
+                            <div class="panel-body text-center">
+                                {'show_card_thumbnail'}<br />{'show_card_title'}
+                            </div>
+                        </div>
+                        </div>
+                        <div class="temp_personalize col-sm-9">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{'fieldset_title_sender_information'}</div>
+                            <div class="panel-body">
+                                <div class="input-group input-group-sm h-space-b-10">
+                                  <span class="input-group-addon" id="sizing-addon3">
+                                  <i class="fa fa-user"></i> <span class="only-desktop">{'fieldset_sender_name'}</span></span>
+                                  <input onkeydown="showid2('show_error_message_sender_info','none');" id="cs_from_name" class="form-control" name="cs_from_name" value="{'cs_from_name'}" type="text" {'cs_from_name_read_only_if_login'} aria-describedby="sizing-addon" />                       
+                                </div>   
+                                <div class="Error_Message" style="padding:5px;display:none" id="show_error_message_sender_info" ></div>       
+                                <div class="input-group input-group-sm">
+                                  <span class="input-group-addon" id="sizing-addon3">
+                                  @ <span class="only-desktop">{'fieldset_sender_email'}</span></span>
+                                  <input onkeydown="showid2('show_error_message_sender_info','none');"  onblur="if(!valid_email(this.value)){this.value='';ShowDivInvalidEmail('show_error_message_sender_info');}" id="cs_from_email" class="form-control" name="cs_from_email" value="{'cs_from_email'}" type="text" {'cs_from_name_read_only_if_login'} aria-describedby="sizing-addon" />                          
+                                </div>
+                                <div class="Error_Message" style="padding:5px;display:none" id="show_error_message_sender_info" ></div>
+                            </div>
+                        </div>
+						<div class="panel panel-default">
+                            <div class="panel-heading">{'fieldset_title_recipient_information'}</div>
+                            <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-3">{'add_from_address_book'}</label>
+                                <div class="col-sm-8">
+                                    <select id="group_id" name="group_id" aria-describedby="sizing-addon" class="form-control input-sm" onchange="AddContactGroupToList(this.value);">
+                                        <option value="0">{'select_group'}</option>
+                                        {'show_contact_group_options'}
+                                    </select>
+                                    <p class="text-right"><small>{'select_or_choise'}</small></p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+						<input id="re_num" name="re_num" type="hidden" />
+                        <div style="display:none" id="show_recipient_loop"></div>
+						<textarea style="visibility:hidden;position:absolute;top:-20;left:-20;width:1px;height:1px" name="cs_message" id="cs_message" class="cs_message">{'cs_message'}</textarea>
+
+						
+
+						{'show_account_balance_if_ppc'}
+						<div class="text-right">
+						<span onclick="SendToFriends();" class="btn btn-sm btn-default btn-my-site">
+                        <i class="fa fa-send padding5"></i>{'save_setting'}</span>
+                        <!--<span onclick="PreviewCard();" class="button2">{'show_personalize_table_button_preview_card'}</span>-->
+                        </div>
+                        </div>
+					</div>
+
+	</form>
+<div>
+<!-----SCRIPT-------->
+{'myloop'}
+<!-----END----------->
+
+<script type="text/javascript">
+	function SendToFriends(){
+		//Get data from Hoteditor
+		get_hoteditor_data();
+
+		if(document.getElementById("cs_from_name").value==""){
+			ShowPersonalizeTable();
+			document.getElementById("show_error_message_sender_info").innerHTML="{'txt_js_alert_must_enter_sender_name'}";
+			showid2("show_error_message_sender_info","block");
+			document.getElementById("cs_from_name").focus();
+
+			return false;
+		}
+		else if(!valid_email(document.getElementById("cs_from_email").value)){
+			ShowPersonalizeTable();
+			document.getElementById("show_error_message_sender_info").innerHTML="{'txt_js_alert_must_enter_sender_email'}";
+			showid2("show_error_message_sender_info","block");
+			document.getElementById("cs_from_email").focus();
+			return false;
+		}
+		else if(html_output==""){
+			ShowPersonalizeTable();
+			showNotification("You must enter your personal message");
+			return false;
+		}else if(document.getElementById("group_id").value==""){
+			showNotification("{'please_select_a_group'}");
+			return false;
+		}else{
+			document.ecardmax_personalize.submit();
+		}
+		
+	}
+
+
+	function PreviewCard(){
+	
+
+		
+		
+		//Update sender info
+		from_sender_name=document.getElementById("cs_from_name").value + " ("+document.getElementById("cs_from_email").value+")";
+		document.getElementById("card_from").innerHTML=from_sender_name;
+
+		//Update number send to
+		to_name="<select size=\"1\">";
+		for(i=1;i<=re_num;i++){
+			list_friend_name=document.getElementById("list_friend_name_"+i).value;
+			list_friend_email=document.getElementById("list_friend_email_"+i).value;
+			if(list_friend_name!="" && list_friend_email!=""){
+				to_name+="<option>"+list_friend_name+" ("+list_friend_email+")</option>\n";
+			}
+		}
+		to_name+="</select>";
+		document.getElementById("card_to").innerHTML=to_name;
+
+		//Update card message
+		get_hoteditor_data();
+
+		//Add Youtube Yahoo Google video
+		html_output=html_output.replace(/\[FLASH=(.*?),(.*?)\](.*?)\[\/FLASH\]/gi,'<object width="$1" height="$2"><param name="movie" value="$3"></param><param name="wmode" value="transparent"></param><embed src="$3" type="application/x-shockwave-flash" wmode="transparent" width="$1" height="$2"></embed></object>');
+
+		user_message=html_output;
+		document.getElementById("card_message").innerHTML=html_output;
+
+		//add code here by danhht
+			xfrom=document.getElementById("cs_from_name").value;
+			xto=document.getElementById("list_friend_name_1").value;
+			xmessage=escape(html_output);
+			ec_id=document.ecardmax_personalize.ec_id.value;
+			url='{'ecard_url'}/index.php?step=preview&ec_id='+ec_id+'&from='+ xfrom +'&to='+xto+'&message='+xmessage;
+			window.open(url,'preview','height=400,width=550,status=yes,toolbar=no,menubar=no,location=no');
+			return false;
+		// end code 
+		
+		showid2('div_card_body','block');
+		showid2("show_edit_sendnow_toolbar_top","block");
+		showid2("show_edit_sendnow_toolbar_bottom","block");
+
+		showid2('show_personalize_table','none');
+		showid2("show_option_toolbar","none");
+		showid2("show_change_next_step_fav_toolbar","none");
+	}
+
+	function EditCard(){
+		showid2('show_option_toolbar','block');
+		showid2('div_card_body','block');
+		showid2('show_change_next_step_fav_toolbar','block');
+
+		showid2('show_personalize_table','none');
+		showid2("show_edit_sendnow_toolbar_top","none");
+		showid2("show_edit_sendnow_toolbar_bottom","none");
+	}
+
+</script>

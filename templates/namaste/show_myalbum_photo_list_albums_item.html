@@ -1,0 +1,9 @@
+<div id="album{'album_id'}" class="col-sm-2" >
+	<input class="input_ajax_editable_photo_album" type="text"  onchange="Editme('{'ecard_url'}/index.php?step=sign_in&next_step=show_myalbum&what=photo&action=edit_me_album&edit_id=album_id&edit_id_value={'album_id'}&edit_key=album_name&edit_key_value=',this.value,'1',original_value,this.id);" onfocus="original_value=this.value;" title="Click here to edit" name="change_bkg" id="album_name{'album_id'}" value="{'album_name'}" />
+	<div style="background-image: url({'album_cover_picture'});" class="album_thumb" onclick="location.href='{'ecard_url'}/index.php?step=sign_in&next_step=show_myalbum&what=photo&album_id={'album_id'}';"></div>	
+	<span class="pull-left">{'album_count_pictures'} {'myalbum_txt_album_no_pictures'}</span>
+	<span class="pull-right">
+    <input type="checkbox" value="{'album_id'}" name="mylist_id{'album_id'}" id="bk{'album_id'}" onclick="single_check_uncheck_1('album{'album_id'}','bk{'album_id'}');">
+    </span>
+    <div class="clearfix"></div>
+</div>

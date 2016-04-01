@@ -1,0 +1,49 @@
+<div class="table_border">
+	<form name="ecardmax_newsletter" method="post" action="index.php">
+	<input type="hidden" name="step" value="{'step'}" />
+	<input type="hidden" name="what" value="" />
+		<h2 id="title-1" class="table_title_bar">{'txt_newsletter'}</h2>
+		<div style="padding:4px;font-weight:bold">{'side_nav_newsletter_subscribe'}</div>
+		<div style="padding:4px">{'show_info1'}</div>
+		<div style="padding:4px">{'label_yourname'} <span class="Error_Message">*</span></div>
+		<div style="padding:4px"><input onkeypress="return noEnterKey(event)" class="form-control input-sm" type="text" name="list_name" style="width:50%;" value="{'list_name'}" /></div>
+		<div style="padding:4px">{'label_youremail'} <span class="Error_Message">*</span></div>
+		<div style="padding:4px"><input onkeypress="return noEnterKey(event)" class="form-control input-sm" type="text" name="list_email" style="width:50%;" value="{'list_email'}" /></div>
+		<div><button type="button" class="btn btn-default btn-sm btn-my-site" onclick="Subscribe();" >{'button_subscribe'}</button></div>
+		<hr class="HR_Color" />
+		<div style="padding:4px;font-weight:bold">{'side_nav_newsletter_unsubscribe'}</div>
+		<div style="padding:4px">{'show_info2'}</div>
+		<div>{'label_youremail'} <span class="Error_Message">*</span></div>
+		<div style="padding:4px"><input onkeypress="return noEnterKey(event)" class="form-control input-sm" type="text" name="list_email_un" style="width:50%;" value="{'list_email_un'}" /></div>
+		<div><button type="button" class="btn btn-default btn-sm btn-my-site" onclick="UnSubscribe();" >{'button_unsubscribe'}</button></div>
+	</form>
+</div>
+<script language="javascript" type="text/javascript">
+	function Subscribe(){
+		if(document.ecardmax_newsletter.list_name.value==""){
+			alert("{'feedback_js_alert_must_enter_name'}");
+			document.ecardmax_newsletter.list_name.focus();
+		}
+		else if(!valid_email(document.ecardmax_newsletter.list_email.value)){
+			alert("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_newsletter.list_email.focus();
+		}		
+		else{
+			document.ecardmax_newsletter.what.value="subscribe";
+			document.ecardmax_newsletter.submit();
+		}
+	}
+
+	function UnSubscribe(){
+		if(!valid_email(document.ecardmax_newsletter.list_email_un.value)){
+			alert("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_newsletter.list_email_un.focus();
+		}		
+		else{
+			if(window.confirm("{'newsletter_js_alert_sure_to_remove_email'}")){
+				document.ecardmax_newsletter.what.value="unsubscribe";
+				document.ecardmax_newsletter.submit();
+			}
+		}
+	}
+</script>

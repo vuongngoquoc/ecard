@@ -1,0 +1,402 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={'charset'}" />
+<title>{'ecard_txt_admin_title'}</title>
+<style type="text/css">
+<!--
+@import url(html/07_style.css);
+-->
+</style>
+<script type="text/javascript" src="ecardmax_admin.js"> </script>
+
+</head>
+
+<body style="background-color:white;">
+<iframe id="modalbkg" frameborder="0" style="display:none;filter: Alpha(Opacity=40);-moz-opacity:0.4;opacity:0.4;width:1px;height:1px;background-color: #999999;position: absolute;z-index:1;top:0px;left:0px;"></iframe>
+<div id="moz_modalbkg" style="position:absolute;display:none;filter: Alpha(Opacity=40);-moz-opacity:0.4;opacity:0.4;width:1px;height:1px;background-color: #999999;z-index:1;top:0px;left:0px;"></div>
+<div id="show_popup_preview" style="display:none;position:absolute;top:0;left:0;z-index:10" onmouseover="this.style.display ='block';if(hide_pointer!='1')document.getElementById('pointer').style.display = 'block';" onmouseout="this.style.display ='none';document.getElementById('pointer').style.display = 'none';"></div>
+<div id="show_loading" style="display:none;position:absolute;top:0;left:0;text-align:center;padding:10px;width:130px;background-color:#FDBF04;border:1px solid #7D7764;z-index:11"><img alt="" src="html/07_ajax_loader.gif" /><br /><span id="show_loading_text"></span></div>
+<iframe id="hidden_iframe" frameborder="0" style="display:none;position:absolute;top:0;left:0;border:1px;z-index:2" scrolling="no"></iframe>
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="{'what'}" />
+<input type="hidden" name="cat_id" value="{'cat_id'}" />
+<input type="hidden" name="cat_dir" value="{'cat_dir'}" />
+<input type="hidden" name="cat_name_display" value="{'cat_name_display'}" />
+<h2><img border="0" src="html/07_icon_add_ecard.gif" alt="" style="vertical-align:middle" /> {'invite_add_remove_txt_page_title'} <span style="color:green">{'cat_name_display'}</span></h2>
+<table border="0" width="100%">
+	<tr>
+		<td align="right"><input type="button" value="{'invite_add_remove_button_select_who_can_send_all_cards'}" onclick="ShowDivCenterPage('set_member_group_all_ecards',1);" class="Button"/> <input type="button" value="{'invite_add_remove_button_set_price_for_all_cards'}" onclick="ShowDivCenterPage('set_price_all_ecards',1);" class="Button"/></td>	
+	</tr>
+</table>
+
+{'show_info'}
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'invite_add_remove_txt_click_here_to_add_new_cards'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');"><div style="float:left;">{'invite_add_remove_txt_how_to_add_new_invitation_by_ftp'}</div><img border="0" src="html/07_icon_button_close.gif" title="Close/Hide" alt="Close/Hide" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="100%">
+				{'invite_add_remove_txt_how_to_add_new_invitation_by_ftp_guide'}
+			</td>
+		</tr>
+	</table><br />
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'invite_add_remove_txt_add_new_invitation_card_by_browser'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'invite_add_remove_tooltip_close_hide'}" alt="{'invite_add_remove_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_card_caption'} <span class="Error_Message">*</span></td>
+			<td width="80%"><input type="text" name="iv_caption" id="iv_caption" style="width:90%" onchange="document.getElementById('iv_thumbnail').value=this.value.replace(/\W/gi,'')" /> </td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_folder_name'} <span class="Error_Message">*</span></td>
+			<td width="80%"><input type="text" name="iv_thumbnail" id="iv_thumbnail" style="width:90%" onchange="this.value=this.value.replace(/\W/gi,'')" /> </td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_fontname_default'} <span class="Error_Message">*</span></td>
+			<td width="80%">{'show_list_fontname'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_fontsize_default'} <span class="Error_Message">*</span></td>
+			<td width="80%"><input type="text" name="iv_fontsize" id="iv_fontsize" value="25" style="width:100px" /> {'invite_add_remove_txt_system_will_create_file_fontsize_default'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_lineheight_default'} <span class="Error_Message">*</span></td>
+			<td width="80%"><input type="text" name="iv_line_height" id="iv_line_height" value="40" style="width:100px" /> {'invite_add_remove_txt_system_will_create_file_lineheight_default'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'invite_add_remove_txt_allow_user_upload_their_photo'} <span class="Error_Message">*</span></td>
+			<td width="80%">
+				<select size="1" name="iv_must_upload_photo" id="iv_must_upload_photo">
+				<option value="0">{'invite_add_remove_txt_no'}</option>
+				<option value="1">{'invite_add_remove_txt_yes'}</option>
+				</select> {'invite_add_remove_txt_system_will_create_file_default_upload'}
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'invite_add_remove_txt_message_default'} <span class="Error_Message">*</span></td>
+			<td width="80%"><textarea name="iv_default_message" id="iv_default_message" style="width:90%;height:300px"></textarea><br />{'invite_add_remove_txt_message_default_more_info'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_rgb_background_color'} <span class="Error_Message">*</span><br />(Ex: 213,231,249) </td>
+			<td width="80%"><input type="text" name="RGB_background_color" id="RGB_background_color" value="" style="width:300px" /> {'invite_add_remove_txt_rgb_background_color_more_info'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_rgb_text_color'} <span class="Error_Message">*</span><br />(Ex: 36,77,117)</td>
+			<td width="80%"><input type="text" name="RGB_text_color" id="RGB_text_color" value="" style="width:300px" />   {'invite_add_remove_txt_rgb_text_color_more_info'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_upload_file_index_html'} <span class="Error_Message">*</span></td>
+			<td width="80%"><input type="file" name="index_html" id="index_html" size="42" /> </td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_upload_file_thumb_gif'} <span class="Error_Message">*</span></td>
+			<td width="80%"><input type="file" name="thumb" id="thumb" size="42" /> </td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_extra_file'} 1</td>
+			<td width="80%"><input type="file" name="file1" id="file1" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_extra_file'} 2</td>
+			<td width="80%"><input type="file" name="file2" id="file2" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_extra_file'} 3</td>
+			<td width="80%"><input type="file" name="file3" id="file3" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_extra_file'} 4</td>
+			<td width="80%"><input type="file" name="file4" id="file4" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_extra_file'} 5</td>
+			<td width="80%"><input type="file" name="file5" id="file5" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_extra_file'} 6</td>
+			<td width="80%"><input type="file" name="file6" id="file6" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'invite_add_remove_txt_extra_file'} 7</td>
+			<td width="80%"><input type="file" name="file7" id="file7" size="42" /></td>
+		</tr>	
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input {'disable_submit_button'} type="button" value="{'invite_add_remove_button_add_new_invitation'}" class="button" onclick="AddNew();" />{'disable_submit_button_message'}</td>
+		</tr>
+		
+	</table><br />
+</div>
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px;">{'invite_add_remove_column_name_sort'}</td>
+		<td width="1%" align="center" style="padding:4px">{'invite_add_remove_column_name_thumbnail'}</td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltip_check_checkbox_to_enable_disable_card'}" title="{'invite_add_remove_tooltip_check_checkbox_to_enable_disable_card'}" src="html/07_icon_validate.gif" style="vertical-align:middle" /></td>
+		<td width="*" style="padding:4px;white-space:nowrap">{'invite_add_remove_column_name_set_who_can_send'}</td>
+		<td width="1%" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_edit_card_thumbnail_caption'}" title="{'invite_add_remove_tooltips_edit_card_thumbnail_caption'}" src="html/07_icon_ec_edit_caption.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_edit_card_keyword'}" title="{'invite_add_remove_tooltips_edit_card_keyword'}" src="html/07_icon_ec_edit_keyword.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_edit_card_message_detail'}" title="{'invite_add_remove_tooltips_edit_card_message_detail'}" src="html/07_icon_ec_edit_detail.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap"><img border="0" alt="{'invite_add_remove_tooltips_set_fontname_default'}" title="{'invite_add_remove_tooltips_set_fontname_default'}" src="html/07_icon_fontname.gif" style="vertical-align:middle" /> Font Default</td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_set_fontsize_default'}" title="{'invite_add_remove_tooltips_set_fontsize_default'}" src="html/07_icon_fontsize.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_set_lineheight_default'}" title="{'invite_add_remove_tooltips_set_lineheight_default'}" src="html/07_icon_lineheight.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_allow_user_upload_photo'}" title="{'invite_add_remove_tooltips_allow_user_upload_photo'}" src="html/07_icon_allow_upload.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_set_music_default_for_each_card'}" title="{'invite_add_remove_tooltips_set_music_default_for_each_card'}" src="html/07_icon_music.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px"><img border="0" alt="{'invite_add_remove_tooltips_preview_card'}" title="{'invite_add_remove_tooltips_preview_card'}" src="html/07_icon_search_keyword.gif" style="vertical-align:middle" /></td>
+		<td width="1%" align="center" style="padding:4px">{'invite_add_remove_txt_delete'}</td>
+		<td width="1%" align="center" style="padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="Select All" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="15">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td style="white-space:nowrap"><strong>{'invite_add_remove_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td align="right" style="white-space:nowrap">
+					<input type="button" value="{'invite_add_remove_button_delete_selected_cards'}" name="bulk_action" id="bulk_action" class="Button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+
+<div id="view_table_music_icon" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;width:300px">
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold" onclick="HideItAll();" title="{'invite_add_remove_tooltip_click_here_to_close'}">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="left" width="99%"><strong>{'invite_add_remove_txt_select_music_default'}</strong></td>
+			<td align="right" width="1%"><img border="0" src="html/07_icon_button_close.gif" title="{'invite_add_remove_tooltip_close_hide'}" alt="{'invite_add_remove_tooltip_close_hide'}" /></td>
+		</tr>
+		</table>
+	</div>
+	<div style="overflow:auto;height:300px;padding:5px;background-color:lightyellow;">
+		{'show_list_music_icon'}
+	</div>
+</div>
+
+<div id="set_member_group_all_ecards" style="display:none;position:absolute;top:0;left:0;z-index:9;width:450px;">
+	<div style="border:thick solid #FCAA03;">
+	<table border="0" width="100%" cellspacing="1" cellpadding="4" style="background-color:silver">
+		<tr style="background-color: #B1D3FF;background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td style="cursor:pointer;" onclick="HideItAll();"><div style="float:left">{'invite_add_remove_txt_select_who_can_send_cards_in_this_cate'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'invite_add_remove_tooltip_click_here_to_close'}" alt="{'invite_add_remove_tooltip_click_here_to_close'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td align="center">				
+				<div style="border:1px dotted silver;width:98%">
+					<br />{'invite_add_remove_txt_decide_which_member_group_can_send'}<br /><br />
+					{'show_member_group_all_ecards'}
+					<br /><br /><input type="button" value="{'invite_add_remove_button_set_member_group_can_send_card'}" class="button" onclick="SetMemberGroupAllEcard();" /><br /><br />
+				</div>
+			</td>
+		</tr>
+		</table>	
+	</div>
+</div>
+
+<div id="set_price_all_ecards" style="display:none;position:absolute;top:0;left:0;z-index:9;width:450px;">
+	<div style="border:thick solid #FCAA03;">
+	<table border="0" width="100%" cellspacing="1" cellpadding="4" style="background-color:silver">
+		<tr style="background-color: #B1D3FF;background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td style="cursor:pointer;" onclick="HideItAll();"><div style="float:left">{'invite_add_remove_txt_set_price_for_all_cards'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'invite_add_remove_tooltip_click_here_to_close'}" alt="{'invite_add_remove_tooltip_click_here_to_close'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td align="center">				
+				<div style="border:1px dotted silver;width:98%">
+					{'show_price_all_ecards'} <input type="button" value="{'invite_add_remove_button_set_price_for_ecards'}" class="button" onclick="SetPriceAllEcard();" /><br /><br />
+				</div>
+			</td>
+		</tr>
+		</table>	
+	</div>
+</div>
+
+</form>
+</body>
+
+</html>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+var iv_id="";
+
+function SetPriceAllEcard(){
+	var ppc_id=document.getElementById("iv_ppc_id_all").options[document.getElementById("iv_ppc_id_all").selectedIndex].value;
+	location.href="index.php?step={'step'}&what=set_price_all_ecards&cat_id={'cat_id'}&iv_ppc_id_all="+ppc_id;
+}
+
+function AddNew(){
+	if(document.getElementById("iv_caption").value==""){
+		alert("{'invite_add_remove_message_card_caption_required'}");
+		document.getElementById("iv_caption").focus();
+	}
+	else if(document.getElementById("iv_thumbnail").value==""){
+		alert("{'invite_add_remove_message_card_folder_name_required'}");
+		document.getElementById("iv_thumbnail").focus();
+	}
+	else if(document.getElementById("iv_fontsize").value==""){
+		alert("{'invite_add_remove_message_fontsize_default_required'}");
+		document.getElementById("iv_fontsize").focus();
+	}
+	else if(document.getElementById("iv_line_height").value==""){
+		alert("{'invite_add_remove_message_lineheight_default_required'}");
+		document.getElementById("iv_line_height").focus();
+	}
+	else if(document.getElementById("iv_default_message").value==""){
+		alert("{'invite_add_remove_message_msg_default_required'}");
+		document.getElementById("iv_default_message").focus();
+	}
+	else if(document.getElementById("RGB_background_color").value==""){
+		alert("{'invite_add_remove_message_rgb_background_required'}");
+		document.getElementById("RGB_background_color").focus();
+	}
+	else if(document.getElementById("RGB_text_color").value==""){
+		alert("{'invite_add_remove_message_rgb_text_color_required'}");
+		document.getElementById("RGB_text_color").focus();
+	}
+	else if(document.getElementById("index_html").value==""){
+		alert("{'invite_add_remove_message_upload_index_html_required'}");
+		document.getElementById("index_html").focus();
+	}
+	else if(document.getElementById("thumb").value==""){
+		alert("{'invite_add_remove_message_upload_thumb_gif_required'}");
+		document.getElementById("thumb").focus();
+	}	
+	else{
+		document.form1.what.value="add_new";
+		document.form1.submit();
+	}
+}
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'invite_add_remove_message_checkbox_first'}");
+			document.getElementById("bulk_action").selectedIndex=0;
+		}
+		else{
+			ActionSelected();
+		}
+	}
+}
+
+function ActionSelected(){
+	var selected_id="";	
+	var confirm_message="";
+	var list_id="";
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked){
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+			list_id +=array[i]+",";
+		}
+	}
+
+	url="index.php?step={'step'}&cat_id={'cat_id'}&current_cat_id={'cat_id'}&what=delete_selected&list_id="+list_id+"&page={'page'}&row_number={'row_number'}&cat_dir={'cat_dir'}&cat_name_display={'cat_name_display'}";
+	confirm_message="{'invite_add_remove_message_confirm_to_delete'}";	
+	if(window.confirm(confirm_message)){
+		location.href = url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+		document.getElementById("bulk_action").selectedIndex=0;
+	}
+}
+
+function HideItAll(){
+	if(myid!=""){
+		for(i=0;i<array.length;i++){
+			if(document.getElementById('cell'+array[i])){
+				document.getElementById('cell'+array[i]).style.border="0px";
+				document.getElementById('cell'+array[i]).style.backgroundColor="";
+			}
+			if(document.getElementById('popup_caption'+array[i]))document.getElementById('popup_caption'+array[i]).style.display="none";
+			if(document.getElementById('popup_keyword'+array[i]))document.getElementById('popup_keyword'+array[i]).style.display="none";
+			if(document.getElementById('popup_detail'+array[i]))document.getElementById('popup_detail'+array[i]).style.display="none";
+		}
+	}
+	document.getElementById('hidden_iframe').style.display="none";
+	document.getElementById('moz_modalbkg').style.display="none";
+	document.getElementById('set_member_group_all_ecards').style.display="none";
+	document.getElementById('view_table_music_icon').style.display="none";
+	document.getElementById('set_price_all_ecards').style.display="none";
+	self.parent.document.getElementById('view_fullsize_table').style.display="none";
+}
+
+function HighLightCell(id){
+	document.getElementById('cell'+id).style.border="thick solid #FCAA03";
+	document.getElementById('cell'+id).style.backgroundColor="#FAEDC8";
+}
+
+function ControlMGCheckbox(val,what){
+	var mgid="{'list_mgid'}";
+	var array_mg=mgid.split(",");
+	for(i=0;i<array_mg.length;i++){
+		if(array_mg[i] != 1){
+			document.getElementById('mg'+val+array_mg[i]).disabled=what;
+		}
+	}
+}
+
+function ControlMGCheckbox2(val,what){
+	var mgid="{'list_mgid'}";
+	var array_mg=mgid.split(",");
+	if(mgid!=""){
+		for(i=0;i<array_mg.length;i++){
+			if(array_mg[i] != 1){
+				document.getElementById('mg_list'+array_mg[i]).disabled=what;
+			}
+		}
+	}
+}
+
+function SetMemberGroupAllEcard(){
+	var mgid="{'list_mgid'}";
+	var array_mg=mgid.split(",");
+	var chk_checkbox=false;
+	var ec_group_relate_id="";
+	if(mgid!=""){
+		for(i=0;i<array_mg.length;i++){
+			if(document.getElementById('mg_list'+array_mg[i]).checked){
+				chk_checkbox=true;
+				ec_group_relate_id+=","+array_mg[i];
+			}
+		}
+		if(!chk_checkbox){
+			alert("{'invite_add_remove_message_at_least_one_member_group_required'}");
+		}
+		else{
+			if(window.confirm("{'invite_add_remove_message_confirm_to_do'}")){
+				ec_group_relate_id+=",";
+				location.href="index.php?step={'step'}&cat_id={'cat_id'}&what=set_member_group_all_ecards&iv_group_relate_id="+ec_group_relate_id;
+			}
+		}
+	}
+	else{
+		alert("{'invite_add_remove_message_no_card_in_this_category'}");
+		HideItAll();
+	}
+}
+
+function SetMusicDefault(music_filename,music_id,music_action,music_name_display){
+	Editme('index.php?step=edit_me&table=max_ecard_invite&edit_id=iv_id&edit_id_value='+iv_id+'&edit_key=iv_music_filename&edit_value=',music_filename,0,1,'change_icon_music'+iv_id);
+	Editme('index.php?step=edit_me&table=max_ecard_invite&edit_id=iv_id&edit_id_value='+iv_id+'&edit_key=iv_music_id&edit_value=',music_id,0,1,'change_icon_music'+iv_id);
+	if(music_action=="enabled"){
+		document.getElementById('change_icon_music'+iv_id).innerHTML="<img border=0 alt='"+music_name_display+" - Click here to set music default for this card' title='"+music_name_display+" - Click here to set music default for this card' src='html/07_icon_play_audio_file.gif' />";
+	}
+	else{
+		document.getElementById('change_icon_music'+iv_id).innerHTML="<img border=0 alt='"+music_name_display+" - Click here to set music default for this card' title='"+music_name_display+" - Click here to set music default for this card' src='html/07_icon_play_audio_file.gif' style=\"filter: Alpha(Opacity=40);-moz-opacity:0.4;opacity:0.4;\" />";
+	}
+	HideItAll();
+}
+
+</script>

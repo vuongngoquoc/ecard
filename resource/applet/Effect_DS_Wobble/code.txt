@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Wobble.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=amplitude VALUE="40"><PARAM NAME=frequency VALUE="20"><PARAM NAME=pause VALUE="20"><PARAM NAME=interactive VALUE="no">Sorry, no java browser</APPLET>

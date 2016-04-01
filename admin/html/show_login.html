@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{'ecard_txt_admin_title'}</title>
+<style type="text/css">
+<!--
+@import url(html/07_style.css);
+-->
+</style>
+</head>
+
+<body style="background-color:#FAEDC8;">
+<div style="height:100px;width:100%"></div>
+<form action="{'ecard_url'}/admin/index.php" method="post" name="form1" id="form1">
+<input type="hidden" name="step" value="log_in2" />
+<input type="hidden" name="url_referer" value="" />
+<table align="center" border="0" width="561" cellspacing="0" cellpadding="0" style="background-image:url(html/07_login_bkg.gif)">
+	<tr>
+		<td valign="bottom"><img border="0" src="html/07_login_top.gif" /></td>
+	</tr>
+	<tr>
+		<td ><div class="Error_Message" style="text-align:center">{'error_msg'}</div>
+			<table border="0" width="90%" align="center">
+				<tr>
+					<td width="10%"><img border="0" src="html/07_login_keys.gif" /></td>
+					<td  width="90%" >
+						<table border="0" width="100%" cellspacing="4" cellpadding="4">
+							<tr>
+								<td width="20%" nowrap="nowrap">{'login_page_txt_admin_id'}</td>
+								<td width="80%"><input class="Textbox" type="text" name="username" size="30" style="width:70%" value="{'username'}" /></td>
+							</tr>
+							<tr>
+								<td width="20%" nowrap="nowrap">{'login_page_txt_password'}</td>
+								<td width="80%"><input class="Textbox" type="password" name="password" size="30" style="width:70%" /></td>
+							</tr>
+							<tr>
+								<td width="20%" nowrap="nowrap"></td>
+								<td width="80%" ><input class="button" src="html/07_login_submit_bt.gif" type="submit" value="{'login_page_txt_button_login_submit'}" /></td>
+							</tr>
+						</table>
+				  </td>
+				</tr>
+		  </table>
+		</td>
+	</tr>
+	<tr>
+		<td><img border="0" src="html/07_login_bottom.gif" /></td>
+	</tr>
+</table>
+<p align="center">{'ecard_txt_copyright'}<br />
+<a target="_blank" href="http://www.ecardmax.com">www.eCardMAX.com</a></p>
+</form>
+</body>
+</html>

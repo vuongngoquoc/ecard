@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Fog.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=intensity VALUE="6"><PARAM NAME=speed VALUE="4"><PARAM NAME=direction VALUE="left"><PARAM NAME=interactive VALUE="no">Sorry, no java browser</APPLET>

@@ -1,0 +1,150 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_holiday_event.gif" alt="" style="vertical-align:middle" /> {'holiday_event_txt_page_title'} 
+({'holiday_event_txt_total'} {'count_total'})</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'holiday_event_txt_click_to_add_new_event'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'holiday_event_txt_add_new_event'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'holiday_event_tooltip_close_hide'}" alt="{'holiday_event_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'holiday_event_txt_event_title'}</td>
+			<td width="80%"><input type="text" name="event_name" id="event_name" value="" style="width:90%"></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'holiday_event_txt_event_date'}</td>
+			<td width="80%"><div id="show_calendar" style="cursor:pointer;" onclick="get_cid=-1;ShowDiv(this.id,'view_fullsize_table',0,0);info=document.getElementById('time_end_textbox').value.split('\/');frames['calendar_frame'].location.href='index.php?step=admin_calendar&mode=1&month='+info[0]+'&year='+info[2]+'&selected_day='+info[1]+'&selected_month='+info[0]+'&selected_year='+info[2]"><input readonly="readonly" type="text" name="time_end_textbox" id="time_end_textbox" value="MM/DD/YYYY" style="width:100px" /> <img border="0" alt="" style="vertical-align:middle" src="html/07_icon_calendar.gif" /></div></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'holiday_event_txt_event_type'}</td>
+			<td width="80%">
+				<select size="1" name="event_type" id="event_type">
+				<option value="0">{'holiday_event_txt_event_type_fixed'}</option>
+				<option value="1">{'holiday_event_txt_event_type_floating'}</option>
+				</select>
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'holiday_event_txt_link_to_url'}</td>
+			<td width="80%"><input type="text" name="event_url" id="event_url" style="width:90%" value="{'ecard_url'}/index.php?cat=" /><br /><span style="font-size:8pt">{'holiday_event_txt_link_to_url_desc'}</span></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input type="button" value="{'holiday_event_txt_button_add_event_submit'}" class="button" onclick="AddNew();" /></td>
+		</tr>		
+	</table><br />
+</div>
+<div><strong>{'holiday_event_txt_tip'}:</strong></div>
+{'holiday_event_txt_tip_content'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="white-space:nowrap;padding:4px">{'holiday_event_txt_column_name_icon'}</td>
+		<td width="*"  style="white-space:nowrap;padding:4px">{'holiday_event_txt_column_name_holiday_event'}</td>
+		<td width="20%" align="center" style="white-space:nowrap;padding:4px">{'holiday_event_txt_column_name_event_date'}</td>
+		<td width="1%" align="center" style="white-space:nowrap;padding:4px">{'holiday_event_txt_column_name_floating'}</td>
+		<td width="1%" align="center" style="white-space:nowrap;padding:4px">{'holiday_event_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="white-space:nowrap;padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="Select All" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="6">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'ecard_txt_display_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'holiday_event_txt_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+<div id="view_fullsize_table" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;width:250px">
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold" onclick="HideItAll();" title="{'holiday_event_tooltip_click_to_close'}">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="left" width="99%">{'holiday_event_txt_calendar'}</td>
+			<td align="right" width="1%"><img border="0" src="html/07_icon_button_close.gif" title="{'holiday_event_tooltip_close_hide'}" alt="{'holiday_event_tooltip_close_hide'}" /></td>
+		</tr>
+		</table>
+	 </div>
+	<iframe frameborder="0" height="230px" width="100%" scrolling="no" id="calendar_frame" name="calendar_frame" src="" ></iframe>
+</div>
+</form>
+<script type="text/javascript">
+var get_cid="";
+var myid="{'bk_id'}";
+var array=myid.split(",");
+var time_end_value="";
+function AddNew(){	
+	if(document.form1.event_name.value==""){
+		alert("{'holiday_event_message_event_name_required'}");
+		document.form1.event_name.focus();
+	}
+	else if(document.form1.time_end_textbox.value=="" || document.form1.time_end_textbox.value=="MM/DD/YYYY"){
+		alert("{'holiday_event_message_event_date_required'}");
+		get_cid=-1;
+		ShowDiv('show_calendar','view_fullsize_table',0,0);
+		info=document.getElementById('time_end_textbox').value.split('\/');
+		frames['calendar_frame'].location.href='index.php?step=admin_calendar&mode=1&month='+info[0]+'&year='+info[2]+'&selected_day='+info[1]+'&selected_month='+info[0]+'&selected_year='+info[2];
+	}
+	else if(document.form1.event_url.value==""){
+		alert("{'holiday_event_message_event_url_required'}");
+		document.form1.event_url.focus();
+	}
+	else{
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'holiday_event_message_checkbox_required'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'holiday_event_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function HideItAll(){
+	document.getElementById('view_fullsize_table').style.display="none";
+	document.getElementById('hidden_iframe').style.display="none";
+}
+
+function InsertDate(id,data){
+	if(id=="-1"){
+		document.getElementById('time_end_textbox').value=data;
+	}
+	else{
+		document.getElementById('time_end_textbox'+id).value=data;
+		Editme('index.php?step={'step'}&what=update_event&event_id='+id+'&time_end_textbox=',data,'1',id,"time_end_textbox"+id);
+	}
+}
+
+</script>

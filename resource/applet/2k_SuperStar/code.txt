@@ -1,0 +1,1 @@
+<APPLET codebase code="cgi2k_flying2.class" change_pixel ><PARAM NAME=credits VALUE="Applet by www.cgi2k.com"><PARAM NAME=key VALUE="cgi2k_key"><PARAM NAME="image" VALUE="change_pic"><PARAM NAME="flowers" VALUE="change_path/myapplet_icon.gif"></APPLET>

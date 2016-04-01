@@ -1,0 +1,62 @@
+<script type="text/javascript">
+    function preview_embed_card(){
+        document.getElementById("preview_embed").innerHTML=document.getElementById("embed_text").value;
+         document.getElementById("show_preview").style.display='block';
+          document.getElementById("input_embed").style.display='none';
+    }
+    function back(){
+        document.getElementById("show_preview").style.display='none';
+          document.getElementById("input_embed").style.display='block';
+    }
+	function send_embed_card(){
+		document.ecardmax_form.step.value="sendcard";
+		document.ecardmax_form.what.value="sendvideocard";
+		document.ecardmax_form.submit();
+	}
+</script>
+<div id="send_video_card" class="col-sm-12">
+<form name="ecardmax_form" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="sendcard" />
+<input type="hidden" name="what" value="sendvideocard" />
+<input type="hidden" name="action" value="" />
+<input type="hidden" name="next_step" value="sendvideocard" />
+		<h2 id="title-1" class="table_title_bar"><i class="fa fa-youtube padding5"></i>{'send_video_card_title'} </h2>
+		<div id="input_embed">
+        <!--
+        <h5>{'send_video_card_show_info'}</h5>
+        -->
+			<fieldset>
+				<legend>{'send_video_card_embed_code'} <span class="Error_Message">*</span></legend>
+				<textarea class="form-control input-sm" name="embed_text" id="embed_text" rows="10"></textarea>
+				<div class="des_embed" >
+                <strong>{'send_video_card_example'}</strong><br />&lt;object width=&quot;480&quot; height=&quot;385&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/58cFOPjsGj8&amp;amp;hl=en_US&amp;amp;fs=1&amp;amp;&quot; /&gt;&lt;/param&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot; /&gt;&lt;/param&gt;
+&lt;param name=&quot;allowscriptaccess&quot; value=&quot;always&quot; /&gt;&lt;/param&gt;
+&lt;embed src=&quot;http://www.youtube.com/v/58cFOPjsGj8&amp;amp;hl=en_US&amp;amp;fs=1&amp;amp;&quot; type=&quot;application/x-shockwave-flash&quot; allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; width=&quot;480&quot; height=&quot;385&quot;&gt;&lt;/embed&gt;&lt;/object&gt;</div>
+			</fieldset>
+			<button type="button" name="" class="btn btn-sm btn-default btn-my-site" onclick="preview_embed_card()" >
+            <i class="fa fa-arrows-alt padding5"></i>Preview</button>
+		</div>
+		<br>
+		<div id="show_preview" style="display:none">
+		<div id="preview_embed" align="center"></div>
+		<br>
+		<div  align="center">
+            <button type="button" name="" class="btn btn-sm btn-default btn-my-site" onclick="back()" >
+            <i class="fa fa-mail-reply padding5"></i>Back</button>
+            <button type="button" name="" class="btn btn-sm btn-default btn-my-site" onclick="send_embed_card()" >
+            Next <i class="fa fa-send"></i></button>
+		</div>
+		</div>
+</form>
+</div>
+<style>
+.des_embed{
+	line-height:24px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#send_video_card legend{
+	border:none !important;
+	margin-bottom: 0 ;
+}
+</style>

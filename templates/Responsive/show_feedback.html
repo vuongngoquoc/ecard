@@ -1,0 +1,86 @@
+<h2 id="title-1" class="table_title_bar"><i class="fa fa-reply-all padding5"></i>{'txt_feedback'}</h2>
+<div class="row">
+	<form name="ecardmax_feedback" class="form-horizontal" method="post" action="index.php">
+	<input type="hidden" name="step" value="{'step'}" />
+	<input type="hidden" name="what" value="" />
+		<div class="col-sm-12">
+        	<div class="form-group first-child">
+            	<div class="col-sm-12">
+                {'show_info'}
+                </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+            	<label class="col-sm-2">{'label_yourname'}</label>
+                <div class="col-sm-5">
+            	<input class="form-control input-sm" onkeypress="return noEnterKey(event)" type="text" name="fm_user_name"  value="{'cs_id'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+            	<label class="col-sm-2">{'label_youremail'}</label>
+                <div class="col-sm-5">
+            	<input class="form-control input-sm" onkeypress="return noEnterKey(event)" type="text" name="fm_user_email"  value="{'cs_id'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+            	<label class="col-sm-2">{'feedback_select_department'}</label>
+                <div class="col-sm-5">
+            	{'show_department'}
+                </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+            	<label class="col-sm-2">{'feedback_subject'}</label>
+                <div class="col-sm-10">
+            	<input class="form-control input-sm" onkeypress="return noEnterKey(event)" type="text" name="fm_subject"  value="{'cs_id'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+            	<label class="col-sm-2">{'feedback_message'}</label>
+                <div class="col-sm-10">
+            	<textarea class="form-control input-sm" name="fm_message" rows="10" value="{'cs_id'}"></textarea>
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+            	<label class="col-sm-2"></label>
+                <div class="col-sm-4">
+            	<button type="button" class="btn btn-sm btn-default btn-my-site" onclick="SendFeedback();" >
+                <i class="fa fa-send padding5"></i>{'feedback_button_send'}
+                </button>
+                </div>
+            </div>
+		</div>
+	</form>			
+</div>
+<script language="javascript" type="text/javascript">
+	function SendFeedback(){
+		if(document.ecardmax_feedback.fm_user_name.value==""){
+			showNotification("{'feedback_js_alert_must_enter_name'}");
+			document.ecardmax_feedback.fm_user_name.focus();
+		}
+		else if(!valid_email(document.ecardmax_feedback.fm_user_email.value)){
+			showNotification("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_feedback.fm_user_email.focus();
+		}
+		else if(document.ecardmax_feedback.fm_subject.value==""){
+			showNotification("{'feedback_js_alert_must_enter_subject'}");
+			document.ecardmax_feedback.fm_subject.focus();
+		}
+		else if(document.ecardmax_feedback.fm_message.value==""){
+			showNotification("{'feedback_js_alert_must_enter_message'}");
+			document.ecardmax_feedback.fm_message.focus();
+		}
+		else{
+			document.ecardmax_feedback.what.value="send_feedback";
+			document.ecardmax_feedback.submit();
+		}
+	}
+</script>

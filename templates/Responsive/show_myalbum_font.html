@@ -1,0 +1,161 @@
+<div id="main_wrapper" class="col-md-12">
+	<div class="row">
+        <div class="col-sm-12">
+            <h2 class="table_title_bar" id="title-1"><i class="fa fa-fonticons padding5"></i>{'myalbum_font_title'} ({'total_count'})</h2>
+            {'myalbum_toolbar'}
+        </div>
+        
+        <div class="col-md-12">
+        <form name="ecardmax_form" method="post" action="index.php" enctype='multipart/form-data'>
+        <input type="hidden" name="step" value="{'step'}" />
+        <input type="hidden" name="what" value="{'what'}" />
+        <input type="hidden" name="action" value="" />
+        <input type="hidden" name="next_step" value="{'next_step'}" />
+        <div class="category-tab"><!--category-tab-->
+            <ul class="nav nav-tabs">
+                <li class='active'><a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a></li>
+                <li><a href='#show_add_table' data-toggle='tab'>{'myalbum_Font_click_to_upload'}</a></li>
+            </ul>
+            <div class="tab-content">
+            	<!----TAB LIST DATA------------->
+                <div class="tab-pane fade active in" id="list_data">
+                    <div>{'show_info'}</div>			
+                    <div class="table-responsive cart_info">
+                	<table class="table table-condensed table-hover">
+                		<thead>			
+                    	<tr class="active">
+                            <th width="50%" class="">{'myalbum_txt_font_name'}</td>
+                            <th width="20%" >{'myalbum_txt_sample'}</td>
+                            <th width="1%" class="text-center">{'myalbum_txt_delete_this_font'}</td>
+                            <th width="1%" class="text-center" ><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'txt_tooltip_select_all'}" type="checkbox" value="1" onclick="check_uncheck_all('{'bk_id'}');" /></th>
+                        </tr>
+                        </thead>
+                        {'show_list_table'}
+                        <tr>
+                            <td width="80%" colspan="4" class="table_td_text_color">
+                            <span class="pull-left">
+                            {'txt_row_per_page'} 
+                            <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.ecardmax_form.submit();" />
+                            </span>
+                            <span class="pull-right">
+                            <button type="button"  class="btn btn-sm btn-danger" onclick="CheckSelected();" >
+                            <i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}
+                            </button> 
+                            <i class="glyphicon glyphicon-hand-up"></i>
+                            </span>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+                    {'display_page_number'}
+                </div>
+                <!----END----------------------->
+                
+        		<!----TAB ADD------------------->
+            	<div class="tab-pane fade" id="show_add_table">
+                	<div class="col-sm-12 clearfix h-space-b-10">
+                    <strong>{'myalbum_txt_Font_File_Browse'}</strong>
+                    </div>
+                    <div class="col-sm-4 clearfix">
+                    <span class="btn btn-default btn-file">
+                        File 1 <input type="file" name="file1" id="file1" size="42" />
+                    </span>
+                    </div>
+                    <div class="col-sm-4">
+                    <span class="btn btn-default btn-file">
+                        File 2 <input type="file" name="file2" id="file2" size="42" />
+                    </span>
+                    </div>
+                    <div class="col-sm-4">
+                    <span class="btn btn-default btn-file">
+                        File 3 <input type="file" name="file3" id="file3" size="42" />
+                    </span>
+                    </div>
+                    <div class="col-sm-4">
+                    <span class="btn btn-default btn-file">
+                        File 4 <input type="file" name="file4" id="file4" size="42" />
+                    </span>
+                    </div>
+                    <div class="col-sm-4">
+                    <span class="btn btn-default btn-file">
+                        File 5 <input type="file" name="file5" id="file5" size="42" />
+                    </span>
+                    </div>
+                    <div class="col-sm-4">
+                    <span class="btn btn-default btn-file">
+                        File 6 <input type="file" name="file6" id="file6" size="42" />
+                    </span>
+                    </div>
+                    <div class="col-sm-4">
+                    <span class="btn btn-default btn-file">
+                        File 7 <input type="file" name="file7" id="file7" size="42" />
+                    </span>
+                    </div>
+                    <div class="col-sm-4 clearfix" >
+                    <br  />
+                        <button onclick="AddNew();" class="btn btn-sm btn-default btn-my-site" type="button">
+                        <i class="fa fa-upload padding5"></i>{'myalbum_button_upload_now'}
+                        </button>
+                    </div>            
+                </div>
+        	</div>
+        </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNew(){
+	var file_upload=false;
+	for(i=1;i<=7;i++){
+		if(document.getElementById("file"+i).value!=""){
+			file_upload=true;
+			break;
+		}
+	}
+	if(file_upload){
+		document.ecardmax_form.action.value="add_new";
+		document.ecardmax_form.submit();
+	}
+	else{
+		showNotification("{'myalbum_js_alert_must_input_file'}");
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			showNotification("{'js_alert_must_select_checkbox'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&what=font&action=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'myalbum_member_delete_font_confirm'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>

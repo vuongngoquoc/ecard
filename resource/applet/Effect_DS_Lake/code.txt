@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Lake.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=palette VALUE="1"><PARAM NAME=lakeheight VALUE="78"><PARAM NAME=interactive VALUE="no"><B>Sorry, no java browser</B></APPLET>

@@ -1,0 +1,427 @@
+<input type="hidden" id="js_code" name="js_code" value="{'js_match'}" />
+<div class="pickup-step-1">
+<div id="print_card">
+{'card_html_code_js'}
+</div>
+
+<div id="send_thank_you" style="display:none;text-align:center;padding-top: 20px;padding-bottom: 20px">
+	<div id="div_message_thankyou">
+	<a href="javascript:;" class="btn btn-sm btn-default" onclick="show_thankyou_form();">
+    <i class="fa fa-edit padding5"></i>{'send_thank_you_message'}</a>
+	
+	<form id="thankyou_form" method="post" style="display:none"  action="index.php" >
+	<textarea rows="3" class="form-control input-sm" placeholder="Type message thank you here..." name="message_thankyou" id="message_thankyou"></textarea>
+	<div class="text-right">
+    <a id="btn_send" class="btn btn-sm btn-default btn-my-site" href="javascript:" onclick="submit_thankyou();">
+    <i class="fa fa-send padding5"></i>{'sendcard_php_button_send_now'}</a>
+    </div>
+	</form>
+	</div>
+</div>
+</div>
+<!--div id="flashcard" style="display:none">	
+<video controls="controls" autoplay="autoplay">
+	<source src="{'fullsize_card_url_1'}" type="video/mp4">
+	Your browser does not support the video tag.
+</video>
+</div-->
+
+<div id="html_card" style="display:none">
+{'card_html_code'}
+</div>
+<style>
+#print_card.center {
+	margin:auto;
+}
+</style>
+<textarea style="display:none" id="Grabber_Flash_Code">{'Grabber_Flash_Code'}</textarea> 
+<script type="text/javascript">	
+	var video_embed_code='{'embed_text'}';
+    var fullsize_card_url_1="{'fullsize_card_url_1'}?cs_id={'cs_id'}{'resend_message'}";
+	var pickup="{'step'}";
+	var cf_set_template="{'cf_set_template'}";
+	var fullsize_card_url="{'fullsize_card_url'}";
+	var stamp_url="{'stamp_url'}";
+	var java_applet="{'java_applet'}";
+	var img_bar="{'img_bar'}";
+	var img_bkg="{'img_bkg'}"; 
+	var img_bottom="{'img_bottom'}"; 
+	var img_icon="{'img_icon'}";
+	var img_top="{'img_top'}";
+	var img_poem="{'img_poem'}";  
+	var poem_id="{'poem_id'}";
+	var poem_id_align="{'poem_id_align'}";
+	if(poem_id_align=="")poem_id_align="center";
+	var audio_file="{'audio_file'}";
+	var audio_title="{'audio_title'}";
+	var text_color="{'text_color'}";
+	var user_message="{'user_message'}";
+	user_message=user_message.replace(/&quot;/gi,"\"");
+	var from_sender_name="{'from_sender_name'}";
+	var to_name="{'to_name'}";
+	var is_Grabber_Flash="{'is_Grabber_Flash'}";
+
+	//For user card design before they login	
+	var ud_cs_java="";
+	var ud_cs_skin_name="";
+	var ud_cs_stamp_filename="";
+	var ud_cs_music_filename="";
+	var ud_cs_music_id="";
+	var ud_cs_poem_id="";
+	var ud_cs_poem_align="";
+	var wsfCardw = 0;
+	var wsfCardh = 0;
+
+	var init = true ;
+	Previewskin();
+	function setWidthCardBoundary(auto) {
+		if(auto) {
+			$('#print_card').width('auto');
+			$('#print_card').removeClass('center');
+		}
+		else {
+			$('#print_card').width({'cf_max_image_width'});
+			$('#print_card').addClass('center');
+		}
+	}
+	function Previewskin(){
+		if(pickup == 'pickup') {
+			setWidthCardBoundary();
+		}
+		var bar=print_image(img_bar,"");
+		//var bkg=img_bkg;
+		var bkg = split_img_and_size(img_bkg);
+		//var bottom=print_image(img_bottom,"");
+		var icon=print_image(img_icon,"");
+		var top=print_image(img_top,"");		
+		if(poem_id!="" && poem_id!="0"){
+			var poem=print_image(img_poem,"");
+			var get_text ="";
+			if (document.all){
+				div_obj = document.all["card_poem"+poem_id];
+			}
+			else{
+				div_obj = document.getElementById("card_poem"+poem_id);
+			}
+			if (div_obj.innerHTML){
+				get_text = div_obj.innerHTML;
+			}
+			else if (document.all){
+				get_text = div_obj.innerText;
+			}
+			else if (div_obj.textContent){
+				get_text = div_obj.textContent;
+			}
+			else if (div_obj.firstChild.nodeValue){
+				get_text = div_obj.firstChild.nodeValue;
+			}
+			var print_poem=poem+"<br />"+get_text;
+		}
+		else{
+			var print_poem="";
+		}
+		ud_cs_poem_id=poem_id;
+		if(is_Grabber_Flash!="1"){
+			if(video_embed_code!=""){
+				var fullsize_card=video_embed_code; 
+                                fullsize_card_url_1 = fullsize_card;
+			}else{
+				var fullsize_card=print_image(fullsize_card_url,"fullsize"); 
+			}
+			
+		}
+		else{
+			var fullsize_card=document.getElementById('Grabber_Flash_Code').value;
+		}
+		if (pickup=="pickup" && to_name != '()'){
+			showid2("send_thank_you","block");
+		}else{
+			showid2("send_thank_you","none");
+		}
+		var $autoplay = '';
+		var receive_body="<div class='elm-toggle-collapse' id=\"card_stamp_table\"><ul id=\"table_sender\"><li>"+icon+"<span style=\"color:"+text_color+";\">{'sendcard_txt_from'}:</span><span style=\"color:"+text_color+"\" id=\"card_from\">"+from_sender_name+"</span></li><li>"+icon+"<span style=\"color:"+text_color+";\">{'sendcard_txt_to'}:</span><span style=\"color:"+text_color+"\" id=\"card_to\">"+to_name+"</span></li></ul><br clear=\"all\" /></div>";
+		var audio_body='<div id="div_card_music" class="elm-toggle-collapse clearfix" ><div id="card_audio_title"></div>';
+		if(pickup!="pickup") $autoplay = 'autoplay="autoplay"';
+		audio_body+='<audio id="audio_tag" '+$autoplay+' controls="controls">';
+		audio_body+='<source id="src_music" type="audio/mp3"></source>Your browser does not support the audio element.</audio></div>';
+		var stamp_body="<img id=\"card_stamp\" alt=\"\" src=\""+stamp_url+"\" />";
+		if(fullsize_card_url=="videofile" || fullsize_card_url=="youtube_link")
+		{
+			if(fullsize_card_url=="youtube_link") {
+				var vid = youtube_parser(fullsize_card_url_1);
+				var vurl = 'https://www.youtube.com/embed/'+vid+'?rel=0&amp;autoplay=1';
+				fullsize_card='<iframe id="cardVideo" style=\"max-width: 100%; min-width: 100%; min-height: 400px; padding-bottom: 10px;\" src=\"'+vurl+'\"></iframe>';
+			} else {
+				fullsize_card='<video id="cardVideo" style="max-width: 100%; min-width: 100%; padding-bottom: 10px;" controls="controls" autoplay="autoplay"><source src="{'ecard_url'}/'+fullsize_card_url_1+'" type="video/mp4"><source src="movie.ogg" type="video/ogg">Your browser does not support the video tag.</video>';
+			}
+			//fullsize_card = fullsize_card_url;
+			var array=fullsize_card_url.split(","); 
+			var img=array[0];
+			wsfCardw = $('#print_card').width() - 12;
+			//wcf=760;
+		}
+		else if(fullsize_card_url=="html_card")
+		{
+			fullsize_card=document.getElementById('html_card').innerHTML;
+			fullsize_card=fullsize_card.replace(/"&quot;/gi,"\"");
+			fullsize_card=fullsize_card.replace(/&quot;"/gi,"\"");
+			if(document.getElementById('js_code').value == 'html') {
+				//do nothing
+			} else if(document.getElementById('js_code').value == 'js_html') {
+				var matches = fullsize_card.match(/<script (.+)>(.*)<\/script>/i);
+				eval(matches[2]);
+				fullsize_card = "<div id='card_html'>"+fullsize_card+"</div>";
+			}
+			wsfCardw = $('#print_card').width() - 12;
+		}
+		var card_body = "<div id=\"table_card\" style=\"background: url('"+bkg+"'); \"><div id='card-boundary'>"+receive_body;
+		card_body += "<div style=\"color:"+text_color+"\" id=\"card_fullsize\">"+fullsize_card+"</div>";
+		card_body += "<div class='clearfix h-space-b-15'><div class='pull-left text-left'>";
+		card_body += "<div id=\"card_message\" style=\"color:"+text_color+"\">"+user_message+"</div></div>";
+		if(pickup!="pickup"){ card_body += "<div id='stamp-elm' class='pull-right'>"+stamp_body+"</div>"; };
+		card_body += audio_body;
+		card_body += "<div id=\"card_poem\" class='clearfix' style=\"text-align:"+poem_id_align+";color:"+text_color+"\"><a name=\"poem_bookmark\"></a>"+print_poem+"</div>";
+		card_body += "</div></div>";
+		document.getElementById('print_card').innerHTML=card_body;
+		if(audio_file!=""){			
+			var src = site_url+'/'+audio_file;
+			$('#src_music').attr('src',src);
+			showid2("div_card_music","block");
+			$('audio').load();
+		}
+		else{
+			showid2("div_card_music","none");
+		}
+		document.getElementById("card_audio_title").innerHTML=audio_title;
+		$('#card-boundary').width(wsfCardw);
+		if (pickup!="pickup")
+		{
+			setTimeout(function(){
+				var wStamp = $('#stamp-elm').width();
+				var wMessage = parseInt(wsfCardw) - parseInt(wStamp) - 30;
+				$('#card_message').width(wMessage);
+			},1500);
+		}
+
+		if(init) wsfCardw = parseInt(wsfCardw) + 20;
+		$('#thankyou_form').width(wsfCardw);
+		$('#table_card').width(wsfCardw);
+		
+		init = false;
+		//For user card design before they login
+		Editme('{'ecard_url'}/index.php?step=user_design_ecard&ud_cs_java='+ud_cs_java+'&ud_cs_poem_align='+poem_id_align+'&ud_cs_skin_name='+ud_cs_skin_name+'&ud_cs_stamp_filename='+ud_cs_stamp_filename+'&ud_cs_music_filename='+ud_cs_music_filename+'&ud_cs_music_id='+ud_cs_music_id+'&ud_cs_poem_id='+ud_cs_poem_id,'','0','','');
+		if (pickup=="pickup")
+		{
+			$('.pickup-step-1').hide();
+		}
+	}
+	function split_img_and_size(data)
+	{
+		var array=data.split(",");
+		var img=array[0];
+		var w=array[1];
+		var h=array[2];
+		return img;
+	}
+	function print_image(data,full){
+			//showNotification(data);
+		if(data=="youtube_link"||data.search("youtube.com")!=-1)
+			return "youtube_link";
+		if(data=="html_card")
+			return "html_card";
+		var res="";
+		var array=data.split(",");
+		var img=array[0];
+		var w=array[1];
+		var h=array[2];
+		var maxWidthEcard = $('#print_card').width() - 12;
+		wsfCardw=w;
+		wsfCardh=h;
+		if(maxWidthEcard < w)
+		{
+			w = maxWidthEcard;	
+			h=wsfCardh*(maxWidthEcard/wsfCardw);	
+			wsfCardw=w;
+			wsfCardh=h;
+		}
+		
+		if(img.indexOf(".swf")!=-1){//photo 
+			res="<object classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" codebase=\"http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0\" id=\"postcard\" width=\""+wsfCardw+"\" height=\""+wsfCardh+"\"><param name=\"wmode\" value=\"opaque\" /><param name=\"movie\" value=\""+fullsize_card_url_1+"\" /><param name=\"quality\" value=\"high\" /><embed src=\""+fullsize_card_url_1+"\" wmode=\"opaque\" quality=\"high\" width=\""+wsfCardw+"\" height=\""+wsfCardh+"\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash\" ></embed></object>";
+			if(full=="fullsize") res+="<!--{'sendcard_txt_download_flash'}-->";
+		}
+		else{
+			if(img.indexOf(".mp4")!=-1||img.indexOf(".mov")!=-1||img.indexOf(".m4v")!=-1)
+			{
+				res="videofile";
+			}
+			else{
+				if(full!=""){
+					if(java_applet==""){
+						res="<img alt=\""+img+"\" id=\"card_img\" src=\""+img+"\" width=\""+w+"\" height=\""+h+"\" />";
+					}
+					else{
+						res=java_applet.replace("change_pic",img);
+					}
+				}
+				else{
+					res="<img border=\"0\" alt=\""+img+"\" src=\""+img+"\" width=\""+w+"\" height=\""+h+"\" />";
+				}
+			}
+		}
+		return res;
+	}
+	
+	function GetJavaCode(cs_java,my_java_applet){
+		if(document.ecardmax_personalize)document.ecardmax_personalize.cs_java.value=cs_java;
+		java_applet=my_java_applet;
+		ud_cs_java=cs_java;
+		showid2("card_fullsize","block");
+		Previewskin();
+		HideItAll();
+	}
+
+	function GetSkinCode(skinBar,skinBkg,skinBottom,skinIcon,skinTop,skinPoem,skinTextColor){
+		if(document.ecardmax_personalize)document.ecardmax_personalize.cs_skin_name.value=cs_skin_name;
+		img_bar=skinBar;
+		img_bkg=skinBkg;
+		img_bottom=skinBottom;
+		img_icon=skinIcon;
+		img_top=skinTop; 
+		img_poem=skinPoem;
+		text_color=skinTextColor;
+		ud_cs_skin_name=cs_skin_name;
+		Previewskin();
+		showid2("card_fullsize","block");
+		HideItAll();
+	}
+	function GetStampCode(stampURL){
+		if(stampURL == '') {
+			$('#stamp-elm').hide();
+		}
+		else {
+			$('#stamp-elm').show();
+		}
+		if(document.ecardmax_personalize)document.ecardmax_personalize.cs_stamp_filename.value=cs_stamp_filename;
+		stamp_url=stampURL;
+		ud_cs_stamp_filename=cs_stamp_filename;
+		$("#card_stamp").attr('src',stampURL);
+		showid2("card_fullsize","block");
+		HideItAll();
+		Editme('{'ecard_url'}/index.php?step=user_design_ecard&ud_cs_java='+ud_cs_java+'&ud_cs_skin_name='+ud_cs_skin_name+'&ud_cs_stamp_filename='+ud_cs_stamp_filename+'&ud_cs_music_filename='+ud_cs_music_filename+'&ud_cs_music_id='+ud_cs_music_id+'&ud_cs_poem_id=',ud_cs_poem_id,'0','','');
+	}
+	
+	function GetMusicCode(audioURL,audioTitle){
+		if(document.ecardmax_personalize)document.ecardmax_personalize.cs_music_filename.value=cs_music_filename;
+		if(document.ecardmax_personalize)document.ecardmax_personalize.cs_music_id.value=cs_music_id;
+		audio_file=audioURL;
+		audio_title=audioTitle;
+		
+		if(audioURL!=""){
+			var src = site_url+'/'+audioURL;
+			$('#src_music').attr('src',src);
+			showid2("div_card_music","block");
+			$('audio').load();
+		}
+		else{
+			$('#src_music').removeAttr('src');
+			$('audio').load();
+			showid2("div_card_music","none");
+		}
+		document.getElementById("card_audio_title").innerHTML=audioTitle;
+		ud_cs_music_filename=cs_music_filename;
+		ud_cs_music_id=cs_music_id;
+		Editme('{'ecard_url'}/index.php?step=user_design_ecard&ud_cs_java='+ud_cs_java+'&ud_cs_skin_name='+ud_cs_skin_name+'&ud_cs_stamp_filename='+ud_cs_stamp_filename+'&ud_cs_music_filename='+ud_cs_music_filename+'&ud_cs_music_id='+ud_cs_music_id+'&ud_cs_poem_id=',ud_cs_poem_id,'0','','');
+	}
+
+	function gorate(data){ 
+		HideItAll();
+		showid2("div_rate_card","none");
+		Editme('{'ecard_url'}/index.php?step=rate_card&ec_rate=',data,'1',1,'div_rate_card');
+		showid2("card_fullsize","block");
+	}
+
+	function ShowPersonalizeTable(){
+		//showid2('div_card_body','none');		
+		showid2('show_personalize_table','block');	
+		showid2('div_card_body','none');
+		scrollToElm('show_personalize_table');
+		//return;
+	}
+
+	function HideImageApplet(){
+		if(browser!="IE" && browser!="FireFox" && java_applet!=""){
+			var card_top_height=document.getElementById("card_top").offsetHeight;
+			var card_stamp_table_height=document.getElementById("card_stamp_table").offsetHeight;
+			if((card_top_height+card_stamp_table_height) < 200)showid2("card_fullsize","none");
+		}
+	}
+
+	function ShowImageApplet(){
+		if(browser!="IE" && browser!="FireFox" && java_applet!=""){
+			showid2("card_fullsize","block");
+		}
+	}
+
+	function CallJavaFrameSrc(){
+		frames['java_frame'].location.href = "{'ecard_url'}/index.php?step=load_select_java&fullW={'fullW'}&fullH={'fullH'}";
+	}
+	
+	function CallSkinFrameSrc(){
+		if($("#load_skin").html() == '')
+		{
+			$.get("{'ecard_url'}/index.php?step=load_select_skin", function( data ) {
+			  $( "#load_skin" ).html( data );
+			});
+		}
+	}
+	
+	function CallStampFrameSrc(){
+		if($("#load_stamp").html() == '')
+		{
+			$.get("{'ecard_url'}/index.php?step=load_select_stamp", function( data ) {
+			  $( "#load_stamp" ).html( data );
+			});
+		}
+	}
+	
+	function CallMusicFrameSrc(){
+		if($("#load_music").html() == '')
+		{
+			$.get("{'ecard_url'}/index.php?step=load_select_music", function( data ) {
+			  $( "#load_music" ).html( data );
+			});
+		}	
+	}
+	
+	function submit_thankyou(){
+		$('#btn_send').attr('onclick', '');
+		var msg = btoa(document.getElementById('message_thankyou').value);
+		$.ajax({
+			url: "{'ecard_url'}/index.php?step=pickup&cs_id={'cs_id'}&action=reply&msg="+msg,
+			type: "GET",
+			cache: false,
+			dataType: "json",
+			success: function(data) {
+				if (data.status) {
+					$("#div_message_thankyou").html(data.message);
+				} else {
+					showNotification(data.message);
+					$('#btn_send').attr('onclick', 'submit_thankyou();');
+				}
+			},
+			error: function () {	
+			}
+		});
+		return;
+	}
+	function show_thankyou_form() {
+		if ($('#thankyou_form').css('display') == 'none') {
+			$('#thankyou_form').fadeIn();
+		} else {
+			$('#thankyou_form').fadeOut();
+		}
+	}
+	/*$(window).resize(function(e) {
+        Previewskin();
+    });*/
+</script>

@@ -1,0 +1,108 @@
+﻿<div class="category-tab"><!--category-tab-->
+    <!------TAB FOR DESKTOP------------->
+
+        <ul class="nav nav-tabs">
+        	<li class='active'>
+            	<a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a>
+            </li>
+            <li><a href='#show_add_table' data-toggle='tab'>{'myalbum_Album_click_to_create'}</a></li>
+        </ul>
+
+    <!-----END------------------------->
+    <div class="tab-content">
+    	<div class="tab-pane fade active in" id="list_data">
+        	<div>
+            	<div class="page-header">
+                <input type="checkbox" onclick="check_uncheck_all('{'bk_id'}');" value="1" title="{'myalbum_txt_checkbox_select_all'}" id="chk_all" onkeypress="return noEnterKey(event);"> {'myalbum_txt_checkbox_check_all'}
+                </div>
+                <div class="page-header clear">
+                	{'show_list_of_albums'}	
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="pull-left">
+                    {'txt_row_per_page'} <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="location.href='index.php?step=sign_in&next_step=show_myalbum&what=photo&row_number='+this.value;" />
+                </div>
+                <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-danger" onclick="CheckSelected_Album();" ><i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}</button>
+                </div>
+                <div class="clearfix"></div>
+                {'display_page_number'}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="show_add_table">
+            <div class="form-group has-feedback">
+            <div class="col-sm-7">
+            Create your own album to store pictures then send them as ecards later
+            </div>
+            </div>
+            <div class="form-group has-feedback">
+                <div class="col-sm-4">
+                <input placeholder="{'myalbum_txt_album_name'}" class="form-control input-sm" onkeypress="return noEnterKey(event)" type="text" name="album_name_added" id="album_name_added" value="" />
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <div class="col-sm-4">
+                <textarea placeholder="{'myalbum_txt_album_description'}" class="form-control input-sm" name="album_desc" id="album_desc" cols="32" rows="5" onkeypress="return noEnterKey(event)"></textarea>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <div class="col-sm-4">
+                <button onclick="AddNewAlbum();" class="btn btn-sm btn-default btn-my-site" type="button">{'myalbum_button_create_now'}</button>
+                </div>
+            </div>
+            <input type="text" name="album_private" value="1" style="display:none;">
+    	</div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+function CheckSelected_Album(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			showNotification("You must select checkbox first. Please try again.");
+		}
+		else{
+			DeleteSelected_Album();
+		}
+	}
+}
+
+function DeleteSelected_Album(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="{'ecard_url'}/index.php?step=sign_in&next_step=show_myalbum&what=photo&action=delete_selected_albums"+selected_id+"&page=1&row_number=15";
+	if(window.confirm("Are you sure you want to delete selected Albums?")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function AddNewAlbum(){
+	if(document.ecardmax_form.album_name_added.value==""){
+		showNotification("{'myalbum_txt_Album_Create_New_Javascript_Error_Name_Required'}");
+		document.ecardmax_form.album_name_added.focus();
+	}
+	/*else if(document.ecardmax_form.album_desc.value==""){
+		showNotification("{'myalbum_txt_Album_Create_New_Javascript_Error_Desc_Required'}");
+		document.ecardmax_form.album_desc.focus();
+	}*/
+	else {
+		document.ecardmax_form.action.value="add_new_album";
+		document.ecardmax_form.submit();
+	}
+}
+</script>

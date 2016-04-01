@@ -1,0 +1,156 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Memory Game</title>
+<style type="text/css">
+<!--
+{'print_css'}
+-->
+</style>
+</head>
+
+<body bgcolor="#C0D2EE">
+<center>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="742">
+  <tr>
+    <td width="100%" height="82" background="top.gif" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+      <tr>
+        <td width="100%" colspan="2"><font size="2"></font></td>
+      </tr>
+      <tr>
+        <td width="22%">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+          <tr>
+            <td width="100%" align="center"><span id=hiscore class='HiScore'>{'get_hiscore'}</span></td>
+          </tr>
+        </table>
+        </td>
+        <td width="78%" align="right">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="29%">
+          <tr>
+            <td width="100%" align="center"><span id=score class='myScore'>0</span></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="28" background="top2.gif" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" height="26">
+      <tr>
+        <td width="13%">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+          <tr>
+            <td width="100%" align="center"><font class=Level>Players:</font><br><span id=count class='myLevel'>{'player_counter'}</span></td>
+          </tr>
+        </table>
+        </td>
+        <td width="87%" align="right">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="14%">
+          <tr>
+            <td width="100%" align="center"><font class=Level>Level</font><br><span id=game_level class='myLevel'>0</span></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="430" align="center"><p><font class="repeat_me">High Score Board</font></p>
+
+    <div align="center">
+      <center>
+      <table cellpadding="1" cellspacing="1" class=Board_Main_Border width="642">
+        <tr class="Board_Title_Background_Color">
+          <td width="411" colspan="2" height="26" align="center" >Player Name</td>
+          <td width="98" align="center" >Level</td>
+          <td width="133" align="right" >Score </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">1</td>
+          <td width="364" nowrap> <b>{'get_playername_1'}</b><br> {'get_date_1'}</td>
+          <td width="98" align="center">{'get_level_1'}</td>
+          <td width="133" align="right">{'get_hiscore_1'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47"><p align="center">2</td>
+          <td width="364" nowrap> <b>{'get_playername_2'}</b><br> {'get_date_2'}</td>
+          <td width="98" align="center">{'get_level_2'}</td>
+          <td width="133" align="right">{'get_hiscore_2'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">3</td>
+          <td width="364" nowrap> <b>{'get_playername_3'}</b><br> {'get_date_3'}</td>
+          <td width="98" align="center">{'get_level_3'}</td>
+          <td width="133" align="right">{'get_hiscore_3'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">4</td>
+          <td width="364" nowrap> <b>{'get_playername_4'}</b><br> {'get_date_4'}</td>
+          <td width="98" align="center">{'get_level_4'}</td>
+          <td width="133" align="right">{'get_hiscore_4'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">5</td>
+          <td width="364" nowrap> <b>{'get_playername_5'}</b><br> {'get_date_5'}</td>
+          <td width="98" align="center">{'get_level_5'}</td>
+          <td width="133" align="right">{'get_hiscore_5'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">6</td>
+          <td width="364" nowrap> <b>{'get_playername_6'}</b><br> {'get_date_6'}</td>
+          <td width="98" align="center">{'get_level_6'}</td>
+          <td width="133" align="right">{'get_hiscore_6'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">7</td>
+          <td width="364" nowrap> <b>{'get_playername_7'}</b><br> {'get_date_7'}</td>
+          <td width="98" align="center">{'get_level_7'}</td>
+          <td width="133" align="right">{'get_hiscore_7'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">8</td>
+          <td width="364" nowrap> <b>{'get_playername_8'}</b><br> {'get_date_8'}</td>
+          <td width="98" align="center">{'get_level_8'}</td>
+          <td width="133" align="right">{'get_hiscore_8'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">9</td>
+          <td width="364" nowrap> <b>{'get_playername_9'}</b><br> {'get_date_9'}</td>
+          <td width="98" align="center">{'get_level_9'}</td>
+          <td width="133" align="right">{'get_hiscore_9'} </td>
+        </tr>
+        <tr class="Board_Cell_Background_Color">
+          <td width="47" align="center">10</td>
+          <td width="364" nowrap> <b>{'get_playername_10'}</b><br> {'get_date_10'}</td>
+          <td width="98" align="center">{'get_level_10'}</td>
+          <td width="133" align="right">{'get_hiscore_10'} </td>
+        </tr>
+      </table>
+      </center>
+    </div>
+    <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%"><map name="Memory">
+    <area href="memory.php?step=quit" shape="circle" coords="693, 40, 34">
+    <area href="memory.php?step=show_hiboard" shape="rect" coords="486, 0, 591, 81">
+    <area href="memory.php?step=show_ins" shape="rect" coords="332, 1, 410, 81">
+    <area href="memory.php?step=tell_a_friend" shape="rect" coords="144, 0, 261, 81">
+    <area href="memory.php?step=show_cat" shape="circle" coords="45, 39, 35">
+    </map>
+    <img border="0" src="bottom.gif" width="742" height="82" usemap="#Memory"></td>
+  </tr>
+</table>
+</center>
+<p></p>
+</body>
+
+</html>

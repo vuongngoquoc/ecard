@@ -1,0 +1,38 @@
+<div style="display:none;position:absolute;top:0;left:0;cursor:hand;cursor:pointer;z-index:12" id="button_admin_layer" onmouseover="this.style.display='block';document.getElementById('hidden_iframe').style.display='block';" onmouseout="topmenu_over='';this.style.display='none';document.getElementById('hidden_iframe').style.display='none';" onclick="topmenu_over='';this.style.display='none';">
+<table style="border: 3px solid #5DA3FF;background-color: #DDEBFF;width:200px" cellspacing="0" cellpadding="3">
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=admin_system_config&dummy='+new Date().getTime();">
+		<td width=1%><img src="html/07_icon_system_config.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap">{'button_admin_menu_system_configuration'}</td>
+	</tr>
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=admin_show_keyword&dummy='+new Date().getTime();;">
+		<td width=1%><img src="html/07_icon_search_keyword.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap">{'button_admin_menu_show_search_keyword'}</td>
+	</tr>
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=admin_view_black_list&dummy='+new Date().getTime();;">
+		<td width=1%><img src="html/07_icon_black_list.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap">{'button_admin_menu_view_black_list_email'}</td>
+	</tr>
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=admin_ban_user&dummy='+new Date().getTime();;">
+		<td width=1%><img src="html/07_icon_ban_user.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap">{'button_admin_menu_ban_user_ip_email'}</td>
+	</tr>
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=admin_cellphone_carrier&dummy='+new Date().getTime();;">
+		<td width=1%><img src="html/07_icon_cellphone.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap">{'button_admin_menu_cellphone_carrier_info'}</td>
+	</tr>
+	<!--
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=admin_database&what=export&dummy='+new Date().getTime();;">
+		<td width=1%><img src="html/07_icon_export_database.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap">{'button_admin_menu_export_database'}</td>
+	</tr>
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=admin_database&what=import&dummy='+new Date().getTime();;">
+		<td width=1%><img src="html/07_icon_import_database.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap">{'button_admin_menu_import_database'}</td>
+	</tr>
+	-->
+	<tr onmouseover="this.style.backgroundColor='#E2E2E2';" onmouseout="this.style.backgroundColor='';" onclick="location.href='index.php?step=signout&dummy='+new Date().getTime();;">
+		<td width=1%><img src="html/07_icon_logout.gif" alt="" /></td>
+		<td width=99% style="white-space:nowrap" class=Error_Message>{'button_admin_menu_sign_out'}</td>
+	</tr>
+</table>
+</div>

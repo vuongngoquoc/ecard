@@ -1,0 +1,101 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="{'what'}" />
+<h1><img border="0" src="html/07_icon_member_album2.gif" alt="" style="vertical-align:middle" /> {'member_view_album_txt_show_member_photos_title'} ({'member_view_album_txt_total'}: {'count_total'})</h1>
+<span class="button" style="padding:5px" onclick="location.href='index.php?step={'step'}&what=album_photo';"><img border="0" src="html/07_icon_member_upload_photo.gif" alt="" style="vertical-align:middle" /> {'member_view_album_txt_show_member_photos'}</span> <span class="button" style="padding:5px" onclick="location.href='index.php?step={'step'}&what=album_audio';"><img border="0" src="html/07_icon_member_upload_audio.gif" alt="" style="vertical-align:middle" /> {'member_view_album_txt_show_member_audio_files'}</span> <span class="button" style="padding:5px" onclick="location.href='index.php?step={'step'}&what=album_poem';"><img border="0" src="html/07_icon_member_upload_poem.gif" alt="" style="vertical-align:middle" /> {'member_view_album_txt_show_member_poems'}</span><br /><br />
+<div>{'show_info'}</div>
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="40%">{'member_view_album_txt_column_name_photo_thumbnail'}</td>
+		<td width="30%" align="center">{'member_view_album_txt_column_name_username_id'}</td>
+		<td width="28%" align="center">{'member_view_album_txt_column_name_file_detail'}</td>
+		<td width="1%" align="center">{'member_view_album_txt_column_name_delete'}</td>
+		<td width="1%" align="center"><input id="chk_all" title="{'member_view_album_txt_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="5">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'member_view_album_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'member_view_album_txt_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>		
+</table>
+{'display_page_number'}
+<div id="view_fullsize_table" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;cursor:pointer" title="{'member_view_album_txt_tooltip_click_to_close'}" onclick="HideItAll();" >
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<table border="0" cellspacing="0" cellpadding="0" >
+		<tr >
+			<td><img border="0" src="html/07_icon_button_close.gif" title="{'member_view_album_txt_tooltip_close_hide'}" alt="{'member_view_album_txt_tooltip_close_hide'}" /></td>
+			<td style="white-space:nowrap"> {'member_view_album_txt_click_to_close'}</td>			
+		</tr>
+		</table>
+	 </div>
+	 <div id="print_fullsize" style="text-align:center;background-color:lightyellow;cursor:pointer" title="{'member_view_album_txt_tooltip_click_to_close'}" ></div>	 
+</div>
+
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function HideItAll(){		
+	for(i=0;i<array.length;i++){
+		document.getElementById('cell'+array[i]).style.border="0px";
+		document.getElementById('cell'+array[i]).style.backgroundColor="";
+	}
+	document.getElementById('hidden_iframe').style.display="none";
+	document.getElementById('view_fullsize_table').style.display="none";
+	document.getElementById('print_fullsize').innerHTML="";
+}
+
+function ShowFullsize(fullsize,width,height){
+	if(fullsize.indexOf(".swf")!=-1){	
+		document.getElementById('print_fullsize').innerHTML="<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0' id=postcard width="+width+" height="+height+"><param name=movie value="+fullsize+" /><param name=quality value=high /><embed src="+fullsize+" quality=high width="+width+" height="+height+" type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' ></embed></object>";
+	}
+	else{
+		document.getElementById('print_fullsize').innerHTML="<img border=0 src="+fullsize+" alt='' width="+width+" height="+height+" />";
+	}
+	ShowLoaderImage("{'member_view_album_message_loading'}");
+	ShowDivCenterPage('view_fullsize_table');
+	setTimeout("showid2('show_loading','none');showid2('hidden_iframe','none');",700);
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'member_view_album_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what={'what'}&what2=delete_selected_photo"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'member_view_album_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		HideItAll();
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>

@@ -1,0 +1,251 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={'charset'}" />
+<title>{'ecard_txt_admin_title'}</title>
+<style type="text/css">
+<!--
+@import url(html/07_style.css);
+-->
+</style>
+<script type="text/javascript" src="ecardmax_admin.js"> </script>
+
+</head>
+
+<body style="background-color:white;" {'show_onload_javascript'}>
+<iframe id="modalbkg" frameborder="0" style="display:none;filter: Alpha(Opacity=40);-moz-opacity:0.4;opacity:0.4;width:1px;height:1px;background-color: #999999;position: absolute;z-index:1;top:0px;left:0px;"></iframe>
+<div id="moz_modalbkg" style="position:absolute;display:none;filter: Alpha(Opacity=40);-moz-opacity:0.4;opacity:0.4;width:1px;height:1px;background-color: #999999;z-index:1;top:0px;left:0px;"></div>
+<div id="show_popup_preview" style="display:none;position:absolute;top:0;left:0;z-index:10" onMouseOver="this.style.display ='block';if(hide_pointer!='1')document.getElementById('pointer').style.display = 'block';" onMouseOut="this.style.display ='none';document.getElementById('pointer').style.display = 'none';"></div>
+<div id="show_loading" style="display:none;position:absolute;top:0;left:0;text-align:center;padding:10px;width:130px;background-color:#FDBF04;border:1px solid #7D7764;z-index:11"><img alt="" src="html/07_ajax_loader.gif" /><br /><span id="show_loading_text"></span></div>
+<iframe id="hidden_iframe" frameborder="0" style="display:none;position:absolute;top:0;left:0;border:1px;z-index:2" scrolling="no"></iframe>
+
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<input type="hidden" name="cat_id" value="{'cat_id'}" />
+<input type="hidden" name="cat_dir" value="{'cat_dir'}" />
+<h1><img border="0" src="html/07_icon_music2.gif" alt="" style="vertical-align:middle" /> {'music_txt_page_title'} 
+({'music_txt_total'} {'count_total'}) - {'music_txt_category_name'} <span style="color:green">{'cat_name_display'}</span></h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onClick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'music_txt_click_here_to_add_new_music'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onClick="showid('show_add_table');"><div style="float:left;">{'music_txt_how_to_add_new_music_by_using_ftp'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'music_tooltip_close_hide'}" alt="{'music_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="100%">
+				{'music_txt_how_to_add_new_music_by_using_ftp_content'}				
+			</td>
+		</tr>
+	</table><br />
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onClick="showid('show_add_table');" colspan="2"><div style="float:left;">{'music_txt_add_new_music_using_web_browser'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'music_tooltip_close_hide'}" alt="{'music_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'music_txt_file_1'}</td>
+			<td width="80%"><input type="file" name="file1" id="file1" size="42" />{'music_txt_tips_file'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'music_txt_file_2'}</td>
+			<td width="80%"><input type="file" name="file2" id="file2" size="42" />{'music_txt_tips_file'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'music_txt_file_3'}</td>
+			<td width="80%"><input type="file" name="file3" id="file3" size="42" />{'music_txt_tips_file'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'music_txt_file_4'}</td>
+			<td width="80%"><input type="file" name="file4" id="file4" size="42" />{'music_txt_tips_file'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'music_txt_file_5'}</td>
+			<td width="80%"><input type="file" name="file5" id="file5" size="42" />{'music_txt_tips_file'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'music_txt_file_6'}</td>
+			<td width="80%"><input type="file" name="file6" id="file6" size="42" />{'music_txt_tips_file'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'music_txt_file_7'}</td>
+			<td width="80%"><input type="file" name="file7" id="file7" size="42" />{'music_txt_tips_file'}</td>
+		</tr>
+		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input type="button" value="{'music_txt_button_add_new_music'}" class="button" onClick="AddNewMusic();" /></td>
+		</tr>
+		
+	</table><br />
+</div>
+<div><strong>{'music_txt_tip'}:</strong></div>
+{'music_txt_tip_content'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'music_txt_column_name_play'}</td>
+		<td width="*" style="padding:4px;white-space:nowrap">{'music_txt_column_name_music_name'}</td>
+		<td width="20%" style="padding:4px;white-space:nowrap">{'music_txt_column_name_file_name'}</td>
+		<td width="12%" align="center" style="padding:4px;white-space:nowrap">{'music_txt_column_name_enable_disable'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'music_txt_column_name_sort_order'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'music_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap"><input onKeyPress="return noEnterKey(event);" id="chk_all" title="{'music_tooltip_select_all'}" type="checkbox" value="ON" onClick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="7">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'music_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onKeyPress="return isNumberKey(event)" onChange="document.form1.submit();" /></td>
+				<td width="50%" align="right">
+				<select size="1" name="bulk_action" id="bulk_action" onChange="CheckSelected(this.value);" >
+					<option value="">{'music_txt_bulk_action'}</option>
+					<option value="delete_selected">{'music_txt_delete_selected_musics'}</option>
+					<option value="move_selected">{'music_txt_move_selected_musics'}</option>
+					<option value="copy_selected">{'music_txt_copy_selected_musics'}</option>
+					</select>
+				<img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+{'display_page_number'}
+<div id="view_fullsize_table" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;width:400px">
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold" onClick="HideItAll();" title="{'music_tooltip_click_here_to_close'}">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="left" width="99%"><span id="print_audio_title" style="margin-top:-5px"></span></td>
+			<td align="right" width="1%"><img border="0" src="html/07_icon_button_close.gif" title="{'music_tooltip_close_hide'}" alt="{'music_tooltip_close_hide'}" /></td>
+		</tr>
+		</table>
+	 </div>
+	<iframe frameborder="0" height="120px" width="400px" scrolling="no" id="audio_frame" name="audio_frame" src="" ></iframe>
+</div>
+
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function CheckSelected(data){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'music_message_checkbox_first'}");
+			document.getElementById("bulk_action").selectedIndex=0;
+		}
+		else{
+			if(data!="")ActionSelected(data);
+		}
+	}
+}
+
+function ActionSelected(data){
+	var selected_id="";	
+	var confirm_message="";
+	var list_id="";
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked){
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+			list_id +=array[i]+",";
+		}
+	}
+
+	url="index.php?step={'step'}&cat_id={'cat_id'}&current_cat_id={'cat_id'}&what="+data+selected_id+"&page={'page'}&row_number={'row_number'}&cat_dir={'cat_dir'}&cat_name_display={'cat_name_display'}&list_id="+list_id;
+	if(data=="delete_selected"){
+		confirm_message="{'music_message_confirm_to_delete'}";
+	}
+	else if(data=="move_selected"){
+		confirm_message="{'music_message_confirm_to_move'}";	
+	}
+	else if(data=="copy_selected"){
+		confirm_message="{'music_message_confirm_to_copy'}";
+	}
+	else if(data=="change_selected"){
+		confirm_message="{'music_message_confirm_to_change'}";
+	}
+	if(window.confirm(confirm_message)){
+		location.href = url;		
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+		document.getElementById("bulk_action").selectedIndex=0;
+	}
+}
+
+function HideItAll(){		
+	for(i=0;i<array.length;i++){
+		document.getElementById('cell'+array[i]).style.border="0px";
+		document.getElementById('cell'+array[i]).style.backgroundColor="";
+	}
+	document.getElementById('hidden_iframe').style.display="none";
+	document.getElementById('view_fullsize_table').style.display="none";
+	frames['audio_frame'].location.href = "index.php?step={'step'}&what=close_player";
+}
+
+function ShowPlayer(file_url,audio_title){
+	document.getElementById('print_audio_title').innerHTML=document.getElementById(audio_title).value;
+	ShowLoaderImage("{'music_message_loading'}");
+	frames['audio_frame'].location.href = "index.php?step={'step'}&what=load_audio&src="+escape(file_url);
+	ShowDivCenterPage('view_fullsize_table');
+	setTimeout("showid2('show_loading','none');showid2('hidden_iframe','none');",700);
+}
+
+function AddNewMusic(){	
+	var file_upload=false;
+	for(i=1;i<=7;i++){
+		if(document.getElementById("file"+i).value!=""){
+			file_upload=true;
+		}
+	}
+	if(file_upload){
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+	else{
+		alert("{'music_message_your_file_required'}");
+	}
+}
+
+
+function CheckSelected1(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'music_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&cat_id={'cat_id'}&cat_dir={'cat_dir'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'music_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>
+</body>
+</html>

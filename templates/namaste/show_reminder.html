@@ -1,0 +1,210 @@
+<div class="col-md-12">
+<div class="row">
+<div class="col-sm-8">
+	<h2 id="title-1" class="table_title_bar">
+    <i class="fa fa-clock-o padding5"></i>{'reminder_big_title'}</h2>
+</div>
+<div class="col-sm-4">
+	<div class="pull-right left-margin-bottom">
+    	<a href="{'ecard_url'}/index.php?step={'step'}&next_step=show_reminder" class="btn btn-sm btn-default">
+        <i class="fa fa-list-alt padding5"></i>
+        {'reminder_button_view_all_reminder'}</a>
+        <a href="{'ecard_url'}/index.php?step={'step'}&next_step=show_mycalendar" class="btn btn-sm btn-default">
+        <i class="fa fa-calendar padding5"></i>{'reminder_button_view_my_calendar'}</a>
+    </div>
+</div>
+<form name="ecardmax_form"  class="form-horizontal" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="action" value="" />
+<input type="hidden" name="next_step" value="{'next_step'}" />
+<div class="col-md-12">
+<div class="category-tab">
+        <ul class="nav nav-tabs">
+            <li class="{'tab_data'}"><a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a></li>
+            <li class="{'tab_add'}"><a href='#show_add_table' data-toggle='tab'>{'reminder_txt_click_add_new_reminder'}</a></li>         
+        </ul>
+        <div class="tab-content"> 
+        <div class="tab-pane fade {'tab_add'}" id="show_add_table">
+            <div class="form-group has-feedback">
+                <label class="col-sm-3">{'reminder_txt_will_sent_to'} </label>
+                <div class="col-sm-4">
+                <strong class="text-highlight">{'show_my_email'}</strong>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="col-sm-3">{'reminder_txt_event_date'}</label>
+                <div class="col-sm-2">
+                <input class="datepicker form-control input-sm" type="text" name="time_end_textbox" id="time_end_textbox" value="{'rm_time_value'}" /> 
+                <span class="fa fa-calendar-plus-o form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <div class="col-sm-4">
+                <p class="date-note">{'ins_date_caption'}</p>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="col-sm-3">{'reminder_txt_event_name'}</label>
+                <div class="col-sm-9">
+                    <input  class="form-control input-sm input-error" type="text" name="rm_title" id="rm_title"  value="{'rm_title'}" />
+                    <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label class="col-sm-3">{'reminder_txt_event_detail'}</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control input-sm input-error" name="rm_content" id="rm_content"></textarea>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_reminder_me'}</label>
+                <div class="col-sm-4">
+                    <select class="form-control input-sm" name="rm_datebefore" id="rm_datebefore">
+                    <option value="0">{'addressbook_txt_reminder_me_on_date'}</option>
+                    <option value="1">{'addressbook_txt_reminder_me_1day_b4'}</option>
+                    <option value="2">{'addressbook_txt_reminder_me_2day_b4'}</option>
+                    <option value="3">{'addressbook_txt_reminder_me_3day_b4'}</option>
+                    <option value="7">{'addressbook_txt_reminder_me_7day_b4'}</option>
+                    <option value="14">{'addressbook_txt_reminder_me_14day_b4'}</option>
+                    <option value="30">{'addressbook_txt_reminder_me_30day_b4'}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="col-sm-3">{'reminder_txt_repeat'}</label>
+                <div class="col-sm-4">
+                    <select class="form-control input-sm" name="rm_repeat" id="rm_repeat">
+                    <option value="0">{'reminder_txt_no_repeat'}</option>
+                    <option value="1">{'reminder_txt_repeat_week'}</option>
+                    <option value="2">{'reminder_txt_repeat_month'}</option>
+                    <option value="3">{'reminder_txt_repeat_year'}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="col-sm-3 res-zero-size"></label>
+                <div class="col-sm-6">
+                    <button onclick="AddNew();" class="btn btn-sm btn-default btn-my-site" type="button">
+                    {'reminder_button_create_new_event'}</button>
+                </div>
+           </div>
+		</div>
+        <div id="list_data" class="tab-pane  {'tab_data'}">
+            <div class="col-sm-12">{'show_info'}</div>
+            <div class="table-responsive cart_info">
+            
+            <table class="table table-condensed table-hover">
+                <thead>
+                <tr class="active">
+                    <th width="40%" >{'reminder_txt_event_name'}</th>
+                    <th width="40%">{'reminder_txt_event_detail'}</th>
+                    <th width="*" >{'reminder_txt_event_date'}</th>
+                    <th width="1%" align="center" >{'reminder_txt_event_delete'}</th>
+                    <th width="1%" align="center" >
+                    <input onkeypress="return noEnterKey(event);" id="chk_all" title="{'txt_tooltip_select_all'}" type="checkbox" value="1" onclick="check_uncheck_all('{'bk_id'}');" />
+                    </th>
+                </tr>
+                </thead>
+                {'show_list_table'}
+                <tr>
+                    <td width="100%" colspan="5">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="3">
+                            <tr>
+                                <td width="50%" class="table_td_text_color">{'txt_row_per_page'} <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.ecardmax_form.submit();" /></td>
+                                <td width="50%" class="delete_rows_data">
+                                <div class="pull-right">
+                                    <button type="button"  class="btn btn-sm btn-default btn-danger" onclick="CheckSelected();" >
+                                    <i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}</button>
+                                    <i class="glyphicon glyphicon-hand-up"></i>
+                                 </div>
+                                 </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            </div>
+		{'display_page_number'}
+		{'reminder_txt_will_sent_to'} <strong>{'show_my_email'}</strong>
+	</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+
+<script type="text/javascript">
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNew(){
+	if(document.ecardmax_form.time_end_textbox.value=="{'ins_date_caption'}"){
+		showNotification("{'reminder_js_alert_must_select_event_date'}");
+		document.ecardmax_form.time_end_textbox.focus();
+	}
+	else if(document.ecardmax_form.time_end_textbox.value=="{'show_today_date'}"){
+		showNotification("{'reminder_js_alert_event_not_today'}");
+		document.ecardmax_form.time_end_textbox.value="{'ins_date_caption'}";
+		document.ecardmax_form.time_end_textbox.focus();
+	}
+	else if(document.ecardmax_form.rm_title.value==""){
+		showNotification("{'reminder_js_alert_must_enter_event_name'}");
+		document.ecardmax_form.rm_title.focus();
+	}
+	else{
+		document.ecardmax_form.action.value='add_new';
+		document.ecardmax_form.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			showNotification("{'js_alert_must_select_checkbox'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'reminder_js_alert_sure_to_delete_reminder'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function InsertDate(id,data){
+	showid2('popup_calendar','none');
+	if(id==-1){
+		document.getElementById('time_end_textbox').value=data;
+	}
+	else{
+		if(data=="{'show_today_date'}"){
+			showNotification("{'reminder_js_alert_event_not_today_no_save'}");
+			document.getElementById('time_end_textbox'+id).value=original_value;
+		}
+		else{
+			document.getElementById('time_end_textbox'+id).value=data;
+			Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_event_date&rm_id='+id+'&time_end_textbox=',data,'1',id,"time_end_textbox"+id);
+		}
+	}	
+}
+</script>

@@ -1,0 +1,55 @@
+<style>
+.history_card_send table .table_th_background img {max-width: 150px;}
+</style>
+<div class="col-md-12">
+<h2 id="title-2" class="table_title_bar"><i class="fa fa-history padding5"></i>{'txt_mtool_history'}</h2>
+<div class="category-tab"><!--category-tab-->
+    <ul class="nav nav-tabs">
+    	<li class='active'><a href='#card_sent' data-toggle='tab'>{'history_txt_card_sent'}</a></li>
+        <li ><a href='#scheduled_card_sent' data-toggle='tab'>{'history_txt_title_scheduled_cards'}</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="scheduled_card_sent" class="tab-pane fade">
+        <!--
+            <h2 id="title-1" class="table_title_bar">{'history_txt_title_scheduled_cards'} {'count_scheduled'}</h2>
+            -->
+                <div class="table-responsive cart_info">
+                <table class="table table-condensed table-hover">
+                	<thead>			
+                    <tr class="active">
+                        <th width="150" class="home_cat_nav" style="padding:4px;white-space:nowrap">{'history_txt_header_card'}</th>
+                        <th width="*%" class="home_cat_nav" style="padding:4px;white-space:nowrap">{'history_txt_header_send_to'}</th>
+                        <th width="*%" class="home_cat_nav" style="padding:4px;white-space:nowrap">{'history_txt_header_scheduled_date'}</th>
+                        <th width="1%" class="home_cat_nav" style="padding:4px;white-space:nowrap"></th>
+                        <th width="1%" class="home_cat_nav" style="padding:4px;white-space:nowrap"></th>
+                    </tr>
+                    </thead>
+                    {'print_scheduled_card'}
+                </table>
+                </div>
+                {'print_page_number_scheduled_card'}
+        </div>
+        <div id="card_sent" class="tab-pane fade  active in">
+        <!---
+            <h2 id="title-2" class="table_title_bar">{'history_txt_card_sent'} {'count_sent'}</h2>
+            -->
+				<div class="table-responsive cart_info">
+                <table class="table table-condensed table-hover">
+                	<thead>			
+                    <tr class="active">                        <th width="150" class="home_cat_nav" style="padding:4px;white-space:nowrap">{'history_txt_header_card'}</th>
+                        <th width="*" class="home_cat_nav" style="padding:4px;white-space:nowrap">{'history_txt_header_send_to'}</th>
+                        <th width="*" class="home_cat_nav" style="padding:4px;white-space:nowrap">{'history_txt_header_date_sent'}</th>
+                        <th width="*" class="home_cat_nav" style="padding:4px;white-space:nowrap">{'history_txt_header_date_pickup'}</th>
+                        <th width="1%" class="home_cat_nav" style="padding:4px;white-space:nowrap"></th>
+                        <th width="1%" class="home_cat_nav" style="padding:4px;white-space:nowrap"></th>
+                        <th width="1%" class="home_cat_nav" style="padding:4px;white-space:nowrap"></th>
+                    </tr>
+                    </thead>
+                    {'print_card_sent'}
+                </table>
+                </div>
+                {'print_page_number_card_sent'}
+        </div>
+    </div>
+</div>
+</div>

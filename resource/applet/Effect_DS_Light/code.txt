@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Light.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=diameter VALUE="178"><PARAM NAME=type VALUE="day"><PARAM NAME=speedx VALUE="2"><PARAM NAME=speedy VALUE="3"><PARAM NAME=interactive VALUE="no">Sorry, no java browser</APPLET>

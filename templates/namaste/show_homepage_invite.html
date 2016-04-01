@@ -1,0 +1,47 @@
+   <!-- Start Column show quote, random card... -->
+    <div id="category_wrapper" class="col-sm-3 only-desktop">
+        <div class="left-sidebar">
+        <h2>{'txt_ecard_category'}</h2>
+        <!-- <div class="category_border"> -->
+            {'CATEGORY_2_LEVEL'}  
+			{'show_pop_top_new_cards'}       
+            <div class="shipping text-center"><!--shipping-->
+            	<div id="banner_vt">{'print_banner_vt'}</div>               
+            </div>
+        <!-- </div> -->
+        </div>
+     </div>
+    <div id="main_wrapper" class="col-sm-{'col_main_content'}">
+    	{'invite_homepage_message_responsive'}
+        <div class="table-responsive cart_info">
+		<table class="table table-condensed table-hover">
+            <thead>
+            <tr class="active">
+                <th class="text-center" >{'invite_homepage_message_txt_invitation_title'}</th>
+                <th class="text-center" >{'invite_homepage_message_txt_total_guest'}</th>
+                <th class="text-center" >{'invite_homepage_message_txt_accepted'}</th>
+                <th class="text-center" >{'invite_homepage_message_txt_declined'}</th>
+                <th class="text-center" >{'invite_homepage_message_txt_not_sure'}</th>
+                <th class="text-center" >{'invite_homepage_message_txt_no_response'}</th>					
+                <th class="text-center" >{'invite_homepage_message_txt_resend'}</th>
+                <th class="text-center" >{'invite_homepage_message_txt_delete'}</th>
+            </tr>
+            </thead>
+            {'show_list_table'}
+            <tr>
+                <td width="100%" colspan="8">
+                    <table border="0" width="100%" cellspacing="0" cellpadding="3">
+                        <tr class="">
+                            <td width="50%" style="border-bottom:none" class="table_td_text_color">{'txt_row_per_page'} <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="location.href='{'ecard_url'}/index.php?step=show_invitation&row_number='+this.value" /></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+		</div>
+        {'display_page_number'}
+        <div class="table_border">
+        <h1 class="table_title_bar" id="title-2">{'newest_invitation_ecards'}</h1>
+            {'show_list_of_thumbnails'}
+        </div>
+    </div>

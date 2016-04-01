@@ -1,0 +1,19 @@
+<script type="text/javascript">
+//Print color table
+var array = new Array();
+array[0] ="#FFFFFF";array[1] ="#000000";array[2] ="#EEECE1";array[3] ="#1F497D";array[4] ="#4F81BD";array[5] ="#C0504D";array[6] ="#9BBB59";array[7] ="#8064A2";array[8] ="#4BACC6";array[9] ="#F79646";
+array[10] ="#F2F2F2";array[11] ="#7F7F7F";array[12] ="#DDD9C3";array[13] ="#C6D9F0";array[14] ="#DBE5F1";array[15] ="#F2DCDB";array[16] ="#EBF1DD";array[17] ="#E5E0EC";array[18] ="#DBEEF3";array[19] ="#FDEADA";
+array[20] ="#D8D8D8";array[21] ="#595959";array[22] ="#C4BD97";array[23] ="#8DB3E2";array[24] ="#B8CCE4";array[25] ="#E5B9B7";array[26] ="#D7E3BC";array[27] ="#CCC1D9";array[28] ="#B7DDE8";array[29] ="#FBD5B5";
+array[30] ="#BFBFBF";array[31] ="#3F3F3F";array[32] ="#938953";array[33] ="#548DD4";array[34] ="#95B3D7";array[35] ="#D99694";array[36] ="#C3D69B";array[37] ="#B2A2C7";array[38] ="#92CDDC";array[39] ="#FAC08F";
+array[40] ="#A5A5A5";array[41] ="#262626";array[42] ="#494429";array[43] ="#17365D";array[44] ="#366092";array[45] ="#953734";array[46] ="#76923C";array[47] ="#5F497A";array[48] ="#31859B";array[49] ="#E36C09";
+array[50] ="#7F7F7F";array[51] ="#0C0C0C";array[52] ="#1D1B10";array[53] ="#0F243E";array[54] ="#244061";array[55] ="#632423";array[56] ="#4F6128";array[57] ="#3F3151";array[58] ="#205867";array[59] ="#974806";
+array[60] ="#C00000";array[61] ="#FF0000";array[62] ="#FFC000";array[63] ="#FFFF00";array[64] ="#92D050";array[65] ="#00B050";array[66] ="#00B0F0";array[67] ="#0070C0";array[68] ="#002060";array[69] ="#7030A0";
+document.writeln("<li class='color-items'><a href='#'>{'invite_color_table_select_color'}<br />\n");
+for (i=0;i<array.length;i++){
+	document.writeln("<span class='color-item' style=\"background-color:" + array[i] + ";\" onclick=\"document.getElementById('show_selected_fontcolor').style.backgroundColor='"+array[i]+"';SetSession('invite_fontcolor','" + array[i] + "');\" >&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"width:5px;height:15px;font-size: 11px;\"></span>");
+	if(i==9 || i==19 || i==29 || i==39 || i==49 || i==59) document.write("<div style=\"line-height:4px\"></div>");
+	if(i==59)document.write("</a></li><li class='color-items middle'><a href='#'>{'invite_color_table_standard_color'}<br />");
+}
+document.writeln("</a></li><li class='color-items'><a href='#'>{'invite_color_table_default_color'} <span class='color-item' style=\"background-color:rgb({'show_default_color'});\" onclick=\"document.getElementById('show_selected_fontcolor').style.backgroundColor='rgb({'show_default_color'})';SetSession('invite_fontcolor','{'show_default_color'}');\" >&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>\n");
+
+</script>

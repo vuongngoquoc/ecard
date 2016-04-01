@@ -1,0 +1,105 @@
+.Level {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: black;
+	font-size: 8px;
+}
+
+.myLevel {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: green;
+	font-size: 10px;
+}
+
+.myScore {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: black;
+	font-size: 17px;
+}
+
+.hiscore {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: black;
+	font-size: 17px;
+}
+
+.repeat_me {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: black;
+	font-size: 20px;
+}
+
+.Main_Text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: black;
+	font-size: 12px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+.Board_Main_Border {
+	border: 1px solid black; 
+}
+
+.Board_Title_Background_Color {
+	background-color: #849DC6;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: black;
+	font-size: 11px;
+}
+
+.Board_Cell_Background_Color {
+	background-color: #DBDED3;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: black;
+	font-size: 11px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+.TextArea_Style {
+	border: 1px solid #CDCDCD;
+	color: #D69B01;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal; 
+	font-size: 10pt;
+	background-color: #FBF9E6;
+}
+
+.TextBox_Style {
+	border: 1px solid #CDCDCD;
+	color: #D69B01;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal; 
+	font-size: 10pt;
+	background-color: #FBF9E6;
+}
+
+.Button_Style {
+
+	color: #D69B01;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal; 
+	font-size: 10pt;
+	background-color: #FBF9E6;
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+hr {
+	border: 0px none;
+    width: 95%
+}
+
+hr.HR_Color { 
+	color: #CDCDCD;
+	background-color: #CDCDCD;
+	height: 1px;
+}

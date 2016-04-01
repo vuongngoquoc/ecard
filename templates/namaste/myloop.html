@@ -1,0 +1,220 @@
+<div class="elm-toggle-collapse" id="template-loop">
+    <span class="text-danger h-space-b-10" id="show_error_message_%n2%"></span>
+    <div class="col-sm-6 no-padding">
+        <div class="input-group h-space-b-10">
+        <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user"></i> %n%</span>
+        %name%
+        </div>
+    </div>
+    <div class="col-sm-6 no-padding h-space-b-15">
+        <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon3">@ %n1%</span>
+        %email%
+        </div>
+    </div>
+    <div class="clearfix h-space-b-10"></div>
+</div>
+<script type="text/javascript">
+	var re_num="1";
+	var step = "{'step'}";
+	WriteRecipientLoop();
+	function AddMore()
+	{
+		re_num=document.getElementById("re_num").value;
+		if(re_num=='')
+			re_num=1;
+		re_num=parseInt(re_num);
+		re_num=re_num+1;
+		document.getElementById("re_num").value=re_num;
+		CheckFieldNumber(document.getElementById("re_num").value);
+		WriteRecipientLoop();
+	}
+	function RemoveRow()
+	{
+		re_num=document.getElementById("re_num").value;
+		if(re_num=='')
+			re_num=1;
+		re_num=parseInt(re_num);
+		re_num=re_num-1;
+		document.getElementById("re_num").value=re_num;
+		CheckFieldNumber(document.getElementById("re_num").value);
+		WriteRecipientLoop();
+	}
+	function AddContactGroupToList(id){
+		var array=document.getElementById("groupdetail"+id).value.split("\n");
+		var num=array.length-1;
+		if(num>{'cf_max_friend_email'})num={'cf_max_friend_email'};
+		document.getElementById("re_num").value=num;
+		var myloop="";
+		var xnum=0;
+		var $temp = $('#template-loop').html();
+		for(i=0;i<num;i++){
+			xnum++;
+			var info=array[i].split(";");
+			var list_friend_name=info[0];
+			var list_friend_email=info[1];
+			
+			var $_myloop = $temp;
+			var title = "{'add_new_recipient'} "+xnum+"";
+			var name ="<input class='form-control input-sm' placeholder=\"Name\" id=\"list_friend_name_"+xnum+"\" name=\"list_friend_name_"+xnum+"\" value=\""+list_friend_name+"\" type=\"text\" onkeydown=\"showid2('show_error_message_"+xnum+"','none')\" />";
+			var email="<input class='form-control input-sm' placeholder=\"Email\" id=\"list_friend_email_"+xnum+"\" name=\"list_friend_email_"+xnum+"\" value=\""+list_friend_email+"\" type=\"text\" onblur=\"if(!valid_email(this.value)){this.value='';ShowDivInvalidEmail('"+xnum+"');}\" onkeydown=\"showid2('show_error_message_"+xnum+"','none')\" />";
+			$_myloop = $_myloop.replace('%title%',title);
+			$_myloop = $_myloop.replace('%n%',xnum);
+			$_myloop = $_myloop.replace('%n1%',xnum);
+			$_myloop = $_myloop.replace('%n2%',i);
+			$_myloop = $_myloop.replace('%name%',name);
+			$_myloop = $_myloop.replace('%email%',email);
+			myloop += $_myloop;
+			
+		}
+		document.getElementById("show_recipient_loop").innerHTML=myloop;
+		if(num>2){
+			document.getElementById("show_recipient_loop").style.overflow="auto";
+			document.getElementById("show_recipient_loop").style.height="200px";
+		}
+		else{
+			document.getElementById("show_recipient_loop").style.overflow="hidden";
+			document.getElementById("show_recipient_loop").style.height="auto";
+		}
+	}
+	function WriteRecipientLoop(){
+		re_num=document.getElementById("re_num").value;
+		var myloop="";
+		var $temp = $('#template-loop').html();
+		for(i=1;i<=re_num;i++){
+			var list_friend_name="";
+			var list_friend_email="";
+			if(document.getElementById("list_friend_name_"+i)){
+				list_friend_name=document.getElementById("list_friend_name_"+i).value;
+			}
+			if(document.getElementById("list_friend_email_"+i)){
+				list_friend_email=document.getElementById("list_friend_email_"+i).value;
+			}
+			var $_myloop = $temp;
+			var title = "{'add_new_recipient'} "+i+"";
+			var name ="<input rel='add-contact' onclick='abModal();' class='form-control input-sm add-contact' placeholder=\"Name\" id=\"list_friend_name_"+i+"\" name=\"list_friend_name_"+i+"\" value=\""+list_friend_name+"\" type=\"text\" onkeydown=\"showid2('show_error_message_"+i+"','none')\" />";
+			var email="<input rel='add-contact' onclick='abModal();' class='form-control input-sm add-contact' placeholder=\"Email\" id=\"list_friend_email_"+i+"\" name=\"list_friend_email_"+i+"\" value=\""+list_friend_email+"\" type=\"text\" onblur=\"if(!valid_email(this.value)){this.value='';ShowDivInvalidEmail('"+i+"');}\" onkeydown=\"showid2('show_error_message_"+i+"','none')\" />";
+			$_myloop = $_myloop.replace('%title%',title);
+			$_myloop = $_myloop.replace('%n%',i);
+			$_myloop = $_myloop.replace('%n1%',i);
+			$_myloop = $_myloop.replace('%n2%',i);
+			$_myloop = $_myloop.replace('%name%',name);
+			$_myloop = $_myloop.replace('%email%',email);
+			myloop += $_myloop;
+		}
+		document.getElementById("show_recipient_loop").innerHTML=myloop;
+		if(re_num>3){
+			document.getElementById("show_recipient_loop").style.overflow="auto";
+			document.getElementById("show_recipient_loop").style.height="200px";
+		}
+		else{
+			document.getElementById("show_recipient_loop").style.overflow="hidden";
+			document.getElementById("show_recipient_loop").style.height="auto";
+		}
+	}
+
+	function CheckFieldNumber(number){
+		if(isNaN(number) || number <= 0 || number==""){
+			showNotification("{'txt_js_alert_must_enter_number'}");
+			document.getElementById("re_num").value=original_value;
+		}
+		else if(number > {'cf_max_friend_email'}){
+			showNotification("{'fieldset_maximum_is'} {'cf_max_friend_email'}");
+			document.getElementById("re_num").value=original_value;
+		}
+		else{
+			WriteRecipientLoop();
+		}
+	}
+
+	function ShowDivInvalidEmail(id){
+		showid2('show_error_message_'+id,'block');
+		document.getElementById('show_error_message_'+id).innerHTML="{'txt_js_alert_must_enter_valid_email'}";
+	}
+
+	function AddContactToList(id){
+		var get_text_name ="";
+		if (document.all){
+			div_obj_name = document.all["contactname"+id];
+		}
+		else{
+			div_obj_name = document.getElementById("contactname"+id);
+		}
+		if (div_obj_name.innerHTML){
+			get_text_name = div_obj_name.innerHTML;
+		}
+		else if (document.all){
+			get_text_name = div_obj_name.innerText;
+		}
+		else if (div_obj_name.textContent){
+			get_text_name = div_obj_name.textContent;
+		}
+		else if (div_obj_name.firstChild.nodeValue){
+			get_text_name = div_obj_name.firstChild.nodeValue;
+		}
+		
+		var get_text_email ="";
+		if (document.all){
+			div_obj_email = document.all["contactemail"+id];
+		}
+		else{
+			div_obj_email = document.getElementById("contactemail"+id);
+		}
+		if (div_obj_email.innerHTML){
+			get_text_email = div_obj_email.innerHTML;
+		}
+		else if (document.all){
+			get_text_email = div_obj_email.innerText;
+		}
+		else if (div_obj_email.textContent){
+			get_text_email = div_obj_email.textContent;
+		}
+		else if (div_obj_email.firstChild.nodeValue){
+			get_text_email = div_obj_email.firstChild.nodeValue;
+		}
+		re_num=document.getElementById("re_num").value;
+		for(i=1;i<=re_num;i++){
+			if(document.getElementById("list_friend_name_"+i).value == get_text_name || document.getElementById("list_friend_email_"+i).value == get_text_email){
+				break;
+				return false;
+			}
+			if(document.getElementById("list_friend_email_"+i).value ==""){
+				document.getElementById("list_friend_name_"+i).value = get_text_name;
+				document.getElementById("list_friend_email_"+i).value = get_text_email;
+				document.getElementById("show_error_message_"+i).style.display="none";
+				break;
+			}
+		}		
+		if(isMobile)
+		{
+			$('#myModalAddressBook').modal('hide');
+		}
+	}
+
+	
+
+	function ResizeIframe(data){
+		var iframe_h =document.getElementById("div_addressbook_and_group").offsetHeight;
+		if(data=="1"){
+			document.getElementById("div_addressbook_and_group").style.height=iframe_h + 100 +"px";
+		}
+		else if(data=="2"){
+			document.getElementById("div_addressbook_and_group").style.height=500 +"px";
+		}
+		else{
+			if(iframe_h <= 500){
+				document.getElementById("div_addressbook_and_group").style.height="500px";
+			}
+			else{
+				document.getElementById("div_addressbook_and_group").style.height=iframe_h - 100 +"px";
+			}
+		}
+	}
+	function abModal(){
+		if(isMobile && step != 'tell_friends'){
+		var c = confirm('Select contact from Address Book?')
+			if(c) $('#myModalAddressBook').modal();
+		}
+		
+	}
+    </script>

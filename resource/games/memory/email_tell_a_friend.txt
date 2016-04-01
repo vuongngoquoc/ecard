@@ -1,0 +1,13 @@
+Hello {'friend_name'} !
+
+Your friend {'your_name'}, whose email address is {'your_email'} stopped by my site and wants to share the Memory Game with you. You may click this link {'home_url'} to visit us and play the Memory Game when you have some free time.
+
+{'your_name'} wrote the following message for you:
+
+-----------------------------------------------------------------------------------
+{'message'}
+-----------------------------------------------------------------------------------
+
+Thanks for reading this message. We hope that you will visit us soon and perhaps tell one of your friends about our Memory Gane {'home_url'}   
+
+Webmaster.

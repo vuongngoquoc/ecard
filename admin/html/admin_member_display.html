@@ -1,0 +1,242 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<table border="0" width="100%">
+	<tr>
+		<td><h1><img border="0" src="html/07_icon_show_member2.gif" alt="" style="vertical-align:middle" /> {'member_display_txt_page_title'}</h1></td>
+		<td align="right"><input type="button" class="button" value="{'member_display_txt_button_set_member_group_for_all_users'}" onclick="ShowDivCenterPage('set_member_group_all_user',1);" /></td>
+	</tr>
+</table>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_search_keyword.gif" alt="" style="vertical-align:middle" /> {'member_display_txt_search_member_account'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" colspan="2" style="cursor:pointer" onclick="showid('show_add_table');"><div style="float:left;">{'member_display_txt_select_filter'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'member_display_tooltip_close_hide'}" alt="{'member_display_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'member_display_txt_list'}</td>
+			<td  width="80%">
+				<select size="1" name="list_item">
+				<option value="all" {'selected_list_item_all'}>{'member_display_txt_list_all_accounts_one_page_ASC'}</option>
+				<option value="all_DESC" {'selected_list_item_all_DESC'}>{'member_display_txt_list_all_accounts_one_page_DESC'}</option>
+				<option value="all2" {'selected_list_item_all2'}>{'member_display_txt_list_all_accounts_by_member_group_one_page_ASC'}</option>
+				<option value="all2_DESC" {'selected_list_item_all2_DESC'}>{'member_display_txt_list_all_accounts_by_member_group_one_page_DESC'}</option>
+				<option value="new_today" {'selected_list_item_new_today'}>{'member_display_txt_list_new_account_today'}</option>
+				<option value="new_yesterday" {'selected_list_item_new_yesterday'}>{'member_display_txt_list_new_account_yesterday'}</option>
+				<option value="new_week" {'selected_list_item_new_week'}>{'member_display_txt_list_new_account_this_week'}</option> 
+				<option value="new_month" {'selected_list_item_new_month'}>{'member_display_txt_list_new_account_this_month'}</option>
+				<option value="sub_acct" {'selected_list_item_sub_acct'}>{'member_display_txt_list_users_have_sub_account'}</option>
+				<option value="req_cancel" {'selected_list_item_req_cancel'}>{'member_display_txt_list_users_request_cancel_account'}</option>
+				<option value="male_only" {'selected_list_item_male_only'}>{'member_display_txt_list_users_male_only'}</option>
+				<option value="female_only" {'selected_list_item_female_only'}>{'member_display_txt_list_users_female_only'}</option>
+				</select> <input type="submit" value="{'member_display_txt_button_list'}" name="cmd_button" class="button" />
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'member_display_txt_search'}</td>
+			<td  width="80%">
+				<input type="text" name="keyword" size="21" value="{'keyword'}" />
+				<select size="1" name="search_field">
+				<option value="all" {'selected_search_field_all'}>{'member_display_txt_all_fields'}</option>
+				<option value="user_id" {'selected_search_field_user_id'}>{'member_display_txt_user_id_number'}</option>
+				<option value="user_name_id" {'selected_search_field_user_name_id'}>{'member_display_txt_user_name_id'}</option>
+				<option value="user_password" {'selected_search_field_user_password'}>{'member_display_txt_user_password'}</option>
+				<option value="user_email" {'selected_search_field_user_email'}>{'member_display_txt_user_email'}</option>
+				<option value="user_last_name" {'selected_search_field_user_last_name'}>{'member_display_txt_user_last_first_name'}</option>
+				<option value="user_city" {'selected_search_field_user_city'}>{'member_display_txt_user_city'}</option>
+				<option value="user_zip" {'selected_search_field_user_zip'}>{'member_display_txt_user_zip_code'}</option>
+				<option value="user_country" {'selected_search_field_user_country'}>{'member_display_txt_user_country'}</option>				
+				</select>
+				<input type="submit" value="{'member_display_txt_button_search_user'}" name="cmd_button" class="button" />
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'member_display_txt_time_before_today'}</td>
+			<td  width="80%">
+				{'member_display_txt_view_all_accounts_created'}
+				<select size="1" name="num_day">
+				<option value="1" {'selected_num_day_1'}>1</option>
+				<option value="2" {'selected_num_day_2'}>2</option>
+				<option value="3" {'selected_num_day_3'}>3</option>
+				<option value="4" {'selected_num_day_4'}>4</option>
+				<option value="5" {'selected_num_day_5'}>5</option>
+				<option value="6" {'selected_num_day_6'}>6</option>
+				<option value="7" {'selected_num_day_7'}>7</option>
+				<option value="8" {'selected_num_day_8'}>8</option>
+				<option value="9" {'selected_num_day_9'}>9</option>
+				<option value="10" {'selected_num_day_10'}>10</option>
+				<option value="11" {'selected_num_day_11'}>11</option>
+				<option value="12" {'selected_num_day_12'}>12</option>
+				<option value="13" {'selected_num_day_13'}>13</option>
+				<option value="14" {'selected_num_day_14'}>14</option>
+				<option value="15" {'selected_num_day_15'}>15</option>
+				<option value="16" {'selected_num_day_16'}>16</option>
+				<option value="17" {'selected_num_day_17'}>17</option>
+				<option value="18" {'selected_num_day_18'}>18</option>
+				<option value="19" {'selected_num_day_19'}>19</option>
+				<option value="20" {'selected_num_day_20'}>20</option>
+				<option value="21" {'selected_num_day_21'}>21</option>
+				<option value="22" {'selected_num_day_22'}>22</option>
+				<option value="23" {'selected_num_day_23'}>23</option>
+				<option value="24" {'selected_num_day_24'}>24</option>
+				<option value="25" {'selected_num_day_25'}>25</option>
+				<option value="26" {'selected_num_day_26'}>26</option>
+				<option value="27" {'selected_num_day_27'}>27</option>
+				<option value="28" {'selected_num_day_28'}>28</option>
+				<option value="29" {'selected_num_day_29'}>29</option>
+				<option value="30" {'selected_num_day_30'}>30</option>
+				<option value="31" {'selected_num_day_31'}>31</option>
+				</select>	
+				<select size="1" name="num_what">
+				<option value="day" {'selected_num_what_day'}>{'member_display_txt_day'}</option>
+				<option value="week" {'selected_num_what_week'}>{'member_display_txt_week'}</option>
+				<option value="month" {'selected_num_what_month'}>{'member_display_txt_month'}</option>
+				<option value="year" {'selected_num_what_year'}>{'member_display_txt_year'}</option>
+				</select> {'member_display_txt_before_today'} <input type="submit" value="{'member_display_txt_button_view'}" name="cmd_button" class="button" />
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'member_display_txt_time_from_to'}</td>
+			<td  width="80%">
+				{'member_display_txt_view_all_accounts_created_from_to'} {'print_mon_day_year_dropdown_from'} {'member_display_txt_view_all_accounts_created_from_to_1'} {'print_mon_day_year_dropdown_to'}
+				<input type="submit" value="{'member_display_txt_button_go'}" name="cmd_button" class="button" />
+			</td>
+		</tr>
+	</table><br />
+</div>
+<div><strong>{'member_display_txt_tip'}:</strong> {'member_display_txt_click_account_to_view_detail'}<br /><br /></div>
+{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="40%">{'member_display_txt_column_name_account_information'}</td>
+		<td width="30%" align="center">{'member_display_txt_column_name_edit_member_group'}</td>
+		<td width="28%" align="center">{'member_display_txt_column_name_account_status'}</td>
+		<td width="1%" align="center">{'member_display_txt_column_name_delete'}</td>
+		<td width="1%" align="center"><input id="chk_all" title="{'member_display_txt_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="5">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'member_display_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'member_display_txt_button_suspend_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+{'display_page_number'}
+<div id="suspend_delete_table" style="display:none;position:absolute;top:0;left:0;z-index:9;width:450px;">
+	<div style="border:thick solid #FCAA03;">
+	<table border="0" width="100%" cellspacing="1" cellpadding="4" style="background-color:silver">
+		<tr style="background-color: #B1D3FF;background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td style="cursor:pointer;" onclick="HideItAll();"><div style="float:left">{'member_display_txt_suspend_delete_selected'} </div><img border="0" src="html/07_icon_button_close.gif" title="{'member_display_tooltip_close_hide'}" alt="{'member_display_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td align="center">				
+				<div style="border:1px dotted silver;width:98%">
+					<br />Account will be<br /><br /><input type="radio" name="action" id="action_suspend" value="0" checked="checked" onclick="myaction='0';" /> suspended <br /><br /><input type="radio" name="action" id="action_delete" value="1" onclick="myaction='1';" /> deleted <br /><br /> <input type="radio" name="action" id="action_down_grade" value="2" onclick="myaction='2';" /> down grade to free basic acct <br /><br />on date {'print_mon_day_year_dropdown'}<br /><br />
+					<input type="button" value="Submit" class="button" onclick="DeleteAccount();" /><br /><br />
+				</div>
+			</td>
+		</tr>
+		</table>	
+	</div>
+</div>
+
+<div id="set_member_group_all_user" style="display:none;position:absolute;top:0;left:0;z-index:9;width:450px;">
+	<div style="border:thick solid #FCAA03;">
+	<table border="0" width="100%" cellspacing="1" cellpadding="4" style="background-color:silver">
+		<tr style="background-color: #B1D3FF;background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td style="cursor:pointer;" onclick="HideItAll();"><div style="float:left">{'member_display_txt_set_member_group_for_all_users'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'member_display_tooltip_close_hide'}" alt="{'member_display_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td align="center">				
+				<div style="border:1px dotted silver;width:98%">
+					{'member_display_txt_this_action_will_move_all_members_to_one_member_group'}
+					<br /><br /><input type="button" value="Submit" class="button" onclick="SetMemberGroupAllUser();" /><br /><br />
+				</div>
+			</td>
+		</tr>
+		</table>	
+	</div>
+</div>
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function SetMemberGroupAllUser(){
+	var my_mg_id=document.getElementById("mg_id_all").options[document.getElementById("mg_id_all").selectedIndex].value;
+	if(my_mg_id==""){
+		alert("{'member_display_message_member_group_name_required'}");
+		document.getElementById("mg_id_all").focus();
+	}
+	else{
+		if(window.confirm("{'member_display_message_confirm_to_do_it'}")){
+			location.href="index.php?step={'step'}&what=set_member_group_all&mg_id="+my_mg_id;
+		}
+	}
+}
+
+function HideItAll(){		
+	for(i=0;i<array.length;i++){
+		document.getElementById('popup_detail'+array[i]).style.display="none";
+		document.getElementById('cell'+array[i]).style.border="0px";
+		document.getElementById('cell'+array[i]).style.backgroundColor="";
+	}
+	document.getElementById('hidden_iframe').style.display="none";
+	document.getElementById('modalbkg').style.display="none";
+	document.getElementById('moz_modalbkg').style.display="none";
+	document.getElementById('set_member_group_all_user').style.display="none";
+	document.getElementById('suspend_delete_table').style.display="none";
+	document.getElementById("chk_all").checked=false;
+	check_uncheck_all('{'bk_id'}');
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var account_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				account_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(account_id==""){
+			alert("{'member_display_message_checkbox_first'}");
+		}
+		else{
+			ShowDivCenterPage('suspend_delete_table','1');
+		}
+	}
+}
+
+function DeleteAccount(){
+	var account_id="";
+	var cl_month=document.getElementById("cl_month")[document.getElementById("cl_month").selectedIndex].value;
+	var cl_day=document.getElementById("cl_day")[document.getElementById("cl_day").selectedIndex].value;
+	var cl_year=document.getElementById("cl_year")[document.getElementById("cl_year").selectedIndex].value;
+	if(document.getElementById("action_suspend").checked==true){
+		var myaction=0;
+	}
+	else if(document.getElementById("action_delete").checked==true){
+		var myaction=1;
+	}
+	else if(document.getElementById("action_down_grade").checked==true){
+		var myaction=2;
+	}
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			account_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_account"+account_id+"&action="+myaction+"&cl_month="+cl_month+"&cl_day="+cl_day+"&cl_year="+cl_year+"&page={'page'}&row_number={'row_number'}&cmd_button={'cmd_button'}&list_item={'list_item'}&search_field={'search_field'}&keyword={'keyword'}&num_day={'num_day'}&num_what={'num_what'}&from_month={'from_month'}&from_day={'from_day'}&from_year={'from_year'}&to_day={'to_day'}&to_month={'to_month'}&to_year={'to_year'}";
+	if(window.confirm("{'member_display_message_confirm_to_suspend_delete_account'}")){
+		location.href=url;
+	}
+	else{
+		HideItAll();
+	}
+}
+</script>

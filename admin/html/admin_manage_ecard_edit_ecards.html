@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={'charset'}" />
+<title>{'ecard_txt_admin_title'}</title>
+<style type="text/css">
+<!--
+@import url(html/07_style.css);
+-->
+</style>
+<script type="text/javascript" src="ecardmax_admin.js"> </script>
+
+</head>
+
+<body style="background-color:white;">
+
+<h2 style="margin-left:30px">{'ecard_add_remove_txt_edit_thumbnail_fullsize_ecards'}</h2>
+<form name="form1" method="post" action="index.php" enctype="multipart/form-data">
+<input type="hidden" name="step" value="{'step'}">
+<input type="hidden" name="what" value="change_selected2">
+<input type="hidden" name="list_id" value="{'list_id'}">
+<input type="hidden" name="cat_id" value="{'cat_id'}">
+{'list_table_img'}
+<div style="margin-left:30px"><input type="submit" value="{'ecard_add_remove_button_submit_change'}" class="Button" /></div>
+</form>
+</body>
+</html>

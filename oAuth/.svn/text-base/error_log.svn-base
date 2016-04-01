@@ -1,0 +1,1 @@
+[12-Mar-2010 10:26:50] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/ecardmax/public_html/ecardmax2020/oAuth/confirm.php:3) in /home/ecardmax/public_html/ecardmax2020/oAuth/confirm.php on line 9

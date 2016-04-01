@@ -1,0 +1,531 @@
+<div class="col-md-12">
+<div class="row">
+<div class="col-sm-10">
+	<h2 id="title-1" class="table_title_bar">{'myaccount_information_title'}</h2>
+</div>
+<div class="col-sm-2">
+	<div class="pull-right">
+    	{'button_upgrade_account'}{'button_free_subaccount1'}{'button_free_subaccount2'}
+    </div>
+</div>
+
+<form name="ecardnax_myaccount" class="form-horizontal" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="action" value="" />
+<input type="hidden" name="subaccount_number" value="" />
+<input type="hidden" name="next_step" value="{'next_step'}" />
+<div class="col-md-12">
+	<div class="form-group first-child">
+        <div class="col-sm-12">{'show_info'}</div>
+    </div>
+    <div class="form-group first-child">
+        <div class="col-sm-12">{'show_free_subaccount1'}{'show_free_subaccount2'}</div>
+    </div>
+	<div class="form-group has-feedback">
+        <label class="col-sm-3">{'myaccount_user_first_name'}</label>
+        <div class="col-sm-4">
+        <input class="form-control input-sm" onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_name&value=',this.value,'1',original_value,this.id);" type="text" name="user_name" id="user_name"  maxlength="50" value="{'user_name'}" />
+        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+        </div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="col-sm-3">{'myaccount_user_last_name'} </label>
+        <div class="col-sm-4">
+        <input class="form-control input-sm" onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_last_name&value=',this.value,'1',original_value,this.id);" type="text" name="user_last_name" id="user_last_name"  maxlength="50" value="{'user_last_name'}" />
+        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+        </div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="col-sm-3">{'myaccount_user_email'} </label>
+        <div class="col-sm-4">
+        <input class="form-control input-sm" type="text" name="user_email" id="user_email" onfocus="original_value=this.value;" onchange="ValidateField('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=validate_user_email&value='+escape(this.value),this.id);" value="{'user_email'}" onkeydown="document.getElementById('user_email_error_span').innerHTML=''"/>
+        <span id="user_email_error_span" class="Error_Message"></span>
+        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+        </div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="col-sm-3">{'myaccount_user_name_id'} </label>
+        <div class="col-sm-4">
+        <strong class="text-highlight padding-for-input">{'user_name_id'}</strong>
+        </div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="col-sm-3"><span>{'myaccount_user_password'}</span></label>
+        <div class="col-sm-4">
+            <button class="btn btn-default btn-sm" type="button" onclick="toggleBoxChangePass();" >
+                {'myaccount_change_password'}
+                <span class="caret"></span>
+            </button>
+    	</div>
+    </div>
+	<div class="form-group has-feedback">
+        <label class="col-sm-3"> </label>
+        <div class="col-sm-4 change-pass" style="display:none">   	
+            <input placeholder="{'myaccount_user_current_password'}" class="form-control input-sm" type="password" name="current_password" id="current_password"  />            
+            <input placeholder="{'myaccount_user_new_password'}" class="form-control input-sm" type="password" name="new_password" id="new_password"  />           
+            <input placeholder="{'myaccount_user_new_password2'}" class="form-control input-sm" type="password" name="new_password2" id="new_password2"  />           
+            <div class="pull-right">
+            <button type="button" class="btn btn-default btn-sm btn-my-site" onclick="document.ecardnax_myaccount.action.value='change_pass';document.ecardnax_myaccount.submit();" >
+            {'myaccount_user_button_change_password'}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------TAB--------------------------->
+      <div class="category-tab clearfix"><!--category-tab-->
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs">
+                    <li><a data-toggle='tab' href="#sms_cellphone">{'myaccount_sms_cellphone_reminder'}</a></li>
+                    <li><a data-toggle='tab' href="#myaccount_financial">{'myaccount_financial_information'}</a></li>
+                    <li><a data-toggle='tab' href="#myaccount_permission">{'myaccount_permission'}</a></li>
+                    <li><a data-toggle='tab' href="#myaccount_statistics">{'myaccount_account_statistics_title'}</a></li>
+                    <li><a data-toggle='tab' href="#myaccount_optional">{'myaccount_optional_title'}</a></li>
+                    <li><a data-toggle='tab' href="#email_newsletter">{'myaccount_email_newsletter_title'}</a></li>
+                    <li class="pull-right active"><a data-toggle='tab' href="#hide_all"><i class="fa fa-minus"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-12 tab-content">
+            	<div class="tab-pane fade" id="hide_all">
+                </div>
+                <!------CELLPHONE TAB----->
+                <div class="tab-pane fade" id="sms_cellphone">
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_sms_cellphone_number'}</label>
+                    <div class="col-sm-4">
+                    <input onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_cellphone_number&value=',this.value,2,original_value,this.id);" class="form-control input-sm" onKeyPress="return isNumberKey(event)" type="text" name="user_cellphone_number" id="user_cellphone_number"  value="{'user_cellphone_number'}" />
+                    </div>
+                    
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3">{'myaccount_sms_cellphone_carrier'}</label>
+                    <div class="col-sm-4">{'show_cell_phone_carrier'}</div>
+                    <div class="col-sm-4">
+                	<button type="button" class="btn btn-default btn-sm" onclick="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=','send_test_message',0,1,this.id);ShowLoaderImage('{'ajax_text_sending_email'}');setTimeout('showid2(\'show_loading\',\'none\');showid2(\'hidden_iframe\',\'none\');',400);" >
+                    <i class="fa fa-send padding5"></i>{'myaccount_sms_send_test_message_button'}</button>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3">{'myaccount_sms_reminder_active'}</label>
+                    <div class="col-sm-8">
+                    <input onchange="if(this.checked){Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_cellphone_active&value=','1',0,1,this.id);}else{Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_cellphone_active&value=','0',0,1,this.id);}" type="checkbox" name="user_cellphone_active" id="user_cellphone_active" value="1" {'checked_user_cellphone_active_1'} />
+                    </div>
+                </div>
+                </div>
+                <!------END--------------->
+                
+                <!------myaccount financial TAB----->
+                <div class="tab-pane fade" id="myaccount_financial">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'myaccount_account_balance'}</label>
+                        <div class="col-sm-8">
+                        	<span class="OK_Message">{'show_account_balance'}</span>
+                            <span class="btn btn-default btn-sm" onclick="ShowDivCenterPage('div_purchase_history','1');">
+                            <i class="fa fa-arrows-alt padding5"></i>{'myaccount_purchase_history'}</span> 
+                            <button {'hide_if_already_request'} class="btn btn-danger btn-sm" onclick="if(window.confirm(myaccount_alert_delete_account)){location.href='{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=delete_account';}">
+                            <i class="glyphicon glyphicon-remove padding5"></i>{'myaccount_delete_account'}</button>
+                        </div>
+                    </div>
+                </div>
+                <!-------END------------------------>
+                
+                <!------myaccount financial TAB----->
+                <div class="tab-pane fade" id="myaccount_permission">
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_user_account_group_name'}</label>
+                        <div class="col-sm-8">{'show_member_group'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_max_recipient'}</label>
+                        <div class="col-sm-8">{'show_max_recipient'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_max_recipient_per_hour'}</label>
+                        <div class="col-sm-8">{'show_max_recipient_per_hour'}</div>
+                    </div>                   
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_max_recipient_per_day'}</label>
+                        <div class="col-sm-8">{'show_max_recipient_per_day'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_show_watermark'}</label>
+                        <div class="col-sm-8">{'show_watermark'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_show_banner'}</label>
+                        <div class="col-sm-8">{'show_banner'}</div>
+                    </div>                                 
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_game'}</label>
+                        <div class="col-sm-8">{'allow_game'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_grabber'}</label>
+                        <div class="col-sm-8">{'allow_grabber'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_search'}</label>
+                        <div class="col-sm-8">{'allow_search'}</div>
+                    </div>
+					<div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_futuredate'}</label>
+                        <div class="col-sm-8">{'allow_futuredate'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_rate'}</label>
+                        <div class="col-sm-8">{'allow_rate'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_viewfullsize'}</label>
+                        <div class="col-sm-8">{'allow_viewfullsize'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_myaccount'}</label>
+                        <div class="col-sm-8">{'allow_myaccount'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_addressbook'}</label>
+                        <div class="col-sm-8">{'allow_addressbook'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_reminder'}</label>
+                        <div class="col-sm-8">{'allow_reminder'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_calendar'}</label>
+                        <div class="col-sm-8">{'allow_calendar'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_myalbum'}</label>
+                        <div class="col-sm-8">{'allow_myalbum'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_favorite'}</label>
+                        <div class="col-sm-8">{'allow_favorite'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_history'}</label>
+                        <div class="col-sm-8">{'allow_history'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_birthdayalert'}</label>
+                        <div class="col-sm-8">{'allow_birthdayalert'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_allow_2subaccount'}</label>
+                        <div class="col-sm-8">{'allow_2subaccount'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_payment_amount'}</label>
+                        <div class="col-sm-8">{'payment_amount'}</div>
+                    </div>
+                </div>
+                <!-------END------------------------>
+                
+                <!-------ACCOUNT STATISTICS------------------------>
+                <div id="myaccount_statistics" class="tab-pane fade">
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_user_signup_date'}</label>
+                        <div class="col-sm-8">{'show_user_date_signup'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_user_last_login'}</label>
+                        <div class="col-sm-8">{'show_user_last_login'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_user_time_used'}</label>
+                        <div class="col-sm-8">{'user_timeused'}</div>
+                    </div>
+                    <div class="form-group col-bold col-inline">
+                        <label class="col-sm-3">{'myaccount_user_card_sent'}</label>
+                        <div class="col-sm-8">{'user_total_cardsent'}</div>
+                    </div>              
+                </div>
+                <!------END---------------------->
+                
+                <!------OPTIONAL TAB------>
+                <div class="tab-pane fade" id="myaccount_optional">
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_birthday'}</label>
+                    <div class="col-sm-2">
+                    <input onchange="InsertDate(this.id,this.value);" class="datepicker form-control input-sm" type="text" name="time_end_textbox" id="time_end_textbox" value="{'show_user_birthday'}" /> 
+                    <span class="fa fa-calendar-plus-o form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-sm-4">
+                    <p class="date-note">{'ins_date_caption'}</p>
+                	</div>
+                </div>
+                <div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_language'}</label>
+                <div class="col-sm-4">{'show_lang_select'}</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_dst'}</label>
+                    <div class="col-sm-4">
+                        <select size="1" name="user_dst" id="user_dst" class="form-control input-sm" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_dst&value=',this.value,0,1,this.id);">
+                            <option value="0">{'txt_dropdown_select'}</option>
+                            <option {'selected_user_dst_0'} value="0">{'myaccount_user_dst_no'}</option>
+                            <option {'selected_user_dst_1'} value="1">{'myaccount_user_dst_yes'}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_select_timezone'}</label>
+                <div class="col-sm-6">
+                        <select  class="form-control input-sm" name="user_timezone" id="user_timezone" size="1" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_timezone&value=',this.value,1,1,this.id);" > 
+                            <option value="{'user_timezone'}">GMT ({'user_timezone'})</option>
+                            <option value="-12.00">(GMT-12:00) International Date Line West</option>
+                            <option value="-11.00">(GMT-11:00) Midway Island, Samoa</option>
+                            <option value="-10.00">(GMT-10:00) Hawaii</option>
+                            <option value="-9.00">(GMT-9:00) Alaska</option>
+                            <option value="-8.00">(GMT-8:00) Pacific Time (US &amp; Canada)</option>
+                            <option value="-7.00">(GMT-7:00) Arizona, Chihuahua, La Paz, Mazzatlan</option>
+                            <option value="-7.00">(GMT-7:00) Mountain Time (US &amp; Canada)</option>
+                            <option value="-6.00">(GMT-6:00) Central America</option>
+                            <option value="-6.00">(GMT-6:00) Central Time (US &amp; Canada)</option>
+                            <option value="-6.00">(GMT-6:00) Guadalajara, Mexico City, Monterrey</option>
+                            <option value="-6.00">(GMT-6:00) Saskatchewan</option>
+                            <option value="-5.00">(GMT-5:00) Bogota, Lima, Quito</option>
+                            <option value="-5.00">(GMT-5:00) Eastern Time (US &amp; Canada)</option>
+                            <option value="-5.00">(GMT-5:00) Indiana (East)</option>
+                            <option value="-4.00">(GMT-4:00) Atlantic Time (Canada)</option>
+                            <option value="-4.00">(GMT-4:00) Caracas, La Paz, Santiago</option>
+                            <option value="-3.50">(GMT-3:30) Newfoundland</option>
+                            <option value="-3.00">(GMT-3:00) Brasilia, Greenland, Buenos Aires </option>
+                            <option value="-2.00">(GMT-2:00) Mid-Atlantic</option>
+                            <option value="-1.00">(GMT-1:00) Azores, Cape Verde Is.</option>
+                            <option value="0.00">(GMT) Greenwich Mean Time</option>
+                            <option value="0.00">(GMT) Casablanca, Monrovia</option>
+                            <option value="0.00">(GMT) Dublin, Edinburgh, Lisbon, London</option>
+                            <option value="+1.00">(GMT+1:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+                            <option value="+1.00">(GMT+1:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+                            <option value="+1.00">(GMT+1:00) Brussels, Copenhagen, Madrid, Paris</option>
+                            <option value="+1.00">(GMT+1:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+                            <option value="+1.00">(GMT+1:00) West Central Africa</option>
+                            <option value="+2.00">(GMT+2:00) Athens, Beirut, Istanbul, Minsk, Jerusalem</option>
+                            <option value="+2.00">(GMT+2:00) Bucharest, Cairo, Harare, Pretoria</option>
+                            <option value="+2.00">(GMT+2:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+                            <option value="+3.00">(GMT+3:00) Baghdad, Kuwait, Riyadh, Nairobi, Tehran</option>
+                            <option value="+3.00">(GMT+3:00) Moscow, St. Petersburg, Volgograd</option>
+                            <option value="+3.50">(GMT+3:30) Tehran</option>
+                            <option value="+4.00">(GMT+4:00) Abu Dhabi, Muscat, Baku, Tbilisi, Yerevan</option>
+                            <option value="+4.50">(GMT+4:30) Kabul</option>
+                            <option value="+5.00">(GMT+5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                            <option value="+5.50">(GMT+5:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+                            <option value="+5.75">(GMT+5:45) Kathmandu</option>
+                            <option value="+6.00">(GMT+6:00) Almaty, Novosibirsk, Astana, Dhaka</option>
+                            <option value="+6.50">(GMT+6:30) Rangoon</option>
+                            <option value="+7.00">(GMT+7:00) Bangkok, Hanoi, Jakarta, Krasnoyarsk</option>
+                            <option value="+8.00">(GMT+8:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+                            <option value="+8.00">(GMT+8:00) Irkutsk, Ulaan Bataar, Kuala Lumpur, Singapore</option>
+                            <option value="+8.00">(GMT+8:00) Perth, Taipei</option>
+                            <option value="+9.00">(GMT+9:00) Osaka, Sapporo, Tokyo, Seoul, Yakutsk</option>
+                            <option value="+9.50">(GMT+9:30) Adelaide, Darwin</option>
+                            <option value="+10.00">(GMT+10:00) Brisbane, Canberra, Melbourne, Sydney</option>
+                            <option value="+10.00">(GMT+10:00) Guam, Port Moresby, Hobart, Vladivostok</option>
+                            <option value="+11.00">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
+                            <option value="+12.00">(GMT+12:00) Auckland, Wellington, Fiji, Kamchatka, Marshall Is.</option>
+                            <option value="+13.00">(GMT+13:00) Nuku'alofa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_address'}</label>
+                    <div class="col-sm-6">
+                    	<input onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_address&value=',this.value,0,original_value,this.id);" class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_address" id="user_address"  value="{'user_address'}" />
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3">{'myaccount_user_city'}</label>
+                	<div class="col-sm-4">
+                    <input onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_city&value=',this.value,0,original_value,this.id);" class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_city" id="user_city"  value="{'user_city'}" />
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_state'}</label>
+                    <div class="col-sm-4">{'show_state_box'}</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_zipcode'}</label>
+                    <div class="col-sm-4">
+                    	<input onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_zip&value=',this.value,0,original_value,this.id);" class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_zip" id="user_zip"  value="{'user_zip'}" />
+                	</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_country'}</label>
+                    <div class="col-sm-4">{'show_country_box'}</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_phone_number'}</label>
+                    <div class="col-sm-4">
+                    	<input onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_phone&value=',this.value,0,original_value,this.id);" class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_phone" id="user_phone"  value="{'user_phone'}" />
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_gender'}</label>
+                    <div class="col-sm-4">
+                        <select onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_gender&value=',this.value,0,1,this.id);" size="1" name="user_gender" id="user_gender" class="form-control input-sm" >
+                            <option value="0">{'txt_dropdown_select'}</option>
+                            <option {'selected_user_gender_0'} value="0">{'myaccount_user_gender_male'}</option>
+                            <option {'selected_user_gender_1'} value="1">{'myaccount_user_gender_female'}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_marital_status'}</label>
+                    <div class="col-sm-4">
+                        <select onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_marital&value=',this.value,0,1,this.id);" size="1" name="user_marital" class="form-control input-sm" >
+                            <option value="0">{'txt_dropdown_select'}</option>
+                            <option {'selected_user_marital_0'} value="0">{'myaccount_user_marital_status_single'}</option>
+                            <option {'selected_user_marital_1'} value="1">{'myaccount_user_marital_status_married'}</option>
+                            <option {'selected_user_marital_2'} value="2">{'myaccount_user_marital_status_divorced'}</option>
+                            <option {'selected_user_marital_3'} value="3">{'myaccount_user_marital_status_widowed'}</option>		
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!------END--------------->
+            
+            <!------EMAIL TAB--------->
+            <div class="tab-pane fade" id="email_newsletter" >
+            <div class="form-group">
+                <label class="col-sm-12">
+                    <input onclick="if(this.checked){Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_receive_newsletter&value=','1',0,1,this.id);}else{Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_receive_newsletter&value=','0',0,1,this.id);}" type="checkbox" name="user_receive_newsletter" id="user_receive_newsletter" value="1" {'checked_user_receive_newsletter_1'} /> 
+                    {'myaccount_user_receive_newsletter'}
+                </label>
+            </div>
+            <div class="form-group">
+			<label class="col-sm-12"> 
+                <input onclick="if(this.checked){Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_receive_offer&value=','1',0,1,this.id);}else{Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_table&update_key=user_receive_offer&value=','0',0,1,this.id);}" type="checkbox" name="user_receive_offer" id="user_receive_offer" value="1" {'checked_user_receive_offer_1'} /> 
+                {'myaccount_user_receive_offer'}
+            </label>
+            </div>
+            </div>
+            <!------END--------------->
+            </div>
+     </div>
+      <!--------------------END TAB----------------------->
+</form>
+</div>
+
+</div>
+
+<div id="view_fullsize_table_birthday" class="div_menu_layer" style="width:250px">
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr onclick="HideItAll();">
+			<td class="div_menu_layer_title_bar" align="left" width="99%">{'txt_calendar'}</td>
+			<td class="div_menu_layer_title_bar" align="right" title="{'icon_title_close_hide'}" width="1%">
+            	<i class="glyphicon glyphicon-remove"></i>
+            </td>
+		</tr>
+	</table>
+	<iframe frameborder="0" height="230px" width="100%" scrolling="no" id="calendar_frame" name="calendar_frame" src="" ></iframe>
+</div>
+
+<div id="div_create_subacct" class="view_fullsize_table" style="width:500px;">
+	<div onclick="HideItAll();showid2('div_create_subacct','none');" >
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="view_fullsize_table_title">{'myaccount_button_create_free_sub'}</td>
+				<td class="view_fullsize_table_title" width="1%">
+                	<i class="glyphicon glyphicon-remove"></i>
+                </td>
+			</tr>
+		</table>
+	</div>
+	<table class="table_border" border="0" width="100%" cellspacing="1" cellpadding="7">
+		<tr class="table_td_background">
+			<td width="30%">{'myaccount_user_first_name'}</td>
+			<td><input type="text" name="sub_user_name" id="sub_user_name"  maxlength="50" value="" /></td>
+		</tr>
+		<tr class="table_td_background">
+			<td width="30%">{'myaccount_user_last_name'}</td>
+			<td><input type="text" name="sub_user_last_name" id="sub_user_last_name"  maxlength="50" value="" /></td>
+		</tr>
+		<tr class="table_td_background">
+			<td width="30%">{'myaccount_user_email'}</td>
+			<td><input type="text" name="sub_user_email" id="sub_user_email" style="width:300px" value="" /></td>
+		</tr>
+		<tr class="table_td_background">
+			<td width="30%">{'myaccount_user_name_id'}</td>
+			<td><input type="text" name="sub_user_name_id" id="sub_user_name_id"  value="" maxlength="50" /></td>
+		</tr>
+		<tr class="table_td_background">
+			<td width="30%"></td>
+			<td><input type="button" class="button" value="{'button_submit'}" onclick="CreateFreeSubAccount();" /></td>
+		</tr>
+	</table>
+</div> 
+{'show_list_table'}	
+<div id="div_purchase_history" title="{'myaccount_purchase_history'}" class="view_fullsize_table" >
+	<div class="data-get-for-modal">
+		<table class="table_border">
+			<tr>
+				<td width="*" >{'myaccount_purchase_history_date'}</td>
+				<td width="*" >{'myaccount_purchase_history_order_number'}</td>
+				<td width="*" >{'myaccount_purchase_history_amount'}</td>					
+				<td width="1%" >{'myaccount_purchase_history_order_type'}</td>						
+				<td width="1%" >{'myaccount_purchase_history_pay_method'}</td>
+			</tr>
+			{'show_list_table'}		
+		</table>
+	</div>
+</div>
+
+</form>
+
+<script type="text/javascript">
+	var myaccount_alert_delete_account="{'myaccount_alert_delete_account'}";
+	var subaccount_number_js; 
+	function InsertDate(id,data){
+		document.getElementById('time_end_textbox').value=data;
+		Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_birthday&time_end_textbox=',data,'1',id,"time_end_textbox");
+	}
+	function toggleBoxChangePass(){
+		$('.change-pass').toggle();
+	}
+	function CreateFreeSubAccount(){
+		if(document.getElementById("sub_user_name").value==""){
+			showNotification("{'myaccount_sub_alert_must_enter_first_name'}");
+			document.getElementById("sub_user_name").focus();
+		}
+		else if(document.getElementById("sub_user_last_name").value==""){
+			showNotification("{'myaccount_sub_alert_must_enter_last_name'}");
+			document.getElementById("sub_user_last_name").focus();
+		}
+		else if(document.getElementById("sub_user_email").value==""){
+			showNotification("{'myaccount_sub_alert_must_enter_email'}");
+			document.getElementById("sub_user_email").focus();
+		}
+		else if(document.getElementById("sub_user_name_id").value==""){
+			showNotification("{'myaccount_sub_alert_must_enter_user_name_id'}");
+			document.getElementById("sub_user_name_id").focus();
+		}
+		else{
+			document.ecardnax_myaccount.action.value="add_new_subaccount";
+			document.ecardnax_myaccount.subaccount_number.value=subaccount_number_js;
+			document.ecardnax_myaccount.submit();
+		}
+	}
+
+	function UpgradeAccount(){
+		if(document.getElementById("order_number").value==""){
+			showNotification("{'myaccount_sub_alert_must_enter_order_number'}");
+			document.getElementById("order_number").focus();
+		}
+		else{
+			document.ecardnax_myaccount.action.value="upgrade_account";
+			document.ecardnax_myaccount.submit();		
+		}
+	}
+	function showIDHidden(id){
+		jQuery('#'+id).animate({height: 'toggle'},200, function(){});
+		if(jQuery('#btn_'+id).hasClass('btn_hide_show'))
+		jQuery('#btn_'+id).removeClass('btn_hide_show').addClass('btn_hide');
+		else
+		jQuery('#btn_'+id).removeClass('btn_hide').addClass('btn_hide_show');
+	}
+</script>

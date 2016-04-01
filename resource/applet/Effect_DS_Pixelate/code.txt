@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Pixelate.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=pixelsize VALUE="24"><PARAM NAME=pause VALUE="1"><PARAM NAME=interactive VALUE="OUT"><B>Sorry, no java browser</B></APPLET>

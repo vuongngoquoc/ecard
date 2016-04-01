@@ -1,0 +1,34 @@
+<!-- BEGIN sendcard_advance_option.php -->
+<ul class="nav nav-pills sendcard">
+{'button_select_image_effect'}
+{'button_select_skin'}
+{'button_select_stamp'}
+{'button_select_music'}
+{'button_select_poem'}
+<!----remove $button_card_info --->
+{'button_card_printer'}
+{'button_rate_card'}
+</ul>
+<!-- END sendcard_advance_option.php -->
+
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalCardInfo" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">{'sendcard_php_button_card_info'}</h4>
+          </div>
+          <div class="modal-body">
+              {'div_card_info'}       
+          </div>
+          
+      </div>
+  </div>
+</div>
+<!-- modal -->
+<script>
+function showModalCardInfo(){
+	$('#myModalCardInfo').modal();
+}
+</script>

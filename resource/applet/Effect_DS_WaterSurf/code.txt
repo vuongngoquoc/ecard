@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_WaterSurf.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=density VALUE="5"><PARAM NAME=interactive VALUE="no"><B>Sorry, no java browser</B></APPLET>

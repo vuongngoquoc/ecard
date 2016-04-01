@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={'charset'}" />
+<title>{'ecard_txt_admin_title'}</title>
+<style type="text/css">
+<!--
+@import url(html/07_style.css);
+-->
+</style>
+<script type="text/javascript" src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.js"></script>
+<script type="text/javascript" src="ecardmax_admin.js"> </script>
+<script type="text/javascript">
+var topmenu_over="";
+</script>
+</head>
+
+<body style="background-color:#FAEDC8;" {'show_onload_javascript'}>
+<iframe id="modalbkg" frameborder="0" style="display:none;filter: Alpha(Opacity=40);-moz-opacity:0.4;opacity:0.4;width:1px;height:1px;background-color: #999999;position: absolute;z-index:1;top:0px;left:0px;"></iframe>
+<div id="moz_modalbkg" style="position:absolute;display:none;filter: Alpha(Opacity=40);-moz-opacity:0.4;opacity:0.4;width:1px;height:1px;background-color: #999999;z-index:1;top:0px;left:0px;"></div>
+<div id="show_popup_preview" style="display:none;position:absolute;top:0;left:0;z-index:10" onmouseover="this.style.display ='block';if(hide_pointer!='1')document.getElementById('pointer').style.display = 'block';" onmouseout="this.style.display ='none';document.getElementById('pointer').style.display = 'none';"></div>
+<div id="show_loading" style="display:none;position:absolute;top:0;left:0;text-align:center;padding:10px;width:130px;background-color:#FDBF04;border:1px solid #7D7764;z-index:11"><img alt="" src="html/07_ajax_loader.gif" /><br /><span id="show_loading_text"></span></div>
+<iframe id="hidden_iframe" frameborder="0" style="display:none;position:absolute;top:0;left:0;border:1px;z-index:2" scrolling="no"></iframe>
+<table align="center" border="0" width="900px" cellspacing="0" cellpadding="0">
+	<tr>
+		<td valign="bottom" style="cursor:pointer;cursor:hand;text-align:center"><img style="vertical-align: bottom;" alt="" border="0" src="html/07_ecardmax_logo.gif" /><a href="index.php?step=admin_show_main"><img alt="" style="vertical-align: bottom;" border="0" src="html/{'current_lang'}/07_tab_admin_index.gif" /></a><a href="{'ecard_url'}" target=_blank><img alt="" style="vertical-align: bottom;" border="0" src="html/{'current_lang'}/07_tab_homepage.gif"/></a><a href="index.php?step=admin_holiday_event"><img alt="" style="vertical-align: bottom;" border="0" src="html/{'current_lang'}/07_tab_holiday.gif" /></a><a href="index.php?step=admin_feedback_department"><img alt="" style="vertical-align: bottom;" border="0" src="html/{'current_lang'}/07_tab_feedback.gif" /></a><!--<a href="index.php?step=admin_gold_version"><img alt="" style="vertical-align: bottom;" border="0" src="html/07_tab_gold.gif" /></a>--></td>
+	</tr>
+	<tr>
+		<td style="background-image: url(html/07_barbkg.gif);height:8px"></td>
+	</tr>
+	<tr>
+		<td style="cursor:pointer;white-space:nowrap;text-align:center" ><img alt="" id="button_admin" onclick="topmenu_over=1;ShowTopMenu(this.id,this.id+'_layer')" onmouseover="this.src='html/{'current_lang'}/07_tab_administration_over.gif';if(topmenu_over==1)ShowTopMenu(this.id,this.id+'_layer');" onmouseout="this.src='html/{'current_lang'}/07_tab_administration.gif'" border="0" src="html/{'current_lang'}/07_tab_administration.gif" /><img alt="" id="button_member" onclick="topmenu_over=1;ShowTopMenu(this.id,this.id+'_layer')" onmouseover="this.src='html/{'current_lang'}/07_tab_members_over.gif';if(topmenu_over==1)ShowTopMenu(this.id,this.id+'_layer');" onmouseout="this.src='html/{'current_lang'}/07_tab_members.gif'" border="0" src="html/{'current_lang'}/07_tab_members.gif" /><img alt="" id="button_ecard" onclick="topmenu_over=1;ShowTopMenu(this.id,this.id+'_layer')" onmouseover="this.src='html/{'current_lang'}/07_tab_egreeting_over.gif';if(topmenu_over==1)ShowTopMenu(this.id,this.id+'_layer');" onmouseout="this.src='html/{'current_lang'}/07_tab_egreeting.gif'" border="0" src="html/{'current_lang'}/07_tab_egreeting.gif" /><img alt="" id="button_option" onclick="topmenu_over=1;ShowTopMenu(this.id,this.id+'_layer')" onmouseover="this.src='html/{'current_lang'}/07_tab_advanceoption_over.gif';if(topmenu_over==1)ShowTopMenu(this.id,this.id+'_layer');" onmouseout="this.src='html/{'current_lang'}/07_tab_advanceoption.gif'" border="0" src="html/{'current_lang'}/07_tab_advanceoption.gif" /><img alt="" id="button_email" onclick="topmenu_over=1;ShowTopMenu(this.id,this.id+'_layer')" onmouseover="this.src='html/{'current_lang'}/07_tab_emailtool_over.gif';if(topmenu_over==1)ShowTopMenu(this.id,this.id+'_layer');" onmouseout="this.src='html/{'current_lang'}/07_tab_emailtool.gif'" border="0" src="html/{'current_lang'}/07_tab_emailtool.gif" /></td>
+	</tr>
+	<tr>
+		<td align="center">{'show_select_language_button'}{'include_div_select_lang'}</td>
+	</tr>
+</table>
+<br />
+<table align="center" border="0" width="900px">
+	<tr>
+		<td>{'print_object'}{'button_admin'}{'button_member'}{'button_ecard'}{'button_option'}{'button_email'}</td>
+	</tr>
+</table>
+<br /><br />
+<table align="center" border="0" width="900px" cellspacing="0" cellpadding="0">
+	<tr>
+		<td colspan="2" style="background-image: url(html/07_barbkg.gif);height:8px"></td>
+	</tr>
+	<tr>
+		<td align="center">{'ecard_txt_copyright_2010'}</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

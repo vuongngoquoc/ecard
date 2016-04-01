@@ -1,0 +1,251 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_ecard_skin2.gif" alt="" style="vertical-align:middle" /> {'skin_txt_page_title'}
+({'skin_txt_total'} {'count_total'})</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'skin_txt_click_here_to_add_new_skin'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');"><div style="float:left;">{'skin_txt_how_to_add_new_skin_by_ftp'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'skin_tooltip_close_hide'}" alt="{'skin_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="100%">
+				{'skin_txt_upload_by_ftp_guide'}				
+			</td>
+		</tr>
+	</table><br />
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'skin_txt_add_new_skin_using_web_browser'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'skin_tooltip_close_hide'}" alt="{'skin_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'skin_txt_skin_name'}</td>
+			<td width="80%"><input type="text" name="skin_name_display" style="width:300px" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'skin_txt_text_color'}</td>
+			<td width="80%"><div style="float:left"><input type="text" name="skin_text_color" style="width:90px" size="20" value="#000000" /></div> <div style="float:left;width:13px;height:13px;background-color:#000000;border:1px solid silver;cursor:pointer;" id="addnew_skin_text_color" title="click to open color picker" onclick="skin_id=-1;ShowDiv(this.id,'color_table',0,0);"></div></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px; display:none;">
+			<td width="20%">{'skin_txt_bar'} (.gif .jpg .png .swf)</td>
+			<td width="80%"><input type="file" name="file1" id="file1" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'skin_txt_bkg'} (.gif .jpg .png)</td>
+			<td width="80%"><input type="file" name="file2" id="file2" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px; display:none;">
+			<td width="20%">{'skin_txt_bottom'} (.gif .jpg .png .swf)</td>
+			<td width="80%"><input type="file" name="file3" id="file3" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'skin_txt_icon'} (.gif .jpg .png .swf)</td>
+			<td width="80%"><input type="file" name="file4" id="file4" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'skin_txt_poem'} (.gif .jpg .png .swf)</td>
+			<td width="80%"><input type="file" name="file5" id="file5" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'skin_txt_skin'} (.gif .jpg .png)</td>
+			<td width="80%"><input type="file" name="file6" id="file6" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px; display:none;">
+			<td width="20%">{'skin_txt_top'} (.gif .jpg .png .swf)</td>
+			<td width="80%"><input type="file" name="file7" id="file7" size="42" /></td>
+		</tr>
+		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input type="button" value="{'skin_button_add_new_skin'}" class="button" onclick="AddNewSkin();" /></td>
+		</tr>
+		
+	</table><br />
+</div>
+<div><strong>{'skin_txt_tips'}:</strong></div>
+{'skin_txt_tips_detail'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px">{'skin_txt_column_name_icon'}</td>
+		<td width="7%" align="center" style="padding:4px">{'skin_txt_column_name_default'}</td>
+		<td width="*"  style="padding:4px">{'skin_txt_column_name_skin_name'}</td>
+		<td width="17%" style="padding:4px">{'skin_txt_column_name_text_color'}</td>
+		<td width="20%" style="padding:4px">{'skin_txt_column_name_folder_name'}</td>				
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'skin_txt_column_name_enable'}</td>
+		<td width="7%" align="center" style="padding:4px">{'skin_txt_column_name_preview'}</td>
+		<td width="1%" align="center" style="white-space:nowrap">{'skin_txt_column_name_sort_order'}</td>
+		<td width="1%" align="center" style="padding:4px">{'skin_txt_column_name_sort_delete'}</td>
+		<td width="1%" align="center" style="padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'skin_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="10">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'skin_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'skin_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+{'display_page_number'}
+<div id="view_fullsize_table" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;width:660px" onclick="HideItAll();" title="{'skin_tooltip_click_here_to_close'}">
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="left" width="99%"><span id="print_my_title" style="margin-top:-5px"></span></td>
+			<td align="right" width="1%"><img border="0" src="html/07_icon_button_close.gif" title="{'skin_tooltip_close_hide'}" alt="{'skin_tooltip_close_hide'}" /></td>
+		</tr>
+		</table>
+	 </div>
+	<div id="print_fullsize" style="text-align:center;background-color:lightyellow;cursor:pointer"></div>
+</div>
+
+</form>
+<script type="text/javascript">
+
+//Print color table
+
+var array = new Array();
+var skin_id ="";
+array[0] ="#FFFFFF";array[1] ="#000000";array[2] ="#EEECE1";array[3] ="#1F497D";array[4] ="#4F81BD";array[5] ="#C0504D";array[6] ="#9BBB59";array[7] ="#8064A2";array[8] ="#4BACC6";array[9] ="#F79646";
+array[10] ="#F2F2F2";array[11] ="#7F7F7F";array[12] ="#DDD9C3";array[13] ="#C6D9F0";array[14] ="#DBE5F1";array[15] ="#F2DCDB";array[16] ="#EBF1DD";array[17] ="#E5E0EC";array[18] ="#DBEEF3";array[19] ="#FDEADA";
+array[20] ="#D8D8D8";array[21] ="#595959";array[22] ="#C4BD97";array[23] ="#8DB3E2";array[24] ="#B8CCE4";array[25] ="#E5B9B7";array[26] ="#D7E3BC";array[27] ="#CCC1D9";array[28] ="#B7DDE8";array[29] ="#FBD5B5";
+array[30] ="#BFBFBF";array[31] ="#3F3F3F";array[32] ="#938953";array[33] ="#548DD4";array[34] ="#95B3D7";array[35] ="#D99694";array[36] ="#C3D69B";array[37] ="#B2A2C7";array[38] ="#92CDDC";array[39] ="#FAC08F";
+array[40] ="#A5A5A5";array[41] ="#262626";array[42] ="#494429";array[43] ="#17365D";array[44] ="#366092";array[45] ="#953734";array[46] ="#76923C";array[47] ="#5F497A";array[48] ="#31859B";array[49] ="#E36C09";
+array[50] ="#7F7F7F";array[51] ="#0C0C0C";array[52] ="#1D1B10";array[53] ="#0F243E";array[54] ="#244061";array[55] ="#632423";array[56] ="#4F6128";array[57] ="#3F3151";array[58] ="#205867";array[59] ="#974806";
+array[60] ="#C00000";array[61] ="#FF0000";array[62] ="#FFC000";array[63] ="#FFFF00";array[64] ="#92D050";array[65] ="#00B050";array[66] ="#00B0F0";array[67] ="#0070C0";array[68] ="#002060";array[69] ="#7030A0";
+document.writeln("<table id=\"color_table\" style=\"position:absolute;display:none;border-collapse:collapse;border:2px solid silver;background-color: #DBE6F3;color: black;font-size: 11px;z-index:9\" cellpadding=5 cellspacing=0 width=190><tr style=\"background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold;cursor:pointer\" onclick=\"HideItAll();\"><td><div style=\"float:left\">{'skin_txt_select_color'}</div><div style=\"float:right\"><img border=\"0\" src=\"html/07_icon_button_close.gif\" title=\"Close/Hide\" alt=\"Close/Hide\" style=\"vertical-align:middile;\" /></div></td></tr><tr><td>\n");
+for (i=0;i<array.length;i++){
+	document.writeln("<span style=\"width:15px;height:15px;cursor:hand;cursor:pointer;font-size:11px;border:1px solid #C0C0C0;background-color:" + array[i] + ";\" onclick=\"SetTextColor('" + array[i] + "');\" onMouseover=\"this.style.border='1px solid #F29536';\" onMouseout=\"this.style.border='1px solid #C0C0C0';\"></span><span style=\"width:5px;height:15px;font-size: 11px;\"></span>");
+	if(i==9 || i==19 || i==29 || i==39 || i==49 || i==59) document.write("<div style=\"line-height:4px\"></div>");
+	if(i==59)document.write("<hr class=HR_Color /><span style='height:20'>{'skin_txt_standard_color'}</span><br />");
+}
+document.writeln("</td></tr></table>\n");
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function HideItAll(){		
+	for(i=0;i<array.length;i++){
+		document.getElementById('cell'+array[i]).style.border="0px";
+		document.getElementById('cell'+array[i]).style.backgroundColor="";
+		document.getElementById('preview_cell'+array[i]).style.border="0px";
+		document.getElementById('preview_cell'+array[i]).style.backgroundColor="";
+	}
+	document.getElementById('hidden_iframe').style.display="none";
+	document.getElementById('view_fullsize_table').style.display="none";
+	document.getElementById('print_fullsize').innerHTML="";
+	document.getElementById('color_table').style.display="none";
+}
+
+function HideDefautl(){
+	for(i=0;i<array.length;i++){
+		document.getElementById('default_cell'+array[i]).style.border="0px";
+		document.getElementById('default_cell'+array[i]).style.backgroundColor="";
+	}
+}
+
+function SetTextColor(color){
+	if(skin_id!="-1"){
+		document.getElementById('skin_text_color'+skin_id).value=color;
+		Editme('index.php?step=edit_me&table=max_skin&edit_id=skin_id&edit_id_value='+skin_id+'&edit_key=skin_text_color&edit_value=',color,'1',color,'skin_text_color'+skin_id);
+		document.getElementById('span_skin_text_color'+skin_id).style.backgroundColor=color;		
+	}
+	else{
+		document.form1.skin_text_color.value=color;
+		document.getElementById('addnew_skin_text_color').style.backgroundColor=color;
+	}
+	HideItAll();
+}
+
+function Previewskin(bar,bkg,bottom,icon,top){
+	bar=print_image(bar);
+	bottom=print_image(bottom);
+	icon=print_image(icon);
+	top=print_image(top);
+	var text_color=document.getElementById('skin_text_color'+skin_id).value;
+	var card_body="<br /><table cellspacing=0 cellpadding=0 width=503 align=center style=\"background-image: url('"+bkg+"');\"><tr><td>"+top+"</td></tr><tr><td><table align=center width=90% cellspacing=0 cellpadding=4><tr><td width=1%>"+icon+"</td><td width=10% style='white-space:nowrap;text-align:left;color:"+text_color+"'>{'skin_txt_from'}</td><td width=59%></td><td rowspan=3 align=right><img border=0 src=html/sample_stamp.gif /></td></tr><tr><td width=1%>"+icon+"</td><td width=10% style='white-space:nowrap;text-align:left;color:"+text_color+"'>{'skin_txt_to'}</td><td width=59%></td></tr><tr><td width=1%>"+icon+"</td><td width=10% style='white-space:nowrap;text-align:left;color:"+text_color+"'>{'skin_txt_date_created'}</td><td width=59%></td></tr></table><div style='padding:10px;text-align:center;'><img border=1 src=html/sample_card.jpg /></div><div style='padding:10px;text-align:center'>"+bar+"</div><div style='margin:20px;text-align:justify;color:"+text_color+"'>{'skin_txt_sample_message'}</div></td></tr><tr><td>"+bottom+"</td></tr></table><br />";
+	document.getElementById('print_fullsize').innerHTML=card_body;
+	ShowLoaderImage("{'skin_message_loading'}");
+	ShowDivCenterPage('view_fullsize_table');
+	setTimeout("showid2('show_loading','none');showid2('hidden_iframe','none');",700);
+}
+
+function print_image(data){
+	var res="";
+	var array=data.split(",");
+	var img=array[0];
+	var w=array[1];
+	var h=array[2];
+	if(img.indexOf(".swf")==-1){//photo
+		res="<img border=0 src="+img+" width="+w+" height="+h+" />";
+	}
+	else{//flash
+		res="<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0' id=postcard width="+w+" height="+h+"><param name=movie value="+img+" /><param name=quality value=high /><embed src="+img+" quality=high width="+w+" height="+h+" type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' ></embed></object>";
+	}
+	return res;
+}
+
+function AddNewSkin(){
+	if(document.form1.skin_name_display.value==""){
+		alert("{'skin_message_skin_name_required'}");
+		document.form1.skin_name_display.focus();
+	}
+	else if(document.form1.skin_text_color.value==""){
+		alert("{'skin_message_text_color_required'}");
+		document.form1.skin_text_color.focus();
+	}
+	else{
+		var file_upload=true;
+		for(i=1;i<=7;i++){
+			if(document.getElementById("file"+i).value==""){
+				file_upload=false;
+			}
+		}
+		if(file_upload){
+			document.form1.what.value='add_new';
+			document.form1.submit();
+		}
+		else{
+			alert("{'skin_message_upload_file_missing'}");
+		}
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'skin_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'skin_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+</script>

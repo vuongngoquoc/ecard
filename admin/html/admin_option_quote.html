@@ -1,0 +1,132 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_quote2.gif" alt="" style="vertical-align:middle" /> {'quote_txt_page_title'} 
+({'quote_txt_total'} {'count_total'})</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'quote_txt_click_to_add_new_quote'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'quote_txt_add_new_quote'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'quote_tooltip_close_hide'}" alt="{'quote_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'quote_txt_quote_author'}</td>
+			<td width="80%"><input onkeypress="return noEnterKey(event);" type="text" name="quote_author" id="quote_author" style="width:300px" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'quote_txt_quote_body'}</td>
+			<td width="80%"><textarea onkeypress="return noEnterKey(event);" name="quote_body" id="quote_body" style="width:90%;height:150px"></textarea></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input type="button" value="{'quote_txt_button_add_new_quote'}" class="button" onclick="AddNewQuote();" /></td>
+		</tr>		
+	</table><br />
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'quote_txt_add_new_quote_advance'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'quote_tooltip_close_hide'}" alt="{'quote_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'quote_txt_input_data_example'}</td>
+			<td width="80%">{'quote_txt_quote_data_example'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'quote_txt_quote_author_body'}</td>
+			<td width="80%"><textarea name="quote_body_bulk" id="quote_body_bulk" style="width:90%;height:150px"></textarea></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input type="button" value="{'quote_txt_button_add_new_quote_bulk'}" class="button" onclick="AddNewQuoteBulk();" /></td>
+		</tr>		
+	</table><br />
+</div>
+<div><strong>{'quote_txt_tips'}:</strong></div>
+{'quote_txt_tips_content'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'quote_txt_column_name_icon'}</td>
+		<td width="*" style="padding:4px;white-space:nowrap">{'quote_txt_column_name_quote_body'}</td>
+		<td width="20%" style="padding:4px;white-space:nowrap">{'quote_txt_column_name_quote_author'}</td>
+		<td width="12%" align="center" style="padding:4px;white-space:nowrap">{'quote_txt_column_name_quote_enable_disable'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'quote_txt_column_name_quote_delete'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'quote_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="6">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'quote_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'quote_txt_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNewQuote(){	
+	if(document.form1.quote_author.value==""){
+		alert("{'quote_txt_quote_author_required'}");
+		document.form1.quote_author.focus();
+	}
+	else if(document.form1.quote_body.value==""){
+		alert("{'quote_txt_quote_body_required'}");
+		document.form1.quote_body.focus();
+	}
+	else{
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+}
+
+function AddNewQuoteBulk(){	
+	if(document.form1.quote_body_bulk.value==""){
+		alert("{'quote_message_quote_input_data_required'}");
+		document.form1.quote_body_bulk.focus();
+	}
+	else{
+		document.form1.what.value='add_new_bulk';
+		document.form1.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'quote_message_quote_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'quote_message_quote_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>

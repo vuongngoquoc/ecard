@@ -1,0 +1,84 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={'charset'}" />
+<title>{'ecard_txt_admin_title'}</title>
+<style type="text/css">
+<!--
+@import url(html/07_style.css);
+-->
+</style>
+<script type="text/javascript" src="ecardmax_admin.js"> </script>
+
+</head>
+
+<body style="background-color:white;">
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="{'what'}" />
+<input type="hidden" name="mgroup_id" value="{'mgroup_id'}" />
+<h2><img border="0" src="html/07_icon_list_email.gif" alt="" style="vertical-align:middle" /> {'email_tool_recipient_group_txt_page_title'}: {'group_name'} ({'email_tool_recipient_group_txt_total'} {'count_total'})</h2>
+{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px">{'email_tool_recipient_group_txt_column_name_icon'}</td>
+		<td width="*" style="padding:4px">{'email_tool_recipient_group_txt_column_name_email'}</td>
+		<td width="*" style="padding:4px">{'email_tool_recipient_group_txt_column_name_more_info'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'email_tool_recipient_group_txt_column_name_time_added'}</td>
+		<td width="1%" align="center" style="padding:4px">{'email_tool_recipient_group_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'email_tool_recipient_group_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="6">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="33%"><strong>{'email_tool_recipient_group_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="33%" align="center" style="white-space:nowrap"><strong>{'email_tool_recipient_group_txt_search_email'}</strong> <input type="text" name="keyword" size="20" value="{'keyword'}" onkeypress="return noEnterKey(event)" /> <input type="submit" value="{'email_tool_recipient_group_button_search_email'}" class="button" name="cmd_button" /></td>
+				<td width="33%" align="right"><input type="button" value="{'email_tool_recipient_group_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+</form>
+</body>
+
+</html>
+<script type="text/javascript">
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'email_tool_recipient_group_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what={'what'}&mgroup_id={'mgroup_id'}&what2=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'email_tool_recipient_group_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+self.parent.UpdateNumberEmail('{'count_total_email'}','{'mgroup_id'}');
+</script>

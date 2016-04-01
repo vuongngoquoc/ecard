@@ -1,0 +1,152 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_feedback_dep.gif" alt="" style="vertical-align:middle" /> {'feedback_txt_page_title'}</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'feedback_txt_click_to_add_deparment'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'feedback_txt_add_deparment'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'feedback_tooltip_click_to_close'}" alt="{'feedback_tooltip_click_to_close'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>	
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'feedback_txt_deparment_name'}</td>
+			<td width="70%"><input type="text" name="feedback_topic" id="feedback_topic" style="width:90%" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'feedback_txt_deparment_email'}</td>
+			<td width="70%"><input type="text" name="feedback_email" id="feedback_email" style="width:90%" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%"></td>
+			<td width="70%"><input type="button" value="{'feedback_txt_button_add_new_department_submit'}" class="button" onclick="AddNewDepartment();" /></td>
+		</tr>		
+	</table><br />
+</div>
+<div><strong>{'feedback_txt_tips'}:</strong></div>
+{'feedback_txt_tips_content'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px">{'feedback_txt_column_name_icon'}</td>
+		<td width="*" style="padding:4px">{'feedback_txt_column_name_department_name'}</td>
+		<td width="*" style="padding:4px">{'feedback_txt_column_name_department_email'}</td>
+		<td width="1%" align="center" style="padding:4px">{'feedback_txt_column_name_feedback'}</td>
+		<td width="1%" align="center" style="padding:4px">{'feedback_txt_column_name_view'}</td>
+		<td width="1%" align="center" style="padding:4px">{'feedback_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'feedback_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="7">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="100%" align="right"><input type="button" value="{'feedback_txt_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+<a name="show_hidden_iframe"></a><br />
+<div style="display:none;" id="div_iframe">
+<iframe frameborder="0" width="100%" scrolling="auto" id="preview_frame" name="preview_frame" src="" style="border:1px solid silver;height:300px"></iframe>
+<div style="line-height:8px"></div>
+<div style="text-align:right"><a href="javascript:ResizeIframe('2');" class="page_other" title="{'feedback_tooltip_default_size'}"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_normal_size.gif" /></a> <a href="javascript:ResizeIframe('1');" class="page_other" title="{'feedback_tooltip_increase_size'}"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_plus.gif" /></a> <a href="javascript:ResizeIframe('0');" class="page_other" title="{'feedback_tooltip_decrease_size'}"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_minus.gif" /></a><br /><br /></div>
+</div>
+<div id="view_fullsize_table" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;width:500px;">	
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold" onclick="showid2('view_fullsize_table','none');frames['preview_frame'].HideItAll();" title="{'feedback_tooltip_click_to_close_hide'}">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="left" width="99%">{'feedback_txt_view_feedback_message'}</td>
+			<td align="right" width="1%"><img border="0" src="html/07_icon_button_close.gif" title="{'feedback_tooltip_click_to_close'}" alt="{'feedback_tooltip_click_to_close'}" /></td>
+		</tr>
+		</table>
+	 </div>
+	<div id="print_message_body" style="padding:5px;background-color:lightyellow;height:500px;overflow:auto;"></div>
+</div>
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function HideItAll(){		
+	for(i=0;i<array.length;i++){
+		document.getElementById('cell'+array[i]).style.border="0px";
+		document.getElementById('cell'+array[i]).style.backgroundColor="";
+	}
+	document.getElementById('hidden_iframe').style.display="none";
+}
+
+function ReadMessage(data){
+	document.getElementById('print_message_body').innerHTML= data; 
+	ShowLoaderImage("{'feedback_message_loading'}");	
+	ShowDivCenterPage('view_fullsize_table');
+	setTimeout("showid2('show_loading','none');showid2('hidden_iframe','none');",700);
+}
+
+function AddNewDepartment(){
+	if(document.form1.feedback_topic.value==""){
+		alert("{'feedback_message_department_name_required'}");
+		document.form1.feedback_topic.focus();
+	}
+	else if(document.form1.feedback_email.value=="" || !valid_email(document.form1.feedback_email.value)){
+		alert("{'feedback_message_department_email_required'}");
+		document.form1.feedback_email.focus();
+	}
+	else{
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'feedback_message_checkbox_checked_required'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'feedback_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function ResizeIframe(data){
+	var iframe_h =document.getElementById("preview_frame").offsetHeight;
+	if(data=="1"){
+		document.getElementById("preview_frame").style.height=iframe_h + 300 +"px";
+	}
+	else if(data=="2"){
+		document.getElementById("preview_frame").style.height=300 +"px";
+	}
+	else{
+		if(iframe_h <= 300){
+			document.getElementById("preview_frame").style.height="300px";
+		}
+		else{
+			document.getElementById("preview_frame").style.height=iframe_h - 100 +"px";
+		}
+	}
+}
+</script>

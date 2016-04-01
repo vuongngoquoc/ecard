@@ -1,0 +1,144 @@
+<div id="main_wrapper" class="col-md-12">
+	<div class="row">
+        <div class="col-sm-12">
+            <h2 class="table_title_bar" id="title-1"><i class="fa fa-edit padding5"></i>{'myalbum_poem_title'} ({'total_count'})</h2>
+            {'myalbum_toolbar'}
+        </div>
+        
+        <div class="col-md-12">
+    	<form name="ecardmax_form" method="post" action="index.php" enctype='multipart/form-data'>
+        <input type="hidden" name="step" value="{'step'}" />
+        <input type="hidden" name="what" value="{'what'}" />
+        <input type="hidden" name="action" value="" />
+        <input type="hidden" name="next_step" value="{'next_step'}" />
+        <div class="category-tab"><!--category-tab-->
+            <ul class="nav nav-tabs">
+                <li class='active'><a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a></li>
+                <li><a href='#show_add_table' data-toggle='tab'>{'myalbum_Poem_click_to_upload'}</a></li>
+            </ul>
+            <div class="tab-content">
+            	<!----BOX LIST DATA---->
+                <div class="tab-pane fade active in" id="list_data">
+                <div>{'show_info'}</div>			
+                <div class="table-responsive cart_info">
+                <table class="table table-condensed table-hover">
+                	<thead>			
+                    <tr class="active">
+                        <th width="50%" >{'myalbum_txt_poem_title_author_body'}</th>
+                        <th width="48%" class="text-center" >{'myalbum_txt_delete_this_poem'}</th>
+                        <th width="2%" class="text-center"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'txt_tooltip_select_all'}" type="checkbox" value="1" onclick="check_uncheck_all('{'bk_id'}');" /></th>
+                    </tr>
+                    </thead>
+                    {'show_list_table'}
+                    <tr>
+                        <td width="80%" colspan="1" class="table_td_text_color">{'txt_row_per_page'} <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.ecardmax_form.submit();" /></td>
+                        <td width="20%" colspan="2" class="delete_rows_data">
+                        <span class="pull-right">
+                        <button type="button"  class="btn btn-sm btn-danger" onclick="CheckSelected();" >
+                        <i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}
+                        </button> 
+                        <i class="glyphicon glyphicon-hand-up"></i>
+                        </span>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                {'display_page_number'}
+                </div>
+                <!----END-------------->
+            	<!----BOX ADD---->
+                <div class="tab-pane fade" id="show_add_table">
+                	<div class="form-group has-feedback clearfix">
+	                <div class="col-sm-4">
+                    <input placeholder="{'myalbum_txt_poem_title'}" class="form-control input-sm" onkeypress="return noEnterKey(event)" type="text" name="poem_title" id="poem_title"  />
+                    </div>
+                    </div>
+                    
+                    <div class="form-group has-feedback clearfix">
+	                <div class="col-sm-4">
+                    <input placeholder="{'myalbum_txt_poem_author'}" class="form-control input-sm" onkeypress="return noEnterKey(event)" type="text" name="poem_author" id="poem_author"  />
+                    </div>
+                    </div>
+                    
+                    <div class="form-group has-feedback clearfix">
+	                <div class="col-sm-4">
+                    <textarea placeholder="{'myalbum_txt_poem_body'}" class="form-control input-sm" name="poem_body" id="poem_body" /></textarea>
+                    </div>
+                    </div>
+                    
+                    <div class="form-group has-feedback clearfix">
+	                <div class="col-sm-4">
+                    <button onclick="AddNew();" class="btn btn-sm btn-default btn-my-site" type="button" >
+                    <i class='fa fa-save padding5'></i>{'myalbum_button_add_poem'}</button>
+                    </div>
+                    </div>
+                </div>
+                <!----END-------->
+                
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+
+
+</form>
+
+<script type="text/javascript">
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNew(){	
+	if(document.ecardmax_form.poem_title.value==""){
+		showNotification("{'myalbum_poem_js_alert_must_enter_poem_title'}");
+		document.ecardmax_form.poem_title.focus();
+	}
+	else if(document.ecardmax_form.poem_author.value==""){
+		showNotification("{'myalbum_poem_js_alert_must_enter_poem_author'}");
+		document.ecardmax_form.poem_author.focus();
+	}
+	else if(document.ecardmax_form.poem_body.value==""){
+		showNotification("{'myalbum_poem_js_alert_must_enter_poem_body'}");
+		document.ecardmax_form.poem_body.focus();
+	}
+	else{
+		document.ecardmax_form.action.value="add_new";
+		document.ecardmax_form.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			showNotification("{'js_alert_must_select_checkbox'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&what=poem&action=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'myalbum_member_delete_poem_confirm'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+</script>

@@ -1,0 +1,16 @@
+<tr id="tr{'invite_id'}" class="table_td_background" >
+	<td width="1%" class="text-center"><a href="{'ecard_url'}/index.php?step=invitation_detail&invite_id={'invite_id'}">
+    <img border="0" src="{'thumbnail_src'}" alt="" /></a><br />
+    <a href="{'ecard_url'}/index.php?step=invitation_detail&invite_id={'invite_id'}">{'invite_title'}</a></td>
+	<td width="1%" class="text-center"><strong>{'total_guest'}</strong><br />
+    <a title="{'invite_homepage_message_txt_add_guest'}" href="{'ecard_url'}/index.php?step=invitation_addguest&invite_id={'invite_id'}" class="btn btn-sm btn-default">
+    <i class="fa fa-user-plus" title="{'invite_homepage_message_txt_add_guest'}"></i></a></td>
+	<td width="1%" class="text-center">{'accepted'}</td>
+	<td width="1%" class="text-center">{'declined'}</td>
+	<td width="1%" class="text-center">{'not_sure'}</td>
+	<td width="1%" class="text-center">{'no_response'}</td>
+	<td width="1%" class="text-center">{'resend'}</td>
+	<td width="1%" class="text-center">
+    <span class="btn btn-sm btn-default" onclick="if(window.confirm('{'history_js_alert_sure_to_delete_card'}')){location.href='{'ecard_url'}/index.php?step={'step'}&what=delete_card&invite_id={'invite_id'}';}">
+    <i class="fa fa-remove"></i></span></td>
+</tr>

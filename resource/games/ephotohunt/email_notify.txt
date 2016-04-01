@@ -1,0 +1,12 @@
+Hello!
+
+We'd like to let you know that you are not on our PhotoHunt game High Score Board.
+
+Someone has beat your high score.
+
+Please come to our website and play again.
+
+{'mysite'}
+
+Regards,
+{'mysite'} Staff.

@@ -1,0 +1,65 @@
+<div id="div_show_sign_in">	
+		<h2 id="title-1" class="table_title_bar">{'button_sign_in'}</h2>
+        <div class="row nopadding">
+        <div class="col-md-6">
+		<form method="POST" action="index.php">
+		<input type="hidden" name="step" value="sign_in" />
+		<input type="hidden" name="what" value="check_login" />
+		<input type="hidden" name="next_step" value="{'next_step'}" />
+            	<div class="form-group">
+                <h5 class="title-first-content">{'sign_in_existing_members'} {'show_info_1'}</h5>
+                <div class="Error_Message" style="padding:5px;display:none" id="show_error_message_sender_info" ></div>
+                </div>
+                <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" type="text" id="user_name_id" placeholder="{'sign_in_enter_user_name_password'}" name="user_name_id" value="{'user_name_id'}" />
+                </div>
+                <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" type="password" name="user_password" value="" />
+                </div>
+                <div class="form-group">
+                    <span class="pull-left">
+                        
+                        <input type="checkbox" name="remember_me" value="1" /> 
+                        <label class="checkbox-inline">
+                        <span onclick="ShowDivCenterPage('div_learn_more',0);" id="sign_in_learn_more">{'sign_in_remember_me_learn_more'}</span>
+                        </label>
+                    </span>
+		            
+                    <span class="pull-right">
+                    	<button type="submit" class="btn btn-sm btn-default btn-my-site" >
+                        <i class="glyphicon glyphicon-log-in padding5"></i>{'button_sign_in'}</button>
+                    </span>
+                </div>		
+		</form>
+        </div>
+        <div class="col-md-6 clearfix">
+		<form method="POST" action="index.php">
+		<input type="hidden" name="step" value="sign_in" />
+		<input type="hidden" name="what" value="lost_pass" />
+		<input type="hidden" name="next_step" value="{'next_step'}" /> 
+        		<div class="form-group">       	
+                <h5>{'sign_in_resend_password'} {'show_info_2'}</h5>
+                <div class="Error_Message" style="padding:5px;display:none" id="show_error_message_sender_info" ></div>
+                </div>
+                <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" placeholder="{'sign_in_enter_user_name_password'}" type="text" name="user_name_id" value="{'user_name_id'}" />
+                </div>
+                <div class="form-group">
+                
+                <button type="submit" class="btn btn-sm btn-default btn-my-site" >
+                <i class="fa fa-send padding5"></i>{'sign_in_button_send_password'}</button>
+                
+                </div>
+		</form>
+        </div>
+        </div>
+</div>
+
+{'show_free_basic_membership_benefits'}
+
+<div id="div_learn_more" title="Remember me on this computer" class="div_menu_layer">	
+	<div class="data-get-for-modal">{'remember_me_learn_more_html_msg'}</div>
+</div>

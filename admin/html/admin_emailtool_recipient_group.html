@@ -1,0 +1,182 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_mail_group2.gif" alt="" style="vertical-align:middle" /> {'email_tool_recipient_group_txt_recipient_group_page_title'}</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'email_tool_recipient_group_txt_click_to_add_new_group'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'email_tool_recipient_group_txt_add_new_recipient_group'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'email_tool_recipient_group_txt_close_hide'}" alt="{'email_tool_recipient_group_txt_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>	
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'email_tool_recipient_group_txt_group_title'}</td>
+			<td width="70%"><input type="text" name="mgroup_name" id="mgroup_name" style="width:90%" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'email_tool_recipient_group_txt_from_name'}</td>
+			<td width="70%"><input type="text" name="mgroup_from_name" id="mgroup_from_name" style="width:90%" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'email_tool_recipient_group_txt_from_email'}</td>
+			<td width="70%"><input type="text" name="mgroup_from_email" id="mgroup_from_email" style="width:90%" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'email_tool_recipient_group_txt_add_bulk_mail'}</td>
+			<td width="70%"><textarea name="email" id="email" style="width:90%;height:300px"></textarea></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%"></td>
+			<td width="70%"><input type="button" value="{'email_tool_recipient_group_button_add_new_recipient'}" class="button" onclick="AddNew();" /></td>
+		</tr>
+	</table><br />
+</div>
+<div><strong>Tips:</strong></div>
+{'email_tool_recipient_group_txt_tips_content'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px">{'email_tool_recipient_group_txt_column_name_icon'}</td>
+		<td width="*" style="padding:4px">{'email_tool_recipient_group_txt_column_name_group_title'}</td>
+		<td width="1%" style="padding:4px">{'email_tool_recipient_group_txt_column_name_email'}</td>
+		<td width="1%" align="center" style="padding:4px">{'email_tool_recipient_group_txt_column_name_view'}</td>
+		<td width="1%" align="center" style="padding:4px">{'email_tool_recipient_group_txt_column_name_add'}</td>
+		<td width="1%" align="center" style="padding:4px">{'email_tool_recipient_group_txt_column_name_extract'}</td>
+		<td width="1%" align="center" style="padding:4px">{'email_tool_recipient_group_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'email_tool_recipient_group_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="8">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'email_tool_recipient_group_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'email_tool_recipient_group_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+
+<a name="show_hidden_iframe"></a><br />
+<div style="display:none;" id="div_iframe">
+<iframe frameborder="0" width="100%" scrolling="auto" id="preview_frame" name="preview_frame" src="" style="border:1px solid silver;height:300px"></iframe>
+<div style="line-height:8px"></div>
+<div style="text-align:right"><a href="javascript:ResizeIframe('2');" class="page_other" title="Default size"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_normal_size.gif" /></a> <a href="javascript:ResizeIframe('1');" class="page_other" title="Increase size"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_plus.gif" /></a> <a href="javascript:ResizeIframe('0');" class="page_other" title="Decrease size"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_minus.gif" /></a><br /><br /></div>
+</div>
+
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function HideItAll(){		
+	document.getElementById('cell_newsletter').style.border="0px";
+	document.getElementById('cell_newsletter').style.backgroundColor="";
+	document.getElementById('cell_special_offer').style.border="0px";
+	document.getElementById('cell_special_offer').style.backgroundColor="";
+	document.getElementById('cell_add_newsletter').style.border="0px";
+	document.getElementById('cell_add_newsletter').style.backgroundColor="";
+	document.getElementById('cell_add_special_offer').style.border="0px";
+	document.getElementById('cell_add_special_offer').style.backgroundColor="";
+	document.getElementById('cell_extract_newsletter').style.border="0px";
+	document.getElementById('cell_extract_newsletter').style.backgroundColor="";
+	document.getElementById('cell_extract_special_offer').style.border="0px";
+	document.getElementById('cell_extract_special_offer').style.backgroundColor="";
+	if(myid!=""){
+		for(i=0;i<array.length;i++){
+			document.getElementById('cell'+array[i]).style.border="0px";
+			document.getElementById('cell'+array[i]).style.backgroundColor="";
+			document.getElementById('cell_add'+array[i]).style.border="0px";
+			document.getElementById('cell_add'+array[i]).style.backgroundColor="";
+			document.getElementById('cell_extract'+array[i]).style.border="0px";
+			document.getElementById('cell_extract'+array[i]).style.backgroundColor="";
+		}
+	}
+	document.getElementById('div_iframe').style.display="none";
+}
+
+function AddNew(){
+	if(document.form1.mgroup_name.value==""){
+		alert("{'email_tool_recipient_group_message_group_title_reqired'}");
+		document.form1.mgroup_name.focus();
+	}
+	else if(document.form1.mgroup_from_name.value==""){
+		alert("{'email_tool_recipient_group_message_group_from_name_required'}");
+		document.form1.mgroup_from_name.focus();
+	}
+	else if(document.form1.mgroup_from_email.value=="" || !valid_email(document.form1.mgroup_from_email.value)){
+		alert("{'email_tool_recipient_group_message_group_from_email_required'}");
+		document.form1.mgroup_from_email.focus();
+	}
+	else{
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'email_tool_recipient_group_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'email_tool_recipient_group_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function ResizeIframe(data){
+	var iframe_h =document.getElementById("preview_frame").offsetHeight;
+	if(data=="1"){
+		document.getElementById("preview_frame").style.height=iframe_h + 300 +"px";
+	}
+	else if(data=="2"){
+		document.getElementById("preview_frame").style.height=300 +"px";
+	}
+	else{
+		if(iframe_h <= 300){
+			document.getElementById("preview_frame").style.height="300px";
+		}
+		else{
+			document.getElementById("preview_frame").style.height=iframe_h - 100 +"px";
+		}
+	}
+}
+
+function UpdateNumberEmail(number_email,id){
+	if(number_email=="")number_email=0;
+	if(id=="-1"){
+		document.getElementById("update_number_newsletter").innerHTML = number_email;
+	}
+	else if(id=="-2"){
+		document.getElementById("update_number_special_offer").innerHTML = number_email;
+	}
+	else{
+		document.getElementById("update_number"+id).innerHTML = number_email;
+	}
+}
+
+</script>

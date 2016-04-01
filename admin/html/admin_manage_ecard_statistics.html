@@ -1,0 +1,64 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_view_ecard_log2.gif" alt="" style="vertical-align:middle" /> {'card_statistics_txt_page_title'}</h1>
+<div><br /><br /></div>
+{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td align="center" style="padding:4px;white-space:nowrap">{'card_statistics_txt_column_name_thumbnail'}</td>
+		<td align="center" style="padding:4px;white-space:nowrap">{'card_statistics_txt_column_name_category'}</td>
+		<td align="center" style="padding:4px;white-space:nowrap">{'card_statistics_txt_column_name_time_to_send'}</td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="4">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="50%"><strong>{'card_statistics_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+					<td width="50%" align="right"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+{'display_page_number'}
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'card_statistics_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'card_statistics_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>

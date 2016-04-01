@@ -1,0 +1,327 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_member_group2.gif" alt="" style="vertical-align:middle" /> {'member_group_page_title'}</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'member_group_txt_click_here_to_create_new_group'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" colspan="2" style="cursor:pointer" onclick="showid('show_add_table');"><div style="float:left;">{'member_group_txt_fill_out_the_form_to_create_group'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'member_group_tooltip_close_hide'}" alt="{'member_group_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'member_group_txt_group_title'} <span class="Error_Message">*</span></td>
+			<td  width="80%"><input type="text" name="mg_title" style="width:400px" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_maximum_recipient'} <span class="Error_Message">*</span></td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient" id="mg_number_recipient" value="10" size="5" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_show_number_recipient_default'} <span class="Error_Message">*</span></td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient_default" id="mg_number_recipient_default" value="1" size="5" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_maximum_recipient_per_hour'} <span class="Error_Message">*</span></td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient_per_hour" id="mg_number_recipient_per_hour" value="20" size="5" /> {'member_group_txt_zero_is_unlimited'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_maximum_recipient_per_day'} <span class="Error_Message">*</span></td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient_per_day" id="mg_number_recipient_per_day" value="40" size="5" /> {'member_group_txt_zero_is_unlimited'}</td>
+		</tr>
+
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_maximum_recipient_when_user_send_invitation_card'}</td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient_invite" id="mg_number_recipient_invite" value="30" size="5" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_show_number_recipient_default_when_user_send_invitation'}</td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient_default_invite" id="mg_number_recipient_default_invite" value="1" size="5" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_maximum_recipient_per_hour_invitation'}</td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient_per_hour_invite" id="mg_number_recipient_per_hour_invite" value="60" size="5" /> {'member_group_txt_zero_is_unlimited'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_maximum_recipient_per_day'} </td>
+			<td  width="80%"><input onkeypress="return isNumberKey(event)" type="text" name="mg_number_recipient_per_day_invite" id="mg_number_recipient_per_day_invite" value="100" size="5" /> {'member_group_txt_zero_is_unlimited'}</td>
+		</tr>
+
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'member_group_txt_group_permission'}</td>
+			<td  width="80%">
+				<input type="checkbox" checked="true" id="mg_1" name="mg_allow_send_card" value="1" /> {'member_group_txt_allow_users_in_this_group_to_send_ecards'}<br />
+				<input type="checkbox" id="mg_2" name="mg_show_watermark" value="1" /> {'member_group_txt_check_this_box_to_show_watermark_image_this_group'}<br />
+				<input type="checkbox" id="mg_3" name="mg_show_banner" value="1" /> {'member_group_txt_show_banner_ads_this_group'}<br />
+				<input type="checkbox" id="mg_4" name="mg_allow_game" value="1" /> {'member_group_txt_allow_to_play_games'}<br />
+				<input type="checkbox" id="mg_5" name="mg_allow_grabber" value="1" /> {'member_group_txt_allow_to_use_media_grabber'}<br />
+				<input type="checkbox" id="mg_6" name="mg_allow_search" value="1" /> {'member_group_txt_allow_to_search_ecard_invitation'}<br />
+				<input type="checkbox" id="mg_7" name="mg_allow_futuredate" value="1" /> {'member_group_txt_allow_to_send_future_date'}<br />
+				<input type="checkbox" id="mg_8" name="mg_allow_rate" value="1" /> {'member_group_txt_allow_to_rate_card'}<br />
+				<input type="checkbox" id="mg_9" name="mg_allow_viewfullsize" value="1" /> {'member_group_txt_allow_to_use_preview_fullsize'}<br />				
+				<input type="checkbox" id="mg_10" name="mg_allow_myaccount" value="1" /> {'member_group_txt_allow_to_use_my_account'}<br />
+				<input type="checkbox" id="mg_11" name="mg_allow_addressbook" value="1" /> {'member_group_txt_allow_to_use_address_book'}<br />
+				<input type="checkbox" id="mg_12" name="mg_allow_reminder" value="1" /> {'member_group_txt_allow_to_use_reminder'}<br />
+				<input type="checkbox" id="mg_13" name="mg_allow_calendar" value="1" /> {'member_group_txt_allow_to_use_calendar'}<br />
+				<input type="checkbox" id="mg_14" name="mg_allow_myalbum" value="1" /> {'member_group_txt_allow_to_use_my_album'}<br />
+				<input type="checkbox" id="mg_15" name="mg_allow_favorite" value="1" /> {'member_group_txt_allow_to_use_favorite'}<br />
+				<input type="checkbox" id="mg_16" name="mg_allow_history" value="1" /> {'member_group_txt_allow_to_use_history'}<br />
+				<input type="checkbox" id="mg_17" name="mg_allow_birthdayalert" value="1" /> {'member_group_txt_allow_to_use_birthday_alert'}<br />
+				<input type="checkbox" id="mg_18" name="mg_allow_2subaccount" value="1" /> {'member_group_txt_allow_to_create_2_sub_accounts'}<br />
+				<input type="checkbox" id="mg_19" name="mg_allow_send_birthday_to_group" value="1" /> {'member_group_txt_allow_to_use_birthday_alert'}<br />
+				
+				
+				<input type="checkbox" id="mg_20" name="mg_allow_to_share_card_with_twitter" value="1" /> {'member_group_txt_allow_to_share_card_with_twitter'}<br />
+				
+				<input type="checkbox" id="mg_21" name="mg_allow_to_share_card_with_facebook" value="1" /> {'member_group_txt_allow_to_share_card_with_facebook'}<br />
+			
+				<input type="checkbox" id="mg_22" name="mg_allow_to_share_card_with_googleplus" value="1" /> {'member_group_txt_allow_to_share_card_with_googleplus'}<br />
+				
+				<input type="checkbox" id="mg_23" name="mg_allow_to_share_card_with_linkedin" value="1" /> {'member_group_txt_allow_to_share_card_with_linkedin'}<br />
+				
+				<span style="cursor:pointer;text-decoration:underline;font-weight:bold" onclick="CheckAll('1');">{'member_group_txt_check_all'}</span> :: <span style="cursor:pointer;text-decoration:underline;font-weight:bold" onclick="CheckAll('0');">{'member_group_txt_uncheck_all'}</span>
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_membership_payment_amount'}  <span class="Error_Message">*</span></td>
+			<td  width="80%">{'cf_currecy'} <input onkeypress="return isMoney(event)" type="text" name="mg_payment_amount" id="mg_payment_amount" value="" size="5" /><br />{'member_group_txt_user_have_to_pay_this_amount_to_become_member'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_buy_now_title_1'}  <span class="Error_Message">*</span><br />{'member_group_txt_example_buy_from_2checkout_paypal'}</td>
+			<td  width="80%"><input onkeypress="return noEnterKey(event)" type="text" name="mg_buynow_title1" id="mg_buynow_title1" style="width:97%;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap;vertical-align:top">{'member_group_txt_buy_now_link_1_1'}  <span class="Error_Message">*</span><br />{'member_group_txt_buy_now_link_instruction'}</td>
+			<td  width="80%"><textarea onkeypress="return noEnterKey(event)" name="mg_payment_method1" id="mg_payment_method1" style="width:97%;height:100px;">http://</textarea><br />{'member_group_txt_click_here_to_auto_create_paypal_link'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap">{'member_group_txt_buy_now_title_2_1'}</td>
+			<td  width="80%"><input onkeypress="return noEnterKey(event)" type="text" name="mg_buynow_title2" id="mg_buynow_title2" style="width:97%;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" style="white-space:nowrap;vertical-align:top">{'member_group_txt_buy_now_link_2_1'}<br /></td>
+			<td  width="80%"><textarea onkeypress="return noEnterKey(event)" name="mg_payment_method2" id="mg_payment_method2" style="width:97%;height:100px;">http://</textarea><br />{'member_group_txt_click_here_to_auto_create_paypal_link_1'}</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'member_group_txt_set_time_auto_expired_after_user_sign_up'} </td>
+			<td width="80%">
+				<select size="1" name="mg_dateclose" id="mg_dateclose">
+				<option value="0">{'member_group_txt_forever'}</option>
+				<option value="1">1 {'member_group_txt_month'}</option>
+				<option value="2">3 {'member_group_txt_months'}</option>
+				<option value="3">6 {'member_group_txt_months'}</option>
+				<option value="4">1 {'member_group_txt_year'}</option>
+				<option value="5">2 {'member_group_txt_years'}</option>
+				</select>
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td  width="80%"><input onclick="CreateNewGroup();" class="button" type="button" value="{'member_group_button_submit'}" /></td>
+		</tr>
+	</table><br />
+</div>
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="40%">{'member_group_txt_column_name_group_title'}</td>
+		<td width="50%">{'member_group_txt_column_name_set_permission'}</td>
+		<td width="10%" align="center">{'member_group_txt_column_name_delete_group'}</td>
+	</tr>	
+	{'show_list_table'}		
+</table>
+{'display_page_number'}
+<div id="view_fullsize_table" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;width:250px">
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold" onclick="HideItAll();" title="{'member_group_tooltip_click_here_to_close'}">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="left" width="99%">{'member_group_txt_calendar'}</td>
+			<td align="right" width="1%"><img border="0" src="html/07_icon_button_close.gif" title="{'member_group_tooltip_close_hide'}" alt="{'member_group_tooltip_close_hide'}" /></td>
+		</tr>
+		</table>
+	 </div>
+	<iframe frameborder="0" height="230px" width="100%" scrolling="no" id="calendar_frame" name="calendar_frame" src="" ></iframe>
+</div>
+
+<div id="div_paypal_link" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;width:300px">
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold" onclick="HideItAll();showid2('div_paypal_link','none');" title="{'member_group_tooltip_click_here_to_close'}">
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="left" width="99%">Create PayPal Recurring Payments Link</td>
+			<td align="right" width="1%"><img border="0" src="html/07_icon_button_close.gif" title="{'member_group_tooltip_close_hide'}" alt="{'member_group_tooltip_close_hide'}" /></td>
+		</tr>
+		</table>
+	 </div>
+	 <div style="padding:5px;text-align:center;background-color:lightyellow">
+		 {'member_group_txt_enter_length_of_each_billing_cycle'}<br /><br />
+		 <select id="pp_num">
+			 <option value="1">1</option>
+			 <option value="2">2</option>
+			 <option value="3">3</option>
+			 <option value="4">4</option>
+			 <option value="5">5</option>
+			 <option value="6">6</option>
+			 <option value="7">7</option>
+			 <option value="8">8</option>
+			 <option value="9">9</option>
+			 <option value="10">10</option>
+			 <option value="11">11</option>
+			 <option value="12">12</option>
+			 <option value="13">13</option>
+			 <option value="14">14</option>
+			 <option value="15">15</option>
+			 <option value="16">16</option>
+			 <option value="17">17</option>
+			 <option value="18">18</option>
+			 <option value="19">19</option>
+			 <option value="20">20</option>
+			 <option value="21">21</option>
+			 <option value="22">22</option>
+			 <option value="23">23</option>
+			 <option value="24">24</option>
+			 <option value="25">25</option>
+			 <option value="26">26</option>
+			 <option value="27">27</option>
+			 <option value="28">28</option>
+			 <option value="29">29</option>
+			 <option value="30">30</option>
+		 </select>
+
+		 <select id="pp_cycle">
+		 <option value="D">{'member_group_txt_days'}</option>
+		 <option value="W">{'member_group_txt_weeks'}</option>
+		 <option value="M">{'member_group_txt_months'}</option>
+		 <option value="Y" selected="selected">{'member_group_txt_years'}</option>
+		 </select><br /><br />
+
+		 <input type="button" class="button" value="{'member_group_button_create_paypal_links'}" onclick="CreatePayPalLink2();" />
+	 </div>
+</div>
+
+</form>
+<script type="text/javascript">
+var get_cid="";
+var myid="{'bk_id'}";
+var array=myid.split(",");
+var ppbox=0;
+var paypal_email="{'cf_paypal_primary_email'}";
+function CreatePayPalLink(num){
+	var new_price=document.form1.mg_payment_amount.value;	
+	var account_name=document.form1.mg_title.value;
+	account_name=account_name.replace("/ /gi","+");
+	if(isNaN(document.form1.mg_payment_amount.value) || document.form1.mg_payment_amount.value <= 0 || document.form1.mg_payment_amount.value==""){
+		alert("{'member_group_message_membership_payment_amount_required'}");
+		document.form1.mg_payment_amount.focus();
+	}
+	else if(paypal_email==""){
+		if(window.confirm("{'member_group_message_paypal_primary_email_required'}")){
+			location.href="index.php?step=admin_system_config";
+		}
+	}
+	else if(account_name==""){
+		alert("{'member_group_message_group_title_required'}");
+		document.form1.mg_title.focus();
+	}
+	else{
+		ShowDivCenterPage('div_paypal_link',1,1);
+		ppbox=num;		
+	}
+}
+
+function CreatePayPalLink2(){
+	var new_price=document.form1.mg_payment_amount.value;
+	var account_name=document.form1.mg_title.value;
+	account_name=account_name.replace("/ /gi","+");
+	var p3=document.getElementById("pp_num").options[document.getElementById("pp_num").selectedIndex].value;
+	var t3=document.getElementById("pp_cycle").options[document.getElementById("pp_cycle").selectedIndex].value;
+	var currency_code = "{'cf_currecy'}";
+		switch (currency_code) {
+			case "€":
+				currency_code = "EUR";
+				break;
+			case "$":
+				currency_code = "USD";
+				break;
+			case "£":
+				currency_code = "GBP";
+				break;
+			case "¥":
+				currency_code = "JPY";
+				break;
+			case "₣":
+				currency_code = "CHF";
+				break;
+		}
+	var link="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick-subscriptions&business="+paypal_email+"&item_name=Upgrade+Account+To+"+account_name+"+{'cf_currecy'}"+new_price+"&no_shipping=1&return={'ecard_url'}/paypal_thankyou.php&no_note=1&currency_code="+currency_code+"&lc=US&bn=PP-SubscriptionsBF&charset=UTF-8&a3="+new_price+"&p3="+p3+"&t3="+t3+"&src=1&sra=1";
+	document.getElementById("mg_payment_method"+ppbox).value=link;
+	HideItAll();
+	showid2('div_paypal_link','none');
+}
+
+function HideItAll(){
+	document.getElementById('view_fullsize_table').style.display="none";
+	document.getElementById('hidden_iframe').style.display="none";
+	showid2("modalbkg","none");
+	showid2("moz_modalbkg","none");
+	showid2("hidden_iframe","none");
+}
+
+function InsertDate(id,data){
+	if(id=="-1"){
+		document.getElementById('time_end_textbox').value=data;
+	}
+	else{
+		document.getElementById('time_end_textbox'+id).value=data;
+		Editme('index.php?step={'step'}&what=update_time_end&ban_id='+id+'&time_end_textbox=',data,'1',id,"time_end_textbox"+id);
+	}
+}
+
+function CreateNewGroup(){
+	if(document.form1.mg_title.value==""){
+		alert("{'member_group_message_group_title_required'}");
+		document.form1.mg_title.focus();
+	}
+	else if(isNaN(document.form1.mg_number_recipient.value) || document.form1.mg_number_recipient.value <= 0 || document.form1.mg_number_recipient.value==""){
+		alert("{'member_group_maximum_recipient_required'}");
+		document.form1.mg_number_recipient.focus();
+	}
+	else if(isNaN(document.form1.mg_number_recipient_default.value) || document.form1.mg_number_recipient_default.value < 0 || document.form1.mg_number_recipient_default.value==""){
+		alert("{'member_group_maximum_recipient_per_hour_required'}");
+		document.form1.mg_number_recipient_default.focus();
+	}
+	else if(isNaN(document.form1.mg_number_recipient_per_day.value) || document.form1.mg_number_recipient_per_day.value < 0 || document.form1.mg_number_recipient_per_day.value==""){
+		alert("{'member_group_maximum_recipient_per_day_required'}");
+		document.form1.mg_number_recipient_per_day.focus();
+	}
+	else if(isNaN(document.form1.mg_payment_amount.value) || document.form1.mg_payment_amount.value < 0 || document.form1.mg_payment_amount.value==""){		
+		alert("{'member_group_message_membership_payment_amount_required'}");
+		document.form1.mg_payment_amount.focus();
+	}
+	else if(document.form1.mg_buynow_title1.value==""){
+		alert("{'member_group_buy_now_title_1_required'}");
+		document.form1.mg_buynow_title1.focus();
+	}
+	else if(document.form1.mg_payment_method1.value==""){
+		alert("{'member_group_buy_now_link_1_required'}");
+		document.form1.mg_payment_method1.focus();
+	}	
+	else{
+		document.form1.what.value='add_new_group';
+		document.form1.submit();		
+	}
+}
+
+function CheckAll(flag){
+	for(i=1;i<=23;i++){
+		if(flag=="1"){
+			document.getElementById("mg_"+i).checked=true;
+		}
+		else{
+			document.getElementById("mg_"+i).checked=false;
+		}
+	}
+}
+
+function CheckPaymentAmount(id_value,id){
+	Editme('index.php?step=edit_me&table=max_member_group&edit_id=mg_id&edit_id_value='+id+'&edit_key=mg_payment_amount&edit_value=',id_value,'2',original_value,"mg_payment_amount"+id);	
+}
+
+</script>

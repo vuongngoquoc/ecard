@@ -1,0 +1,62 @@
+<div class="table_title_bar">{'txt_black_list'}</div>
+<div class="row nopadding">
+	<form name="ecardmax_blacklist" class="form-horizontal" method="post" action="index.php">
+	<input type="hidden" name="step" value="{'step'}" />
+	<input type="hidden" name="what" value="" />
+   		<div class="col-md-12">
+        	
+            <h5 class="top0">{'txt_black_list_add'}</h5>
+            <div class="col-sm-12">
+            <div class="form-group first-child">{'show_info1'}</div>
+            </div>
+            <div class="col-sm-12">
+            <div class="form-group input-group has-feedback">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input placeholder="{'label_youremail'}" class="form-control" onkeypress="return noEnterKey(event)" type="text" name="add_black_email" value="{'add_black_email'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>               
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default btn-sm btn-my-site" onclick="AddEmail();" >{'button_add_to_black_list'}</button>
+            </div>
+            </div>
+
+			<h5 class="clearfix pdt20">{'txt_black_list_remove'}</h5>
+            <div class="col-sm-12">
+				<div class="form-group first-child">{'show_info2'}</div>
+            </div>
+            <div class="col-sm-12">
+            <div class="form-group input-group has-feedback">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input placeholder="{'label_youremail'}" class="form-control" onkeypress="return noEnterKey(event)" type="text" name="remove_black_email" value="{'remove_black_email'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+             </div>
+                <div class="form-group">
+                <button type="button" class="btn btn-default btn-sm btn-my-site" onclick="RemoveEmail();" />{'button_remove_from_black_list'}</button>
+            </div>
+            </div>
+    	</div>
+	</form>
+</div>
+<script language="javascript" type="text/javascript">
+	function AddEmail(){
+		if(!valid_email(document.ecardmax_blacklist.add_black_email.value)){
+			showNotification("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_blacklist.add_black_email.focus();
+		}		
+		else{
+			document.ecardmax_blacklist.what.value="add";
+			document.ecardmax_blacklist.submit();
+		}
+	}
+
+	function RemoveEmail(){
+		if(!valid_email(document.ecardmax_blacklist.remove_black_email.value)){
+			showNotification("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_blacklist.remove_black_email.focus();
+		}		
+		else{
+			document.ecardmax_blacklist.what.value="remove";
+			document.ecardmax_blacklist.submit();
+		}
+	}
+</script>

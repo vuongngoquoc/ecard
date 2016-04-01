@@ -1,0 +1,47 @@
+<div id="category_wrapper" class="col-sm-3 only-desktop">
+        <div class="left-sidebar">
+        <h2>{'txt_ecard_category'}</h2>
+        <!-- <div class="category_border"> -->
+            {'CATEGORY_2_LEVEL'}  
+			{'show_pop_top_new_cards'}       
+            <div class="shipping text-center"><!--shipping-->
+            	<div id="banner_vt">{'print_banner_vt'}</div>               
+            </div>
+        <!-- </div> -->
+        </div>
+     </div>
+   		 <div id="main_wrapper" class="col-sm-{'col_main_content'}">
+        	<div style="overflow:hidden; ">
+                <i class="fa fa-users padding5"></i><strong>{'event_name'}</strong><br  />
+                <a href="{'ecard_url'}/index.php?step=invitation_addguest&invite_id={'invite_id'}" class="btn btn-sm btn-default btn-my-site">
+                <i class="fa fa-user-plus padding5"></i>{'invite_homepage_message_txt_add_guest'}</a>
+                <a href="{'ecard_url'}/index.php?step=show_invitation" class="btn btn-sm btn-default">
+                 <i class="fa fa-home padding5"></i>{'txt_home'}</a>
+                <a href="{'ecard_url'}/index.php?step=pickup_invite&cs_id={'cs_id'}&action=viewcopy" class="btn btn-sm btn-default">
+                 <i class="fa fa-search-plus padding5"></i>{'invite_detail_button_preview_card'}</a>
+            </div>
+			<hr class="HR_Color" />
+            <div>
+                <p>{'invite_detail_created_date'}</p>
+                <p>{'invite_detail_card_has_been_sent_to_number_guest'}</p>
+                <p>{'invite_detail_number_guest_will_attend'}</p>
+                <p>{'invite_detail_number_guest_unsure_attend'}</p>
+            </div>
+			<div class="table-responsive cart_info">
+			<table class="table table-condensed table-hover">
+                <thead>
+                	<tr class="active">
+                        <th class="text-left">{'invite_homepage_message_txt_guest_name_email'}</th>
+                        <th class="text-center">{'invite_homepage_message_txt_accepted'}</th>
+                        <th class="text-center">{'invite_homepage_message_txt_declined'}</th>
+                        <th class="text-center">{'invite_homepage_message_txt_not_sure'}</th>
+                        <th class="text-center">{'invite_homepage_message_txt_no_response'}</th>
+                        <th class="text-center">{'invite_homepage_message_txt_guest_message'}</th>
+                    </tr>
+                </thead>
+				{'show_list_table'}				
+			</table>
+			{'display_page_number'}
+		</div>
+	<!-- End Column list invite -->
+	</div>

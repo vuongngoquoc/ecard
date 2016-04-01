@@ -1,0 +1,78 @@
+<div style="{'comment_display'}; margin-top:20px;">
+<div class="category-tab sendcard">
+    <ul class="nav nav-tabs">
+    	<li class="active"><a href='#box-fb-comment' data-toggle='tab'>Facebook comment</a></li>
+        <!--li><a href='#box-comment-onsite' data-toggle='tab'>Comment</a></li>
+        <li ><a href='#add-comment' data-toggle='tab'>Add Comment</a></li-->         
+    </ul>
+    <div class="tab-content"> 
+        <!----BOX COMMENT ON SITE------->
+        <div id="box-comment-onsite" class="tab-pane fade">
+            <div id="comment_list">
+                {'show_list_of_comments'}
+                <div class="clearfix"></div>
+            </div>
+            <div id="comment_page">
+                {'show_comment_page'}
+            </div>
+        </div>
+        <div id="add-comment" class="tab-pane fade">
+        <form name="user_comment" class="form-horizontal" method="post" action="" enctype='multipart/form-data'>
+        <input type="hidden" name="step" value="{'step'}" />
+        <input type="hidden" name="what" value="{'what'}" />
+        <input type="hidden" name="ec_id" value="{'ec_id'}" />
+        <input type="hidden" name="cm_user" value="{'ecardmax_user'}" />
+        
+        
+        <div class="OK_Message">{'addcomment_new_comment_has_been_added'}</div>
+        <div class="form-group">
+        <div class="col-sm-12">
+        <textarea class="form-control input-sm" placeholder="Content comment" name="com_message" rows="3" id="content_comment"></textarea>
+        </div>
+        </div>
+        <div class="form-group">
+        <div class="col-sm-12 text-right">
+        <button class="btn btn-default btn-my-site btn-sm" type="button" name="Save" onclick="SaveComment(this.form);">
+        <i class="fa fa-save padding5"></i>Save
+        </button>
+        </div>
+        </div>
+        </form>
+        </div>
+        <!---------END------------------>
+        <div id="box-fb-comment" class="tab-pane fade active in">
+    	    <div class="fb-comments" data-href="{'url_send'}" data-width="100%" data-num-posts="10"></div>
+        </div>
+        <!---------BOX FB COMMENT------->
+    </div>
+</div>
+
+<style>
+.fb-comments > span, .fb-comments > span > iframe{
+	width:100% !important
+}
+</style>
+<script type="text/javascript" language="javascript">
+	var root_url="{'ecard_url'}";
+	var cf_show_date_option="{'cf_show_date_option'}";
+	var message_on="{'message_on'}";
+	function showHideComment(){
+		jQuery('#comment_input').animate({height: 'toggle'},200, function(){});
+	}
+	function SaveComment(theform) {
+			if (theform.com_message.value=="") {
+				showNotification("{'message_is_required'}");
+			}
+			else {
+				comment=document.user_comment.com_message.value;
+				ec_id=document.user_comment.ec_id.value;
+				url=root_url+"/index.php?step=add_new_comment&comment="+comment+"&ec_id="+ec_id;
+				jax=new ajaxObject();
+				jax.httpGetData(url);
+				//showNotification(url);
+			}
+		
+	}
+	//$('#box-fb-comment').removeClass('active');
+</script>
+</div>

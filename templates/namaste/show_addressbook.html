@@ -1,0 +1,450 @@
+<form name="ecardmax_form" class="form-horizontal" method="post" action="index.php" enctype="multipart/form-data">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="action" value="{'action'}" />
+<input type="hidden" name="next_step" value="{'next_step'}" />
+<input type="hidden" name="ag_id" value="{'ag_id'}" />
+<input type="hidden" name="book_ag_relate_id" value="" />
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-sm-7">
+            <h2 id="title-1" class="table_title_bar">
+            <i class="fa fa-book padding5"></i>{'addressbook_big_title'}</h2>
+        </div>
+        <div class="col-sm-5">
+            <div class="pull-right left-margin-bottom">
+            	<a href="javascript:ShowDiv('show_search_filter','view_fullsize_table_search_filter',0,0);" class="btn btn-sm btn-default" id="show_search_filter">
+                <i class="fa fa-filter padding5"></i>{'addressbook_button_search_filter'}</a>
+                <a href="{'ecard_url'}/index.php?step={'step'}&next_step=show_addressbook" class="btn btn-sm btn-default">
+                <i class="fa fa-list-alt padding5"></i>{'addressbook_button_display_all_contact'}</a>
+                <a href="{'ecard_url'}/index.php?step={'step'}&next_step=show_addressbook_group" class="btn btn-sm btn-default">
+                <i class="fa fa-users padding5"></i>{'addressbook_button_create_edit_contact_group'}</a>
+            </div>
+        </div>
+        <div class="col-sm-12">
+		<!--category-tab-->
+        <div class="category-tab">
+        <ul class="nav nav-tabs">
+            <li class='active'><a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a></li>
+            <li><a href='#show_add_table' data-toggle='tab'>{'addressbook_txt_click_add_new_contact'}</a></li>
+            <li><a href='#show_load_table' data-toggle='tab'>{'addressbook_txt_click_load_contact'}</a></li>          
+        </ul>
+        <div class="tab-content"> 
+        	<div id="list_data" class="tab-pane fade active in">
+                <div>{'show_info'}</div>
+                <div class="table-responsive cart_info">
+            
+            	<table class="table table-condensed table-hover address-book">			
+				<thead>
+                    <tr class="active">
+                        <th width="1%" class="text-center">
+                        <i class="fa fa-user" title="{'addressbook_table_icon_tooltip_view_edit_contact'}"></i>
+                        </th>
+                        <th width="*" class="" >{'addressbook_table_contact_detail'}</th>
+                        <th width="*" class="" >{'addressbook_table_contact_group'}</th>
+                        <th width="20%" class="" >{'addressbook_txt_reminder_dates'}</th>					
+                        <th width="1%" class="" >
+                        </th>						
+                        <th width="1%" class="" ><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'txt_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></th>
+                    </tr>
+                </thead>
+                    {'show_list_table'}
+                    <tr>	
+                        <td width="*" colspan="2" class="table_td_text_color">
+                        {'txt_row_per_page'} 
+                        <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.ecardmax_form.action.value='';document.ecardmax_form.submit();" style="width:100px;" />
+                        </td>
+                        <td width="*" colspan="4"  class="delete_rows_data">
+                        <span class="pull-right">
+                        <button type="button"  class="btn btn-sm btn-danger" onclick="CheckSelected();" >
+                        <i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}
+                        </button> 
+                        <i class="glyphicon glyphicon-hand-up"></i>
+                        </span></td>							
+                    </tr>
+                    
+                </table>
+                {'display_page_number'}
+            </div>    
+            </div>
+            <div class="tab-pane fade"  id="show_load_table">
+
+					<div class="form-group has-feedback">
+                            <div class="col-sm-7">
+                                <span class="btn btn-default btn-file">
+                                {'addressbook_file'}<input type="file" name="addressfile"  id="addressfile"  />
+                                </span>
+                            
+                                <button onClick="doLoadAddressBook()" class="btn btn-default btn-sm btn-my-site" type="button" >
+                                <i class="glyphicon glyphicon-import padding5"></i>{'addressbook_button_import'}
+                                </button>
+                            </div>
+                        <div class="clearfix"></div>
+                   </div>
+                   
+					<div class="form-group has-feedback">
+                        <div class="col-sm-7">
+                            <label> Export Your Outlook Contacts to a CSV File</label>
+                            <ul class="list-group" style="border:none">
+                            <li class="list-group-item"> Select File | Import and Export... from the menu.</li>
+                            <li class="list-group-item"> Make sure Export to a file is highlighted.</li>
+                            <li class="list-group-item"> Click Next >.</li>
+                            <li class="list-group-item"> Now make sure Comma Separated Values (Windows) is selected.</li>
+                            <li class="list-group-item"> Click Next > again.</li>
+                            <li class="list-group-item"> Highlight the Contacts folder.</li>
+                            <li class="list-group-item"> Click Next >.</li>
+                            <li class="list-group-item"> Use the Browse... button to specify a location and file name for the exported contacts. Something like "Outlook.csv" or "ol-contacts.csv" on your Desktop should work fine.</li>
+                            <li class="list-group-item"> Click Next > (once more).</li>
+                            <li class="list-group-item"> Now click Finish. </li>
+                            </ul>
+                        </div>
+					</div>
+			</div>       
+            <div class="tab-pane fade" id="show_add_table">
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_first_name'} </label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_fname"  />
+                        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_last_name'} </label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_lname"  />
+                        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_email'} </label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control input-sm" name="book_email" id="book_email"  onfocus="original_value=this.value;" onchange="ValidateField('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=validate_book_email&value='+escape(this.value),this.id);" value="" onkeydown="document.getElementById('book_email_error_span').innerHTML=''"/>
+                        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                        <span id="book_email_error_span" class="Error_Message"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_add_contact_to_group_name'} </label>
+                        <div class="col-sm-4">{'show_contact_group'}</div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3 display-desktop"></label>
+                        <label class="col-sm-9 text-highlight">{'addressbook_txt_optional'}</label>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_nick_name'}</label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_nick"  /></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_phone_number'}</label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_phone"  /></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_address1'}</label>
+                        <div class="col-sm-8"><input type="text" class="form-control input-sm" name="book_address1"  /></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_address2'}</label>
+                        <div class="col-sm-8"><input type="text" class="form-control input-sm" name="book_address2"  /></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_city'}</label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_city"  /></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_state'}</label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_state"  /></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_zipcode'}</label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_zip"  /></div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_country'}</label>
+                        <div class="col-sm-4"><input type="text" class="form-control input-sm" name="book_country"  />
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3 display-desktop"></label>
+                        <label class="col-sm-9 text-highlight">{'addressbook_txt_reminder_dates'}</label>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3"><i class="fa fa-birthday-cake padding5"></i>{'addressbook_txt_reminder_birthday'}</label>
+                        <div class="col-sm-2">
+                            <input class="datepicker form-control input-sm" readonly="readonly" type="text" name="time_end_textbox" id="time_end_textbox" value="{'ins_date_caption'}" /> 
+                            <span class="fa fa-calendar padding5 form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3"><i class="fa fa-calendar padding5"></i>{'addressbook_txt_reminder_anni'}</label>
+                        <div class="col-sm-2">
+                            <input class="datepicker form-control input-sm" readonly="readonly" type="text" name="time_end_textbox_anni" id="time_end_textbox_anni" value="{'ins_date_caption'}" />
+                            <span class="fa fa-calendar padding5 form-control-feedback" aria-hidden="true"></span>   
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_reminder_me'}</label>
+                        <div class="col-sm-4">
+                                <select class="form-control input-sm" size="1" name="book_datebefore">
+                                <option value="0">{'addressbook_txt_reminder_me_on_date'}</option>
+                                <option value="1">{'addressbook_txt_reminder_me_1day_b4'}</option>
+                                <option value="2">{'addressbook_txt_reminder_me_2day_b4'}</option>
+                                <option value="3">{'addressbook_txt_reminder_me_3day_b4'}</option>
+                                <option value="7">{'addressbook_txt_reminder_me_7day_b4'}</option>
+                                <option value="14">{'addressbook_txt_reminder_me_14day_b4'}</option>
+                                </select>
+                            </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                        <label class="col-sm-3"></label>
+                        <div class="col-sm-4">
+                        <button onclick="AddNew();" class="btn btn-default btn-sm btn-my-site" type="button" >
+                        <i class="fa fa-save padding5"></i>{'addressbook_button_submit_add_new'}</button>
+                        </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<div id="view_fullsize_table_search_filter" class="div_menu_layer" style="width:230px">
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+		<tr onclick="HideItAll();">
+			<td class="div_menu_layer_title_bar" align="left" width="99%">
+            <label class="text-highlight">{'addressbook_button_search_filter'}</label></td>
+			<td class="div_menu_layer_title_bar" align="right" title="{'icon_title_close_hide'}" width="1%">
+            <i class="fa fa-remove"></i>
+            </td>
+		</tr>
+	</table>
+	<div style="padding:3px;text-align:left">{'txt_keyword'}<br />
+    <input type="text" class="form-control input-sm" name="keyword" id="keyword" value="{'keyword'}" /></div>
+	<div style="padding:3px;text-align:left">
+		{'addressbook_search_filter_search_in'}<br />
+		<select class="form-control input-sm" name="search_field" >
+		<option {'selected_search_field_all'} value="all">{'addressbook_search_filter_search_in_all_fields'}</option>
+		<option {'selected_search_field_book_fname'} value="book_fname">{'addressbook_txt_first_name'}</option>
+		<option {'selected_search_field_book_lname'} value="book_lname">{'addressbook_txt_last_name'}</option>
+		<option {'selected_search_field_book_email'} value="book_email">{'addressbook_txt_email'}</option>
+		<option {'selected_search_field_book_nick'} value="book_nick">{'addressbook_txt_nick_name'}</option>
+		<option {'selected_search_field_book_phone'} value="book_phone">{'addressbook_txt_phone_number'}</option>
+		<option {'selected_search_field_book_address1'} value="book_address1">{'addressbook_txt_address1'}</option>
+		<option {'selected_search_field_book_address2'} value="book_address2">{'addressbook_txt_address2'}</option>
+		<option {'selected_search_field_book_city'} value="book_city">{'addressbook_txt_city'}</option>
+		<option {'selected_search_field_book_state'} value="book_state">{'addressbook_txt_state'}</option>
+		<option {'selected_search_field_book_zip'} value="book_zip">{'addressbook_txt_zipcode'}</option>
+		<option {'selected_search_field_book_country'} value="book_country">{'addressbook_txt_country'}</option>
+		</select><br />
+		<button type="button" class="btn btn-default btn-sm btn-my-site" onclick="GoSearch();">
+        <i class="fa fa-search padding5"></i>{'button_search'}
+        </button>
+	</div>
+	<div style="padding:3px;text-align:left;white-space:nowrap">
+		{'addressbook_txt_filter_by'}<br />
+		<select class="form-control input-sm" name="filter_field">
+		<option {'selected_filter_field_book_lname'} value="book_lname">{'addressbook_txt_last_name'}</option>
+		<option {'selected_filter_field_book_fname'} value="book_fname">{'addressbook_txt_first_name'}</option>		
+		<option {'selected_filter_field_book_email'} value="book_email">{'addressbook_txt_email'}</option>		
+		</select><br />
+		<select class="form-control input-sm" name="filter_alp">
+		<option {'selected_filter_alp_0'} value="0">0-9</option>
+		<option {'selected_filter_alp_a'} value="a">A</option>		
+		<option {'selected_filter_alp_b'} value="b">B</option>
+		<option {'selected_filter_alp_c'} value="c">C</option>
+		<option {'selected_filter_alp_d'} value="d">D</option>
+		<option {'selected_filter_alp_e'} value="e">E</option>
+		<option {'selected_filter_alp_f'} value="f">F</option>
+		<option {'selected_filter_alp_g'} value="g">G</option>
+		<option {'selected_filter_alp_h'} value="h">H</option>
+		<option {'selected_filter_alp_i'} value="i">I</option>
+		<option {'selected_filter_alp_j'} value="j">J</option>
+		<option {'selected_filter_alp_k'} value="k">K</option>
+		<option {'selected_filter_alp_l'} value="l">L</option>
+		<option {'selected_filter_alp_m'} value="m">M</option>
+		<option {'selected_filter_alp_n'} value="n">N</option>
+		<option {'selected_filter_alp_o'} value="o">O</option>
+		<option {'selected_filter_alp_p'} value="p">P</option>
+		<option {'selected_filter_alp_q'} value="q">Q</option>
+		<option {'selected_filter_alp_r'} value="r">R</option>
+		<option {'selected_filter_alp_s'} value="s">S</option>
+		<option {'selected_filter_alp_t'} value="t">T</option>
+		<option {'selected_filter_alp_u'} value="u">U</option>
+		<option {'selected_filter_alp_v'} value="v">V</option>
+		<option {'selected_filter_alp_w'} value="w">W</option>
+		<option {'selected_filter_alp_x'} value="x">X</option>
+		<option {'selected_filter_alp_y'} value="y">Y</option>
+		<option {'selected_filter_alp_z'} value="z">Z</option>
+		</select><br />
+		<button type="button" class="btn btn-default btn-sm btn-my-site" onclick="GoFilter();">
+        <i class="fa fa-filter padding5"></i>{'button_go'}
+        </button>
+	</div>
+</div>
+
+</form>
+
+<script type="text/javascript">
+	var calendar_what="";
+	var myid="{'bk_id'}";
+	var array=myid.split(",");
+	var myck="{'ck'}";
+	var array_ck=myck.split(",");
+	$(".datepicker").datepicker(
+	{
+		changeMonth:true,
+		changeYear:true,
+	//	dateFormat:'dd-mm-yy',
+		yearRange: "1950",
+		maxDate:  '0'
+	});
+	function AddNew(){
+		if(document.ecardmax_form.book_fname.value==""){
+			showNotification("{'addressbook_js_alert_must_enter_first_name'}");
+			document.ecardmax_form.book_fname.focus();
+		}
+		else if(document.ecardmax_form.book_lname.value==""){
+			showNotification("{'addressbook_js_alert_must_enter_last_name'}");
+			document.ecardmax_form.book_lname.focus();
+		}
+		else if(!valid_email(document.ecardmax_form.book_email.value)){
+			showNotification("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_form.book_email.focus();
+		}
+		else{
+			var sel_ag_id="";
+			for(i=0;i<=array_ck.length-1;i++){
+				if(document.getElementById("my_ag_id" + array_ck[i]).checked)
+					sel_ag_id += document.getElementById("my_ag_id" + array_ck[i]).value + ",";				
+			}
+			if(sel_ag_id==""){
+				showNotification("{'addressbook_js_alert_must_select_group'}");
+				document.ecardmax_form.my_ag_id0.focus();
+			}
+			else{
+				document.ecardmax_form.action.value='add_new';
+				document.ecardmax_form.book_ag_relate_id.value=","+sel_ag_id;
+				document.ecardmax_form.submit();
+			}
+		}
+	}
+
+	function GoSearch(){
+		$('input[name=action]').val('');
+		$('select[name=filter_field]').val('');
+		$('select[name=filter_alp]').val('');
+		document.ecardmax_form.submit();
+	}
+	
+	function GoFilter(){
+		$('input[name=action]').val('go_filter');
+		$('input[name=keyword]').val('');
+		$('select[name=search_field]').val('');
+		document.ecardmax_form.submit();
+	}
+	
+	function CheckSelected(){
+		if(myid!=""){
+			var selected_id="";
+			for(i=0;i<=array.length-1;i++){
+				if(document.getElementById("bk" + array[i]).checked)
+					selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+			}
+			if(selected_id==""){
+				showNotification("{'js_alert_must_select_checkbox'}");
+			}
+			else{
+				DeleteSelected();
+			}
+		}
+	}
+
+	function DeleteSelected(){
+		var selected_id="";	
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+
+		url="{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+		if(window.confirm("{'addressbook_js_alert_sure_to_delete_contact'}")){
+			location.href=url;
+		}
+		else{
+			document.getElementById("chk_all").checked=false;
+			check_uncheck_all('{'bk_id'}');
+		}
+	}
+
+	function InsertDate(id,data){
+		if(calendar_what=="birthday"){
+			if(id==-1){
+				document.getElementById('time_end_textbox').value=data;
+			}
+			else{
+				document.getElementById('time_end_textbox'+id).value=data;
+				Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_book_birthday&book_id='+id+'&time_end_textbox=',data,'1',id,"time_end_textbox"+id);
+			}
+		}
+		else{
+			if(id==-1){
+				document.getElementById('time_end_textbox_anni').value=data;
+			}
+			else{
+				document.getElementById('time_end_textbox_anni'+id).value=data;
+				Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=update_book_anni&book_id='+id+'&time_end_textbox=',data,'1',id,"time_end_textbox_anni"+id);
+			}
+		}
+	}
+
+	function UpdateCellContact(id){
+		
+		var book_fname=document.getElementById("book_fname"+id).value;
+		var book_lname=document.getElementById("book_lname"+id).value;
+		var book_email=document.getElementById("book_email"+id).value;
+		var book_nick=document.getElementById("book_nick"+id).value;
+		if(book_nick!="")book_nick="<br /><span class=\"book_nickname\">"+book_nick+"</span>";
+		var book_phone=document.getElementById("book_phone"+id).value;
+		
+		var text="<span class=\"book_first_last_name\">"+book_fname+" "+book_lname+"</span><br /><span class=\"book_email\">"+book_email+"</span>"+book_nick+"<br /><span class=\"book_phone\">"+book_phone+"</span>";
+		document.getElementById("contact_title_email"+id).innerHTML=text;
+		//$('#'+id).modal('hide');
+	}
+	function showContactDetail(id)
+	{
+		$('#'+id).modal();
+	}
+	function VerifyEmail(id){
+		if(document.getElementById("book_email"+id).value!=original_value){
+			Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value='+id+'&edit_key=book_email&edit_key_value=',document.getElementById("book_email"+id).value,'3',original_value,"book_email"+id);
+			UpdateCellContact(id);
+		}
+	}
+	function doLoadAddressBook(){
+	 filename=document.ecardmax_form.addressfile.value;
+	 if(filename!=''){
+		 ext=filename.substring(filename.lastIndexOf(".")+1,filename.length);	
+		 if(ext=='csv' || ext=='CSV' || ext=='VCF' || ext=='vcf'){
+		 	 document.ecardmax_form.action.value='batch_load';
+			 document.ecardmax_form.submit();
+		 }else{
+			 showNotification('{'addressbook_load_error'}');
+		 }
+	 }else{
+		 	showNotification('{'addressbook_load_error'}');
+	 }		
+}
+</script>

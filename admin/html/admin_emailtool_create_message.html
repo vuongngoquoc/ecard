@@ -1,0 +1,108 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_mail_new_message.gif" alt="" style="vertical-align:middle" /> {'email_tool_create_txt_page_title'}</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'email_tool_create_txt_click_to_create_newsletter'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'email_tool_create_txt_create_newsletter'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'email_tool_create_tooltip_close_hide'}" alt="{'email_tool_create_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>	
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'email_tool_create_txt_email_subject'}</td>
+			<td width="70%"><input type="text" name="mmess_subject" id="mmess_subject" style="width:90%" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'email_tool_create_txt_newsletter_html_version'}</td>
+			<td width="70%"><textarea name="mmess_body" id="mmess_body" style="width:90%;height:300px"></textarea></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%" valign="top">{'email_tool_create_txt_newsletter_text_version'}</td>
+			<td width="70%"><textarea name="mmess_body_text" id="mmess_body_text" style="width:90%;height:300px"></textarea></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%">&nbsp;</td>
+			<td width="70%"><input type="button" value="{'email_tool_create_txt_button_add_new_letter'}" class="button" onclick="AddNew();" /></td>
+		</tr>
+	</table><br />
+</div>
+<div><strong>{'email_tool_create_txt_tips'}:</strong></div>
+{'email_tool_create_txt_tips_content'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px">{'email_tool_create_txt_column_name_icon'}</td>
+		<td width="*" style="padding:4px">{'email_tool_create_txt_column_name_newsletter_detail'}</td>
+		<td width="1%" style="padding:4px">{'email_tool_create_txt_column_name_preview'}</td>
+		<td width="1%" align="center" style="padding:4px">{'email_tool_create_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'email_tool_create_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="5">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="33%"><strong>{'email_tool_create_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="33%" align="center" style="white-space:nowrap"><strong>{'email_tool_create_txt_search_message'}</strong> <input type="text" name="keyword" size="20" value="{'keyword'}" onkeypress="return noEnterKey(event)" /> <input type="submit" value="{'email_tool_create_button_search_message'}" class="button" name="cmd_button" /></td>
+				<td width="33%" align="right"><input type="button" value="{'email_tool_create_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNew(){
+	if(document.form1.mmess_subject.value==""){
+		alert("{'email_tool_create_message_email_subject_required'}");
+		document.form1.mmess_subject.focus();
+	}
+	else if(document.form1.mmess_body.value==""){
+		alert("{'email_tool_create_message_email_body_required'}");
+		document.form1.mmess_body.focus();
+	}	
+	else{
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'email_tool_create_message_checkbox_check_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'email_tool_create_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+</script>

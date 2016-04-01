@@ -1,0 +1,48 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="sending2" />
+<h1><img border="0" src="html/07_icon_mail_sending2.gif" alt="" style="vertical-align:middle" /> {'email_tool_sending_txt_page_title'}</h1>
+
+<h2>{'email_tool_sending_txt_step1'}</h2>
+<div style="overflow:auto;height:200px;width:100%;border: 1px dashed;background-color:white">
+	<table align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+		<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+			<td width="1%" align="center" style="padding:4px">{'email_tool_sending_txt_column_name_icon'}</td>
+			<td width="*" style="padding:4px">{'email_tool_sending_txt_column_name_recipient_group'}</td>
+			<td width="1%" style="padding:4px">{'email_tool_sending_txt_column_name_email'}</td>
+			<td width="1%" align="center" style="padding:4px">{'email_tool_sending_txt_column_name_select'}</td>
+		</tr>	
+		{'show_list_table_recipient_group'}			
+	</table>
+</div>
+<br />
+<h2>{'email_tool_sending_txt_step2'}</h2>
+<div style="overflow:auto;height:200px;width:100%;border: 1px dashed;background-color:white">	
+	<table align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+		<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+			<td width="1%" align="center" style="padding:4px">{'email_tool_sending_txt_column_name_icon'}</td>
+			<td width="*" style="padding:4px">{'email_tool_sending_txt_column_name_newsletter_detail'}</td>
+			<td width="1%" style="padding:4px">{'email_tool_sending_txt_column_name_preview_email'}</td>
+			<td width="1%" align="center" style="padding:4px">{'email_tool_sending_txt_column_name_select'}</td>
+		</tr>	
+		{'show_list_table_message'}		
+	</table>
+</div>
+<div><br /><input type="button" value="{'email_tool_sending_txt_button_next_step'}" onclick="SendingContinue();" class="button" /></div>
+</form>
+<script type="text/javascript">
+var get_mgroup_id="";
+var get_mmess_id="";
+
+function SendingContinue(){
+	if(get_mgroup_id==""){
+		alert("{'email_tool_sending_message_must_select_recipt_group'}");
+	}
+	else if(get_mmess_id==""){
+		alert("{'email_tool_sending_message_must_select_email_message'}");
+	}
+	else{
+		document.form1.submit();
+	}
+}
+</script>

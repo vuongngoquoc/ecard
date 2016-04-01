@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Memory Game</title>
+<style type="text/css">
+<!--
+{'print_css'}
+-->
+</style>
+</head>
+
+<body bgcolor="#C0D2EE">
+<center>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="742">
+  <tr>
+    <td width="100%" height="82" background="top.gif" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+      <tr>
+        <td width="100%" colspan="2"><font size="2"></font></td>
+      </tr>
+      <tr>
+        <td width="22%">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+          <tr>
+            <td width="100%" align="center"><span id=hiscore class='HiScore'>{'get_hiscore'}</span></td>
+          </tr>
+        </table>
+        </td>
+        <td width="78%" align="right">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="29%">
+          <tr>
+            <td width="100%" align="center"><span id=score class='myScore'>0</span></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="28" background="top2.gif" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" height="26">
+      <tr>
+        <td width="13%">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+          <tr>
+            <td width="100%" align="center"><font class=Level>Players:</font><br><span id=count class='myLevel'>{'player_counter'}</span></td>
+          </tr>
+        </table>
+        </td>
+        <td width="87%" align="right">
+        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="14%">
+          <tr>
+            <td width="100%" align="center"><font class=Level>Level</font><br><span id=game_level class='myLevel'>0</span></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="430" align="center"><p><font class="repeat_me">Tell-A-Friend</font></p>
+
+  <form method="POST" action="memory.php">
+  <input type=hidden name=step value=tell_a_friend_2>
+    <div align="center">
+      <center>
+      <table cellpadding="0" cellspacing="0" class=Board_Main_Border width="542" style="border-collapse: collapse" bordercolor="#111111">
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td align="right" height="20" width="201"></td>
+	      <td height="20" width="341"></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td align="right" height="20" width="201">Your Name </td>
+	      <td height="20" width="341"><input class=TextBox_Style type="text" name="your_name" size="34" value="{'your_name'}"></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td align="right" height="20" width="201">Your eMail </td>
+	      <td height="20" width="341"><input class=TextBox_Style type="text" name="your_email" size="34" value="{'your_email'}"></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td colspan="2" align=center height="20" width="542"><hr class="HR_Color"></td>
+        </tr>
+
+        <tr class=Board_Cell_Background_Color>
+	      <td align="right" height="20" width="201">Your Friend Name </td>
+	      <td height="20" width="341"><input class=TextBox_Style type="text" name="friend_name" size="34" value="{'friend_name'}"></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td align="right" height="20" width="201">Your Friend eMail </td>
+	      <td height="20" width="341"><input class=TextBox_Style type="text" name="friend_email" size="34" value="{'friend_email'}"></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td colspan="2" align=center height="20" width="542"><hr class="HR_Color" ></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td align="right" height="20" width="201">Email subject </td>
+	      <td height="20" width="341"><input class=TextBox_Style type="text" name="email_subject" size="34" value="{'email_subject'}"></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td colspan="2" align=center height="20" width="542"><hr class="HR_Color" ></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td align="right" height="20" width="201">Your Message </td>
+	      <td height="20" width="341"><textarea class=TextArea_Style rows="8" name="message" cols="28">{'message'}</textarea></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td height="20" width="201"></td>
+	      <td height="20" width="341"><input class=Button_Style type="submit" value="Submit" name="B1"></td>
+        </tr>
+        
+        <tr class=Board_Cell_Background_Color>
+	      <td height="20" width="201"></td>
+	      <td height="20" width="341"></td>
+        </tr>
+        
+      </table>
+      </center>
+    </div>
+</form>    
+    </td>
+  </tr>
+  <tr>
+    <td width="100%"><map name="Memory">
+    <area href="memory.php?step=quit" shape="circle" coords="693, 40, 34">
+    <area href="memory.php?step=show_hiboard" shape="rect" coords="486, 0, 591, 81">
+    <area href="memory.php?step=show_ins" shape="rect" coords="332, 1, 410, 81">
+    <area href="memory.php?step=tell_a_friend" shape="rect" coords="144, 0, 261, 81">
+    <area href="memory.php?step=show_cat" shape="circle" coords="45, 39, 35">
+    </map>
+    <img border="0" src="bottom.gif" width="742" height="82" usemap="#Memory"></td>
+  </tr>
+</table>
+</center>
+</body>
+
+</html>

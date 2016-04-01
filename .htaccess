@@ -1,0 +1,91 @@
+DirectoryIndex index.php
+# Force the "www."
+RewriteCond %{HTTP_HOST} !^www\.namasteegreetings\.com$ [NC]
+RewriteRule ^(.*)$ http://www.namasteegreetings.com/$1 [R=301,L]
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+Options All -Indexes
+Options +FollowSymLinks
+
+RewriteEngine on
+RewriteBase /demo
+RewriteCond %{REQUEST_URI} (list|of|sub|dirs)
+
+RewriteRule . - [s=1]
+
+#RewriteRule fbapp/(.*)/(.*)/(.*)$ fbapp/index.php
+
+RewriteRule category/(.*)/(.*)/page/(.*)$ index.php?step=category&cat_id=$1&title=$2&page=$3
+RewriteRule category/(.*)/(.*)/sort-by/(.*)$ index.php?step=category&cat_id=$1&title=$2&sortby=$3
+RewriteRule category/(.*)/(.*)$ index.php?step=category&cat_id=$1&title=$2
+RewriteRule cards/resend-reply/(.*)/(.*)$ index.php?step=sendcard&ec_id=$1&title=$2&resend=1&reply=1
+RewriteRule cards/(.*)/(.*)/(.*)$ index.php?step=$1&ec_id=$2&title=$3
+
+#link to check if .htaccess and Rewrite is supported
+RewriteRule check-seo.html index.php?step=check_seo
+
+#top links
+RewriteRule home.html index.php
+RewriteRule about.html index.php?step=about
+RewriteRule contact.html index.php?step=contact
+RewriteRule about-us.html index.php?step=about_us 
+RewriteRule quotes.html index.php?step=quotes
+RewriteRule popular-cards/page/(.*)$ index.php?step=popular&page=$1
+RewriteRule popular-cards.html index.php?step=popular
+RewriteRule invitation.html index.php?step=show_invitation
+RewriteRule my-account.html index.php?step=sign_in&next_step=show_myaccount
+RewriteRule address-book.html index.php?step=sign_in&next_step=show_addressbook
+RewriteRule calendar.html index.php?step=sign_in&next_step=show_mycalendar
+RewriteRule reminder.html index.php?step=sign_in&next_step=show_reminder
+RewriteRule my-album.html index.php?step=sign_in&next_step=show_myalbum
+RewriteRule favorite.html index.php?step=sign_in&next_step=show_favorite
+RewriteRule birthday-alert.html index.php?step=sign_in&next_step=show_birthdayalert
+RewriteRule send-video-card.html index.php?step=sign_in&next_step=show_sendvideocard
+RewriteRule history.html index.php?step=sign_in&next_step=show_history
+RewriteRule top-rate-cards/page/(.*)$ index.php?step=top_rate&page=$1
+RewriteRule top-rate-cards index.php?step=top_rate
+RewriteRule new-ecards/page/(.*)$ index.php?step=new_ecards&page=$1
+RewriteRule new-ecards index.php?step=new_ecards
+RewriteRule update-your-account index.php?step=update_your_account
+RewriteRule pickup-cards index.php?step=pickup
+RewriteRule play-games index.php?step=play_games
+RewriteRule tell-friends index.php?step=tell_friends
+RewriteRule join-now index.php?step=join_now
+RewriteRule sign-in/next-step/(.*)$ index.php?step=sign_in&next_step=$1
+RewriteRule sign-in index.php?step=sign_in
+RewriteRule sign-out index.php?step=sign_out
+RewriteRule search-ecard/keyword/(.*)/page/(.*)$ index.php?step=search_ecard&keyword=$1&page=$2
+RewriteRule search-ecard/keyword/(.*)$ index.php?step=search_ecard&keyword=$1
+RewriteRule date-of-birthday/user/(.*)/email/(.*)$ index.php?step=dob&user_id=$1&book_email=$2
+RewriteRule print-card/(.*)$ index.php?step=pickup&action=viewcopy&cs_id=$1&what=print
+
+#bottom links
+RewriteRule media-grabber index.php?step=grabber
+RewriteRule black-list index.php?step=blacklist
+RewriteRule random-cards index.php?step=random_card
+RewriteRule newsletter index.php?step=newsletter
+RewriteRule feedback.html index.php?step=feedback
+RewriteRule private-policy index.php?step=policy
+RewriteRule term-of-service index.php?step=tos
+RewriteRule ^help index.php?step=help
+
+# Invitation
+RewriteRule ^invitation/(.*)/(.*)/page/(.*)$ index.php?step=show_invitation&cat_id=$1&cat_name=$2&page=$3
+RewriteRule ^invitation/(.*)/(.*)/sort-by/(.*)$ index.php?step=show_invitation&cat_id=$1&cat_name=$2&sortby=$3
+RewriteRule ^invitation/(.*)/(.*)$ index.php?step=show_invitation&cat_id=$1&cat_name=$2
+RewriteRule send_invite/(.*)/(.*)$ index.php?step=sendcard_invite&iv_id=$1&cat_name=$2
+
+# Popular, Top-Rated, New Cards, Random Cards, Favorite Inviation cards
+RewriteRule invitation/popular-invitation index.php?step=show_invitation_popular
+RewriteRule popular-invitation/page/(.*)$ index.php?step=show_invitation_popular&page=$1
+RewriteRule invitation/toprated-invitation index.php?step=show_invitation_top_rated
+RewriteRule toprated-invitation/page/(.*)$ index.php?step=show_invitation_top_rated&page=$1
+RewriteRule invitation/new-invitation-cards index.php?step=show_invitation_new_ecards
+RewriteRule new-invitation-cards/page/(.*)$ index.php?step=show_invitation_new_ecards&page=$1
+RewriteRule invitation/random-invitation-cards index.php?step=show_invitation_random_cards
+RewriteRule random-invitation-cards/page/(.*)$ index.php?step=show_invitation_random_cards&page=$1
+RewriteRule invitation/favorite-invitation-cards index.php?step=show_invitation_favorite
+RewriteRule favorite-invitation-cards/page/(.*)$ index.php?step=show_invitation_favorite&page=$1

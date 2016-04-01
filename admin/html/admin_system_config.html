@@ -1,0 +1,744 @@
+<h1><img border="0" src="html/07_icon_system_config2.gif" alt="" style="vertical-align: middle;" /> {'system_config_page_title'}</h1>
+<div ><span class="Tab_Settings" id="general_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_general'}</span> <span class="Tab_Settings" id="tellfriend_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_tell_friend_birthday_alert'}</span> <span class="Tab_Settings" id="ecard_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_ecard_setting'}</span> <span class="Tab_Settings" id="invitation_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_invitation_ecard_setting'}</span> <span class="Tab_Settings" id="style_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_styles'}</span> <span class="Tab_Settings" id="watermark_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_watermark_settings'}</span> <span class="Tab_Settings" id="memberalbum_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_member_album'}</span> <span class="Tab_Settings" id="gold_tab" onMouseOver="tab_over(this.id);" onMouseOut="tab_out(this.id);" onClick="tab_click(this.id);">{'system_config_txt_gold_version_settings'}</span></div>
+<br />
+<div id="general_tab_settings" style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_webmaster_email'}<!--<br><i><font size="1">(Note: Whenever changing Webmaster email, please update business email in every payment links)</font></i>--></td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input onfocus="original_value=this.value;"  onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_webmaster_email&edit_key=config_value&edit_value=',this.value,'3',original_value,this.id);" type="text" id="cf_webmaster_email" name="cf_webmaster_email" size="34" value="{'cf_webmaster_email'}" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_your_site_title'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input onfocus="original_value=this.value;"  onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_site_title&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" type="text" id="cf_site_title" name="cf_site_title" size="34" value="{'cf_site_title'}" /></td>
+	</tr>	
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_currency_symbol'}<br><i><font size="1">{'system_config_txt_currency_symbol_note'}</font></i></td>
+		<td width="20%" style="border-bottom: 1px solid silver;">{'set_default_currency_symbol'}</td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_search_engine_friendly_url'}<br>{'system_config_txt_search_engine_friendly_url_note'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_friendly_url" size="1" id="cf_friendly_url" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_friendly_url&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="0" {'selected_cf_friendly_url_0'}>Off</option>
+		<option value="1" {'selected_cf_friendly_url_1'}>On</option>
+		</select></td>
+	</tr>
+    <tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_fb_link'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_fb_link" type="text" id="cf_fb_link" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_fb_link&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_fb_link'}" size="34" /></td>
+        </tr>
+    <tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_tw_link'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_tw_link" type="text" id="cf_tw_link" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_tw_link&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_tw_link'}" size="34" /></td>
+        </tr>
+    <tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_pi_link'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_pi_link" type="text" id="cf_pi_link" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_pi_link&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_pi_link'}" size="34" /></td>
+    </tr>
+    <tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_gs_link'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_gs_link" type="text" id="cf_gs_link" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_gs_link&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_gs_link'}" size="34" /></td>
+    </tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_enable_fb_login'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_enable_fb_login" size="1" id="cf_enable_fb_login" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_enable_fb_login&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="0" {'selected_cf_enable_fb_login_0'}>No</option>
+		<option value="1" {'selected_cf_enable_fb_login_1'}>Yes</option>
+		</select></td>
+	</tr>
+    <tr style="display:yes;">
+		<td width="80%" colspan="2">{'system_config_txt_facebook_api_key'}</td>
+		<td width="20%"><input name="cf_fb_api_key" type="text" id="cf_fb_api_key" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_fb_api_key&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_fb_api_key'}" size="34" /></td>
+	</tr>
+	<tr style="display:yes;">
+		<td width="80%" colspan="2">{'system_config_txt_facebook_secret'}</td>
+		<td width="20%"><input name="cf_fb_secret" type="text" id="cf_fb_secret" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_fb_secret&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_fb_secret'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2" >{'system_config_txt_type_of_header_email_to_show'}</td>
+		<td width="20%" ><select name="cf_show_from_email" size="1" id="cf_show_from_email" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_from_email&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="0" {'selected_cf_show_from_email_0'}>{'system_config_txt_sender_name_email'}</option>
+		<option value="1" {'selected_cf_show_from_email_1'}>{'system_config_txt_site_title_email'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_site_title_email_instruction'}</td>
+		<td width="20%" ><input name="cf_site_from_email" type="text" id="cf_site_from_email" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_site_from_email&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_site_from_email'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_send_email_using_SMTP_server'}</td>
+		<td width="20%"><select name="cf_sendmail_using_SMTP" size="1" id="cf_sendmail_using_SMTP" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_sendmail_using_SMTP&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_sendmail_using_SMTP_1'}>{'system_config_txt_use_smtp_server'}</option>
+		<option value="0" {'selected_cf_sendmail_using_SMTP_0'}>{'system_config_txt_use_sendmail'}</option>
+		</select></td>
+	</tr>
+	<!--  
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_email_content_type'}</td>
+		<td width="20%"><select name="cf_email_plain_text" size="1" id="cf_email_plain_text" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_email_plain_text&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_email_plain_text_1'}>{'system_config_txt_content_type_html'}</option>
+		<option value="0" {'selected_cf_email_plain_text_0'}>{'system_config_txt_content_type_plain_text'}</option>
+		</select></td>
+	</tr>
+	-->
+	<tr>
+		<td colspan="3">{'system_config_txt_if_using_smtp_enter_smtp_account'}</td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_smtp_host'}</td>
+		<td width="20%"><input name="cf_SMTP_Host" type="text" id="cf_SMTP_Host" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_SMTP_Host&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_SMTP_Host'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_smtp_port'}</td>
+		<td width="20%"><input name="cf_SMTP_Port" type="text" id="cf_SMTP_Port" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_SMTP_Port&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_SMTP_Port'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_smtp_authentication'}</td>
+		<td width="20%"><select name="cf_SMTP_Authentication" size="1" id="cf_SMTP_Authentication" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_SMTP_Authentication&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_SMTP_Authentication_1'}>{'system_config_txt_smtp_authentication_yes'}</option>
+		<option value="0" {'selected_cf_SMTP_Authentication_0'}>{'system_config_txt_smtp_authentication_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_smtp_authentication_username'}</td>
+		<td width="20%"><input name="cf_SMTP_Username" type="text" id="cf_SMTP_Username" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_SMTP_Username&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_SMTP_Username'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_smtp_authentication_password'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_SMTP_Password" type="text" id="cf_SMTP_Password" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_SMTP_Password&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_SMTP_Password'}" size="34" /></td>
+	</tr>
+	<!--tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_hide_email_for_confidential'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_hide_email_confidential" size="1" id="cf_hide_email_confidential" onFocus="original_value=this.value;" onChange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_hide_email_confidential&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_hide_email_confidential_1'}>{'system_config_txt_hide_email_confidential_yes'}</option>
+		<option value="0" {'selected_cf_hide_email_confidential_0'}>{'system_config_txt_hide_email_confidential_no'}</option>
+		</select></td>
+	</tr-->
+	<tr>
+		<td width="80%" colspan="2" >{'system_config_txt_set_meta_tag_description_homepage'}</td>
+		<td width="20%" ><input name="cf_main_description" type="text" id="cf_main_description" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_main_description&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" value="{'cf_main_description'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_set_meta_tag_keyword_homepage'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_main_keyword" type="text" id="cf_main_keyword" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_main_keyword&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" value="{'cf_main_keyword'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" colspan="2" >{'system_config_txt_turn_horizontal_banner'}</td>
+		<td width="20%" ><select name="cf_turn_hr_banner" size="1" id="cf_turn_hr_banner" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_turn_hr_banner&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_turn_hr_banner_1'}>{'system_config_txt_turn_horizontal_banner_on'}</option>
+		<option value="0" {'selected_cf_turn_hr_banner_0'}>{'system_config_txt_turn_horizontal_banner_off'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_turn_vertical_banner'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_turn_vt_banner" size="1" id="cf_turn_vt_banner" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_turn_vt_banner&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_turn_vt_banner_1'}>{'system_config_txt_turn_vertical_banner_on'}</option>
+		<option value="0" {'selected_cf_turn_vt_banner_0'}>{'system_config_txt_turn_vertical_banner_off'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_allow_users_to_give_comment_for_ecard'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">
+		<select name="cf_show_user_comment" size="1" id="cf_show_user_comment" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_user_comment&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_user_comment_1'}>{'system_config_txt_allow_users_to_give_comment_for_ecard_yes'}</option>
+		<option value="0" {'selected_cf_show_user_comment_0'}>{'system_config_txt_allow_users_to_give_comment_for_ecard_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_disable_right_click'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">
+		<select name="cf_no_right_click" size="1" id="cf_no_right_click" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_no_right_click&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_no_right_click_1'}>{'system_config_txt_disable_right_click_yes'}</option>
+		<option value="0" {'selected_cf_no_right_click_0'}>{'system_config_txt_disable_right_click_no'}</option>
+		</select></td>
+	</tr>	
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_enable_black_list_feature'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_enable_black_list" size="1" id="cf_enable_black_list" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_enable_black_list&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_enable_black_list_1'}>{'system_config_txt_enable_black_list_feature_yes'}</option>
+		<option value="0" {'selected_cf_enable_black_list_0'}>{'system_config_txt_enable_black_list_feature_no'}</option>
+		</select></td>
+	</tr>
+	<td colspan="3">{'gd_info'}</td>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_show_verify_image_code_when_sign_up_account'}<br>{'system_config_txt_show_verify_image_code_when_sign_up_account_note'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_image_verify_code" size="1" id="cf_show_image_verify_code" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_image_verify_code&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_image_verify_code_1'}>{'system_config_txt_show_verify_image_code_when_sign_up_account_yes'}</option>
+		<option value="0" {'selected_cf_show_image_verify_code_0'}>{'system_config_txt_show_verify_image_code_when_sign_up_account_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_new_account_email_verification'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_new_account_email_verification" size="1" id="cf_new_account_email_verification" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_new_account_email_verification&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_new_account_email_verification_1'}>{'system_config_txt_new_account_email_verification_yes'}</option>
+		<option value="0" {'selected_cf_new_account_email_verification_0'}>{'system_config_txt_new_account_email_verification_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_use_easy_edit_template_feature'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">
+		<select name="cf_easy_edit_template" size="1" id="cf_easy_edit_template" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_easy_edit_template&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_easy_edit_template_1'}>{'system_config_txt_use_easy_edit_template_feature_yes'}</option>
+		<option value="0" {'selected_cf_easy_edit_template_0'}>{'system_config_txt_use_easy_edit_template_feature_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_date_format'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">
+		<select name="cf_show_date_option" size="1" id="cf_show_date_option" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_date_option&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="0" {'selected_cf_show_date_option_0'}>{'system_config_txt_date_format_mmddyyyy'}</option>
+		<option value="1" {'selected_cf_show_date_option_1'}>{'system_config_txt_date_format_ddmmyyyy'}</option>
+		<option value="2" {'selected_cf_show_date_option_2'}>{'system_config_txt_date_format_yyyyddmm'}</option>
+		<option value="3" {'selected_cf_show_date_option_3'}>{'system_config_txt_date_format_yyyymmdd'}</option>
+		</select></td>
+	</tr>
+	<!--  
+	<tr>
+		<td width="80%" colspan="2">{'system_config_txt_summer_time_dst_effect'}</td>
+		<td width="20%" >
+		<select name="cf_dst" size="1" id="cf_dst" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_dst&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_dst_1'}>{'system_config_txt_summer_time_dst_effect_yes'}</option>
+		<option value="0" {'selected_cf_dst_0'}>{'system_config_txt_summer_time_dst_effect_no'}</option>
+		</select></td>
+	</tr>
+	-->
+	<tr>
+		<td width="41%" style="border-bottom: 1px solid silver; white-space:nowrap;" colspan="2">{'system_config_txt_set_server_time_zone'}<br />
+		<select name="cf_timezone" size="1" id="cf_timezone" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_timezone&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);"> 
+		{'list_option'}
+		</select> <input class=Button type="button" value="Show Local Time " onclick="WriteInnerHTML('index.php?step=load_local_time','update_time_zone','checking...');" /></td>
+		<td width="60%" style="border-bottom: 1px solid silver;white-space:nowrap;" align="left"><span id="update_time_zone" class="OK_Message">{'show_local_time'}</span></td>
+	</tr>
+    <tr>
+    	<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_date_default_timezone_set'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">
+        <input name="cf_default_timezone" type="text" id="cf_default_timezone" style="width:87%" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_default_timezone&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_default_timezone'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_number_of_thumbnail_images_per_row'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_pic_per_row" type="text" id="cf_pic_per_row" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_pic_per_row&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_pic_per_row'}" size="5" maxlength="2" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;" colspan="2">{'system_config_txt_number_of_row_per_page'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_row_per_page" type="text" id="cf_row_per_page" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_row_per_page&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_row_per_page'}" size="5" maxlength="2" /></td>
+	</tr>	
+	<tr>
+		<td width="41%" style="white-space:nowrap">{'system_config_txt_hoteditor_keycode'}</td>
+		<td width="60%" style="white-space:nowrap" colspan="2" align="right"><input name="cf_hoteditor_keycode" type="text" id="cf_hoteditor_keycode" style="width:87%" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_hoteditor_keycode&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_hoteditor_keycode'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="41%" style="white-space:nowrap">{'system_config_txt_ecardmax_keycode'}</td>
+		<td width="60%" style="white-space:nowrap" colspan="2" align="right"><input name="cf_ecardmax_keycode" type="text" id="cf_ecardmax_keycode" style="width:87%" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_ecardmax_keycode&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_ecardmax_keycode'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="41%" style="white-space:nowrap">{'system_config_txt_ephotohunt_game_keycode'}</td>
+		<td width="60%" style="white-space:nowrap" colspan="2" align="right"><input name="cf_ephotohunt_keycode" type="text" id="cf_ephotohunt_keycode" style="width:87%" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_ephotohunt_keycode&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_ephotohunt_keycode'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="41%" style="white-space:nowrap">{'system_config_txt_ecardmax_java_applet_keycode'}</td>
+		<td width="60%" style="white-space:nowrap" colspan="2" align="right"><input name="cf_cgi2k_java_keycode" type="text" id="cf_cgi2k_java_keycode" style="width:87%" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_cgi2k_java_keycode&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_cgi2k_java_keycode'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="41%" style="white-space:nowrap">{'system_config_txt_dseffect_keycode'}</td>
+		<td width="60%" style="white-space:nowrap" colspan="2" align="right"><input name="cf_ds_java_keycode" type="text" id="cf_ds_java_keycode" style="width:87%" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_ds_java_keycode&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_ds_java_keycode'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="41%" style="border-bottom: 1px solid silver; white-space:nowrap;">{'system_config_txt_anfy_keycode'}</td>
+		<td width="60%" style="border-bottom: 1px solid silver; white-space:nowrap;" colspan="2" align="right"><input name="cf_anfy_java_keycode" type="text" id="cf_anfy_java_keycode" style="width:87%" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_anfy_java_keycode&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_anfy_java_keycode'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="100%" colspan="3">{'system_config_txt_please_do_not_remove_ecardmax_copyright'}<br />
+		<input name="cf_ecardmax_copyright_footer" type="text" id="cf_ecardmax_copyright_footer" style="width:800px" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_ecardmax_copyright_footer&edit_key=config_value&edit_value=',this.value,'0',original_value,this.id);" value="{'cf_ecardmax_copyright_footer'}" size="115" /></td>
+	</tr>
+</table>
+</div>
+
+<div id=tellfriend_tab_settings style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_total_number_of_recipients'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_max_friend_email" type="text" id="cf_max_friend_email" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_max_friend_email&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_max_friend_email'}" size="5" maxlength="2" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_default_number_of_recipient_name_email'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_recipient_default" type="text" id="cf_recipient_default" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_recipient_default&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_recipient_default'}" size="5" maxlength="2" /></td>
+	</tr>
+	</table>
+</div>
+
+<div id=ecard_tab_settings style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" >{'system_config_txt_set_ecard_max_width_automatically_resize'}</td>
+		<td width="20%" ><input name="cf_max_image_width" type="text" id="cf_max_image_width" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_max_image_width&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_max_image_width'}" size="10" /> px</td>
+	</tr>
+	<tr>
+		<td width="100%" colspan="2" >{'system_config_txt_set_thumbnail_width_height_for_resize'}</td>
+	</tr>
+	<tr>
+		<td width="80%" > {'system_config_txt_thumbnail_image_width'}</td>
+		<td width="20%" ><input name="cf_thumb_width_member_card" type="text" id="cf_thumb_width_member_card" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_thumb_width_member_card&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_thumb_width_member_card'}" size="10" /> px</td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;"> {'system_config_txt_thumbnail_image_height'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_thumb_height_member_card" type="text" id="cf_thumb_height_member_card" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_thumb_height_member_card&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_thumb_height_member_card'}" size="10" /> px</td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_show_random_quote_at_homepage'}</td>
+		<td width="20%" >
+		<select name="cf_show_quote_of_the_day_at_homepage" size="1" id="cf_show_quote_of_the_day_at_homepage" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_quote_of_the_day_at_homepage&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_quote_of_the_day_at_homepage_1'}>{'system_config_txt_show_random_quote_at_homepage_yes'}</option>
+		<option value="0" {'selected_cf_show_quote_of_the_day_at_homepage_0'}>{'system_config_txt_show_random_quote_at_homepage_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_number_quote_to_show'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_homepage_display_quote_limit" type="text" id="cf_homepage_display_quote_limit" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_homepage_display_quote_limit&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_homepage_display_quote_limit'}" size="5" maxlength="3" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_show_feature_cards_at_homepage'}</td>
+		<td width="20%" >
+		<select name="cf_show_feature_cards_table_at_homepage" size="1" id="cf_show_feature_cards_table_at_homepage" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_feature_cards_table_at_homepage&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_feature_cards_table_at_homepage_1'}>{'system_config_txt_show_feature_cards_at_homepage_yes'}</option>
+		<option value="0" {'selected_cf_show_feature_cards_table_at_homepage_0'}>{'system_config_txt_show_feature_cards_at_homepage_No'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_number_feature_cards_to_show'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_homepage_display_feature_card_limit" type="text" id="cf_homepage_display_feature_card_limit" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_homepage_display_feature_card_limit&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_homepage_display_feature_card_limit'}" size="5" maxlength="3" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_show_most_popular_cards_at_homepage'}</td>
+		<td width="20%" >
+		<select name="cf_show_popular_cards_table_at_homepage" size="1" id="cf_show_popular_cards_table_at_homepage" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_popular_cards_table_at_homepage&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_popular_cards_table_at_homepage_1'}>{'system_config_txt_show_most_popular_cards_at_homepage_yes'}</option>
+		<option value="0" {'selected_cf_show_popular_cards_table_at_homepage_0'}>{'system_config_txt_show_most_popular_cards_at_homepage_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_number_most_popular_cards_to_show'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_homepage_display_most_popular_limit" type="text" id="cf_homepage_display_most_popular_limit" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_homepage_display_most_popular_limit&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_homepage_display_most_popular_limit'}" size="5" maxlength="3" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_show_top_rated_cards_at_homepage'}</td>
+		<td width="20%" >
+		<select name="cf_show_top_rated_cars_table_at_homepage" size="1" id="cf_show_top_rated_cars_table_at_homepage" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_top_rated_cars_table_at_homepage&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_top_rated_cars_table_at_homepage_1'}>{'system_config_txt_show_top_rated_cards_at_homepage_yes'}</option>
+		<option value="0" {'selected_cf_show_top_rated_cars_table_at_homepage_0'}>{'system_config_txt_show_top_rated_cards_at_homepage_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_number_top_rated_cards_to_show'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_homepage_display_toprate_limit" type="text" id="cf_homepage_display_toprate_limit" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_homepage_display_toprate_limit&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_homepage_display_toprate_limit'}" size="5" maxlength="3" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_show_newest_cards_at_homepage'}</td>
+		<td width="20%" >
+		<select name="cf_show_newest_cards_table_at_homepage" size="1" id="cf_show_newest_cards_table_at_homepage" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_newest_cards_table_at_homepage&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_newest_cards_table_at_homepage_1'}>{'system_config_txt_show_newest_cards_at_homepage_yes'}</option>
+		<option value="0" {'selected_cf_show_newest_cards_table_at_homepage_0'}>{'system_config_txt_show_newest_cards_at_homepage_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_number_newest_cards_to_show'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_homepage_display_newestcard_limit" type="text" id="cf_homepage_display_newestcard_limit" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_homepage_display_newestcard_limit&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_homepage_display_newestcard_limit'}" size="5" maxlength="3" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_show_random_cards_at_homepage'}</td>
+		<td width="20%" >
+		<select name="cf_show_random_cards_table_at_homepage" size="1" id="cf_show_random_cards_table_at_homepage" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_random_cards_table_at_homepage&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_random_cards_table_at_homepage_1'}>{'system_config_txt_show_random_cards_at_homepage_yes'}</option>
+		<option value="0" {'selected_cf_show_random_cards_table_at_homepage_0'}>{'system_config_txt_show_random_cards_at_homepage_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_number_random_cards_to_show'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_homepage_display_random_limit" type="text" id="cf_homepage_display_random_limit" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_homepage_display_random_limit&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_homepage_display_random_limit'}" size="5" maxlength="3" /></td>
+	</tr>		
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_card_expire_after'} </td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_card_expire_day" type="text" id="cf_card_expire_day" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_card_expire_day&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_card_expire_day'}" size="5" maxlength="3" /> {'system_config_txt_days'}</td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_all_cards_for_member_only_when_uploading_new_cards'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_new_card_for_free" size="1" id="cf_new_card_for_free" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_new_card_for_free&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_new_card_for_free_1'}>{'system_config_txt_set_all_cards_for_member_only_when_uploading_new_cards_yes'}</option>
+		<option value="0" {'selected_cf_new_card_for_free_0'}>{'system_config_txt_set_all_cards_for_member_only_when_uploading_new_cards_no'}</option>
+		</select></td>
+	</tr>
+	</table>
+</div>	
+
+<div id=invitation_tab_settings style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_maximum_font_file_member_can_upload'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_user_max_font_upload" type="text" id="cf_user_max_font_upload" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_user_max_font_upload&edit_key=config_value&edit_value=',this.value,'20',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_user_max_font_upload'}" size="5" maxlength="3" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_invitation_card_expired_after'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_card_expire_day_invite" type="text" id="cf_card_expire_day_invite" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_card_expire_day_invite&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_card_expire_day_invite'}" size="5" maxlength="3" /> {'system_config_txt_days'}</td>
+	</tr>
+    <tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_newest_invitation_ecards'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_newest_invitation_ecards" type="text" id="cf_newest_invitation_ecards" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_newest_invitation_ecards&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_newest_invitation_ecards'}" size="5" maxlength="3" /></td>
+	</tr>
+</table>
+</div>
+
+<div id=style_tab_settings style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_default_template'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">{'set_template'}</td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_default_language'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">{'set_default_language'}</td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_holiday_event_homepage'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_holiday_events_box" size="1" id="cf_show_holiday_events_box" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_holiday_events_box&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_holiday_events_box_1'}>{'system_config_txt_show_holiday_event_homepage_yes'}</option>
+		<option value="0" {'selected_cf_show_holiday_events_box_0'}>{'system_config_txt_show_holiday_event_homepage_no'}</option>
+		</select></td>
+	</tr>	
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_toolbar_button_select_image_effect'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_advance_option_button" size="1" id="cf_show_advance_option_button" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_advance_option_button&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_advance_option_button_1'}>{'system_config_txt_show_toolbar_button_select_image_effect_yes'}</option>
+		<option value="0" {'selected_cf_show_advance_option_button_0'}>{'system_config_txt_show_toolbar_button_select_image_effect_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_button_select_java'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_option_select_java" size="1" id="cf_option_select_java" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_option_select_java&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_option_select_java_1'}>{'system_config_txt_show_button_select_java_yes'}</option>
+		<option value="0" {'selected_cf_option_select_java_0'}>{'system_config_txt_show_button_select_java_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_button_select_skin_background'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_option_select_skin" size="1" id="cf_option_select_skin" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_option_select_skin&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_option_select_skin_1'}>{'system_config_txt_show_button_select_skin_background_yes'}</option>
+		<option value="0" {'selected_cf_option_select_skin_0'}>{'system_config_txt_show_button_select_skin_background_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_button_select_stamp'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_option_select_stamp" size="1" id="cf_option_select_stamp" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_option_select_stamp&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_option_select_stamp_1'}>{'system_config_txt_show_button_select_stamp_yes'}</option>
+		<option value="0" {'selected_cf_option_select_stamp_0'}>{'system_config_txt_show_button_select_stamp_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_button_select_poem'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_option_select_poem" size="1" id="cf_option_select_poem" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_option_select_poem&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_option_select_poem_1'}>{'system_config_txt_show_button_select_poem_yes'}</option>
+		<option value="0" {'selected_cf_option_select_poem_0'}>{'system_config_txt_show_button_select_poem_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_button_select_music'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_option_user_select_music" size="1" id="cf_option_user_select_music" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_option_user_select_music&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_option_user_select_music_1'}>{'system_config_txt_show_button_select_music_yes'}</option>
+		<option value="0" {'selected_cf_option_user_select_music_0'}>{'system_config_txt_show_button_select_music_no'}</option>
+		</select></td>
+	</tr>	
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_button_card_info'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_ecard_info_box" size="1" id="cf_show_ecard_info_box" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_ecard_info_box&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_ecard_info_box_1'}>{'system_config_txt_show_button_card_info_yes'}</option>
+		<option value="0" {'selected_cf_show_ecard_info_box_0'}>{'system_config_txt_show_button_card_info_no'}</option>
+		</select></td>
+	</tr>
+	<!--tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_button_card_printer'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_ecard_print" size="1" id="cf_show_ecard_print" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_ecard_print&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_ecard_print_1'}>{'system_config_txt_show_button_card_printer_yes'}</option>
+		<option value="0" {'selected_cf_show_ecard_print_0'}>{'system_config_txt_show_button_card_printer_no'}</option>
+		</select></td>
+	</tr-->
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_rate_star_icon'} <img border="0" alt="" src="html/rate50.gif" /></td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_rate_star_image" size="1" id="cf_show_rate_star_image" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_rate_star_image&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_rate_star_image_1'}>{'system_config_txt_show_rate_star_icon_yes'}</option>
+		<option value="0" {'selected_cf_show_rate_star_image_0'}>{'system_config_txt_show_rate_star_icon_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_thumbnail_toolbar'} <img border="0" alt="" src="html/07_thumb_tool.gif" style="vertical-align:middle" /></td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_thumb_toolbar" size="1" id="cf_show_thumb_toolbar" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_thumb_toolbar&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_thumb_toolbar_1'}>{'system_config_txt_show_thumbnail_toolbar_yes'}</option>
+		<option value="0" {'selected_cf_show_thumb_toolbar_0'}>{'system_config_txt_show_thumbnail_toolbar_no'}</option>
+		</select></td>
+	</tr>	
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_preview_card_icon'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_goto_category_icon'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_goto_category_icon" size="1" id="cf_show_goto_category_icon" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_goto_category_icon&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_goto_category_icon_1'}>{'system_config_txt_show_goto_category_icon_yes'}</option>
+		<option value="0" {'selected_cf_show_goto_category_icon_0'}>{'system_config_txt_show_goto_category_icon_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_free_card_icon'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_free_icon" size="1" id="cf_show_free_icon" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_free_icon&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_free_icon_1'}>{'system_config_txt_show_free_card_icon_yes'}</option>
+		<option value="0" {'selected_cf_show_free_icon_0'}>{'system_config_txt_show_free_card_icon_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_show_new_icon'}</td>
+		<td width="20%" ><select name="cf_show_new_icon" size="1" id="cf_show_new_icon" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_new_icon&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_new_icon_1'}>{'system_config_txt_show_new_icon_yes'}</option>
+		<option value="0" {'selected_cf_show_new_icon_0'}>{'system_config_txt_show_new_icon_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_new_icon_change_number_day'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">
+		<input name="cf_show_new_icon_before_day" type="text" id="cf_show_new_icon_before_day" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_new_icon_before_day&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_show_new_icon_before_day'}" size="5" maxlength="2" />{'system_config_txt_days_before_today'}</td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_card_type'} <img border="0" src="html/07_icon_postcard.gif" alt="" style="vertical-align: middle;" /> {'system_config_txt_show_card_type_or'} <img border="0" src="html/07_icon_flash.gif" alt="" style="vertical-align: middle;" /> </td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_card_type_icon" size="1" id="cf_show_card_type_icon" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_card_type_icon&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_card_type_icon_1'}>{'system_config_txt_show_card_type_yes'}</option>
+		<option value="0" {'selected_cf_show_card_type_icon_0'}>{'system_config_txt_show_card_type_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_thubmail_card_caption'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_card_caption" size="1" id="cf_show_card_caption" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_card_caption&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_card_caption_1'}>{'system_config_txt_show_thubmail_card_caption_yes'}</option>
+		<option value="0" {'selected_cf_show_card_caption_0'}>{'system_config_txt_show_thubmail_card_caption_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_show_pay_per_card_amount'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_show_ppc_amount" size="1" id="cf_show_ppc_amount" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_show_ppc_amount&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_show_ppc_amount_1'}>{'system_config_txt_show_pay_per_card_amount_yes'}</option>
+		<option value="0" {'selected_cf_show_ppc_amount_0'}>{'system_config_txt_show_pay_per_card_amount_no'}</option>
+		</select></td>
+	</tr>
+    <tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_slider_width'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_slider_width" type="text" id="cf_slider_width" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_slider_width&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_slider_width'}" size="5" maxlength="4" />px</td>
+	</tr>
+    <tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_slider_height'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_slider_height" type="text" id="cf_slider_height" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_slider_height&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_slider_height'}" size="5" maxlength="3" />px</td>
+	</tr>
+		
+</table>
+</div>
+
+<div id=watermark_tab_settings style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_enable_watermark'}<br>{'system_config_txt_enable_watermark_note'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><select name="cf_enable_watermark" size="1" id="cf_enable_watermark" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_enable_watermark&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_enable_watermark_1'}>{'system_config_txt_enable_watermark_yes'}</option>
+		<option value="0" {'selected_cf_enable_watermark_0'}>{'system_config_txt_enable_watermark_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_watermark_position'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;">
+			<select size="1" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_watermark_pos&edit_key=config_value&edit_value=',this.value,'1',1,this.id);" id="cf_watermark_pos" name="cf_watermark_pos">
+			<option value="1" {'selected_cf_watermark_pos_1'}>{'system_config_txt_watermark_position_top_left'}</option>
+			<option value="2" {'selected_cf_watermark_pos_2'}>{'system_config_txt_watermark_position_top_center'}</option>
+			<option value="3" {'selected_cf_watermark_pos_3'}>{'system_config_txt_watermark_position_top_right'}</option>
+			<option value="4" {'selected_cf_watermark_pos_4'}>{'system_config_txt_watermark_position_middle_left'}</option>
+			<option value="5" {'selected_cf_watermark_pos_5'}>{'system_config_txt_watermark_position_middle_center'}</option>
+			<option value="6" {'selected_cf_watermark_pos_6'}>{'system_config_txt_watermark_position_middle_right'}</option>
+			<option value="7" {'selected_cf_watermark_pos_7'}>{'system_config_txt_watermark_position_bottom_left'}</option>
+			<option value="8" {'selected_cf_watermark_pos_8'}>{'system_config_txt_watermark_position_bottom_center'}</option>
+			<option value="9" {'selected_cf_watermark_pos_9'}>{'system_config_txt_watermark_position_bottom_right'}</option>
+			<option value="10" {'selected_cf_watermark_pos_10'}>{'system_config_txt_title_over_the_ecard'}</option>
+			</select>
+		</td>
+	</tr>
+	<!--  
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_watermark_opacity'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input type="text" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_watermark_opacity&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" id="cf_watermark_opacity" name="cf_watermark_opacity" size="10" value="{'cf_watermark_opacity'}" onkeypress="return isNumberKey(event)" /> % </td>
+	</tr>
+	-->
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_path_to_your_watermark_image'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"></td>
+	</tr>
+</table>
+</div>
+
+<div id=memberalbum_tab_settings style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" >{'system_config_txt_allow_members_to_upload_their_own_images'}</td>
+		<td width="20%" >
+		<select name="cf_member_can_upload_image" size="1" id="cf_member_can_upload_image" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_member_can_upload_image&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_member_can_upload_image_1'}>{'system_config_txt_allow_members_to_upload_their_own_images_yes'}</option>
+		<option value="0" {'selected_cf_member_can_upload_image_0'}>{'system_config_txt_allow_members_to_upload_their_own_images_no'}</option>
+		</select></td>
+	</tr>	
+	<tr>
+		<td width="80%">{'system_config_txt_allow_members_to_upload_their_own_images_set_total_images'}</td>
+		<td width="20%"><input name="cf_album_max_image" type="text" id="cf_album_max_image" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_album_max_image&edit_key=config_value&edit_value=',this.value,'20',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_album_max_image'}" size="10" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_maximum_image_file_size_for_user_to_upload'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_image_upload_max_size" type="text" id="cf_image_upload_max_size" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_image_upload_max_size&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_image_upload_max_size'}" size="15" maxlength="8" /> {'system_config_txt_bytes'}</td>
+	</tr>	
+	<tr>
+		<td width="80%" >{'system_config_txt_allow_members_to_upload_their_own_music_files'}</td>
+		<td width="20%" >
+		<select name="cf_member_can_upload_music" size="1" id="cf_member_can_upload_music" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_member_can_upload_music&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_member_can_upload_music_1'}>{'system_config_txt_allow_members_to_upload_their_own_music_files_yes'}</option>
+		<option value="0" {'selected_cf_member_can_upload_music_0'}>{'system_config_txt_allow_members_to_upload_their_own_music_files_no'}</option>
+		</select></td>
+	</tr>	
+	<tr>
+		<td width="80%">{'system_config_txt_allow_members_to_upload_their_own_music_files_set_total_music'}</td>
+		<td width="20%"><input name="cf_album_max_music" type="text" id="cf_album_max_music" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_album_max_music&edit_key=config_value&edit_value=',this.value,'20',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_album_max_music'}" size="10" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_maximum_music_file_size_to_upload'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_music_upload_max_size" type="text" id="cf_music_upload_max_size" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_music_upload_max_size&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_music_upload_max_size'}" size="15" maxlength="8" /> {'system_config_txt_bytes'}</td>
+	</tr>	
+	<tr>
+		<td width="80%" >{'system_config_txt_allow_members_to_upload_their_own_stamp_files'}</td>
+		<td width="20%" >
+		<select name="cf_member_can_upload_stamp" size="1" id="cf_member_can_upload_stamp" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_member_can_upload_stamp&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_member_can_upload_stamp_1'}>{'system_config_txt_allow_members_to_upload_their_own_stamp_files_yes'}</option>
+		<option value="0" {'selected_cf_member_can_upload_stamp_0'}>{'system_config_txt_allow_members_to_upload_their_own_stamp_files_no'}</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td width="80%">{'system_config_txt_allow_members_to_upload_their_own_stamp_files_set_total_stamp'}</td>
+		<td width="20%"><input name="cf_album_max_stamp" type="text" id="cf_album_max_stamp" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_album_max_stamp&edit_key=config_value&edit_value=',this.value,'20',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_album_max_stamp'}" size="10" /></td>
+	</tr>
+	<tr>
+		<td width="80%">{'system_config_txt_maximum_stamp_file_size_to_upload'}</td>
+		<td width="20%"><input name="cf_stamp_upload_max_size" type="text" id="cf_stamp_upload_max_size" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_stamp_upload_max_size&edit_key=config_value&edit_value=',this.value,'2',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_stamp_upload_max_size'}" size="15" maxlength="8" /> {'system_config_txt_bytes'}</td>
+	</tr>
+	
+	<tr>
+		<td width="80%">{'system_config_txt_set_stamp_image_width'}</td>
+		<td width="20%"><input name="cf_album_max_stamp_width" type="text" id="cf_album_max_stamp_width" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_album_max_stamp_width&edit_key=config_value&edit_value=',this.value,'20',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_album_max_stamp_width'}" size="10" /> px</td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_set_stamp_image_height'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_album_max_stamp_height" type="text" id="cf_album_max_stamp_height" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_album_max_stamp_height&edit_key=config_value&edit_value=',this.value,'20',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_album_max_stamp_height'}" size="10" /> px</td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_allow_members_to_upload_their_own_poem'}</td>
+		<td width="20%" >
+		<select name="cf_member_can_upload_poem" size="1" id="cf_member_can_upload_poem" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_member_can_upload_poem&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_member_can_upload_poem_1'}>{'system_config_txt_allow_members_to_upload_their_own_poem_yes'}</option>
+		<option value="0" {'selected_cf_member_can_upload_poem_0'}>{'system_config_txt_allow_members_to_upload_their_own_poem_no'}</option>
+		</select></td>
+	</tr>	
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_allow_members_to_upload_their_own_poem_set_total_poems'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_album_max_poem" type="text" id="cf_album_max_poem" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_album_max_poem&edit_key=config_value&edit_value=',this.value,'20',original_value,this.id);" onKeyPress="return isNumberKey(event)" value="{'cf_album_max_poem'}" size="10" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_allow_members_to_upload_their_own_fonts'}</td>
+		<td width="20%" >
+		<select name="cf_member_can_upload_poem" size="1" id="cf_member_can_upload_font" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_member_can_upload_font&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+		<option value="1" {'selected_cf_member_can_upload_font_1'}>{'system_config_txt_allow_members_to_upload_their_own_fonts_yes'}</option>
+		<option value="0" {'selected_cf_member_can_upload_font_0'}>{'system_config_txt_allow_members_to_upload_their_own_fonts_no'}</option>
+		</select></td>
+	</tr>
+</table>
+</div>
+
+<div id=gold_tab_settings style="border: 1px solid silver;width:100%;">
+<table border="0" width="100%" cellpadding="7" cellspacing="0" style="background-color:#F5F5F5">
+	<tr>
+		<td width="80%" >{'system_config_txt_enable_2checkout_test_mode'}</td>
+		<td width="20%" >
+			<select name="cf_enable_2co_test_mode" size="1" id="cf_enable_2co_test_mode" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_enable_2co_test_mode&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+			<option value="1" {'selected_cf_enable_2co_test_mode_1'}>{'system_config_txt_enable_2checkout_test_mode_yes'}</option>
+			<option value="0" {'selected_cf_enable_2co_test_mode_0'}>{'system_config_txt_enable_2checkout_test_mode_no'}</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_enter_2checkout_secret_word'}</td>
+		<td width="20%" ><input name="cf_2co_secret_word" type="text" id="cf_2co_secret_word" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_2co_secret_word&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" value="{'cf_2co_secret_word'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" style="border-bottom: 1px solid silver;">{'system_config_txt_enter_2checkout_sid_number'}</td>
+		<td width="20%" style="border-bottom: 1px solid silver;"><input name="cf_2co_sid_number" type="text" id="cf_2co_sid_number" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_2co_sid_number&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" value="{'cf_2co_sid_number'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_turn_on_paypal_testing_mode'}</td>
+		<td width="20%" ><select name="cf_enable_paypal_test_mode" size="1" id="cf_enable_paypal_test_mode" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_enable_paypal_test_mode&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+			<option value="1" {'selected_cf_enable_paypal_test_mode_1'}>{'system_config_txt_enable_paypal_test_mode_yes'}</option>
+			<option value="0" {'selected_cf_enable_paypal_test_mode_0'}>{'system_config_txt_enable_paypal_test_mode_no'}</option>
+			</select></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_your_testing_paypal_email_address'}</td>
+		<td width="20%" ><input name="cf_paypal_test_email" type="text" id="cf_paypal_test_email" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_paypal_test_email&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" value="{'cf_paypal_test_email'}" size="34" /></td>
+	</tr>
+	<tr>
+		<td width="80%" >{'system_config_txt_your_primary_paypal_email_address'}</td>
+		<td width="20%" ><input name="cf_paypal_primary_email" type="text" id="cf_paypal_primary_email" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_paypal_primary_email&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);" value="{'cf_paypal_primary_email'}" size="34" /></td>
+	</tr>
+    <tr>
+		<td width="80%" >{'system_config_txt_turn_on_ppc'}</td>
+		<td width="20%" ><select name="cf_ppc" size="1" id="cf_ppc" onfocus="original_value=this.value;" onchange="Editme('index.php?step=admin_system_config&what=edit_me_admin_config&table=max_config&edit_id=config_name&edit_id_value=cf_ppc&edit_key=config_value&edit_value=',this.value,'1',original_value,this.id);">
+			<option value="1" {'selected_cf_ppc_1'}>{'system_config_txt_ppc_yes'}</option>
+			<option value="0" {'selected_cf_ppc_0'}>{'system_config_txt_ppc_no'}</option>
+			</select></td>
+	</tr>
+</table>
+</div>
+<script language=javascript>
+
+showtab("general_tab","general_tab_settings");
+function hidetab(){
+	showid2("general_tab_settings","none");
+	document.getElementById("general_tab").className="Tab_Settings";
+	showid2("tellfriend_tab_settings","none");
+	document.getElementById("tellfriend_tab").className="Tab_Settings";
+	showid2("ecard_tab_settings","none");
+	document.getElementById("ecard_tab").className="Tab_Settings";
+	showid2("invitation_tab_settings","none");
+	document.getElementById("invitation_tab").className="Tab_Settings";
+	showid2("style_tab_settings","none");
+	document.getElementById("style_tab").className="Tab_Settings";
+	showid2("watermark_tab_settings","none");
+	document.getElementById("watermark_tab").className="Tab_Settings";
+	showid2("memberalbum_tab_settings","none");
+	document.getElementById("memberalbum_tab").className="Tab_Settings";
+	showid2("gold_tab_settings","none");
+	document.getElementById("gold_tab").className="Tab_Settings";
+}
+function tab_over(tabname){
+	document.getElementById(tabname).className="Tab_Settings_mouseover";
+}
+function tab_out(tabname){
+	if(document.getElementById(tabname+"_settings").style.display=="none"){
+		document.getElementById(tabname).className="Tab_Settings";
+	}
+	else{
+		document.getElementById(tabname).className="Tab_Settings_mouseover";
+	}
+}
+function tab_click(tabname){
+	document.getElementById(tabname).className="Tab_Settings_mouseover";
+	hidetab();
+	showid2(tabname+"_settings","block");
+}
+function showtab(tabname,tablename){
+	hidetab();
+	showid2(tablename,"block");
+	document.getElementById(tabname).className="Tab_Settings_mouseover";
+}
+</script>

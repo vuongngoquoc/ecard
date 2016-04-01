@@ -1,0 +1,118 @@
+﻿<style>
+#loading {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: none;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center;
+}
+#loading img
+{
+	position:absolute;
+	margin-top:20%;
+}
+</style>
+<div class="category-tab"><!--category-tab-->
+    <!------TAB FOR DESKTOP------------->
+
+        <ul class="nav nav-tabs">
+        	<li class='active'>
+            	<a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a>
+            </li>
+            <li><a href='#show_add_table' data-toggle='tab'>{'myalbum_Image_click_to_upload'}</a></li>
+        </ul>
+
+    <!-----END------------------------->
+    <div class="tab-content">
+    	<div class="tab-pane fade active in" id="list_data">
+        	<div>{'show_info'}</div>
+            <div class="table-responsive cart_info">
+            
+            <table class="table table-condensed table-hover">			
+				<thead>
+                <tr>
+					<td colspan="4" style="padding: 5px; font-size: 12px;">{'myalbum_txt_album_name'}: <b>{'album_name'}</b><br>
+					 	<i>{'album_desc'}</i>
+					
+					</td>
+				</tr>
+                </thead>
+                <thead>
+    			<tr class="active">
+					<th width="50%" class="">{'myalbum_txt_photo_thumbnail'}</th>
+					<th class="text-center" width="20%" >{'myalbum_txt_send_this_card'}</th>
+					<th class="text-center" width="15%" >{'myalbum_txt_delete_this_card'}</th>
+					<th class="text-center" width="2%" ><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'txt_tooltip_select_all'}" type="checkbox" value="1" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+				</tr>
+                </thead>
+				{'show_list_table'}
+				<tr>	
+                    <td width="*" colspan="2" class="table_td_text_color">{'txt_row_per_page'} <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="location.href='index.php?step=sign_in&next_step=show_myalbum&what=photo&album_id={'album_id'}&row_number='+this.value;" /></td>
+                    <td width="*" colspan="2"  class="delete_rows_data">
+                    <span class="pull-right">
+                    <button type="button"  class="btn btn-sm btn-danger" onclick="CheckSelected();" >
+                    <i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}
+                    </button> 
+                    <i class="glyphicon glyphicon-hand-up"></i>
+                    </span></td>							
+				</tr>
+			</table>
+            </div>
+			{'display_page_number'}
+        </div>
+        <div class="tab-pane fade" id="show_add_table">
+        	<div class="col-sm-4">
+        	<span class="btn btn-default btn-file">
+                File 1 <input type="file" name="file1" id="file1" size="42" />
+            </span>
+            </div>
+            <div class="col-sm-4">
+            <span class="btn btn-default btn-file">
+                File 2 <input type="file" name="file2" id="file2" size="42" />
+            </span>
+            </div>
+            <div class="col-sm-4">
+            <span class="btn btn-default btn-file">
+                File 3 <input type="file" name="file3" id="file3" size="42" />
+            </span>
+            </div>
+            <div class="col-sm-4">
+            <span class="btn btn-default btn-file">
+                File 4 <input type="file" name="file4" id="file4" size="42" />
+            </span>
+            </div>
+            <div class="col-sm-4">
+            <span class="btn btn-default btn-file">
+                File 5 <input type="file" name="file5" id="file5" size="42" />
+            </span>
+            </div>
+            <div class="col-sm-4">
+            <span class="btn btn-default btn-file">
+                File 6 <input type="file" name="file6" id="file6" size="42" />
+            </span>
+            </div>
+            <div class="col-sm-4">
+            <span class="btn btn-default btn-file">
+                File 7 <input type="file" name="file7" id="file7" size="42" />
+            </span>
+            </div>
+            <div class="col-sm-4 clearfix">
+                <select class="form-control input-sm" name="albums_list" id="albums_list">
+                    {'albums_list'}
+                </select>
+            </div>
+            <div class="col-sm-4 clearfix" >
+            <br  />
+            	<button onclick="showLoadingImage();AddNew();" class="btn btn-sm btn-default btn-my-site" type="button">
+                <i class="fa fa-upload padding5"></i>{'myalbum_button_upload_now'}
+                </button>
+            </div>
+                
+        </div>
+    </div>
+</div>

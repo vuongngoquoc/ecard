@@ -1,0 +1,119 @@
+<div class="sendcard-boundary">
+<div id="div_card_body" >
+    <div id="card-body-left" class="card-body-left col-sm-7">    
+        {'show_card_body'}
+        <div id="show_edit_sendnow_toolbar_bottom" class="text-center elm-toggle-collapse h-space-t-25">
+            <span onclick="EditCard();" class="btn btn-default btn-sm">
+            <i class="fa fa-edit padding5"></i>{'sendcard_php_button_edit'}</span>
+            <span onclick="SendToFriends();" class="btn btn-default btn-sm btn-my-site">
+            <i class="fa fa-send padding5"></i>{'sendcard_php_button_send_now'}</span>
+        </div>
+    </div>
+    <div id="card-body-right" class="card-body-right col-sm-5" style="position:static">
+        <div class="only-desktopg">
+            <h1 class="table_title_bar sendcard" id="title-1">Design eCard</h1>
+            {'show_option_toolbar'}
+            <!-----MESSAGE--------------->
+            <div id="temp_hoteditor" class="h-space-b-15">
+
+			<style type='text/css'>@import url({'ecard_url'}/resource/richedit/styles/office2007/style.css);</style>			
+			<script language="JavaScript" type="text/javascript" src="{'ecard_url'}/resource/richedit/editor.js?version=4.4"></script>
+			<script language="JavaScript" type="text/javascript">
+				var html_output="";
+				var getdata =HTMLToBBCode($('#card_message').html());
+
+				Instantiate("min","editor", getdata, "100%", "150px");
+				
+				//For Vietnamese User. Edit file editor.js to enable vietnamese keyboard
+				if(enable_vietnamese_keyboard==1){
+					document.write("<script language=\"JavaScript\" type=\"text/javascript\" src=resource/richedit/avim.js><\/script>");
+					var hoteditor_avim_method = hot_readCookie("hoteditor_avim_method");var him_auto_checked="";var him_telex_checked="";var him_vni_checked="";var him_viqr_checked="";var him_viqr2_checked="";var him_off_checked="";if(hoteditor_avim_method=="0"){him_auto_checked="checked";}else if(hoteditor_avim_method=="1"){him_telex_checked="checked";}else if(hoteditor_avim_method=="2"){him_vni_checked="checked";}else if(hoteditor_avim_method=="3"){him_viqr_checked="checked";}else if(hoteditor_avim_method=="4"){him_viqr2_checked="checked";}else if(hoteditor_avim_method=="-1"){him_off_checked="checked";}
+					document.write("<div style='width:100%;text-align:center;font-family:Verdana;font-size:11px;'><input "+him_auto_checked+" id=him_auto onclick=setMethod(0); type=radio name=viet_method> Auto :: <input "+him_telex_checked+" id=him_telex onclick=setMethod(1); type=radio name=viet_method> Telex :: <input "+him_vni_checked+" id=him_vni onclick=setMethod(2); type=radio name=viet_method> VNI :: <input "+him_viqr_checked+" id=him_viqr onclick=setMethod(3); type=radio name=viet_method> VIQR :: <input "+him_viqr2_checked+" id=him_viqr2 onclick=setMethod(4); type=radio name=viet_method> VIQR* :: <input "+him_off_checked+" id=him_off onclick=setMethod(-1); type=radio name=viet_method> Off<br><img src="+styles_folder_path+"/vietnamese_symbol.gif></div>");
+				}
+				$('#temp_hoteditor iframe').contents().find('body').keyup(function(){
+					get_hoteditor_data();
+				});
+				function updateHoteditor(){
+					setTimeout(function(){
+						get_hoteditor_data();
+					},100);
+				}
+				$(window).click(function(e) {
+					get_hoteditor_data();
+				});
+				function get_hoteditor_data(){
+					setCodeOutput();
+					html_output = document.getElementById("hoteditor_html_ouput_editor").value;//Output to HTML code
+					//html_output = $('#editor').contents().find('body').html();
+					$('#cs_message').html(html_output);
+					$('#card_message').html(html_output);
+				}
+			</script>
+            <style>
+			#insert_pop{
+				z-index:999999
+			}
+			.Hoteditor_PopupLayer{
+				z-index:999999
+			}
+			</style>
+		</div>
+            <!-----END------------------->
+            {'show_change_next_step_fav_toolbar'}
+            {'show_edit_send_card_toolbar'}
+            <div class="clearfix"></div>
+        </div>
+        <!---BOX COMMENT---------------------------------->
+         <div class="h-space-t-25" id="div_card_user_comment">
+         <h1 class="table_title_bar sendcard" id="title-2">eCard detail</h1>
+         <!---BOX SHARE SOCIAL-------------->
+         {'show_notify_auto_birthday_card'}
+         {'box_share'}
+         <!---END---->
+         <!-------MOVE FROM TOOLBAR--------->
+        <div class="dropdown">
+        	<a class="btn btn-default btn-sm" title="{'sendcard_prev_card'}" href="{'url_prev_card'}" >
+            &nbsp;<i class="fa fa-angle-left"></i>&nbsp;</a>
+            <a class="btn btn-default btn-sm" title="{'sendcard_next_card'}" href="{'url_next_card'}" >
+            &nbsp;<i class="fa fa-angle-right"></i>&nbsp;</a>
+            <a class="btn btn-default btn-sm" href="#" data-toggle='dropdown'>
+            <i class="fa fa-search-plus padding5"></i>{'show_card_body_more_card'}</a>
+            <ul id="div_show_more_ecard" class="dropdown-menu">
+                <li><a href="{'url_go_to_category'}"><i class="fa fa-step-forward padding5"></i>{'goto_category_name'}</a></li>
+                <li><a href="{'url_popular'}"><i class="fa fa-globe padding5"></i>{'show_card_body_goto_popular'}</a></li>
+                <li><a href="{'url_top_rate'}"><i class="fa fa-star padding5"></i>{'show_card_body_goto_toprated'}</a></li>
+                <li><a href="{'url_new_ecards'}"><i class="fa fa-flag padding5"></i>{'show_card_body_goto_newest'}</a></li>
+                <li><a href="{'url_home'}"><i class="fa fa-home padding5"></i>{'show_card_body_goto_homepage'}</a></li>
+            </ul>           
+            {'button_card_info'} 
+            {'button_add_to_fav'}
+        </div>
+        <!-------END--------------------->
+        {'show_user_comment'}
+        </div>
+        <!---END------------------------------------------>    
+    </div>     
+</div>       
+{'show_personalize_table'}
+</div>
+<style>
+.cazary{	
+	width:100% !important;
+	border:1px solid #CCC !important;
+}
+iframe.cazary-edit{
+	height:120px !important;
+}
+.cazary-panel{
+	z-index:99999999;
+}
+</style>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_EN/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>

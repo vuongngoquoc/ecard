@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- SoundManager Flash configuration -->
+<!-- Sound IDs are referenced from JS -->
+
+<items baseHref="" defaultVol="100">
+
+ <sound id="SD1" href="sound1.mp3" />
+ <sound id="SD2" href="sound2.mp3" />
+ <sound id="SD3" href="sound3.mp3" />
+ <sound id="SD4" href="sound4.mp3" />
+ <sound id="SD5" href="sound5.mp3" />
+ <sound id="GAMEOVER" href="wrong.mp3" />
+</items>

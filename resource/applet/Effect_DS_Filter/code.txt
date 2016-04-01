@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_FadeToFilter.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=speed VALUE="4"><PARAM NAME=pause VALUE="30"><PARAM NAME=filter VALUE="lineart"><PARAM NAME=interactive VALUE="yes">Sorry, no java browser</APPLET>

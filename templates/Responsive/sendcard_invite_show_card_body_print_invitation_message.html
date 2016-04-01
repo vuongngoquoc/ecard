@@ -1,0 +1,13 @@
+<div id="div_invite_image" style="text-align:center">
+	<img id="invite_image" border="0" alt="" src="{'ecard_url'}/index.php?step={'step'}&what=show_invitation_message_default&rand={'rand_id'}" />
+</div>
+<div style="text-align:center" id="div_edit_message">{'button_edit_message'}</div>
+<div style="text-align:center;display:none" id="div_textbox">
+	<br/>
+    <span class="btn_invite" onclick="OpenFontFormat();">{'invite_button_open_fontformat_window'}</span> 
+    <span class="btn_invite" onclick="OpenBasicMessage();">{'invite_button_use_basic_invite_info'}</span>
+    <br/><br/>
+    <textarea style="text-align:center;width:500px;height:400px" name="cs_message" id="cs_message" wrap="off">{'iv_default_message'}</textarea>
+    <br/>
+    <span class="btn_invite_2" onclick="if(document.getElementById('cs_message').value!=''){SetSession('iv_default_message',document.getElementById('cs_message').value);}else{showNotification('{'invite_js_alert_must_enter_card_message'}')}">{'invite_button_apply_changes'}</span>
+</div>

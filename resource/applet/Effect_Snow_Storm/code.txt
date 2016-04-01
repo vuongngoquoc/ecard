@@ -1,0 +1,1 @@
+<APPLET codebase CODE="snow.class" change_pixel><PARAM NAME=image VALUE="change_pic">Sorry, your browser doesn't support Java.</APPLET>

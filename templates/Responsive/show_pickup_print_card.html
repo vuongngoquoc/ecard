@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={'charset'}" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="EXPIRES" content="-1">
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="keywords" content="{'cf_main_keyword'}">
+<meta name="description" content="{'cf_main_description'}">
+<title>{'cf_site_title'}</title>
+<style type="text/css">
+<!--
+@import url({'ecard_url'}/templates/{'cf_set_template'}/style.css);
+@import url({'ecard_url'}/templates/{'cf_set_template'}/css/reset.css);
+@import url({'ecard_url'}/templates/{'cf_set_template'}/css/style.css);
+-->
+</style>
+
+<script type="text/javascript" src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.js"></script>
+<script type="text/javascript" src="{'ecard_url'}/ecardmax.js"> </script>
+<script type="text/javascript" src="{'ecard_url'}/tools.js"> </script>
+
+<script language=javascript>
+var eCardMax_Keycode ="{'cf_ecardmax_keycode'}";
+var Keycode ="{'cf_hoteditor_keycode'}";
+var js_alert_edit_field_not_blank="{'js_alert_edit_field_not_blank'}";
+var js_alert_edit_field_not_a_number="{'js_alert_edit_field_not_a_number'}";
+var js_alert_edit_field_invalid_email="{'js_alert_edit_field_invalid_email'}";
+var ajax_text_loading="{'ajax_text_loading'}";
+var ajax_text_updating="{'ajax_text_updating'}";
+var ajax_text_verify="{'ajax_text_verify'}";
+var Disable_RightClick="{'cf_no_right_click'}";
+$('#send_thank_you').html('');
+</script>
+</head>
+<body style="background-color:white; width: 978px; margin:0 auto;">
+<div id="show_loading" style="position:absolute;display:none;top:0;left:0;text-align:center;padding:10px;width:130px;background-color:#FDBF04;border:1px solid #7D7764;z-index:11"><img alt="" src="{'ecard_url'}/templates/{'cf_set_template'}/ajax_loader.gif" /><br /><span id="show_loading_text"></span></div>
+<iframe id="hidden_iframe" frameborder="0" style="position:absolute;display:none;top:0;left:0;border:1px;z-index:2;width:1px;height:1px" scrolling="no"></iframe>
+{'show_card_body'}
+<script language=javascript>
+$( document ).ready(function() {
+	$('#send_thank_you').hide();
+});
+</script>
+</body>
+</html>

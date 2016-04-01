@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Cylinder.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=speed VALUE="2"><PARAM NAME=direction VALUE="left"><PARAM NAME=interactive VALUE="yes"><B>Sorry, no java browser</B></APPLET>

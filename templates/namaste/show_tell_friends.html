@@ -1,0 +1,153 @@
+<h2 id="title-1" class="table_title_bar"><i class="fa fa-bell padding5"></i>{'txt_tell_friends'}</h2>
+<div class="row">
+	<form name="ecardmax_tellfriend" class="form-horizontal" method="post" action="index.php">
+	<input type="hidden" name="step" value="{'step'}" />
+	<input type="hidden" name="what" value="send_to_friends" />
+	<input type="hidden" name="list_email" value="" />
+		<div class="col-sm-9 clearfix">{'show_info'}</div>        
+		<div class="col-sm-9 clearfix h-space-b-10">{'txt_birthday_alert_info'}</div>
+        <div class="col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">{'fieldset_title_sender_information'}</div>
+            <div class="panel-body">
+            	<div class="input-group input-group-sm h-space-b-10">
+                  <span class="input-group-addon" id="sizing-addon3">
+                  <i class="fa fa-user"></i> <span class="only-desktop">{'fieldset_sender_name'}</span></span>
+                  <input id="sender_name" class="form-control" name="sender_name" value="{'sender_name'}" type="text" aria-describedby="sizing-addon" />
+                </div>          
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">
+                  @ <span class="only-desktop">{'fieldset_sender_email'}</span></span>
+                  <input id="sender_email" class="form-control" name="sender_email" value="{'sender_email'}" type="text" aria-describedby="sizing-addon" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">{'fieldset_title_recipient_information'}</div>
+            <div class="panel-body">
+  
+                <div class="form-group">
+                    <label class="col-sm-3">{'fieldset_number_recipient'}</label>
+                    <div class="col-sm-8">
+                    	<div class="input-group">
+                    	<input aria-describedby="sizing-addon" class="form-control  input-sm no-border-r" onkeypress="return isNumberKey(event)" onfocus="original_value=this.value;" onchange="CheckFieldNumber(this.value);" id="re_num" name="re_num" value="{'cf_recipient_default'}" type="text" /> 
+                        <div class="input-group-addon no-backg">
+                        <small class="text-danger">{'fieldset_maximum_is'} {'cf_max_friend_email'}</small>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                
+                <div class="clearfix"></div>
+				             	
+                <div class="form-group"  >
+                	<div class="col-sm-1 add-more pull-right text-left">
+                    <a href="javascript:;" class="text-right" onclick="AddMore();">
+                        <i class="fa fa-plus"></i></a>	 
+                    </div>
+                	<label class="col-sm-3">Recipient</label>
+                    <div class="col-sm-8" id="show_recipient_loop"></div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading">{'fieldset_title_your_personal_message'} ({'myaccount_optional_title'})</div>
+            <div class="panel-body">
+                <textarea id="message" name="message" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="form-group only-mobile">
+        	<div class="col-sm-3 image_code clearfix">{'show_image_code'}</div>
+        </div>
+        <div class="form-group has-feedback">
+            <div class="col-sm-3  pull-left">
+            	<input placeholder="{'show_join_now_txt_image_verify'}" class="form-control input-sm" onchange="this.value=this.value.toUpperCase();" onkeypress="return noEnterKey(event)" type="text" name="verify_image_code" id="verify_image_code" value="{'verify_image_code'}"  />
+            	<span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="col-sm-2 pull-right text-right" style="padding-left:0;">
+            	<a href="javascript:;" class="btn btn-sm btn-default btn-my-site" onclick="SendToFriends();" >
+        		<i class="fa fa-send padding5"></i>{'button_send_to_friends'}</a>
+            </div>
+        </div>
+        <div class="form-group only-desktop">
+        	<div class="col-sm-3 image_code clearfix">{'show_image_code'}</div>
+        </div>
+		
+        </div>
+	</form>			
+</div>
+<!--------SCRIPT--------->
+{'myloop'}
+<!--------END------------>
+<script language="javascript" type="text/javascript">	
+	function SendToFriends(){
+		var cf_show_image_verify_code="{'cf_show_image_verify_code'}";
+		if(document.getElementById("sender_name").value==""){
+			document.getElementById("show_error_message_sender_info").innerHTML="{'txt_js_alert_must_enter_sender_name'}";
+			showid2("show_error_message_sender_info","block");
+			document.getElementById("sender_name").focus();
+			return false;
+		}
+		else if(!valid_email(document.getElementById("sender_email").value)){
+			document.getElementById("show_error_message_sender_info").innerHTML="{'txt_js_alert_must_enter_sender_email'}";
+			showid2("show_error_message_sender_info","block");
+			document.getElementById("sender_email").focus();
+			return false;
+		}
+		else if(document.ecardmax_tellfriend.verify_image_code.value=="" && cf_show_image_verify_code=="1"){
+			showNotification("{'show_join_now_alert_must_enter_image_code'}");
+			document.ecardmax_tellfriend.verify_image_code.focus();			
+		}
+		
+		else{
+			var check_recipient_info=false;
+			var data="";
+			var list_friend_name="";
+			var list_friend_email="";
+		
+			for(i=1;i<=re_num;i++){
+				list_friend_name=document.getElementById("list_friend_name_"+i).value;
+				list_friend_email=document.getElementById("list_friend_email_"+i).value;
+				if(list_friend_name!="" && list_friend_email!=""){
+					check_recipient_info=true;
+					list_friend_name=list_friend_name.replace(";",",");
+					data+=list_friend_name+";"+list_friend_email+"\n";
+				}
+				if(list_friend_name!="" && list_friend_email=="" || list_friend_name=="" && list_friend_email!=""){
+					check_recipient_info=false;
+					data="1";
+					document.getElementById("show_error_message_"+i).innerHTML="{'txt_js_alert_missing_recipient'}";
+					showid2("show_error_message_"+i,"block");
+					document.getElementById("list_friend_name_"+i).focus();
+				}
+				
+				
+			}
+			
+			
+
+			if(check_recipient_info==false){
+				if(data==""){
+					document.getElementById("show_error_message_1").innerHTML="{'txt_js_alert_must_enter_recipient_info'}";
+					showid2("show_error_message_1","block");
+					document.getElementById("list_friend_name_1").focus();
+				}
+			}
+			else{
+				document.ecardmax_tellfriend.list_email.value=data;
+				document.ecardmax_tellfriend.what.value="send_to_friends";
+				document.ecardmax_tellfriend.submit();
+				
+				
+			}
+		
+		}
+		
+	
+	}
+</script>

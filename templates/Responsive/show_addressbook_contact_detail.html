@@ -1,0 +1,65 @@
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="popup_detail{'get_id'}" class="modal fade">
+  <div class="modal-dialog" style="z-index:10">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">{'addressbook_table_icon_tooltip_view_edit_contact'}</h4>
+          </div>
+          <div class="modal-body">
+			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_first_name'} <span class="Error_Message">*</span></label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_fname&edit_key_value=',this.value,'1',original_value,this.id);if(this.value!=original_value)UpdateCellContact('{'get_id'}');" type="text" class="form-control input-sm" id="book_fname{'get_id'}"  value="{'book_fname'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_last_name'} <span class="Error_Message">*</span></label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_lname&edit_key_value=',this.value,'1',original_value,this.id);if(this.value!=original_value)UpdateCellContact('{'get_id'}');" type="text" class="form-control input-sm" id="book_lname{'get_id'}"  value="{'book_lname'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_email'} <span class="Error_Message">*</span></label>
+                        <div class="col-sm-5"><input type="text" class="form-control input-sm" id="book_email{'get_id'}"  onfocus="original_value=this.value;" onchange="EditContactEmail('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=validate_book_email&book_id={'get_id'}&value='+escape(this.value),this.id);" value="{'book_email'}" onkeydown="document.getElementById('book_email{'get_id'}_error_span').innerHTML=''"/><span id="book_email{'get_id'}_error_span" class="Error_Message"></span></div>
+<div class="clearfix"></div>
+</div>			
+		
+			<div class="form-group has-feedback">
+            			<label class="col-sm-3 display-desktop"></label>
+                        <label class="col-sm-4 text-highlight">{'addressbook_txt_optional'}</label>
+                        <div class="clearfix"></div>
+                        <label class="col-sm-3">{'addressbook_txt_nick_name'}</label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_nick&edit_key_value=',this.value,'0',original_value,this.id);if(this.value!=original_value)UpdateCellContact('{'get_id'}');" type="text" class="form-control input-sm" id="book_nick{'get_id'}"  value="{'book_nick'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_phone_number'}</label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_phone&edit_key_value=',this.value,'0',original_value,this.id);if(this.value!=original_value)UpdateCellContact('{'get_id'}');" type="text" class="form-control input-sm" id="book_phone{'get_id'}"  value="{'book_phone'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_address1'}</label>
+                        <div class="col-sm-9"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_address1&edit_key_value=',this.value,'0',original_value,this.id);" type="text" class="form-control input-sm" id="book_address1{'get_id'}"  value="{'book_address1'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_address2'}</label>
+                        <div class="col-sm-9"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_address2&edit_key_value=',this.value,'0',original_value,this.id);" type="text" class="form-control input-sm" id="book_address2{'get_id'}"  value="{'book_address2'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_city'}</label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_city&edit_key_value=',this.value,'0',original_value,this.id);" type="text" class="form-control input-sm" id="book_city{'get_id'}"  value="{'book_city'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_state'}</label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_state&edit_key_value=',this.value,'0',original_value,this.id);" type="text" class="form-control input-sm" id="book_state{'get_id'}"  value="{'book_state'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_zipcode'}</label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_zip&edit_key_value=',this.value,'0',original_value,this.id);" type="text" class="form-control input-sm" id="book_zip{'get_id'}"  value="{'book_zip'}" /></div>
+<div class="clearfix"></div>
+</div>			<div class="form-group has-feedback">
+                        <label class="col-sm-3">{'addressbook_txt_country'}</label>
+                        <div class="col-sm-5"><input onfocus="original_value=this.value;" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=edit_me&edit_id=book_id&edit_id_value={'get_id'}&edit_key=book_country&edit_key_value=',this.value,'0',original_value,this.id);" type="text" class="form-control input-sm" id="book_country{'get_id'}"  value="{'book_country'}" /></div>
+<div class="clearfix"></div>
+</div>    
+          </div>
+          
+      </div>
+  </div>
+</div>
+<!-- modal -->

@@ -1,0 +1,498 @@
+<div class="col-sm-12">
+<div id="div_card_body">
+{'show_option_toolbar'}
+{'show_card_body'}
+{'show_edit_sendnow_toolbar_bottom'}
+{'show_change_next_step_fav_toolbar'}
+{'show_edit_send_card_toolbar'}
+</div>
+{'box_share'}
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalFontFormat" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">{'invite_format_font_each_line'}</h4>
+          </div>
+          <div class="modal-body">
+          <div id="div_display_text_line" style="padding:7px;" class="form-horizontal"></div>
+            <div id="div_display_control" class="text-center">
+                <span id="show_fontface_here"></span>
+                <span id="show_fontsize_here"></span>
+                <select class="form-control input-sm col-30" name="format_fontcolor" id="format_fontcolor" title="Select Font Color" onchange="ShowImageSampleTextLine();">
+                <option value="{'myfontcolor_default'}">{'invite_button_select_fontcolor'}</option>
+                {'show_list_fontcolor'}
+                </select> 
+                <span id="show_font_color_default" class="show-font-color" onclick="document.getElementById('format_fontcolor').selectedIndex=1;ShowImageSampleTextLine();"></span>
+                <span id="show_font_color_selected" class="show-font-color"></span>
+                <div class="text-center h-space-t-15"><img id="div_format_font_image_sample" border="1" alt="" src="" /></div>
+                <div class="text-center h-space-t-15">
+                <span class="btn btn-default btn-sm" onclick="showid2('div_display_text_line','block');showid2('div_display_control','none');">
+                {'invite_button_select_other_line'}</span>
+                <span class="btn btn-default btn-sm" onclick="ApplyChangeLine();">
+                {'invite_button_apply_changes'}</span>
+                <span class="btn btn-default btn-sm" onclick="ApplyChangeLineAndClose();">
+                {'invite_button_apply_changes_and_close_window'}</span>
+                </div>
+            </div>      
+          </div>
+          
+      </div>
+  </div>
+</div>
+<!-- modal -->
+
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalBasicMessage" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">{'invite_basic_message_title'}</h4>
+          </div>
+          <div class="modal-body">
+          <div class="form-horizontal">
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_event_name'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_event_name"  maxlength="50" value=""  /></div>
+          </div>
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_hosted_by'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_hosted_by"  maxlength="50" value=""  /></div>
+          </div>
+			<div class="form-group has-feedback">
+          	<label class="col-sm-3">{'invite_basic_message_when'}</label>
+            <div class="col-sm-3">
+                <input class="datepicker form-control input-sm" readonly="readonly" type="text" name="time_end_textbox1" id="time_end_textbox1" value="" /> 
+                <span class="fa fa-calendar-plus-o form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <div class="col-sm-5">
+                <label class="pull-left time-label">{'invite_basic_message_time'} </label>  <input class='form-control input-sm'  type="text" id="basic_event_time_start" style="width:100px;padding:3px" maxlength="50" value="8:00 PM"  />
+                </div>
+            </div>			
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_location_name'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_event_location_name"  maxlength="50" value=""  /></div>
+          </div>
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_street_address'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_event_street_address"  maxlength="50" value=""  /></div>
+          </div>
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_city'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_event_city"  maxlength="50" value=""  /></div>
+          </div>
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_state'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_event_state"  maxlength="50" value=""  /></div>
+          </div>
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_zipcode'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_event_zipcode"  maxlength="50" value=""  /></div>
+          </div>			
+			<div class="form-group">
+          	<label class="col-sm-3">{'invite_basic_message_phone'}</label>
+            <div class="col-sm-9"><input class='form-control input-sm'  type="text" id="basic_event_phonenumber"  maxlength="50" value=""  /></div>
+          </div>
+			<div class="form-group">
+          	<label class="col-sm-3"></label>
+            <div class="col-sm-9">
+                <span class="btn btn-default btn-sm btn-my-site" onclick="AddBasicEventInfo();">
+                <i class="fa fa-edit padding5"></i>{'invite_button_create_message'}</span></div>
+            </div>
+        </div>   
+          </div>
+          
+      </div>
+  </div>
+</div>
+<!-- modal -->
+
+<style>
+.nav.nav-pills.sendcard {
+	text-align:center;
+}
+</style>
+<script type="text/javascript">
+	var cf_set_template="{'cf_set_template'}";
+	var text_line_num=0;
+	var get_cid;
+	function OpenBasicMessage(){
+		$('#myModalBasicMessage').modal();
+	}
+
+	function AddBasicEventInfo(){
+		if(document.getElementById('basic_event_name').value==""){
+			showNotification("{'invite_js_alert_must_enter_event_name'}");
+			document.getElementById('basic_event_name').focus();
+		}
+		else if(document.getElementById('basic_hosted_by').value==""){
+			showNotification("{'invite_js_alert_must_enter_hosted_by'}");
+			document.getElementById('basic_hosted_by').focus();
+		}
+		else if(document.getElementById('time_end_textbox1').value=="" || document.getElementById('basic_event_time_start').value=="" ){
+			showNotification("{'invite_js_alert_must_enter_date_time'}");
+		}
+		else if(document.getElementById('basic_event_location_name').value==""){
+			showNotification("{'invite_js_alert_must_enter_location_name'}");
+			document.getElementById('basic_event_location_name').focus();
+		}
+		else if(document.getElementById('basic_event_street_address').value==""){
+			showNotification("{'invite_js_alert_must_enter_address'}");
+			document.getElementById('basic_event_street_address').focus();
+		}
+		else if(document.getElementById('basic_event_city').value==""){
+			showNotification("{'invite_js_alert_must_enter_location_city'}");
+			document.getElementById('basic_event_city').focus();
+		}
+		else if(document.getElementById('basic_event_state').value==""){
+			showNotification("{'invite_js_alert_must_enter_location_state'}");
+			document.getElementById('basic_event_state').focus();
+		}
+		else if(document.getElementById('basic_event_zipcode').value==""){
+			showNotification("{'invite_js_alert_must_enter_location_zip'}");
+			document.getElementById('basic_event_zipcode').focus();
+		}
+		else if(document.getElementById('basic_event_phonenumber').value==""){
+			showNotification("{'invite_js_alert_must_enter_phone_number'}");
+			document.getElementById('basic_event_phonenumber').focus();
+		}
+		else{
+			var create_message="{'invite_basic_message_youre_invited'}\n\n";
+			create_message+="{'invite_basic_message_event_name'}\n"+document.getElementById('basic_event_name').value.toUpperCase()+"\n\n";
+			create_message+="{'invite_basic_message_hosted_by'}\n"+document.getElementById('basic_hosted_by').value.toUpperCase()+"\n\n";
+			create_message+="{'invite_basic_message_when'}\n"+document.getElementById('time_end_textbox1').value+"\n";
+			create_message+=document.getElementById('basic_event_time_start').value.toUpperCase()+"\n\n";
+			create_message+="{'invite_basic_message_where'}\n"+document.getElementById('basic_event_location_name').value.toUpperCase()+"\n";
+			create_message+=document.getElementById('basic_event_street_address').value+"\n";
+			create_message+=document.getElementById('basic_event_city').value+", "+document.getElementById('basic_event_state').value+" "+document.getElementById('basic_event_zipcode').value+"\n\n";
+			create_message+="{'invite_basic_message_phone'}\n"+document.getElementById('basic_event_phonenumber').value+"\n";
+			document.getElementById("cs_message").value=create_message;
+			HideItAll();
+			showid2('div_font_format','none');
+			showid2('hidden_iframe','none');
+			//showid2('div_basic_message','none');
+			$('#myModalBasicMessage').modal('hide');
+			SetSession('iv_default_message',document.getElementById('cs_message').value);
+			if(document.getElementById('invite_title'))document.getElementById('invite_title').value=document.getElementById('basic_event_name').value;
+		}
+
+	}
+
+	function InsertDate(id,data){
+		document.getElementById('time_end_textbox'+get_cid).value=data;
+		showid2("div_calendar","none");
+		if(get_cid==1){
+			showid2("modalbkg","block");
+			showid2("moz_modalbkg","block");
+		}
+	}
+
+	function GetMusicCode(audioURL,audioTitle){
+		if(document.ecardmax_personalize)document.ecardmax_personalize.cs_music_filename.value=cs_music_filename;
+		if(document.ecardmax_personalize)document.ecardmax_personalize.cs_music_id.value=cs_music_id;
+		audio_file=audioURL;
+		audio_title=audioTitle;
+		if(audioURL!=""){
+			var src = site_url+'/'+audioURL;
+			$('#src_music').attr('src',src);
+			showid2("div_card_music","block");
+			$('audio').load();
+		}
+		else{
+			$('#src_music').removeAttr('src');
+			$('audio').load();
+			showid2("div_card_music","none");
+		}
+		document.getElementById("card_audio_title").innerHTML=audioTitle;
+		showid2("card_fullsize","block");
+		Editme('{'ecard_url'}/index.php?step={'step'}&what=set_session&set_what=iv_music_filename&set_value=',cs_music_filename,'0','','');
+		Editme('{'ecard_url'}/index.php?step={'step'}&what=set_session&set_what=iv_music_id&set_value=',cs_music_id,'0','','');
+	}
+
+	function CallMusicFrameSrc(){
+		if($("#load_music").html() == '')
+		{
+			$.get("{'ecard_url'}/index.php?step=load_select_music", function( data ) {
+			  $( "#load_music" ).html( data );
+			});
+		}		
+	}
+
+	function HideToolbarMenu(){
+		showid2("div_select_fontface","none");
+		showid2("div_select_fontsize","none");
+		showid2("div_select_lineheight","none");
+		showid2("color_table","none");
+		showid2("div_select_music","none");
+		showid2("hidden_iframe","none");
+		showid2("div_select_user_photo","none");
+	}
+
+	function SetSession(set_what,set_value){
+		if(set_what!="" && set_value!=""){
+			showid2('div_invite_image','block');
+			showid2('div_edit_message','block');
+			showid2('div_textbox','none');
+			set_value=set_value.replace(/\&/g,'%26');
+			set_value=set_value.replace(/\?/g,'%3F');
+			set_value=set_value.replace(/\;/g,'%3B');
+			set_value=set_value.replace(/\#/g,'%23');
+			WriteInnerHTML("{'ecard_url'}/index.php?step={'step'}&what=set_session&set_what="+set_what+"&set_value="+set_value,"div_invite_image","{'ajax_text_loading'}");
+		} 
+	}
+
+	function gorate(data){ 
+		HideItAll();
+		showid2("div_rate_card","none");		
+		Editme('{'ecard_url'}/index.php?step=rate_card_invite&iv_rate=',data,'1',1,'div_rate_card');
+	}
+	
+	var array_text="";
+	function OpenFontFormat(){
+		showid2("div_display_text_line","block");
+		showid2("div_display_control","none");
+		array_text=document.getElementById("cs_message").value.split("\n");
+		var write_text="";
+		for(i=0;i<=array_text.length;i++){
+			//Trim			
+			if(array_text[i]!="" && array_text[i]!=null){
+				array_text[i]=array_text[i].replace(/^\s+|\s+$|^\r+|\r+$|^\n+|\n+$/,'');
+				array_text[i]=array_text[i].replace(/^\[NAME\]/i,'');
+				write_text+="<div style=\"padding:7px;cursor:pointer;\" onclick=\"FormatTextLine("+i+");\"><i class='fa fa-fonticons padding5'></i> <span style=\"text-decoration:underline;\">"+array_text[i]+"</span></div>";
+			}
+		}
+		document.getElementById("div_display_text_line").innerHTML="<div style=\"padding:7px;\" class=\"OK_Message\">{'invite_basic_message_select_text_line'}</div><div style=\"overflow:auto;height:400px;padding:7px;border:1px dashed silver;\"><br />" + write_text+"</div>";
+		//ShowDivCenterPage('div_font_format',1,1);
+		$('#myModalFontFormat').modal();
+		showid2("hidden_iframe","none");
+	}
+
+	//Default value
+	var myfontface_default="{'myfontface_default'}";
+	var myfontsize_default="{'myfontsize_default'}";
+	var myfontcolor_default="{'myfontcolor_default'}";
+	var ptext;
+	var get_line_num="";
+	var otext;
+	function FormatTextLine(line_num){		
+		line_value=array_text[line_num];
+		get_line_num=line_num;
+
+		showid2("div_display_text_line","none");
+		showid2("div_display_control","block");
+
+		//Show image font
+		line_value=line_value.replace(/\&/g,'%26');
+		line_value=line_value.replace(/\?/g,'%3F');
+		line_value=line_value.replace(/\;/g,'%3B');
+		line_value=line_value.replace(/\#/g,'%23');
+		document.getElementById("div_format_font_image_sample").src="{'ecard_url'}/index.php?step={'step'}&what=set_font_format&text_value="+line_value;
+		
+		//Get Font format code
+		var code=line_value.split
+		iRegex = /^\[(.*?)\]/;
+		var code=line_value.match(iRegex);
+		var getcode="";
+		ptext=line_value;
+		otext=line_value;
+		if(code!=null){
+			getcode=code[0].replace(/\[|\]/g,"");			
+			var array_code=getcode.split(" ");
+			var myfontface="";
+			var myfontsize="";
+			var myfontcolor="";
+			for(i=0;i<=array_code.length;i++){
+				if(array_code[i]!="" && array_code[i]!=null){
+					if(array_code[i].indexOf(",")!=-1 || array_code[i].indexOf("#")!=-1){
+						myfontcolor=array_code[i];
+					}
+					else if(array_code[i].indexOf(".ttf")!=-1){
+						myfontface=array_code[i];
+					}
+					else if(!isNaN(array_code[i]) && array_code[i] > 0){
+						myfontsize=array_code[i];
+					}
+				}
+			}
+			ptext=line_value.replace("["+getcode+"]","");
+		}
+		
+		//Create drop down menu select font face
+		var list_fontface="{'list_fontface'}";
+		var array_list_fontface=list_fontface.split(",");
+		var dd_fontface="<select class='form-control input-sm col-30' name=\"format_fontface\" id=\"format_fontface\" title=\"Select Font Face\" onchange=\"ShowImageSampleTextLine();\"><option value=\"{'myfontface_default'}\">Select Font Face</option>";
+		var info_array;
+		var stopit=0;
+		for(i=0;i<=array_list_fontface.length;i++){
+			if(array_list_fontface[i]!="" && array_list_fontface[i]!=null){
+				info_array=array_list_fontface[i].split("\|");
+				if(info_array[0]==myfontface_default && myfontface!="" && stopit!=1){
+					dd_fontface+="<option selected=\"selected\" value=\""+info_array[0]+"\">"+info_array[1]+"</option>";
+				}
+				else if(info_array[0]==myfontface && myfontface!=""){
+					stopit=1;
+					dd_fontface+="<option selected=\"selected\" value=\""+info_array[0]+"\">"+info_array[1]+"</option>";
+				}				
+				else{
+					dd_fontface+="<option value=\""+info_array[0]+"\">"+info_array[1]+"</option>";
+				}
+			}
+		}
+		dd_fontface+="</select>";
+		document.getElementById("show_fontface_here").innerHTML=dd_fontface+"";
+
+		//Create drop down menu select font size
+		var list_fontsize="{'list_fontsize'}";
+		var array_list_fontsize=list_fontsize.split(",");
+		var dd_fontsize="<select class='form-control input-sm col-30' name=\"format_fontsize\" id=\"format_fontsize\" title=\"Select Font Size\" onchange=\"ShowImageSampleTextLine();\"><option value=\"{'myfontsize_default'}\">Select Font Size</option>";
+		var info_array;
+		for(i=0;i<=array_list_fontsize.length;i++){
+			if(array_list_fontsize[i]!="" && array_list_fontsize[i]!=null){
+				if(array_list_fontsize[i]==myfontsize && myfontsize!=""){
+					dd_fontsize+="<option selected=\"selected\" value=\""+array_list_fontsize[i]+"\">"+array_list_fontsize[i]+"</option>";
+				}
+				else if(array_list_fontsize[i]==myfontsize_default){
+					dd_fontsize+="<option selected=\"selected\" value=\""+array_list_fontsize[i]+"\">"+array_list_fontsize[i]+"</option>";
+				}
+				else{
+					dd_fontsize+="<option value=\""+array_list_fontsize[i]+"\">"+array_list_fontsize[i]+"</option>";
+				}
+			}
+		}
+		dd_fontsize+="</select>";
+		document.getElementById("show_fontsize_here").innerHTML=dd_fontsize+"";
+		
+		//Reset fontcolor drop down
+		document.getElementById("format_fontcolor").selectedIndex=0;
+
+		//Show font default & font selected
+		document.getElementById("show_font_color_default").style.backgroundColor="rgb({'myfontcolor_default'})";
+
+		if(myfontcolor!="" && myfontcolor!=null){
+			if(myfontcolor.indexOf(",")!=-1){
+				document.getElementById("show_font_color_selected").style.backgroundColor="rgb("+myfontcolor+")";
+				document.getElementById("show_font_color_selected").innerHTML="<span onclick=\"AddItemDropDownFontColor('"+myfontcolor+"','"+myfontcolor+"');ShowImageSampleTextLine();\"></span>";
+			}
+			else{
+				document.getElementById("show_font_color_selected").style.backgroundColor=myfontcolor;
+				document.getElementById("show_font_color_selected").innerHTML="<span onclick=\"AddItemDropDownFontColor('"+myfontcolor+"','"+myfontcolor+"');ShowImageSampleTextLine();\"></span>";
+			}
+		}
+		else{
+			document.getElementById("show_font_color_selected").style.backgroundColor="rgb({'myfontcolor_default'})";
+			document.getElementById("show_font_color_selected").innerHTML="<span onclick=\"AddItemDropDownFontColor('"+myfontcolor+"','"+myfontcolor+"');ShowImageSampleTextLine();\"></span>";
+		}
+	}
+	
+	var new_text_line="";
+	function ShowImageSampleTextLine(data){
+		var ptext2=ptext;
+		var iface=document.getElementById("format_fontface").options[document.getElementById("format_fontface").selectedIndex].value;
+		var isize=document.getElementById("format_fontsize").options[document.getElementById("format_fontsize").selectedIndex].value;
+		var icolor=document.getElementById("format_fontcolor").options[document.getElementById("format_fontcolor").selectedIndex].value;
+
+		new_text_line=isize+" "+iface+" "+icolor;
+		new_text_line=new_text_line.replace(/^\s+|\s+$/,'');
+		if(new_text_line!="" && new_text_line!=null){
+			ptext2="["+new_text_line+"]"+ptext;
+		}
+				
+		if(data!=1){
+			ptext2=ptext2.replace(/\&/g,'%26');
+			ptext2=ptext2.replace(/\?/g,'%3F');
+			ptext2=ptext2.replace(/\;/g,'%3B');
+			ptext2=ptext2.replace(/\#/g,'%23');
+			//Show image font
+			document.getElementById("div_format_font_image_sample").src="{'ecard_url'}/index.php?step={'step'}&what=set_font_format&text_value="+ptext2;
+		}
+		else{
+			return(ptext2);
+		}
+	}
+
+	function AddItemDropDownFontColor(value1,value2){
+		var sel=document.getElementById('format_fontcolor');
+		sel.options[sel.options.length-1] = new Option(value1, value2);
+		sel.selectedIndex=sel.options.length-1;
+	}
+
+	function ApplyChangeLine(){
+		var ptext2=ShowImageSampleTextLine("1");
+		document.getElementById("cs_message").value=document.getElementById("cs_message").value.replace(otext,ptext2);
+		HideItAll();
+		showid2('div_font_format','none');
+		showid2('hidden_iframe','none');
+		OpenFontFormat();
+	}
+	
+	function ApplyChangeLineAndClose(){
+		var ptext2=ShowImageSampleTextLine("1");
+		document.getElementById("cs_message").value=document.getElementById("cs_message").value.replace(otext,ptext2);
+		HideItAll();
+		//showid2('div_font_format','none');
+		$('#myModalFontFormat').modal('hide');
+		showid2('hidden_iframe','none');
+		SetSession('iv_default_message',document.getElementById('cs_message').value);
+	}
+
+	function ShowPersonalizeTable(){
+		showid2('show_personalize_table','block');
+		showid2('div_card_body','none');
+		showid2('show_change_next_step_fav_toolbar','none');
+		jQuery("#first_step").removeClass("first_active").addClass("first");
+		jQuery("#second_step").removeClass("second").addClass("second_active");
+	}
+
+	//-----------------------------------------------------------------------------------------
+	var res_WriteInnerHTML = null ;
+	function WriteInnerHTML(url,id,text_loader){
+		res_WriteInnerHTML = createRequest();
+		url = url + "&ajaxstyle=1&dummy=" + new Date().getTime();
+		EL=id;
+		ShowLoaderImage(text_loader);
+		var array=url.split("?");
+		res_WriteInnerHTML.open("POST",array[0],true);
+		res_WriteInnerHTML.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		res_WriteInnerHTML.onreadystatechange = WriteInnerHTML2;
+		res_WriteInnerHTML.send(array[1]);
+	}
+
+	function WriteInnerHTML2(){
+		if (res_WriteInnerHTML.readyState == 4) {
+			if (res_WriteInnerHTML.status == 200) {
+				var res = res_WriteInnerHTML.responseText;			
+				document.getElementById(EL).innerHTML = res;
+				document.getElementById(EL).style.display = "block";
+				setTimeout("showid2('show_loading','none');showid2('hidden_iframe','none');",700);
+			}
+		}
+	}
+
+</script>
+<style type="text/css">
+.time-label{
+	padding-right:10px;
+	margin-top:5px;
+}
+.show-font-color{
+	border:1px solid silver;
+	padding:4px;
+	cursor:pointer
+}
+.col-30{
+	display:inline; width:30%;
+}
+.btn_invite, .btn_invite_2{
+	color:#c8086e;
+	font-weight:bold;
+	padding:0 20px;
+	cursor:pointer;
+}
+.btn_invite:hover, .btn_invite_2:hover{
+	text-decoration:underline;
+}
+</style>
+{'show_personalize_table'}

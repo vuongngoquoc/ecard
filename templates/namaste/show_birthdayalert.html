@@ -1,0 +1,148 @@
+<h2 id="title-1" class="table_title_bar"><i class="fa fa-bell padding5"></i>{'txt_mtool_birthdayalert'}</h2>
+<div class="row">
+	<form name="ecardmax_tellfriend" class="form-horizontal" method="post" action="index.php">
+	<input type="hidden" name="step" value="{'step'}" />
+	<input type="hidden" name="next_step" value="{'next_step'}" />
+	<input type="hidden" name="action" value="send_to_friends" />
+	<input type="hidden" name="list_email" value="" />	
+		<div class="col-sm-12 clearfix">{'show_info'}</div>        
+		<div class="col-sm-12 clearfix h-space-b-10">{'txt_birthday_alert_info'}</div>
+        <div class="col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">{'fieldset_title_sender_information'}</div>
+            <div class="panel-body">
+            	<div class="input-group input-group-sm h-space-b-10">
+                  <span class="input-group-addon" id="sizing-addon3">
+                  <i class="fa fa-user"></i> <span class="only-desktop">{'fieldset_sender_name'}</span></span>
+                  <input id="sender_name" class="form-control" name="sender_name" value="{'sender_name'}" type="text" aria-describedby="sizing-addon" />
+                </div>          
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">
+                  @ <span class="only-desktop">{'fieldset_sender_email'}</span></span>
+                  <input id="sender_email" class="form-control" name="sender_email" value="{'sender_email'}" type="text" aria-describedby="sizing-addon" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">{'fieldset_title_recipient_information'}</div>
+            <div class="panel-body">
+            	<!--
+                <label>Receptant 1</label>
+				<div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user"></i></span>
+                  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon">
+                  
+                  <span class="input-group-addon" id="sizing-addon3">@</span>
+                  <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon3">
+                </div>                
+                -->
+                
+                <div class="form-group">
+                    <label class="col-sm-3">{'fieldset_number_recipient'}</label>
+                    <div class="col-sm-8">
+                    	<div class="input-group">
+                    	<input aria-describedby="sizing-addon" class="form-control  input-sm no-border-r" onkeypress="return isNumberKey(event)" onfocus="original_value=this.value;" onchange="CheckFieldNumber(this.value);" id="re_num" name="re_num" value="{'cf_recipient_default'}" type="text" /> 
+                        <div class="input-group-addon no-backg">
+                        <small class="text-danger">{'fieldset_maximum_is'} {'cf_max_friend_email'}</small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3">{'add_from_address_book'}</label>
+                    <div class="col-sm-8">
+                    	<select aria-describedby="sizing-addon" class="form-control input-sm" onchange="AddContactGroupToList(this.value);">
+                            <option value="0">{'select_group'}</option>
+                            {'show_contact_group_options'}
+                    	</select>
+                        <p class="text-right"><small>{'select_or_choise'}</small></p>
+                    </div>
+                </div>
+				             	
+                <div class="form-group"  >
+                	<div class="col-sm-1 add-more pull-right text-left">
+                    <a href="javascript:;" class="text-right" onclick="AddMore();">
+                        <i class="fa fa-plus"></i></a>	 
+                    </div>
+                	<label class="col-sm-3">Recipient</label>
+                    <div class="col-sm-8" id="show_recipient_loop"></div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading">{'fieldset_title_your_personal_message'}</div>
+            <div class="panel-body">
+                <textarea id="message" name="message" rows="15">{'txt_birthday_alert_email_message'}</textarea>
+            </div>
+        </div>
+        
+		<a href="javascript:;" class="btn btn-sm btn-default btn-my-site" onclick="SendToFriends();" >
+        <i class="fa fa-send padding5"></i>{'button_send_to_friends'}</a>
+        </div>
+        
+        <!------ADDRESS BOOK---------------->
+        <div class="col-sm-3">
+        	{'show_address_book'}           
+        </div>
+        <!------END------------------------>
+	</form>			
+</div>
+
+<!-----SCRIPT-------->
+{'myloop'}
+<!-----END----------->
+<script language="javascript" type="text/javascript">	
+	function SendToFriends(){
+		if(document.getElementById("sender_name").value==""){
+			showNotification("{'txt_js_alert_must_enter_sender_name'}");
+			document.getElementById("sender_name").focus();
+			return false;
+		}
+		else if(!valid_email(document.getElementById("sender_email").value)){
+			showNotification("{'txt_js_alert_must_enter_sender_email'}");
+			document.getElementById("sender_email").focus();
+			return false;
+		}
+		else{
+			var check_recipient_info=false;
+			var data="";
+			var list_friend_name="";
+			var list_friend_email="";
+			for(i=1;i<=re_num;i++){
+				list_friend_name=document.getElementById("list_friend_name_"+i).value;
+				list_friend_email=document.getElementById("list_friend_email_"+i).value;
+				if(list_friend_name!="" && list_friend_email!=""){
+					check_recipient_info=true;
+					list_friend_name=list_friend_name.replace(";",",");
+					data+=list_friend_name+";"+list_friend_email+"\n";
+				}
+				if(list_friend_name!="" && list_friend_email=="" || list_friend_name=="" && list_friend_email!=""){
+					check_recipient_info=false;
+					data="1";
+					document.getElementById("show_error_message_"+i).innerHTML="{'txt_js_alert_missing_recipient'}";
+					showid2("show_error_message_"+i,"block");
+					document.getElementById("list_friend_name_"+i).focus();
+				}
+			}
+
+			if(check_recipient_info==false){
+				if(data==""){
+					document.getElementById("show_error_message_1").innerHTML="{'txt_js_alert_must_enter_recipient_info'}";
+					showid2("show_error_message_1","block");
+					document.getElementById("list_friend_name_1").focus();
+				}
+			}
+			else{
+				document.ecardmax_tellfriend.list_email.value=data;
+				document.ecardmax_tellfriend.submit();
+			}
+		}
+	}
+
+
+</script>

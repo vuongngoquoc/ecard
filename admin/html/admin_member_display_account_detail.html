@@ -1,0 +1,96 @@
+<div id="popup_detail{'get_id'}" style="display:none;position:absolute;top:0;left:0;z-index:9;width:550px;">
+	<div style="border:thick solid #FCAA03;">
+	<table border="0" width="100%" cellspacing="1" cellpadding="4" style="background-color:silver">
+		<tr style="background-color: #B1D3FF;background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td colspan="2" style="cursor:pointer;" onclick="HideItAll();"><div style="float:left">{'member_display_inactive_acc_txt_account_information_detail'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'member_display_inactive_acc_tooltip_close_hide'}" alt="{'member_display_inactive_acc_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>		
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_account_id_number'}</td>
+			<td>{'user_id'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_user_name_id'}</td>
+			<td>{'user_name_id'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_email'}</td>
+			<td>{'user_email'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_total_cards_sent'}</td>
+			<td>{'user_total_cardsent'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_number_of_time_login'}</td>
+			<td>{'user_timeused'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_date_sign_up'}</td>
+			<td>{'show_user_date_signup'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_last_login'}</td>
+			<td>{'show_user_lastlogin'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_first_last_name'}</td>
+			<td>{'user_name'} {'user_last_name'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_phone_number'}</td>
+			<td>{'user_phone'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_address'}</td>
+			<td>{'user_address'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_city'}</td>
+			<td>{'user_city'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_state'}</td>
+			<td>{'user_state'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_zipcode'}</td>
+			<td>{'user_zip'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_country'}</td>
+			<td>{'user_country'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_birthday'}</td>
+			<td>{'show_birthday'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_gender'}</td>
+			<td>{'show_user_gender'}</td>
+		</tr>
+		<tr style="background-color: #FAEDC8;line-height:17px">
+			<td>{'member_display_inactive_acc_txt_marital_status'}</td>
+			<td>{'show_user_marital'}</td>
+		</tr>
+		<tr style="background-color: #B1D3FF;background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold;{'hide_order_history'}">
+			<td colspan="2">{'member_display_inactive_acc_txt_member_order_history'}</td>
+		</tr>		
+		<tr style="background-color: #FAEDC8;line-height:17px;{'hide_order_history'}">
+			<td colspan="2">
+				<div style="overflow:auto;height:150px;">
+					<table border="0" width="100%" cellspacing="1" cellpadding="3" style="border:1px solid silver;background-color:#EAEAEA">
+						<tr style="background-color: #B1D3FF;background-image: url(html/07_title_background2.gif);line-height:17px;font-weight:bold">
+							<td width="*" class="table_title_bar" style="text-align:center;white-space:nowrap">{'member_display_inactive_acc_txt_column_name_date'}</td>
+							<td width="*" class="table_title_bar" style="text-align:center;white-space:nowrap">{'member_display_inactive_acc_txt_column_name_order'}</td>
+							<td width="*" class="table_title_bar" style="text-align:center;white-space:nowrap">{'member_display_inactive_acc_txt_column_name_amount'}</td>					
+							<td width="1%" class="table_title_bar" style="text-align:center;white-space:nowrap">{'member_display_inactive_acc_txt_column_name_type'}</td>						
+							<td width="1%" class="table_title_bar" style="text-align:center;white-space:nowrap">{'member_display_inactive_acc_txt_column_name_method'}</td>
+						</tr>
+						{'show_list_order_table'}
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>	
+	</div>
+</div>

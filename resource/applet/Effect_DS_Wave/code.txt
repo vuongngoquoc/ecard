@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Wave.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=period VALUE="30"><PARAM NAME=direction VALUE="vertical"><PARAM NAME=interactive VALUE="no">Sorry, no java browser</APPLET>

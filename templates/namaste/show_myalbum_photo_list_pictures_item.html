@@ -1,0 +1,13 @@
+<tr class="table_td_background" id="tr{'ec_id'}">
+	<td width="50%" >{'show_card_thumbnail'}</td>
+	<td class="text-center" width="1%" >
+    <a title="{'myalbum_txt_send_this_card_tooltip'}" class="btn btn-sm btn-default" href="{'ecard_url'}/index.php?step=sendcard&ec_id={'ec_id'}">
+    <i class="glyphicon glyphicon-send"></i>
+    </a></td>
+	<td class="text-center" width="1%" >
+    <span class="btn btn-xs btn-default" title="{'reminder_txt_event_delete'}" onclick="document.getElementById('bk{'ec_id'}').checked='true';single_check_uncheck('tr{'ec_id'}','bk{'ec_id'}');CheckSelected();" >
+    <i class="fa fa-remove"></i></span>
+	<td class="text-center" width="1%" >
+    <input type="checkbox" value="{'ec_id'}" name="mylist_id{'ec_id'}" id="bk{'ec_id'}" onclick="single_check_uncheck('tr{'ec_id'}','bk{'ec_id'}');" class="input_ajax_editable">
+    </td>
+</tr>

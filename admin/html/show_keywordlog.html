@@ -1,0 +1,26 @@
+<form name=form1 method=post action="index.php">
+<input type=hidden name=step value="{'step'}" />
+<input type=hidden name=what value="{'what'}" />
+<h1><img border="0" src="html/07_icon_show_keyword.gif" align=absmiddle />View search keywords</h1>
+
+<table width=100% align=center style="background-color: silver;" cellspacing="1" cellpadding="3">
+	<tr style="line-height:20px;background-image: url(html/07_title_background2.gif);">
+		<td colspan="3" align="right">		
+			Row per page
+			<input type="text" name="row_number" size="10" value="{'row_number'}" onChange="document.form1.submit();" onkeypress="return isNumberKey(event)"> Sort by year {'sort_by_year'}
+		</td>	
+	</tr>
+	
+	<tr style="line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold">
+		<td colspan="3">Keyword Log - Total : {'total_keyword'}{'error_msg'}{'error_msg2'}</td>
+	</tr>
+	
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td nowrap width=33%>Keyword</td>
+		<td nowrap width=33% align="center">Ecard (Time searched)</td>
+		<td nowrap width=33% align="center">Invitation (Time searched)</td>
+	</tr>	
+	{'show_list_table'}		
+</table>
+{'display_page_number'}
+</form>

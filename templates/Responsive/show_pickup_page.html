@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="{'meta_keyword'}" />
+    <meta name="description" content="{'meta_description'}" />
+    <title>{'my_site_title'}</title>
+    <meta property="og:image" content="{'thumb_card_url'}" />
+    <meta property="og:title" content="{'my_site_title'}">
+    <meta property="og:description" content="{'meta_description'}" />
+    <meta property="og:url" content="{'current_url'}"/>
+    <link rel="image_src" href="{'thumb_card_url'}" />
+ 
+    <meta name="twitter:url" content="{'current_url'}"/>
+    <meta name="twitter:title" content="{'my_site_title'}"/>
+    <meta name="twitter:description" content="{'meta_description'}"/>
+    <meta name="twitter:image" content="{'thumb_card_url'}"/>
+    <meta name="twitter:domain" content="{'ecard_url'}">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/prettyPhoto.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/price-range.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/animate.css" rel="stylesheet">
+	<link href="{'ecard_url'}/templates/{'cf_set_template'}/css/main.css" rel="stylesheet">
+	<link href="{'ecard_url'}/templates/{'cf_set_template'}/css/responsive.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/html5shiv.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="stylesheet" type="text/css" href="{'ecard_url'}/templates/{'cf_set_template'}/css/tipped.css" />
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/bootstrap.min.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="{'ecard_url'}/templates/{'cf_set_template'}/js/tipped.js"></script>
+
+    <script language="javascript">
+		var cardtype="{'cardtype'}";
+		var site_url="{'ecard_url'}";
+		var isMobile="{'isMobile'}";
+	</script>
+    <script type="text/javascript" src="{'ecard_url'}/ecardmax.js"> </script>
+    <script type="text/javascript">
+	function toggleMe(cls)
+	{
+		$('.'+cls).toggle();
+	}
+	function displayModal()
+	{
+		$("#myModal").modal();
+	}
+	function setModalValue(title,html)
+	{
+		if(title != '')
+		{
+			$('#myModal .modal-title').text(title);
+		}
+		if(html != '')
+		{
+			$("#myModal #showResult").html(html);
+		}
+		$("#myModal").modal();
+	}
+	function ShowDivCenterPage(id,check)
+	{
+		var title = $('#'+id).attr('title');
+		var html = $('#'+id+' .data-get-for-modal').html();
+		if(id == 'show_loading')
+		{
+			$("#myModal .modal-dialog").addClass('modal-sm');
+			var html = $('#show_loading').html();
+			setModalValue(title,html);
+			$('#showResult').addClass('text-center');
+			setTimeout(function(){
+				$('#myModal').modal('hide'); 
+				$('#showResult').removeClass('text-center');
+			},1000);
+		}
+		else $("#myModal .modal-dialog").removeClass('modal-sm');
+		setModalValue(title,html);
+	}
+	</script>
+</head><!--/head-->
+
+<body {'show_onload_javascript'}><!-- do not remove code show_onload_javascript -->
+	{'include_hidden_div'}
+	<header id="header"><!--header-->
+		<!--/header_top-->
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+                	<div class="col-sm-12">
+                    <div class="text-left">
+                        <a href="{'ecard_url'}"><img class="logoHome" src="{'ecard_url'}/logo/{'cf_logo_url'}" alt="ECARDMAX" /></a>
+                    </div>	
+                    </div>				
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+		<!--/header-bottom-->
+	</header><!--/header-->
+	
+	<section>
+		<div class="container">
+			<div class="row">
+            	<div class="col-sm-12">
+            		{'show_card_body'}
+                </div>
+			</div>
+		</div>    
+	</section>
+	
+	<footer id="footer"><!--Footer-->
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="text-center">{'cf_ecardmax_copyright_footer'}</p>
+					<!--<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>-->
+				</div>
+			</div>
+		</div>
+		
+	</footer><!--/Footer-->
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/dropdown.enhancement.js"></script>
+	<script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.scrollUp.min.js"></script>
+	<script src="{'ecard_url'}/templates/{'cf_set_template'}/js/price-range.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.prettyPhoto.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/main.js"></script>
+</body>
+</html>

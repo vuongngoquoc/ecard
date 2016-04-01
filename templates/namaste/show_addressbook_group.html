@@ -1,0 +1,209 @@
+<form name="ecardmax_form" class="form-horizontal" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="action" value="" />
+<input type="hidden" name="next_step" value="{'next_step'}" />
+<input type="hidden" name="ag_id" value="" />
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-sm-10">
+            <h2 id="title-1" class="table_title_bar">
+            <i class="fa fa-users padding5"></i>{'addressbook_contact_group_title'}</h2>
+        </div>
+        <div class="col-sm-2">
+            <div class="pull-right left-margin-bottom">
+            	<a href="{'ecard_url'}/index.php?step={'step'}&next_step=show_addressbook" class="btn btn-sm btn-default">
+                <i class="fa fa-list-alt padding5"></i>{'addressbook_button_view_contact'}</a>
+            </div>
+        </div>
+        <div class="col-sm-12">
+		<!--category-tab-->
+        <div class="category-tab">
+            <ul class="nav nav-tabs">
+                <li class='active'><a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a></li>
+                <li><a href='#show_add_table' data-toggle='tab'>{'addressbook_txt_create_new_group_title'}</a></li>      
+            </ul>
+            <div class="tab-content">
+            <!--------------TAB LIST DATA-------------------------->
+                <div id="list_data" class="tab-pane fade active in">
+                <div>{'show_info'}</div>
+                <div class="table-responsive cart_info">
+            
+            	<table class="table table-condensed table-hover address-book">			
+					<thead>
+                    <tr class="active">
+                        <th width="*" class="" style="padding:4px;white-space:nowrap">{'addressbook_txt_group_title'}</th>
+                        
+                        <th width="1%" class="text-center">{'addressbook_txt_group_number_email'}</th>
+                        <th width="1%" class="text-center">{'addressbook_txt_group_number_autobirthday'}</th>
+                        <th width="1%" class="text-center">{'addressbook_txt_group_view_contact'}</th>
+                        {'show_birthday_card'}
+                        <th width="1%" class="text-center">{'addressbook_txt_group_add_contact'}</th>
+                        <th width="1%" class="text-center">{'addressbook_txt_group_delete_contact'}</th>
+                        <th width="1%" class="text-center"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'txt_tooltip_select_all'}" type="checkbox" value="1" onclick="check_uncheck_all('{'bk_id'}');" /></th>
+                    </tr>
+                    </thead>
+                    {'show_list_table'}
+                    <tr>	
+                            <td width="*" colspan="2" class="table_td_text_color">
+                            {'txt_row_per_page'} 
+                            <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.ecardmax_form.action.value='';document.ecardmax_form.submit();" style="width:100px;" />
+                            </td>
+                            <td width="*" colspan="5"  class="delete_rows_data">
+                            <span class="pull-right">
+                            <button type="button"  class="btn btn-sm btn-danger" onclick="CheckSelected();" >
+                            <i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}
+                            </button> 
+                            <i class="glyphicon glyphicon-hand-up"></i>
+                            </span></td>							
+                        </tr>
+                </table>
+                </div>
+                {'display_page_number'}
+                </div>
+            <!-----------END--------------->
+            
+            <!-----------TAB ADD GROUP------>
+            <div class="tab-pane fade" id="show_add_table">
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'addressbook_txt_group_title'}</label>
+                    <div class="col-sm-9">
+                    <input class="form-control input-sm" type="text" name="ag_title" id="ag_title" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3">
+                    {'addressbook_txt_quick_add'}
+                    </label>
+                    <div class="col-sm-9">
+                    {'addressbook_quick_sample'}
+                    <textarea class="form-control input-sm" name="email" id="email" rows="10" onkeypress="no_enterkey=1;">{'show_list_email'}</textarea>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3"></label>
+                    <div class="col-sm-9">
+                    <button onclick="AddNew();" class="btn btn-default btn-my-site btn-sm" type="button">
+                    <i class="fa fa-user-plus padding5"></i>{'addressbook_button_submit_add_group'}</button>
+                    </div>
+                </div>
+			</div>
+            <!-----------END---------------->
+            
+            </div>
+        </div>
+        <!--end------------>
+        </div>
+	</div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="div_popup_layer" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Modal title</h4>
+          </div>
+          <div class="modal-body">
+              {'addressbook_quick_sample'}<br />
+                <textarea class="form-control input-sm" name="quick_email" id="quick_email" rows="10" onkeypress="no_enterkey=1;"></textarea><br />
+                <p class="text-right">
+                <button type="button" class="btn btn-default btn-my-site btn-sm" onclick="QuickAddContact();" > 
+                <i class="fa fa-user-plus padding5"></i>{'addressbook_button_add_contact'}
+                </button>
+                </p>       
+          </div>
+          
+      </div>
+  </div>
+</div>
+
+</form>
+
+<script type="text/javascript">
+var myid="{'bk_id'}";
+var array=myid.split(",");
+function showBirthdaySetting(id,cs_id,ec_id){
+ if(cs_id==""){
+ 	if(confirm("{'would_you_like_to_setting_card'}")){
+		location.href="{'ecard_url'}/index.php";
+	}
+ }else{
+ 		url="{'ecard_url'}/index.php?step=sign_in&next_step=show_birthday_card&action=birtday_card&ec_id="+ec_id+"&cs_id="+cs_id+"&group_id="+id;
+ 		location.href=url;
+ }
+}
+
+function AddNew(){
+	if(document.ecardmax_form.ag_title.value==""){
+		showNotification("{'addressbook_js_alert_must_enter_group_title'}");
+		document.ecardmax_form.ag_title.focus();
+	}
+	else{
+		document.ecardmax_form.action.value='add_new';
+		document.ecardmax_form.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			showNotification("{'js_alert_must_select_checkbox'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&action=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'addressbook_js_alert_sure_to_delete_group'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function ShowAddContactBox(id){
+	document.ecardmax_form.ag_id.value=id;
+	var titleDefault = "{'addressbook_txt_add_contact_to_group'}";
+	if(id=="0"){
+		titleDefault = titleDefault + " " + "{'addressbook_group_default_name'}";
+	}
+	else{
+		titleDefault = titleDefault  + " " +  $("#ag_title"+id).val();
+	}
+	//ShowDivCenterPage('div_popup_layer',1);
+	$('.modal-title').text(titleDefault);
+	$('#div_popup_layer').modal();
+}
+
+function QuickAddContact(){
+	if(document.ecardmax_form.quick_email.value!=""){
+		document.ecardmax_form.action.value="quick_add_contact";
+		document.ecardmax_form.submit();
+	}
+	else{
+		showNotification("{'addressbook_js_alert_must_enter_contact_list'}");
+		document.ecardmax_form.quick_email.focus();
+	}
+}
+ 
+
+</script>

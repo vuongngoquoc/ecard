@@ -1,0 +1,145 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_stamp2.gif" alt="" style="vertical-align:middle" /> {'stamp_txt_page_title'} 
+({'stamp_txt_total'} {'count_total'})</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'stamp_txt_click_here_to_add_new_stamp'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');"><div style="float:left;">{'stamp_txt_how_to_add_new_stamp_by_ftp'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'stamp_tooltip_close_hide'}" alt="{'stamp_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="100%">
+				{'stamp_txt_how_to_add_new_stamp_by_ftp_tip'}
+			</td>
+		</tr>
+	</table><br />
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'stamp_txt_add_new_stamp_using_web_browser'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'stamp_tooltip_close_hide'}" alt="{'stamp_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'stamp_txt_file'} 1</td>
+			<td width="80%"><input type="file" name="file1" id="file1" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'stamp_txt_file'} 2</td>
+			<td width="80%"><input type="file" name="file2" id="file2" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'stamp_txt_file'} 3</td>
+			<td width="80%"><input type="file" name="file3" id="file3" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'stamp_txt_file'} 4</td>
+			<td width="80%"><input type="file" name="file4" id="file4" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'stamp_txt_file'} 5</td>
+			<td width="80%"><input type="file" name="file5" id="file5" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'stamp_txt_file'} 6</td>
+			<td width="80%"><input type="file" name="file6" id="file6" size="42" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'stamp_txt_file'} 7</td>
+			<td width="80%"><input type="file" name="file7" id="file7" size="42" /></td>
+		</tr>
+		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input type="button" value="{'stamp_button_add_new_stamp'}" class="button" onclick="AddNewStamp();" /></td>
+		</tr>
+		
+	</table><br />
+</div>
+<div><strong>{'stamp_txt_tips'}:</strong></div>
+{'stamp_txt_tips_content'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'stamp_txt_column_name_icon'}</td>
+		<td width="7%" align="center" style="padding:4px;white-space:nowrap">{'stamp_txt_column_name_default'}</td>
+		<td width="*" style="padding:4px;white-space:nowrap">{'stamp_txt_column_name_stamp_name'}</td>
+		<td width="20%" style="padding:4px;white-space:nowrap">{'stamp_txt_column_name_file_name'}</td>		
+		<td width="12%" align="center" style="padding:4px;white-space:nowrap">{'stamp_txt_column_name_enable_disable'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'stamp_txt_column_name_sort_order'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'stamp_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'stamp_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="8">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'stamp_txt_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'stamp_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+{'display_page_number'}
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function HideDefautl(){
+	for(i=0;i<array.length;i++){
+		document.getElementById('default_cell'+array[i]).style.border="0px";
+		document.getElementById('default_cell'+array[i]).style.backgroundColor="";
+	}
+}
+
+function AddNewStamp(){	
+	var file_upload=false;
+	for(i=1;i<=7;i++){
+		if(document.getElementById("file"+i).value!=""){
+			file_upload=true;
+		}
+	}
+	if(file_upload){
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+	else{
+		alert("{'stamp_message_file_required'}");
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'stamp_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'stamp_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>

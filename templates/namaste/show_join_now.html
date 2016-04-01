@@ -1,0 +1,350 @@
+	<!--h2 id="title-1" class="table_title_bar">{'show_join_now_title'}</h2-->
+    <div class="row nopadding">
+	
+	<div id="membership">
+		$19.99 per year<br />
+FREE 7 day trial<br />
+Send unlimited e-cards<br />
+Up to 50 recipients per card<br />
+Design personal photo cards<br />
+Select your own music<br />
+Create personalized greetings<br />
+Store & maintain your email addresses<br />
+Birthday alerts<br />
+Calendar<br />
+Favorites
+	</div>
+	<h2 id="title-1" class="table_title_bar">{'show_join_now_title'}</h6>
+    <form name="ecardmax_join" method="post" class="form-horizontal" action="index.php" enctype='multipart/form-data'>
+        <input type="hidden" name="step" value="{'step'}" />
+        <input type="hidden" name="what" value="" />	
+        <div class="col-md-12 ">
+        	
+			<div class="form-group has-feedback first-child">
+	            <div class="col-sm-12">{'show_info'}</div>
+            </div>
+			<div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_first_name'}</label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_first_name" id="user_first_name" value="{'user_first_name'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+			<div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_last_name'} </label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_last_name" id="user_last_name"  value="{'user_last_name'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+			<div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_email'} </label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_email" id="user_email"  value="{'user_email'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+			<div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_name_id'} </label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_name_id" id="user_name_id"  value="{'user_name_id'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+			<div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_password'} </label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="password" name="user_password" id="user_password"  value="{'user_password'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+			<div class="form-group has-feedback">
+                <label class="col-sm-3">{'show_join_now_txt_re_enter_password'}</label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="password" name="user_password2" id="user_password2"  value="{'user_password2'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+			<!--div class="form-group has-feedback">
+				<label class="col-sm-3">{'show_join_now_txt_image_verify'} </label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm input-error" onchange="this.value=this.value.toUpperCase();" onkeypress="return noEnterKey(event)" type="text" name="verify_image_code" id="verify_image_code"  value="{'verify_image_code'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="col-sm-3 clearfix"></label>
+                <div class="col-sm-3">
+                {'show_image_code'}
+                </div>
+            </div-->
+      </div>
+      
+      <!--------------------TAB--------------------------->
+      <div class="category-tab clearfix"><!--category-tab-->
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs">
+                    <li><a data-toggle='tab' href="#sms_cellphone">{'myaccount_sms_cellphone_reminder'}</a></li>
+                    <li><a data-toggle='tab' href="#myaccount_optional">{'myaccount_optional_title'}</a></li>
+                    <li><a data-toggle='tab' href="#email_newsletter">{'myaccount_email_newsletter_title'}</a></li>
+                    <li class="pull-right active"><a data-toggle='tab' href="#hide_all"><i class="fa fa-minus"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-12 tab-content">
+            	<div class="tab-pane fade" id="hide_all">
+                </div>
+                <!------CELLPHONE TAB----->
+                <div class="tab-pane fade" id="sms_cellphone">
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_sms_cellphone_number'}</label>
+                    <div class="col-sm-4">
+                    <input class="form-control input-sm" onKeyPress="return isNumberKey(event)" type="text" name="user_cellphone_number" id="user_cellphone_number"  value="{'user_cellphone_number'}" />
+                    </div>
+                
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3">{'myaccount_sms_cellphone_carrier'}</label>
+                    <div class="col-sm-6">{'show_cell_phone_carrier'}</div>
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3">{'myaccount_sms_reminder_active'}</label>
+                    <div class="col-sm-8">
+                    <input type="checkbox" name="user_cellphone_active" id="user_cellphone_active" value="1" />
+                    </div>
+                </div>
+                </div>
+                <!------END--------------->
+                
+                <!------OPTIONAL TAB------>
+                <div class="tab-pane fade" id="myaccount_optional">
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_birthday'}</label>
+                    <div class="col-sm-2">
+                    <input class="datepicker form-control input-sm" type="text" name="time_end_textbox" id="time_end_textbox" value="{'time_end_textbox'}" /> 
+                    <span class="fa fa-calendar-plus-o form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-sm-4">
+                    <p class="date-note">{'ins_date_caption'}</p>
+                	</div>
+                </div>
+                <div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_language'}</label>
+                <div class="col-sm-4">{'show_lang_select'}</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_dst'}</label>
+                    <div class="col-sm-4">
+                        <select size="1" name="user_dst" id="user_dst" class="form-control input-sm" >
+                            <option value="0">{'txt_dropdown_select'}</option>
+                            <option {'selected_user_dst_0'} value="0">{'myaccount_user_dst_no'}</option>
+                            <option {'selected_user_dst_1'} value="1">{'myaccount_user_dst_yes'}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                <label class="col-sm-3">{'myaccount_user_select_timezone'}</label>
+                <div class="col-sm-6">
+                        <select  class="form-control input-sm" name="user_timezone" id="user_timezone" size="1" > 
+                            <option value="{'user_timezone'}">GMT ({'user_timezone'})</option>
+                            <option value="-12.00">(GMT-12:00) International Date Line West</option>
+                            <option value="-11.00">(GMT-11:00) Midway Island, Samoa</option>
+                            <option value="-10.00">(GMT-10:00) Hawaii</option>
+                            <option value="-9.00">(GMT-9:00) Alaska</option>
+                            <option value="-8.00">(GMT-8:00) Pacific Time (US &amp; Canada)</option>
+                            <option value="-7.00">(GMT-7:00) Arizona, Chihuahua, La Paz, Mazzatlan</option>
+                            <option value="-7.00">(GMT-7:00) Mountain Time (US &amp; Canada)</option>
+                            <option value="-6.00">(GMT-6:00) Central America</option>
+                            <option value="-6.00">(GMT-6:00) Central Time (US &amp; Canada)</option>
+                            <option value="-6.00">(GMT-6:00) Guadalajara, Mexico City, Monterrey</option>
+                            <option value="-6.00">(GMT-6:00) Saskatchewan</option>
+                            <option value="-5.00">(GMT-5:00) Bogota, Lima, Quito</option>
+                            <option value="-5.00">(GMT-5:00) Eastern Time (US &amp; Canada)</option>
+                            <option value="-5.00">(GMT-5:00) Indiana (East)</option>
+                            <option value="-4.00">(GMT-4:00) Atlantic Time (Canada)</option>
+                            <option value="-4.00">(GMT-4:00) Caracas, La Paz, Santiago</option>
+                            <option value="-3.50">(GMT-3:30) Newfoundland</option>
+                            <option value="-3.00">(GMT-3:00) Brasilia, Greenland, Buenos Aires </option>
+                            <option value="-2.00">(GMT-2:00) Mid-Atlantic</option>
+                            <option value="-1.00">(GMT-1:00) Azores, Cape Verde Is.</option>
+                            <option value="0.00">(GMT) Greenwich Mean Time</option>
+                            <option value="0.00">(GMT) Casablanca, Monrovia</option>
+                            <option value="0.00">(GMT) Dublin, Edinburgh, Lisbon, London</option>
+                            <option value="+1.00">(GMT+1:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+                            <option value="+1.00">(GMT+1:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+                            <option value="+1.00">(GMT+1:00) Brussels, Copenhagen, Madrid, Paris</option>
+                            <option value="+1.00">(GMT+1:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+                            <option value="+1.00">(GMT+1:00) West Central Africa</option>
+                            <option value="+2.00">(GMT+2:00) Athens, Beirut, Istanbul, Minsk, Jerusalem</option>
+                            <option value="+2.00">(GMT+2:00) Bucharest, Cairo, Harare, Pretoria</option>
+                            <option value="+2.00">(GMT+2:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+                            <option value="+3.00">(GMT+3:00) Baghdad, Kuwait, Riyadh, Nairobi, Tehran</option>
+                            <option value="+3.00">(GMT+3:00) Moscow, St. Petersburg, Volgograd</option>
+                            <option value="+3.50">(GMT+3:30) Tehran</option>
+                            <option value="+4.00">(GMT+4:00) Abu Dhabi, Muscat, Baku, Tbilisi, Yerevan</option>
+                            <option value="+4.50">(GMT+4:30) Kabul</option>
+                            <option value="+5.00">(GMT+5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                            <option value="+5.50">(GMT+5:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+                            <option value="+5.75">(GMT+5:45) Kathmandu</option>
+                            <option value="+6.00">(GMT+6:00) Almaty, Novosibirsk, Astana, Dhaka</option>
+                            <option value="+6.50">(GMT+6:30) Rangoon</option>
+                            <option value="+7.00">(GMT+7:00) Bangkok, Hanoi, Jakarta, Krasnoyarsk</option>
+                            <option value="+8.00">(GMT+8:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+                            <option value="+8.00">(GMT+8:00) Irkutsk, Ulaan Bataar, Kuala Lumpur, Singapore</option>
+                            <option value="+8.00">(GMT+8:00) Perth, Taipei</option>
+                            <option value="+9.00">(GMT+9:00) Osaka, Sapporo, Tokyo, Seoul, Yakutsk</option>
+                            <option value="+9.50">(GMT+9:30) Adelaide, Darwin</option>
+                            <option value="+10.00">(GMT+10:00) Brisbane, Canberra, Melbourne, Sydney</option>
+                            <option value="+10.00">(GMT+10:00) Guam, Port Moresby, Hobart, Vladivostok</option>
+                            <option value="+11.00">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
+                            <option value="+12.00">(GMT+12:00) Auckland, Wellington, Fiji, Kamchatka, Marshall Is.</option>
+                            <option value="+13.00">(GMT+13:00) Nuku'alofa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_address'}</label>
+                    <div class="col-sm-6">
+                    	<input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_address" id="user_address"  value="{'user_address'}" />
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                	<label class="col-sm-3">{'myaccount_user_city'}</label>
+                	<div class="col-sm-4">
+                    <input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_city" id="user_city"  value="{'user_city'}" />
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_state'}</label>
+                    <div class="col-sm-4">{'show_state_box'}</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_zipcode'}</label>
+                    <div class="col-sm-4">
+                    	<input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_zip" id="user_zip"  value="{'user_zip'}" />
+                	</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_country'}</label>
+                    <div class="col-sm-4">{'show_country_box'}</div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_phone_number'}</label>
+                    <div class="col-sm-4">
+                    	<input class="form-control input-sm input-error" onkeypress="return noEnterKey(event)" type="text" name="user_phone" id="user_phone"  value="{'user_phone'}" />
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_gender'}</label>
+                    <div class="col-sm-4">
+                        <select size="1" name="user_gender" id="user_gender" class="form-control input-sm" >
+                            <option value="0">{'txt_dropdown_select'}</option>
+                            <option {'selected_user_gender_0'} value="0">{'myaccount_user_gender_male'}</option>
+                            <option {'selected_user_gender_1'} value="1">{'myaccount_user_gender_female'}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-3">{'myaccount_user_marital_status'}</label>
+                    <div class="col-sm-4">
+                        <select size="1" name="user_marital" class="form-control input-sm" >
+                            <option value="0">{'txt_dropdown_select'}</option>
+                            <option {'selected_user_marital_0'} value="0">{'myaccount_user_marital_status_single'}</option>
+                            <option {'selected_user_marital_1'} value="1">{'myaccount_user_marital_status_married'}</option>
+                            <option {'selected_user_marital_2'} value="2">{'myaccount_user_marital_status_divorced'}</option>
+                            <option {'selected_user_marital_3'} value="3">{'myaccount_user_marital_status_widowed'}</option>		
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!------END--------------->
+            
+            <!------EMAIL TAB--------->
+            <div class="tab-pane fade" id="email_newsletter" >
+            <div class="form-group">
+                <label class="col-sm-12">
+                    <input type="checkbox" name="user_receive_newsletter" id="user_receive_newsletter" value="1" {'checked_user_receive_newsletter_1'} /> 
+                    {'myaccount_user_receive_newsletter'}
+                </label>
+            </div>
+            <div class="form-group">
+			<label class="col-sm-12"> 
+                <input type="checkbox" name="user_receive_offer" id="user_receive_offer" value="1" {'checked_user_receive_offer_1'} /> 
+                {'myaccount_user_receive_offer'}
+            </label>
+            </div>
+            </div>
+            <!------END--------------->
+            </div>
+     </div>
+      <!--------------------END TAB----------------------->
+      <div class="col-sm-12">     
+        <div class="form-group">
+        	<label class="col-sm-3"></label>
+            <div class="col-sm-3">
+            <button type="button" class="btn btn-default btn-my-site" onclick="JoinNow();" >
+            <i class="fa fa-save padding5"></i>{'button_submit'}</button>
+            </div>
+        </div>
+      </div>
+	</form>	
+</div>		 
+<div id="view_fullsize_table_birthday" class="div_menu_layer" style="width:300px">
+	<div class="col-sm-12">
+    	<span class="pull-left">{'txt_calendar'}</span>
+        <span class="pull-right"><i class="fa fa-calendar"></i></span>
+    </div>
+    <div class="col-sm-12">
+    	<iframe frameborder="0" height="230px" width="100%" scrolling="no" id="calendar_frame" name="calendar_frame" src="" ></iframe>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+	function JoinNow(){
+		var cf_show_image_verify_code="{'cf_show_image_verify_code'}";
+		if(document.ecardmax_join.user_first_name.value==""){
+			showNotification("{'show_join_now_alert_must_enter_first_name'}");
+			document.ecardmax_join.user_first_name.focus();
+		}
+		else if(document.ecardmax_join.user_last_name.value==""){
+			showNotification("{'show_join_now_alert_must_enter_last_name'}");
+			document.ecardmax_join.user_last_name.focus();
+		}
+		else if(!valid_email(document.ecardmax_join.user_email.value)){
+			showNotification("{'show_join_now_alert_must_enter_valid_email'}"); 
+			document.ecardmax_join.user_email.focus();
+		}
+		else if(document.ecardmax_join.user_name_id.value==""){
+			showNotification("{'show_join_now_alert_must_enter_user_name_id'}");
+			document.ecardmax_join.user_name_id.focus();
+		}
+		else if(document.ecardmax_join.user_password.value==""){
+			showNotification("{'show_join_now_alert_must_enter_password'}");
+			document.ecardmax_join.user_password.focus();
+		}
+		else if(document.ecardmax_join.user_password.value!=document.ecardmax_join.user_password2.value){
+			showNotification("{'show_join_now_alert_must_re_enter_password'}");
+			document.ecardmax_join.user_password.vaue="";
+			document.ecardmax_join.user_password2.value="";
+			document.ecardmax_join.user_password.focus();
+		}
+		else if(document.ecardmax_join.verify_image_code.value=="" && cf_show_image_verify_code=="1"){
+			showNotification("{'show_join_now_alert_must_enter_image_code'}");
+			document.ecardmax_join.verify_image_code.focus();
+		}
+		else{
+			document.ecardmax_join.what.value="add_new";
+			document.ecardmax_join.submit();
+		}
+	}
+
+	function InsertDate(id,data){
+		document.getElementById('time_end_textbox').value=data;
+	}
+	function showIDHidden(id){
+		jQuery('#'+id).animate({height: 'toggle'},200, function(){});
+		if(jQuery('#btn_'+id).hasClass('btn_hide_show'))
+		jQuery('#btn_'+id).removeClass('btn_hide_show').addClass('btn_hide');
+		else
+		jQuery('#btn_'+id).removeClass('btn_hide').addClass('btn_hide_show');
+	}
+	
+			
+
+</script>

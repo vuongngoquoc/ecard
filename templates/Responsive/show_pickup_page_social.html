@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="{'meta_keyword'}" />
+    <meta name="description" content="{'meta_description'}" />
+    <title>{'my_site_title'}</title>
+    <meta property="og:image" content="{'thumb_card_url'}" />
+    <meta property="og:title" content="{'my_site_title'}">
+    <meta property="og:description" content="{'meta_description'}" />
+    <meta property="og:url" content="{'current_url'}"/>
+    <link rel="image_src" href="{'thumb_card_url'}" />
+ 
+    <meta name="twitter:url" content="{'current_url'}"/>
+    <meta name="twitter:title" content="{'my_site_title'}"/>
+    <meta name="twitter:description" content="{'meta_description'}"/>
+    <meta name="twitter:image" content="{'thumb_card_url'}"/>
+    <meta name="twitter:domain" content="{'ecard_url'}">
+
+<style type="text/css">
+<!--
+@import url({'ecard_url'}/templates/{'cf_set_template'}/style.css);
+@import url({'ecard_url'}/templates/{'cf_set_template'}/css/reset.css);
+@import url({'ecard_url'}/templates/{'cf_set_template'}/css/style.css);
+@import url({'ecard_url'}/index.php?step=load_user_font&sender={'cs_user_name_id'});
+-->
+</style>
+<style type="text/css">
+#div_show_more_ecard {display:none;}
+#div_card_body {border:none;}
+#send_thank_you {display:none !important;}
+ul#table_sender li:nth-child(2) {display:none !important;}
+#pickup_top_button {display:none !important;}
+
+.pickup-step-1{display:yes !important;}
+</style>
+<script type="text/javascript" src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.js"></script>
+<script type="text/javascript" src="{'ecard_url'}/ecardmax.js"> </script>
+<script type="text/javascript" src="{'ecard_url'}/tools.js"> </script>
+
+<script language="javascript" type="text/javascript">
+	var cardtype="{'cardtype'}";
+	var site_url="{'ecard_url'}";
+	var eCardMax_Keycode ="{'cf_ecardmax_keycode'}";
+	var Keycode ="{'cf_hoteditor_keycode'}";
+	var js_alert_edit_field_not_blank="{'js_alert_edit_field_not_blank'}";
+	var js_alert_edit_field_not_a_number="{'js_alert_edit_field_not_a_number'}";
+	var js_alert_edit_field_invalid_email="{'js_alert_edit_field_invalid_email'}";
+	var ajax_text_loading="{'ajax_text_loading'}";
+	var ajax_text_updating="{'ajax_text_updating'}";
+	var ajax_text_verify="{'ajax_text_verify'}";
+	var Disable_RightClick="{'cf_no_right_click'}";
+	var action="{'action'}";
+</script>
+</head>
+<body {'show_onload_javascript'}>
+{'include_hidden_div'}
+<div id="show_loading" style="position:absolute;display:none;top:0;left:0;text-align:center;padding:10px;width:130px;background-color:#FDBF04;border:1px solid #7D7764;z-index:11"><img alt="" src="{'ecard_url'}/templates/{'cf_set_template'}/ajax_loader.gif" /><br /><span id="show_loading_text"></span></div>
+<iframe id="hidden_iframe" frameborder="0" style="position:absolute;display:none;top:0;left:0;border:1px;z-index:2;width:1px;height:1px" scrolling="no"></iframe>
+
+<div id="header_wrapper">
+	<div id="header">
+		<a href="{'ecard_url'}"><img src="{'ecard_url'}/logo/{'cf_logo_url'}" alt="ECARDMAX" /></a>
+	</div>
+	<div id="main_wrapper">
+		<div id="div_card_body">
+			{'show_card_body'}
+		</div>
+	</div>
+	<div id="copyright">
+		<div id="powerby"><span>{'cf_ecardmax_copyright_footer'}</span></div>
+	</div>
+</div>
+</body>
+</html>

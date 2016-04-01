@@ -1,0 +1,237 @@
+<script src="{'ecard_url'}/resource/recorder/test/js/audiodisplay.js"></script>
+<script src="{'ecard_url'}/resource/recorder/test/js/recorderjs/recorder.js"></script>
+<script src="{'ecard_url'}/resource/recorder/test/js/main.js"></script>
+<link href="{'ecard_url'}/resource/recorder/test/css/main.css" rel="stylesheet" type="text/css" media="all">
+<div id="main_wrapper" class="col-md-12">
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="table_title_bar" id="title-1"><i class="fa fa-music padding5"></i>{'myalbum_music_title'} ({'total_count'})</h2>
+        {'myalbum_toolbar'}
+    </div>
+    <form id="ecardmax_form" name="ecardmax_form" method="post" action="index.php" enctype='multipart/form-data'>
+    <input type="hidden" name="step" value="{'step'}" />
+    <input type="hidden" name="what" value="{'what'}" />
+    <input type="hidden" name="action" value="" />
+    <input type="hidden" name="next_step" value="{'next_step'}" />
+    <div class="col-md-12">
+    
+    <div class="category-tab"><!--category-tab-->
+        <ul class="nav nav-tabs">
+        	<li class='active'><a href='#list_data' data-toggle='tab'>{'txt_show_list_data'}</a></li>
+            <li onclick="if (initAudioStart==0) {initAudio();initAudioStart=1;} "><a href="#show_my_record" data-toggle='tab' >
+                {'myalbum_music_upload_my_voice'}</a></li>
+            <li><a href='#show_add_table' data-toggle='tab'>{'myalbum_music_click_to_upload'}</a></li>
+        </ul>
+        <div class="tab-content">
+        	<!----BOX LIST DATA------>
+            <div id="list_data" class="tab-pane fade active in">
+                <div>{'show_info'}</div>
+                <div class="table-responsive cart_info">
+                <table class="table table-condensed table-hover">
+                	<thead>			
+                    <tr class="active">
+                        <th width="40%" class="" >{'myalbum_txt_music_title'}</th>
+                        <th width="40%" >{'myalbum_txt_song_file_name'}</th>
+                        <th width="9%" class="text-center" >{'myalbum_txt_song_play'}</th>
+                        <th width="9%" class="text-center" >{'myalbum_txt_delete_this_song'}</th>
+                        <th width="1%" class="text-center" ><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'txt_tooltip_select_all'}" type="checkbox" value="1" onclick="check_uncheck_all('{'bk_id'}');" /></th>
+                    </tr>
+                    </thead>
+                    {'show_list_table'}
+                    <tr>
+                        <td width="80%" colspan="2" class="table_td_text_color">{'txt_row_per_page'} <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.ecardmax_form.submit();" /></td>
+                        <td width="20%" colspan="3" class="delete_rows_data">
+                        <span class="pull-right">
+                        <button type="button"  class="btn btn-sm btn-danger" onclick="CheckSelected();" >
+                        <i class="glyphicon glyphicon-remove padding5"></i>{'button_delete_selected'}
+                        </button> 
+                        <i class="glyphicon glyphicon-hand-up"></i>
+                        </span>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                {'display_page_number'}
+            </div>
+            <!----END---------------->
+       		<!-------------BOX ADD MUSIC---------------------->
+        	<div class="tab-pane fade" id="show_add_table">
+                <div class="col-sm-4">
+                <span class="btn btn-default btn-file">
+                    File 1 <input type="file" name="file1" id="file1" size="42" />
+                </span>
+                </div>
+                <div class="col-sm-4">
+                <span class="btn btn-default btn-file">
+                    File 2 <input type="file" name="file2" id="file2" size="42" />
+                </span>
+                </div>
+                <div class="col-sm-4">
+                <span class="btn btn-default btn-file">
+                    File 3 <input type="file" name="file3" id="file3" size="42" />
+                </span>
+                </div>
+                <div class="col-sm-4">
+                <span class="btn btn-default btn-file">
+                    File 4 <input type="file" name="file4" id="file4" size="42" />
+                </span>
+                </div>
+                <div class="col-sm-4">
+                <span class="btn btn-default btn-file">
+                    File 5 <input type="file" name="file5" id="file5" size="42" />
+                </span>
+                </div>
+                <div class="col-sm-4">
+                <span class="btn btn-default btn-file">
+                    File 6 <input type="file" name="file6" id="file6" size="42" />
+                </span>
+                </div>
+                <div class="col-sm-4">
+                <span class="btn btn-default btn-file">
+                    File 7 <input type="file" name="file7" id="file7" size="42" />
+                </span>
+                </div>
+                <div class="col-sm-4 clearfix">
+                    <button onclick="AddNew();" class="btn btn-sm btn-default btn-my-site" type="button">
+                    <i class="fa fa-upload padding5"></i>{'myalbum_button_upload_now'}
+                    </button>
+                </div>               
+       		</div>
+        	<!---END--------->
+        	
+        	<!-----BOX RECORD-------->
+            <div class="tab-pane fade" id="show_my_record">
+            	<div id="record_elm" class="elm-toggle-collapse">
+				<table class="table_border" width="100%" cellspacing="1" cellpadding="4">
+					<tr>
+						<td width="80%">
+							<div id="viz">
+								<canvas id="analyser" width="800" height="150"></canvas>
+							</div>
+						</td>
+						<td width="20%" style="text-align:center">
+                        	
+							<div id="controls">
+								<img id="record" src="{'ecard_url'}/resource/recorder/img/mic128.png" onclick="toggleRecording(this);">
+							</div>
+                            <button class="btn btn-default btn-xs" onclick="toggleRecording(this);" type="button" >
+                            <i class="fa fa-play-circle padding5"></i>
+                            {'click_here_to_record'}
+                            </button>
+						</td>
+					</tr>
+					<tr class="table_td_background">
+						<td width="80%" style="text-align:center;">
+							<audio controls="controls" id="replay" style="display:none;"></audio>
+						</td>
+						<td width="20%" style="text-align:center;">
+							<button id="upload" onclick="" class="btn btn-default btn-sm" type="button"  style="display:none;">
+                            <i class="fa fa-upload padding5"></i>
+                            {'myalbum_button_upload_now'}
+                            </button>
+							
+						</td>
+					</tr>
+				</table>
+                </div>
+                <div id="notify_record" class="elm-toggle-collapse">
+                	{'device_no_support_record'}
+                </div>
+			</div>
+            <!-----END--------------->
+            
+            
+        </div>
+    </div>
+    </div>
+    </form>
+</div>
+</div>
+
+
+<div id="div_card_music" title="{'thumb_tooltip_click_to_close'}" class="view_fullsize_table">
+	<div class="data-get-for-modal">
+	<div id="audio_title" title="{'thumb_tooltip_click_to_close'}" ></div>  xxxxxxxxxx
+	<audio autoplay="autoplay" controls="controls">
+        <source id="src_music" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    </div>
+</div>
+<input type="hidden" name="action_checking" value="{'action_checking'}" />
+</form>
+
+<script type="text/javascript">
+var initAudioStart = 0;
+var myid="{'bk_id'}";
+var array=myid.split(",");
+if(checkMobile())
+{
+	initAudioStart = 1;
+	$('#notify_record').show();
+}
+else
+{	
+	$('#record_elm').show();
+}
+function AddNew(){
+	var file_upload=false;
+	for(i=1;i<=7;i++){
+		if(document.getElementById("file"+i).value!=""){
+			file_upload=true;
+			break;
+		}
+	}
+	if(file_upload){
+		document.ecardmax_form.action.value="add_new";
+		document.ecardmax_form.submit();
+	}
+	else{
+		showNotification("{'myalbum_js_alert_must_input_file'}");
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			showNotification("{'js_alert_must_select_checkbox'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="{'ecard_url'}/index.php?step={'step'}&next_step={'next_step'}&what=music&action=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'myalbum_member_delete_music_confirm'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function PlaySong(file,id){
+	var src = site_url+'/'+file;
+	var title=document.getElementById("music_name_display"+id).value;
+	document.getElementById("audio_title").innerHTML=title;
+	$('#src_music').attr('src',src);
+	ShowDivCenterPage("div_card_music","1");
+	//console.log(src);
+	
+	//frames['audio_frame'].location.href = "{'ecard_url'}/index.php?step=load_audio&src="+file;
+}
+</script>

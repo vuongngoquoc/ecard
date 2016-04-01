@@ -1,0 +1,42 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Memory Game</title>
+
+<style type="text/css">
+<!--
+{'print_css'}
+-->
+</style>
+
+<script language=javascript>
+var level = "{'form_level'}";
+var category = "{'cat'}";
+var Keycode ="{'Keycode'}";
+var Credit ="{'Credit'}";
+var get_score = {'form_score'};
+var hi_score = "{'get_hiscore'}";
+var player_counter ="{'player_counter'}";
+var total_picID = "{'total_picID'}";
+var Game_over ="{'Game_over'}";
+var Loading_new_image ="{'Loading_new_image'}";
+var Repeat_now ="{'Repeat_now'}";
+var Congratulations ="{'Congratulations'}";
+var Watch ="{'Watch'}";
+var prv_picID = "{'prv_picID'}";
+</script>
+
+</head>
+<body onLoad="start_up(); history.go(+1)" bgcolor="#C0D2EE" TOPMARGIN=0 LEFTMARGIN=0 MARGINHEIGHT=0 MARGINWIDTH=0>
+<script language="JavaScript" type="text/javascript" src="display.js"></script>
+<form name=form1 method=post action=memory.php>
+<input type=hidden name=step value=play>
+<input type=hidden name=cat value="{'cat'}">
+<input type=hidden name=form_level value="">
+<input type=hidden name=form_score value="{'form_score'}">
+<input type=hidden name=prv_picID value="{'prv_picID'}">
+</form>
+</body>
+</html>

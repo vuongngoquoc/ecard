@@ -1,0 +1,31 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="admin_option_logo" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_banner2.gif" alt="" style="vertical-align:middle" /> {'admin_logo_image'}</h1>
+<div id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+    	<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%">{'admin_txt_logo'}</td>
+			<td width="70%"><img src="{'logo'}" alt="Logo" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%">{'admin_update_logo'}</td>
+			<td width="70%"><input type="file" name="img_logo" /><br /><span style="font-size:10px;">{'allow_type_logo_image'}</span></td>
+		</tr>
+        <tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="30%"></td>
+			<td width="70%"><input {'disable_submit_button'} type="button" value="{'ecard_add_remove_button_add_new_card'}" class="button" onClick="AddNew();" /></td>
+		</tr>
+	</table>
+</div>
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNew(){
+	document.form1.what.value="add_new";
+		document.form1.submit();
+}
+</script>

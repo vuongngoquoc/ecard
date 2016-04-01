@@ -1,0 +1,61 @@
+<div class="form-horizontal">
+	<form name="ecardmax_grabber" method="post" action="index.php">
+	<input type="hidden" name="step" value="{'step'}" />
+	<input type="hidden" name="what" value="grabnow" />
+	<input type="hidden" name="grabnow" value="1" />
+		<h1 id="title-1" class="table_title_bar">{'txt_media_grabber'}</h1>
+		<label>{'show_media_grabber_html_Enter_Domain'}</label>
+        <div class="form-group">
+            <div class="col-sm-6">
+            	<input class="form-control input-sm" type="text" name="grab_url" id="grab_url" value="{'grab_url'}" onkeypress="return noEnterKey(event)"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+            <button type="button" class="btn btn-default btn-sm btn-my-site" onclick="GrabNow();" >
+            {'button_submit'}</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12 des-media-grab">
+           		{'show_media_grabber_html_note'}
+            </div>
+        </div>
+		<iframe frameborder="0" height="500px" width="100%" scrolling="auto" id="_frame" name="grabber_frame" src="" ></iframe>
+	</form>
+</div>
+<style>
+.des-media-grab ul{
+	padding-top:5px;
+	padding-left: 20px;
+}
+.des-media-grab ul li{
+	list-style-type:decimal;
+	font-weight:bold;
+}
+</style>
+<script type="text/javascript">
+if(document.getElementById("grab_url").value=="" || document.getElementById("grab_url").value=="http://" ){
+	showid2("div_grabber_info","block");
+	showid2("div_grabber_frame","none");
+}
+else{
+	showid2("div_grabber_info","none");
+	showid2("div_grabber_frame","block");
+	GrabNow();
+}
+
+function GrabNow(){
+	if(document.getElementById("grab_url").value=="" || document.getElementById("grab_url").value=="http://" ){
+		showNotification("You must enter URL");
+		document.getElementById("grab_url").focus();
+	}
+	else{
+		showid2("div_grabber_info","none");
+		showid2("div_grabber_frame","block");
+		var grab_url=document.getElementById("grab_url").value;
+		grab_url=encodeURIComponent(grab_url);
+		frames['grabber_frame'].location.href="{'ecard_url'}/index.php?step={'step'}&what=grabnow&grab_url="+grab_url;
+	}
+}
+</script>

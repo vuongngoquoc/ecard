@@ -1,0 +1,1 @@
+<APPLET codebase CODE="DS_Lightning.class" change_pixel><PARAM NAME=credits VALUE="Applet by Dario Sciacca (www.dseffects.com)"><PARAM NAME=regKey VALUE="ds_key"><PARAM NAME=image VALUE="change_pic"><PARAM NAME=lightningfreq VALUE="4"><PARAM NAME=flashfreq VALUE="6"><PARAM NAME=interactive VALUE="out"><B>Sorry, no java browser</B></APPLET>

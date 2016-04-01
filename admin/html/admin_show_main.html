@@ -1,0 +1,88 @@
+<h1><img border="0" src="html/07_site_statistics.gif" alt="" style="vertical-align: middle;" />{'admin_index_page_txt_page_title'}</h1>
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">
+	<tr style="font-weight:bold;line-height:20px">
+		<td width="25%" class="Statistic">{'admin_index_page_txt_statistics_column_name'}</td>
+		<td width="25%" class="Value">{'admin_index_page_txt_value_column_name'}</td>
+		<td width="25%" class="Statistic">{'admin_index_page_txt_statistics_column_name'}</td>
+		<td width="25%" class="Value">{'admin_index_page_txt_value_column_name'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_total_members'}</td>
+		<td width="25%" class="Value2">{'members_total'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_ecardmax_version'}</td>
+		<td width="25%" class="Value2">{'ecardmax_your_version'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_new_member_today'}</td>
+		<td width="25%" class="Value2">{'members_today'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_member_cancel'}</td>
+		<td width="25%" class="Value2">{'members_cancel'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_number_of_language_files'}</td>
+		<td width="25%" class="Value2">{'number_language_file'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_ecardmax_latest_version'}</td>
+		<td width="25%" class="Value2"><iframe frameborder="0" style="border:1px solid black;background-color:white;width:100px;height:30px" src="http://www.ecardmax.com/ecardmax_version.html"></iframe></td>
+	</tr>
+	
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_number_free_acc'}</td>
+		<td width="25%" class="Value2">{'members_free'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_php_version'}</td>
+		<td width="25%" class="Value2">{'php_version'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_number_paid_acc'}</td>
+		<td width="25%" class="Value2">{'members_paid'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_mysql_version'}</td>
+		<td width="25%" class="Value2">{'mysql_version'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_total_ecards_sent'}</td>
+		<td width="25%" class="Value2">{'ecard_create_total'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_database_size'}</td>
+		<td width="25%" class="Value2">{'database_size'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_ecardmax_create_today'}</td>
+		<td width="25%" class="Value2">{'ecard_create_today'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_music_files_uploaded_by_members'}</td>
+		<td width="25%" class="Value2">{'number_member_music'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_ecard_created_yesterday'}</td>
+		<td width="25%" class="Value2">{'ecard_create_yesterday'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_images_uploaded'}</td>
+		<td width="25%" class="Value2">{'number_member_image'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_number_ecards_sent_in_database'}</td>
+		<td width="25%" class="Value2">{'ecard_in_database'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_poems_created'}</td>
+		<td width="25%" class="Value2">{'number_member_poem'}</td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_number_ecards_not_pickup'}</td>
+		<td width="25%" class="Value2">{'ecard_not_pickup'}</td>
+		<td width="25%" class="Statistic2">{'admin_index_page_txt_server_software'}</td>
+		<td width="25%" class="Value2">{'server_software'}</td>
+	</tr>
+</table>
+
+<form method="get" action="index.php">
+<input type="hidden" value="admin_member_display" name="step" />
+<input type="hidden" value="all" name="search_field" />
+
+<h1><img border="0" src="html/07_quick_user_finder.gif" alt="" style="vertical-align: middle;" />{'admin_index_page_txt_quick_user_finder'}</h1>
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">
+	<tr style="line-height:20px">
+		<td width="13%" class="Statistic" style="white-space:nowrap">{'admin_index_page_txt_find_user'}</td>
+		<td width="86%" class="Value" style="white-space:nowrap"><input class="Textbox" type="text" name="keyword" style="width:300px" /></td>
+	</tr>
+	<tr style="line-height:20px">
+		<td width="13%" class="Statistic2" style="white-space:nowrap"></td>
+		<td width="86%" class="Value2" style="white-space:nowrap">
+		<input class="button" type="submit" value="{'admin_index_page_txt_button_search_user_submit'}" name="cmd_button" /> <input class="button" type="button" value="{'admin_index_page_txt_button_list_acc'}" onclick="location.href='index.php?step=admin_member_display&cmd_button=List&list_item=all';" /></td>
+	</tr>
+</table>
+</form>

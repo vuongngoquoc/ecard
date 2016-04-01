@@ -1,0 +1,51 @@
+body, td, th {
+	font-family: Verdana, Tahoma, Arial;
+	font-size: 11px;
+	color: black;
+}
+
+.Hoteditor_Main_Border {
+	border: 1px solid #C0C0C0; 
+	background-color: #EFEBEF; 
+}
+
+.Hoteditor_TitleBar {
+	background-color: #E0E0E0; 
+	font-family: Verdana, Tahoma, Arial, sans-serif;
+	font-weight: bold;
+	color: black;
+	font-size: 10px;
+	height: 25px;
+	background-image: url(http://forums.dsstester.com/vbb/images/buttons/reply.gifa);
+	background-position: top;
+	background-repeat: repeat-x;
+}
+
+.Hoteditor_iFrame {
+	border: 1px solid #C0C0C0; 
+	background-image: url(http://forums.dsstester.com/vbb/images/buttons/reply.gif);
+}
+
+.Hoteditor_Button {
+	border: 1px solid #EFEBEF;
+}
+
+.Hoteditor_Button_Over {
+	border: 1px solid black;
+	background-color: yellow; 
+}
+
+.Hoteditor_Button_Out {
+	border: 1px solid #EFEBEF;
+}
+
+hr {
+	border: 0px none;
+    width: 100%
+}
+
+hr.HR_Color { 
+	color: #CDCDCD;
+	background-color: #CDCDCD;
+	height: 1px;
+}

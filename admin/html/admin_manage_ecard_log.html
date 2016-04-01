@@ -1,0 +1,157 @@
+<form name="form1" method="post" action="index.php">
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_view_ecard_log2.gif" alt="" style="vertical-align:middle" /> {'ecard_log_txt_page_title'}</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_search_keyword.gif" alt="" style="vertical-align:middle" /> {'ecard_log_txt_search_card_sent'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" colspan="2" style="cursor:pointer" onclick="showid('show_add_table');"><div style="float:left;">{'ecard_log_txt_select_filter'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'ecard_log_tooltip_close_hide'}" alt="{'ecard_log_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'ecard_log_txt_list'}</td>
+			<td  width="80%">
+				<select size="1" name="list_item">				
+				<option value="all" {'selected_list_item_all'}>{'ecard_log_txt_list_all_card_one_page'}</option>
+				<option value="new_today" {'selected_list_item_new_today'}>{'ecard_log_txt_list_cards_created_today'}</option>
+				<option value="new_yesterday" {'selected_list_item_new_yesterday'}>{'ecard_log_txt_list_cards_created_yesterday'}</option>
+				<option value="new_week" {'selected_list_item_new_week'}>{'ecard_log_txt_list_cards_created_this_week'}</option> 
+				<option value="new_month" {'selected_list_item_new_month'}>{'ecard_log_txt_list_cards_created_this_month'}</option>
+				<option value="not_pickup" {'selected_list_item_not_view'}>{'ecard_log_txt_list_cards_not_pick_up'}</option>
+				</select> <input type="submit" value="{'ecard_log_button_list_cards'}" name="cmd_button" class="button" />
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'ecard_log_txt_search'}</td>
+			<td  width="80%">
+				<input type="text" name="keyword" size="21" value="{'keyword'}" />
+				<select size="1" name="search_field">
+				<option value="all" {'selected_search_field_all'}>{'ecard_log_txt_all_fields'}</option>
+				<option value="cs_message" {'selected_search_field_cs_message'}>{'ecard_log_txt_card_message'}</option>
+				<option value="cs_from_name" {'selected_search_field_cs_from_name'}>{'ecard_log_txt_sender_name'}</option>
+				<option value="cs_from_email" {'selected_search_field_cs_from_email'}>{'ecard_log_txt_sender_email'}</option>
+				<option value="cs_fname" {'selected_search_field_cs_fname'}>{'ecard_log_txt_receiver_name'}</option>
+				<option value="cs_fmail" {'selected_search_field_cs_fmail'}>{'ecard_log_txt_receiver_email'}</option>
+
+				</select>
+				<input type="submit" value="Search" name="cmd_button" class="button" />
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'ecard_log_txt_time_before_today'}</td>
+			<td  width="80%">
+				{'ecard_log_txt_view_all_cards_created'}
+				<select size="1" name="num_day">
+				<option value="1" {'selected_num_day_1'}>1</option>
+				<option value="2" {'selected_num_day_2'}>2</option>
+				<option value="3" {'selected_num_day_3'}>3</option>
+				<option value="4" {'selected_num_day_4'}>4</option>
+				<option value="5" {'selected_num_day_5'}>5</option>
+				<option value="6" {'selected_num_day_6'}>6</option>
+				<option value="7" {'selected_num_day_7'}>7</option>
+				<option value="8" {'selected_num_day_8'}>8</option>
+				<option value="9" {'selected_num_day_9'}>9</option>
+				<option value="10" {'selected_num_day_10'}>10</option>
+				<option value="11" {'selected_num_day_11'}>11</option>
+				<option value="12" {'selected_num_day_12'}>12</option>
+				<option value="13" {'selected_num_day_13'}>13</option>
+				<option value="14" {'selected_num_day_14'}>14</option>
+				<option value="15" {'selected_num_day_15'}>15</option>
+				<option value="16" {'selected_num_day_16'}>16</option>
+				<option value="17" {'selected_num_day_17'}>17</option>
+				<option value="18" {'selected_num_day_18'}>18</option>
+				<option value="19" {'selected_num_day_19'}>19</option>
+				<option value="20" {'selected_num_day_20'}>20</option>
+				<option value="21" {'selected_num_day_21'}>21</option>
+				<option value="22" {'selected_num_day_22'}>22</option>
+				<option value="23" {'selected_num_day_23'}>23</option>
+				<option value="24" {'selected_num_day_24'}>24</option>
+				<option value="25" {'selected_num_day_25'}>25</option>
+				<option value="26" {'selected_num_day_26'}>26</option>
+				<option value="27" {'selected_num_day_27'}>27</option>
+				<option value="28" {'selected_num_day_28'}>28</option>
+				<option value="29" {'selected_num_day_29'}>29</option>
+				<option value="30" {'selected_num_day_30'}>30</option>
+				<option value="31" {'selected_num_day_31'}>31</option>
+				</select>	
+				<select size="1" name="num_what">
+				<option value="day" {'selected_num_what_day'}>{'ecard_log_txt_day'}</option>
+				<option value="week" {'selected_num_what_week'}>{'ecard_log_txt_week'}</option>
+				<option value="month" {'selected_num_what_month'}>{'ecard_log_txt_month'}</option>
+				<option value="year" {'selected_num_what_year'}>{'ecard_log_txt_year'}</option>
+				</select> {'ecard_log_txt_before_today'} <input type="submit" value="{'ecard_log_button_view'}" name="cmd_button" class="button" />
+			</td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%">{'ecard_log_txt_time_from_to'}</td>
+			<td  width="80%">
+				{'ecard_log_view_all_cards_from_to'} 
+				<input type="submit" value="{'ecard_log_button_go'}" name="cmd_button" class="button" />
+			</td>
+		</tr>
+	</table><br />
+</div>
+<div><strong>{'ecard_log_txt_tip'}:</strong> {'ecard_log_txt_click_card_thumbnail_to_view_on_new_windows'}<br /><br /></div>
+{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'ecard_log_txt_column_name_thumbnail'}</td>
+		<td width="*" style="padding:4px;white-space:nowrap">{'ecard_log_txt_column_name_from'}</td>
+		<td width="*" style="padding:4px;white-space:nowrap">{'ecard_log_txt_column_name_to'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'ecard_log_txt_column_name_time_created'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'ecard_log_txt_column_name_time_pickup'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'ecard_log_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap"><input id="chk_all" title="{'ecard_log_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="7">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'ecard_log_txt_display_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'ecard_log_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+{'display_page_number'}
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'ecard_log_message_checkbox_first'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'ecard_log_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+</script>

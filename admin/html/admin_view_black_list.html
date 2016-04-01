@@ -1,0 +1,109 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_black_list2.gif" alt="" style="vertical-align:middle" /> {'view_black_list_txt_page_title'} 
+({'view_black_list_txt_total'} {'count_total'})</h1>
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> {'view_black_list_txt_click_here_to_add_new_email_to_black_list'}</div><br />
+<div style="width:100%;display:none" id="show_add_table">	
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_add_table');" colspan="2"><div style="float:left;">{'view_black_list_txt_add_new_email_to_black_list'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'view_black_list_tooltip_close_hide'}" alt="{'view_black_list_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>				
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%" valign="top">{'view_black_list_txt_enter_email_address_by_line'}</td>
+			<td width="80%"><textarea name="email_bulk" id="email_bulk" style="width:90%;height:150px"></textarea></td>
+		</tr>		
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="20%"></td>
+			<td width="80%"><input type="button" value="{'view_black_list_button_submit'}" class="button" onclick="AddNewEmail();" /></td>
+		</tr>		
+	</table><br />
+</div>
+<div><strong>{'view_black_list_txt_notes'}</strong></div>
+{'view_black_list_txt_notes_detail'}{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<td width="1%" align="center">{'view_black_list_txt_column_name_icon'}</td>
+		<td width="*">{'view_black_list_txt_column_name_email'}</td>
+		<td width="20%" align="center">{'view_black_list_txt_column_name_more_info'}</td>
+		<td width="20%" align="center">{'view_black_list_txt_column_name_more_status'}</td>
+		<td width="1%" align="center">{'view_black_list_txt_column_name_more_remove'}</td>
+		<td width="1%" align="center"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'view_black_list_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
+	</tr>	
+	{'show_list_table'}
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);">
+		<td width="100%" colspan="6">
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%"><strong>{'view_black_list_txt_display_row_per_page'}</strong> <input type="text" name="row_number" size="10" value="{'row_number'}" onkeypress="return isNumberKey(event)" onchange="document.form1.submit();" /></td>
+				<td width="50%" align="right"><input type="button" value="{'view_black_list_button_delete_selected'}" class="button" onclick="CheckSelected();" /> <img border="0" src="html/pointer.gif" alt="" style="vertical-align:middle" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+{'display_page_number'}
+
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+
+function AddNewEmail(){	
+	if(document.form1.email_bulk.value==""){
+		alert("{'view_black_list_message_email_required'}");
+		document.form1.email_bulk.focus();
+	}
+	else{
+		document.form1.what.value='add_new_bulk';
+		document.form1.submit();
+	}
+}
+
+function CheckSelected(){
+	if(myid!=""){
+		var selected_id="";
+		for(i=0;i<=array.length-1;i++){
+			if(document.getElementById("bk" + array[i]).checked)
+				selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+		}
+		if(selected_id==""){
+			alert("{'view_black_list_message_checkbox_first_required'}");
+		}
+		else{
+			DeleteSelected();
+		}
+	}
+}
+
+function DeleteSelected(){
+	var selected_id="";	
+	for(i=0;i<=array.length-1;i++){
+		if(document.getElementById("bk" + array[i]).checked)
+			selected_id += "&mylist_id" + array[i] + "=" + document.getElementById("bk" + array[i]).value ;
+	}
+
+	url="index.php?step={'step'}&what=delete_selected"+selected_id+"&page={'page'}&row_number={'row_number'}";
+	if(window.confirm("{'view_black_list_message_confirm_to_delete'}")){
+		location.href=url;
+	}
+	else{
+		document.getElementById("chk_all").checked=false;
+		check_uncheck_all('{'bk_id'}');
+	}
+}
+
+function ChangeStatus(email,num,data){
+	if(data=="1"){//Active
+		document.getElementById("icon"+num).src="html/07_icon_no_email.gif";
+		document.getElementById("moreinfo"+num).innerHTML="{'view_black_list_message_active_server_will_not_send_anything'}";
+	}
+	else{//Pending
+		document.getElementById("icon"+num).src="html/07_icon_yes_email.gif";
+		document.getElementById("moreinfo"+num).innerHTML="{'view_black_list_message_pending_user_still_receive_ecard_and_email'}";
+	}
+	Editme('index.php?step=edit_me&table=max_black_list&edit_id=black_email&edit_id_value='+email+'&edit_key=black_active&edit_value=',data,'1',num,"icon"+num);
+}
+
+</script>

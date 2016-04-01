@@ -1,0 +1,199 @@
+<form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
+<input type="hidden" name="step" value="{'step'}" />
+<input type="hidden" name="cat_id" value="{'cat_id'}" />
+<input type="hidden" name="what" value="" />
+<h1><img border="0" src="html/07_icon_manage_invitation2.gif" alt="" style="vertical-align:middle" /> {'invite_txt_manage_invitation_card'} ({'total_count_category_and_ecard'})</h1>
+<div style="border:1px solid silver;padding:4px;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold"><img border="0" src="html/07_icon_2rarrow.gif" alt="" style="vertical-align:middle" /> {'invite_txt_category_navigation'}: <a href="index.php?step={'step'}">{'invite_txt_main_root'}</a> <img border="0" alt="" src="html/2rightarrow12.gif" />{'show_cat_nav'}</div><br />
+<a class="button_link" href="javascript:showid('help_div');" ><img border="0" alt="" src="html/07_icon_show_help.gif" style="vertical-align:middle" /> {'invite_txt_show_help_for_this_page'}</a> <a class="button_link" href="{'ecard_url'}/index.php?step=show_invitation&cat_id={'cat_id'}" target="_blank"><img border="0" alt="" src="html/07_icon_play_arrow.gif" style="vertical-align:middle" /> {'invite_txt_visit_this_cate_usr_interface'}</a>
+{'invite_txt_guide_to_use'}<br />{'show_info'}
+<table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
+	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">				
+		<td width="*" style="padding:4px"><div style="float:left">{'invite_txt_column_name_category_name'}</div><div style="float:right">{'show_up_one_level'}</div></td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'invite_txt_column_name_sub_category'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'invite_txt_column_name_ecards'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'invite_txt_column_name_active_inactive'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'invite_txt_column_name_delete'}</td>
+		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'invite_txt_column_name_sort_order'}</td>
+	</tr>	
+	{'show_list_table'}
+</table><br />
+<div><strong>{'invite_txt_select_command_below'}:</strong></div><br />
+<div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="ShowNav('show_nav_div1');"><img border="0" src="html/07_icon_new_category.gif" alt="" style="vertical-align:middle" /> {'invite_txt_create_new_sub_category'}: <span class="OK_Message">{'show_cat_nav_no_link'} <span id="new_cat_here" class="Error_Message">???</span></span></div>
+<div style="width:100%;display:none" id="show_nav_div1">
+	<div style="line-height:4px;"></div>
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_nav_div1');" colspan="2"><div style="float:left;">{'invite_txt_add_new_sub_category'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'invite_tooltip_close_hide'}" alt="{'invite_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>	
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_category_name'}</td>
+			<td width="60%"><input type="text" name="cat_name_display" id="cat_name_display" style="width:90%" onkeyup="UpdateMe();" onchange="UpdateMe();" maxlength="100" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_folder_name'}</td>
+			<td width="60%"><input type="text" name="cat_dir" id="cat_dir" style="width:90%" onkeyup="cat_dir_edit=1;UpdateMe(1);" onchange="cat_dir_edit=1;UpdateMe(1);" maxlength="100" /><br /><strong>{'invite_txt_path'}:</strong> <span style="font-size:8pt;font-weight:bold;color:green">{'ecard_url'}/resource/invitation/</span><span style="font-size:8pt;font-weight:bold;color:red" id="new_folder_name_here">???</span></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_set_HTML_meta_tag_keyword'}</td>
+			<td width="60%"><input type="text" name="cat_keyword" id="cat_keyword" style="width:90%" value="keyword1,keyword2,keyword3" maxlength="255" onfocus="this.value=this.value.replace('keyword1,keyword2,keyword3','')" /><br /><strong style="font-size:8pt">{'invite_txt_set_HTML_meta_tag_keyword_1'}</strong></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_set_HTML_meta_tag_description'}</td>
+			<td width="60%"><input type="text" name="cat_description" id="cat_description" style="width:90%" value="{'invite_txt_your_text_here'}" maxlength="255" onfocus="this.value=this.value.replace('{'invite_txt_your_text_here'}','')" /><br /><strong style="font-size:8pt">{'invite_txt_set_HTML_meta_tag_description_1'}</strong></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_set_HTML_meta_tag_title'}</td>
+			<td width="60%"><input type="text" name="cat_title" id="cat_title" style="width:90%" value="{'invite_txt_your_text_here'}" maxlength="255" onfocus="this.value=this.value.replace('{'invite_txt_your_text_here'}','')" /><br /><strong style="font-size:8pt">{'invite_txt_set_HTML_meta_tag_title_1'}</strong></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_active_this_category_now'}</td>
+			<td width="60%"><input type="checkbox" checked="checked" name="cat_active" id="cat_active" value="1" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%"></td>
+			<td width="60%"><input {'disable_submit_button'} type="button" value="{'invite_button_add_new_invite'}" class="button" onclick="AddNew();" /> {'disable_submit_button_message'}</td>
+		</tr>
+	</table><br />
+</div>
+
+<div style="line-height:4px;"></div>
+<div style="{'hide_this_div'}border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="ShowNav('show_nav_div2');"><img border="0" src="html/07_icon_edit_meta_keyword.gif" alt="" style="vertical-align:middle" /> {'invite_txt_click_here_to_edit_html_meta_tag_keyword_description_title'} <span class="OK_Message">[{'show_cat_name_display'}]</span></div>
+<div style="width:100%;display:none" id="show_nav_div2">
+	<div style="line-height:4px;"></div>
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_nav_div2');" colspan="2"><div style="float:left;">{'invite_txt_edit_html_meta_tag_keyword_description_title'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'invite_tooltip_close_hide'}" alt="{'invite_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>	
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_edit_html_meta_tag_keyword'}</td>
+			<td width="60%"><input type="text" name="edit_cat_keyword{'cat_id'}" id="edit_cat_keyword{'cat_id'}" value="{'edit_cat_keyword'}" style="width:500px" maxlength="255" onfocus="original_value=this.value;" onchange="Editme('index.php?step=edit_me&table=max_category_invite&edit_id=cat_id&edit_id_value={'cat_id'}&edit_key=cat_keyword&edit_value=',this.value,'0',original_value,this.id);" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_edit_html_meta_tag_description'}</td>
+			<td width="60%"><input type="text" name="edit_cat_description{'cat_id'}" id="edit_cat_description{'cat_id'}" value="{'edit_cat_description'}" style="width:500px" maxlength="255" onfocus="original_value=this.value;" onchange="Editme('index.php?step=edit_me&table=max_category_invite&edit_id=cat_id&edit_id_value={'cat_id'}&edit_key=cat_description&edit_value=',this.value,'0',original_value,this.id);" /></td>
+		</tr>
+		<tr style="background-color: #EAEAEA;line-height:17px">
+			<td width="40%">{'invite_txt_edit_html_meta_tag_title'}</td>
+			<td width="60%"><input type="text" name="edit_cat_title{'cat_id'}" id="edit_cat_title{'cat_id'}" value="{'edit_cat_title'}" style="width:500px" maxlength="255" onfocus="original_value=this.value;" onchange="Editme('index.php?step=edit_me&table=max_category_invite&edit_id=cat_id&edit_id_value={'cat_id'}&edit_key=cat_title&edit_value=',this.value,'0',original_value,this.id);" /></td>
+		</tr>
+	</table><br />
+</div>
+
+<div style="line-height:4px;"></div>
+<div style="{'hide_this_div'}border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="ShowNav('show_nav_div3');"><img border="0" src="html/07_icon_language.gif" alt="" style="vertical-align:middle" /> {'invite_txt_click_here_to_translate_into_other_languages'}</div>
+<div style="width:100%;display:none" id="show_nav_div3">
+	<div style="line-height:4px;"></div>
+	<table width="100%" style="background-color:silver" cellspacing="1" cellpadding="4">
+		<tr style="background-image: url(html/07_title_background.gif);line-height:17px;font-weight:bold">
+			<td width="100%" style="cursor:pointer" onclick="showid('show_nav_div3');" colspan="2"><div style="float:left;">{'invite_txt_click_here_to_translate_category_name_into_other_languages'}</div><img border="0" src="html/07_icon_button_close.gif" title="{'invite_tooltip_close_hide'}" alt="{'invite_tooltip_close_hide'}" style="vertical-align:middile;float:right;" /></td>
+		</tr>	
+		{'show_list_language_table'}
+	</table><br />
+</div>
+
+<div style="line-height:4px;"></div>
+<div style="{'hide_this_div'}border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="location.href='index.php?step={'step'}&what=move_cat&cat_id_move={'cat_id'}';"><img border="0" src="html/07_icon_move_category.gif" alt="" style="vertical-align:middle" /> {'invite_txt_click_here_to_move_category'}</div>
+
+<div style="line-height:4px;"></div>
+<div style="{'hide_this_div'}border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="ShowNav('show_nav_div4');frames['preview_frame'].location.href='index.php?step=admin_manage_invite_add_remove&cat_id={'cat_id'}&cat_dir={'show_cat_dir'}&cat_name_display='+escape('{'show_cat_name_display'}');"><img border="0" src="html/07_icon_manage_invitation.gif" alt="" style="vertical-align:middle" /> {'invite_txt_click_here_to_add_remove_invitation_cards_in_this_category'}</div>
+<div style="width:100%;display:none" id="show_nav_div4">
+	<div style="line-height:4px;"></div>
+	<iframe frameborder="0" width="100%" scrolling="auto" id="preview_frame" name="preview_frame" src="" style="border:1px solid silver;height:500px"></iframe>
+	<div style="line-height:8px"></div>
+	<div style="text-align:right"><a href="javascript:ResizeIframe('2');" class="page_other" title="{'invite_tooltip_default_size'}"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_normal_size.gif" /></a> <a href="javascript:ResizeIframe('1');" class="page_other" title="{'invite_tooltip_increase_size'}"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_plus.gif" /></a> <a href="javascript:ResizeIframe('0');" class="page_other" title="{'invite_tooltip_decrease_size'}"><img border="0" alt="" style="vertical-align:middle" src="html/07_icon_minus.gif" /></a><br /><br /></div>
+</div>
+
+<div id="view_fullsize_table" style="display:none;position:absolute;top:0;left:0;z-index:9;border:thick solid #FCAA03;cursor:pointer" title="{'invite_tooltip_click_here_to_close'}" onclick="HideItAll();" >
+	<div style="cursor:pointer;padding:5px;background-image: url(html/07_title_background.gif);font-weight:bold">
+		<table border="0" cellspacing="0" cellpadding="0" >
+		<tr >
+			<td><img border="0" src="html/07_icon_button_close.gif" title="{'invite_tooltip_close_hide'}" alt="{'invite_tooltip_close_hide'}" /></td>
+			<td style="white-space:nowrap"> {'invite_txt_click_here_to_close'}</td>			
+		</tr>
+		</table>
+	 </div>
+	 <div id="print_fullsize" style="text-align:center;background-color:lightyellow;cursor:pointer" title="{'invite_tooltip_click_here_to_close'}" ></div>	 
+</div>
+
+</form>
+<script type="text/javascript">
+
+var myid="{'bk_id'}";
+var array=myid.split(",");
+var cat_dir_edit=0;
+
+function ShowNav(id){
+	for(i=1;i<=4;i++){
+		showid2("show_nav_div"+i,"none");
+	}
+	showid2(id,"block");
+}
+
+function UpdateMe(data){
+	var cat_name_display=document.getElementById('cat_name_display').value;
+	var cat_dir=document.getElementById('cat_dir').value;
+	if(cat_dir=="")cat_dir_edit=0;
+	if(cat_dir_edit=="0")cat_dir=cat_name_display;
+	cat_dir=cat_dir.replace(/\W/gi,"");
+	document.getElementById('new_cat_here').innerHTML=cat_name_display;
+	document.getElementById('cat_dir').value=cat_dir;
+	document.getElementById('new_folder_name_here').innerHTML=cat_dir;
+
+}
+
+function HideItAll(){
+	document.getElementById('view_fullsize_table').style.display="none";
+	document.getElementById('hidden_iframe').style.display="none";
+	frames["preview_frame"].HideItAll();
+}
+
+function AddNew(){
+	document.form1.cat_keyword.value=document.form1.cat_keyword.value.replace("keyword1,keyword2,keyword3","");
+	document.form1.cat_description.value=document.form1.cat_description.value.replace("{'invite_txt_your_text_here'}","");
+	document.form1.cat_title.value=document.form1.cat_title.value.replace("{'invite_txt_your_text_here'}","");
+
+	if(document.form1.cat_name_display.value==""){
+		alert("{'invite_message_category_name_required'}");
+		document.form1.cat_name_display.focus();
+	}
+	else if(document.form1.cat_dir.value==""){
+		alert("{'invite_message_category_folder_name_required'}");
+		document.form1.cat_dir.focus();
+	}
+	else{
+		document.form1.what.value='add_new';
+		document.form1.submit();
+	}
+}
+
+function ResizeIframe(data){
+	var iframe_h =document.getElementById("preview_frame").offsetHeight;
+	if(data=="1"){
+		document.getElementById("preview_frame").style.height=iframe_h + 500 +"px";
+	}
+	else if(data=="2"){
+		document.getElementById("preview_frame").style.height=500 +"px";
+	}
+	else{
+		if(iframe_h <= 500){
+			document.getElementById("preview_frame").style.height="500px";
+		}
+		else{
+			document.getElementById("preview_frame").style.height=iframe_h - 100 +"px";
+		}
+	}
+}
+
+function ShowFullsize(fullsize,width,height){
+	fullsize=fullsize+"?dummy="+new Date().getTime();
+	if(fullsize.indexOf(".swf")!=-1){	
+		document.getElementById('print_fullsize').innerHTML="<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0' id=postcard width="+width+" height="+height+"><param name=movie value="+fullsize+" /><param name=quality value=high /><embed src="+fullsize+" quality=high width="+width+" height="+height+" type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' ></embed></object>";
+	}
+	else{
+		document.getElementById('print_fullsize').innerHTML="<img border=0 src="+fullsize+" alt='' width="+width+" height="+height+" />";
+	}
+	ShowLoaderImage("{'invite_message_loading'}");
+	ShowDivCenterPage('view_fullsize_table');
+	setTimeout("showid2('show_loading','none');showid2('hidden_iframe','none');",700);
+}
+</script>

@@ -1,0 +1,19 @@
+<form method="post" action="index.php">
+<input type="hidden" name="step" value={'step'}>
+<input type="hidden" name="what" value="send_now">
+<input type="hidden" name="mmess_type" value={'mmess_type'}>
+<input type="hidden" name="mgroup_id" value={'mgroup_id'}>
+<input type="hidden" name="mmess_id" value={'mmess_id'}>
+<p align="left"><b>{'email_tool_sending_txt_preview_page_title'}</b></p>
+<p align="left">{'email_tool_sending_txt_group_email_id'} : <b>{'mgroup_id'}</b><br />{'email_tool_sending_txt_email_subject'}: <strong>{'mmess_subject'}</strong><br>{'email_tool_sending_txt_view_email'}</p>
+<hr class="HR_Color" />
+<p align="left">{'body'}</p>
+<hr class="HR_Color" />
+<p align="left">
+<input type="radio" value="1" checked="checked" name="send_test" />{'email_tool_sending_txt_send_a_test_email'} {'webmaster_email'}<br />
+<input type="radio" value="0" name="send_test" />{'email_tool_sending_txt_send_email_to_all_users'}<br /><br />
+{'email_tool_sending_txt_number_email_per_batch'} <input type="text" value="50" name="email_per_batch" />
+</p>
+
+<p align="left"><input type="submit" value="Submit" class="button"></p>
+</form>	

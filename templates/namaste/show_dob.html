@@ -1,0 +1,102 @@
+<h1 class="table_title_bar" id="title-1"><i class="fa fa-bell padding5"></i>{'birthday_alert_dob_title'}</h1>
+<div class="row">
+		<form method="POST"  class="form-horizontal" action="index.php">
+		<input class="form-control input-sm" type="hidden" name="step" value="pickup" />
+			<div class="col-sm-9 clearfix">{'show_info'}</div>
+            <div class="col-sm-12 clearfix h-space-b-10">{'show_birthday_alert_dob_message'}</div>
+            <div class="col-sm-12">
+        	<div class="panel panel-default">
+            <div class="panel-heading">{'birthday_alert_dob_title'}</div>
+            <div class="panel-body">
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_first_name'}</label>
+                <div class="col-sm-4">
+                <input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_fname&edit_key_value=',this.value,'1',original_value,this.id);" type="text" name="book_fname" id="book_fname"  value="{'book_fname'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_last_name'}</label>
+                <div class="col-sm-4"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_lname&edit_key_value=',this.value,'1',original_value,this.id);" type="text" name="book_lname" id="book_lname"  value="{'book_lname'}" />
+                <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
+                </div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_email'}</label>
+                <div class="col-sm-4"><strong>{'book_email'}</strong></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_reminder_birthday'} <span class="Error_Message">*</span></label>
+                <div class="col-sm-3">
+                <input class="form-control input-sm datepicker" readonly="readonly" type="text" name="time_end_textbox" id="time_end_textbox" value="{'show_user_birthday'}" /> 
+                <span class="fa fa-calendar-plus-o form-control-feedback" aria-hidden="true"></span>
+                </div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_reminder_anni'}</label>
+                <div class="col-sm-3">
+                <input class="form-control input-sm datepicker" readonly="readonly" type="text" name="time_end_textbox_anni" id="time_end_textbox_anni" value="{'show_user_anni'}"  />
+                <span class="fa fa-calendar-plus-o form-control-feedback" aria-hidden="true"></span>
+                </div>
+</div>
+            </div>
+            </div>
+            <div class="panel panel-default">
+            <div class="panel-heading">{'addressbook_txt_optional'}</div>
+            <div class="panel-body">
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_nick_name'}</label>
+                <div class="col-sm-4"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_nick&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_nick" id="book_nick"  value="{'book_nick'}" /></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_phone_number'}</label>
+                <div class="col-sm-4"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_phone&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_phone" id="book_phone"  value="{'book_phone'}" /></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_address1'}</label>
+                <div class="col-sm-9"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_address1&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_address1" id="book_address1" style="width:98%" value="{'book_address1'}" /></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_address2'}</label>
+                <div class="col-sm-9"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_address2&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_address2" id="book_address2" style="width:98%" value="{'book_address2'}" /></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_city'}</label>
+                <div class="col-sm-4"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_city&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_city" id="book_city"  value="{'book_city'}" /></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_state'}</label>
+                <div class="col-sm-4"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_state&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_state" id="book_state"  value="{'book_state'}" /></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_zipcode'}</label>
+                <div class="col-sm-4"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_zip&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_zip" id="book_zip"  value="{'book_zip'}" /></div>
+</div>
+				<div class="form-group has-feedback">
+                <label class="col-sm-3">{'addressbook_txt_country'}</label>
+                <div class="col-sm-4"><input class="form-control input-sm" onfocus="original_value=this.value" onchange="Editme('{'ecard_url'}/index.php?step={'step'}&action=edit_me&edit_id=book_id&edit_id_value={'book_id'}&user_id={'user_id'}&edit_key=book_country&edit_key_value=',this.value,'0',original_value,this.id);" type="text" name="book_country" id="book_country"  value="{'book_country'}" /></div>
+</div>					
+            </div>		
+		</div>
+        </div>
+        </form>
+</div>
+
+<script type="text/javascript">
+	$(".datepicker").datepicker(
+	{
+		changeMonth:true,
+		changeYear:true,
+		dateFormat:'dd-mm-yy',
+		yearRange: "1950",
+		maxDate:  '0'
+	});
+	$('#time_end_textbox').on('change', function(){
+		var data = this.value;
+		Editme('{'ecard_url'}/index.php?step={'step'}&action=update_book_birthday&book_id={'book_id'}&user_id={'user_id'}&time_end_textbox=',data,'1','time_end_textbox',"time_end_textbox");
+	});
+	$('#time_end_textbox_anni').on('change', function(){
+		var data = this.value;
+		Editme('{'ecard_url'}/index.php?step={'step'}&action=update_book_anni&book_id={'book_id'}&user_id={'user_id'}&time_end_textbox=',data,'1','time_end_textbox_anni',"time_end_textbox");
+	});
+</script>
