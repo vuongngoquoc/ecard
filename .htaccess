@@ -1,7 +1,8 @@
 DirectoryIndex index.php
 # Force the "www."
-RewriteCond %{HTTP_HOST} !^www\.namasteegreetings\.com$ [NC]
-RewriteRule ^(.*)$ http://www.namasteegreetings.com/$1 [R=301,L]
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 <Files 403.shtml>
 order allow,deny
 allow from all
@@ -11,7 +12,7 @@ Options All -Indexes
 Options +FollowSymLinks
 
 RewriteEngine on
-RewriteBase /demo
+RewriteBase /
 RewriteCond %{REQUEST_URI} (list|of|sub|dirs)
 
 RewriteRule . - [s=1]

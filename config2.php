@@ -17,13 +17,13 @@
 	$cf_card_expire_day_invite = "60"; 
 	$cf_cgi2k_java_keycode = ""; 
 	$cf_currecy = "$"; 
-	$cf_default_skin = "_Default"; 
+	$cf_default_skin = "A_Blank_Skin_Blue"; 
 	$cf_default_stamp = "_Default.gif"; 
 	$cf_dst = "1"; 
 	$cf_ds_java_keycode = ""; 
 	$cf_easy_edit_template = "0"; 
 	$cf_ecardmax_copyright_footer = ""; 
-	$cf_ecardmax_keycode = "BD3ZJZCF25BZ2E44Z4B2LK5RP4L30CCA2DCK503E4ZJZ"; 
+	$cf_ecardmax_keycode = "J13ZFEFCDFFBCJ11FB4DMUB2EJ12E1ZJK1ACZFE"; 
 	$cf_enable_2co_test_mode = "0"; 
 	$cf_enable_black_list = "1"; 
 	$cf_enable_invitation = "0"; 
@@ -42,7 +42,7 @@
 	$cf_homepage_display_quote_limit = "3"; 
 	$cf_homepage_display_random_limit = "3"; 
 	$cf_homepage_display_toprate_limit = "3"; 
-	$cf_hoteditor_keycode = "F118450070AA1G0E8N8E7R4A2L7KDE9Y7Y5EAK5LAABR3EBNCE6G"; 
+	$cf_hoteditor_keycode = "CA28AD36778E0G9E3NDE9R2AAL0K1EAY5Y8E9K7L2A2RBE8N4ECG"; 
 	$cf_id = "1"; 
 	$cf_image_upload_max_size = "20000"; 
 	$cf_language = "english_lang.php"; 
@@ -54,7 +54,7 @@
 	$cf_member_can_upload_font = "1"; 
 	$cf_member_can_upload_image = "1"; 
 	$cf_member_can_upload_music = "1"; 
-	$cf_member_can_upload_poem = "1"; 
+	$cf_member_can_upload_poem = "0"; 
 	$cf_member_can_upload_stamp = "1"; 
 	$cf_music_upload_max_size = "2000000"; 
 	$cf_newest_invitation_ecards = "6"; 
@@ -69,7 +69,7 @@
 	$cf_option_user_select_music = "1"; 
 	$cf_paypal_primary_email = "webmaster@ecardmax.com"; 
 	$cf_paypal_test_email = ""; 
-	$cf_pic_per_row = "4"; 
+	$cf_pic_per_row = "3"; 
 	$cf_ppc = "1"; 
 	$cf_recipient_default = "1"; 
 	$cf_row_per_page = "5"; 
@@ -112,8 +112,8 @@
 	$cf_SMTP_Username = ""; 
 	$cf_stamp_upload_max_size = "10000"; 
 	$cf_template_responsive = "1"; 
-	$cf_thumb_height_member_card = "121"; 
-	$cf_thumb_width_member_card = "173"; 
+	$cf_thumb_height_member_card = "175"; 
+	$cf_thumb_width_member_card = "250"; 
 	$cf_timezone = "-6.00"; 
 	$cf_total_cardsent = "12"; 
 	$cf_turn_hr_banner = "0"; 

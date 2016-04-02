@@ -28,6 +28,7 @@
 	error_reporting('E_ALL ^ E_NOTICE'); 
 
 	# MySQL Database information
+	/*
 	$dbserver ="mysqlcluster5";
 	$database_name ="ecards105";
 	$db_user ="ecards105";
@@ -39,6 +40,16 @@
 
 	$ecard_url ="http://www.namasteegreetings.com/demo";
 	$ecard_root ="/data/20/4/109/143/4435469/user/5204778/htdocs/demo";
+    */
+    $dbserver ="localhost";
+    $database_name ="ecards105";
+    $db_user ="root";
+    $db_password ="";
 
+    # Admin script login information
+    $admin_user = "admin";
+        $admin_password = "Foxowl1900";
 
+    $ecard_url ="";
+    $ecard_root ="D:/Project/ecard";
 ?>
