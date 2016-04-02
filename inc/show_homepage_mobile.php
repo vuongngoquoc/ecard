@@ -47,7 +47,7 @@
 	}
 	
 	// DO NOT REMOVE THIS VALUE
-	$item_width=round(100 / $cf_pic_per_row) . "%";
+	$item_width=round(100 / 4) . "%";
 	
 	
 	//Display feature cards
@@ -62,7 +62,7 @@
 	
 	//Display feature cards
 	// DO NOT REMOVE THIS VALUE
-	$item_width=round(100 / $cf_pic_per_row) . "%";
+	$item_width=round(100 / 4) . "%";
 	
 	//Display yago cards
 	

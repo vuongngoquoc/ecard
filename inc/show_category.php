@@ -401,6 +401,10 @@ Note: This product includes GeoLite data created by MaxMind, available from  htt
 	function print_thumbnail($cat_id="",$no_page=""){
 		global $step,$isResponsive,$txt_caption_paypercard,$cf_show_ppc_amount,$button_use_sortby_default,$cf_show_card_caption,$cf_show_goto_category_icon,$cf_show_thumb_toolbar,$sortby,$txt_js_alert_sure_to_delete_card_favorite,$txt_card_lable_remove_favorite,$txt_card_lable_FLASH,$txt_card_lable_POSTCARD,$today_year,$action,$find_exact,$search_in_cat,$keyword,$end_today_timestamp,$cf_row_per_page,$page,$cf_homepage_display_random_limit,$cf_homepage_display_newestcard_limit,$cf_homepage_display_toprate_limit,$cf_homepage_display_most_popular_limit,$cf_homepage_display_feature_card_limit,$ecard_root,$thumb_tool_date_add_card,$thumb_tool_new_card,$thumb_tool_free_card,$thumb_tool_member_card,$thumb_tool_member_card_ok_to_send,$thumb_tool_preview_fullsize,$thumb_tool_visit_category,$cf_show_card_type_icon,$cf_show_new_icon,$cf_show_free_icon,$_SESSION,$ecard_url,$cf_pic_per_row,$cf_row_per_page,$cf_set_template,$cf_show_rate_star_image,$gmt_timestamp_now,$cf_show_new_icon_before_day,$item_width,$cf_thumb_width_member_card,$cf_thumb_height_member_card;
 		
+		
+		
+		
+		if ($step=="") $cf_pic_per_row=4;
 		//get title page
 		if(!is_numeric($cat_id))
 		{
@@ -650,6 +654,10 @@ Note: This product includes GeoLite data created by MaxMind, available from  htt
 			for ($z=0; $z<$count_list; $z++) {
 				$row_data=$list_data[$xrow];
 				set_global_var("ecard_id",$row_data[ec_id]);
+				
+				//Show artist icon
+				$show_artist_icon="<a class='btn btn-default btn-ecard btn-sm' href=\"$ecard_url/index.php?step=\"><i title=\"Artist Name\" alt=\"Artist Name\" class='fa fa-user' ></i></a>";
+				
 				//show birthday card setting
 				if($_SESSION[mg_allow_send_birthday_to_group]=="1"){
 					if($isResponsive)
@@ -905,6 +913,7 @@ Note: This product includes GeoLite data created by MaxMind, available from  htt
 					set_global_var("show_free_or_member_card_icon",$show_free_or_member_card_icon);
 					set_global_var("show_new_icon",$show_new_icon);
 					set_global_var("show_birthday_icon",$show_birthday_icon);
+					set_global_var("show_artist_icon",$show_artist_icon);
 					set_global_var("show_thumb_toolbar",get_html_from_layout("templates/$cf_set_template/show_thumbnail_category_item_show_thumb_toolbar.html",$the_template_show_thumb_toolbar));
 				}
 

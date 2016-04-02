@@ -38,7 +38,7 @@
 			$_ICON = "<i class='fa fa-music padding5'></i>";
 			$button_myalbum_music="<a href=\"$ecard_url/index.php?step=$step&next_step=$next_step&what=music\" class=\"button_link_style1 $_CLS\">$_ICON $myalbum_button_goto_music</a>";
 		}
-		if($cf_option_select_poem=="1"){
+		if($cf_option_select_poem=="1" && $cf_member_can_upload_poem=="1"){
 			$_ICON = "<i class='fa fa-edit padding5'></i>";
 			$button_myalbum_poem="<a href=\"$ecard_url/index.php?step=$step&next_step=$next_step&what=poem\" class=\"button_link_style1 $_CLS\">$_ICON $myalbum_button_goto_poem</a>";
 		}
@@ -79,7 +79,7 @@
 				$show_myalbum_music="<div class=\"myalbum_items_style\"><table border=\"0\" width=\"100%\"><tr><td width=\"70\" valign=\"top\"><i class='fa fa-music title-icon padding5'></i></td><td valign=\"top\">$myalbum_info_music<br /><br />$button_myalbum_music</td></tr></table><hr class=\"HR_Color\" /></div>";
 			}
 			
-			if($cf_option_select_poem=="1"){
+			if($cf_option_select_poem=="1" && $cf_member_can_upload_poem=="1"){
 				$show_myalbum_poem="<div class=\"myalbum_items_style\"><table border=\"0\" width=\"100%\"><tr><td width=\"70\" valign=\"top\"><i class='fa fa-edit title-icon padding5'></i></td><td valign=\"top\">$myalbum_info_poem<br /><br />$button_myalbum_poem</td></tr></table><hr class=\"HR_Color\" /></div>";
 			}
 
@@ -101,7 +101,7 @@
 				$show_myalbum_music="<div class=\"myalbum_items_style\"><table border=\"0\" width=\"100%\"><tr><td width=\"70\" valign=\"top\"><img border=\"0\" alt=\"\" src=\"$ecard_url/templates/$cf_set_template/icon_myalbum_music.gif\" /></td><td valign=\"top\">$myalbum_info_music<br /><br /><a href=\"$ecard_url/index.php?step=$step&next_step=$next_step&what=music\" class=\"button_link_style1\"><img border=\"0\" alt=\"\" src=\"$ecard_url/templates/$cf_set_template/icon_member_upload_audio.gif\" style=\"vertical-align:middle\" /> $myalbum_button_goto_music</a><br /><br /></td></tr></table><hr class=\"HR_Color\" /></div>";
 			}
 			
-			if($cf_option_select_poem=="1"){
+			if($cf_option_select_poem=="1" && $cf_member_can_upload_poem=="1" ){
 				$show_myalbum_poem="<div class=\"myalbum_items_style\"><table border=\"0\" width=\"100%\"><tr><td width=\"70\" valign=\"top\"><img border=\"0\" alt=\"\" src=\"$ecard_url/templates/$cf_set_template/icon_myalbum_poem.gif\" /></td><td valign=\"top\">$myalbum_info_poem<br /><br /><a href=\"$ecard_url/index.php?step=$step&next_step=$next_step&what=poem\" class=\"button_link_style1\"><img border=\"0\" alt=\"\" src=\"$ecard_url/templates/$cf_set_template/icon_member_upload_poem.gif\" style=\"vertical-align:middle\" /> $myalbum_button_goto_poem</a><br /><br /></td></tr></table><hr class=\"HR_Color\" /></div>";
 			}
 

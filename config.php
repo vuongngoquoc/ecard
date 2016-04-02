@@ -48,8 +48,8 @@
 
     # Admin script login information
     $admin_user = "admin";
-        $admin_password = "Foxowl1900";
+    $admin_password = "Foxowl1900";
 
     $ecard_url ="";
-    $ecard_root ="D:/Project/ecard";
+    $ecard_root ="E:/Projects/ecard";
 ?>
