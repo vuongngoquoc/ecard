@@ -92,13 +92,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="no_header_but_footer.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="no_header_but_footer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/namaste/no_header_but_footer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43956044" vertical-offset="1766" max-vertical-offset="2516">
-              <caret line="118" column="102" selection-start-line="118" selection-start-column="102" selection-end-line="118" selection-end-column="102" />
+            <state vertical-scroll-proportion="-9.230769" vertical-offset="1766" max-vertical-offset="2516">
+              <caret line="118" column="89" selection-start-line="118" selection-start-column="89" selection-end-line="118" selection-end-column="89" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#script#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -130,18 +131,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sendcard.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sendcard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/namaste/sendcard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1224">
-              <caret line="5" column="77" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.124542125" vertical-offset="0" max-vertical-offset="1224">
+              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#script#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <marker date="1459683428874" expanded="true" signature="2041:2105" placeholder="..." />
+                <marker date="1459684458696" expanded="true" signature="2029:2093" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -165,8 +166,8 @@
         <option value="$PROJECT_DIR$/templates/Responsive/sendcard.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/inc/sendcard_mobile.php" />
-        <option value="$PROJECT_DIR$/templates/namaste/sendcard.html" />
         <option value="$PROJECT_DIR$/templates/namaste/no_header_but_footer.html" />
+        <option value="$PROJECT_DIR$/templates/namaste/sendcard.html" />
       </list>
     </option>
   </component>
@@ -751,28 +752,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/namaste/no_header_but_footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.230769" vertical-offset="1766" max-vertical-offset="2516">
+          <caret line="118" column="89" selection-start-line="118" selection-start-column="89" selection-end-line="118" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/namaste/sendcard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1224">
-          <caret line="5" column="77" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.124542125" vertical-offset="0" max-vertical-offset="1224">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#script#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <marker date="1459683428874" expanded="true" signature="2041:2105" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/namaste/no_header_but_footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43956044" vertical-offset="1766" max-vertical-offset="2516">
-          <caret line="118" column="102" selection-start-line="118" selection-start-column="102" selection-end-line="118" selection-end-column="102" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#script#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1459684458696" expanded="true" signature="2029:2093" placeholder="..." />
           </folding>
         </state>
       </provider>
