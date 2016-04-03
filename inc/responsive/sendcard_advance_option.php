@@ -84,31 +84,46 @@ EOF;
 
 	//Print button Select Poem
 	if($cf_option_select_poem=="1"){
-		$list_data =set_array_from_query("max_poem","poem_id,poem_title,poem_author,poem_body,poem_user_name_id","poem_active='1' and poem_user_name_id='' or poem_active='1' and poem_user_name_id='$_SESSION[user_name_id]' Order by poem_user_name_id DESC,poem_order,poem_title");
+		$list_data =set_array_from_query("max_poem","*","poem_active='1' and poem_user_name_id='' or poem_active='1' and poem_user_name_id='$_SESSION[user_name_id]' Order by poem_user_name_id DESC,poem_order,poem_title");
+        $categories = set_array_from_query("max_poem_category","*","0=0 ORDER BY name");
 		$count_list_of_poem=count($list_data);
 		$show_list_poem = $show_list_poem_hidden_div = "";
 		$poem_div="";
-		foreach($list_data as $row_data){
-			if($row_data[poem_user_name_id]==""){
-				$poem_icon="<i class='fa fa-edit padding5 icon-poem'></i>";
-			}
-			else{
-				$poem_icon="<i class='fa fa-edit padding5 icon-poem'></i>";
-			}
-			$item_poem_id=$row_data[poem_id];
-			$poem_title=$row_data[poem_title];
-			$poem_author=$row_data[poem_author];
+        foreach($categories as $cat) {
+            $category_id = $cat["id"];
+            $numItems = 0;
+            $temp = "";
+            foreach($list_data as $row_data){
+                if(empty($row_data['poem_cat'])) {
+                    $row_data['poem_cat'] = $categories[0]['id'];
+                }
+                if($row_data['poem_cat'] == $cat['id']) {
+                    if($row_data[poem_user_name_id]==""){
+                        $poem_icon="<i class='fa fa-edit padding5 icon-poem'></i>";
+                    }
+                    else{
+                        $poem_icon="<i class='fa fa-edit padding5 icon-poem'></i>";
+                    }
+                    $item_poem_id=$row_data[poem_id];
+                    $poem_title=$row_data[poem_title];
+                    $poem_author=$row_data[poem_author];
 
-			//Load poem to <div> to let user select/view them
-			$row_data[poem_body]=str_replace("<br>","<br />",$row_data[poem_body]);
-			$row_data[poem_body]=str_replace("\r\n","<br />",$row_data[poem_body]);
-			$row_data[poem_body]=str_replace("\n","<br />",$row_data[poem_body]);
-			$poem_body=$row_data[poem_body];
-			$poem_title=strtoupper($row_data[poem_title]);
-			
-			$show_list_poem.=get_html_from_layout("templates/$cf_set_template/sendcard_show_option_toolbar_button_select_poem_item.html",$the_template_show_list_poem);
-			$show_list_poem_hidden_div.=get_html_from_layout("templates/$cf_set_template/sendcard_show_option_toolbar_button_select_poem_item_hidden_div.html",$the_template_show_list_poem_hidden_div);
-		}
+                    //Load poem to <div> to let user select/view them
+                    $row_data[poem_body]=str_replace("<br>","<br />",$row_data[poem_body]);
+                    $row_data[poem_body]=str_replace("\r\n","<br />",$row_data[poem_body]);
+                    $row_data[poem_body]=str_replace("\n","<br />",$row_data[poem_body]);
+                    $poem_body=$row_data[poem_body];
+                    $poem_title=strtoupper($row_data[poem_title]);
+
+                    $temp .=get_html_from_layout("templates/$cf_set_template/sendcard_show_option_toolbar_button_select_poem_item.html",$the_template_show_list_poem);
+                    $show_list_poem_hidden_div.=get_html_from_layout("templates/$cf_set_template/sendcard_show_option_toolbar_button_select_poem_item_hidden_div.html",$the_template_show_list_poem_hidden_div);
+                    $numItems++;
+                }
+            }
+
+            $show_list_poem .= "<li class='dropdown-submenu' onclick='toggleMe('poem{$category_id}')'><a href='#' tabindex='-1' data-toggle='dropdown'>".$cat['name']."(".$numItems.")</a></li>".$temp;
+
+        }
 		echo $show_list_poem_hidden_div; //div nam trong ul hidden khong duoc tinh la elm, nen tach ra cho no hien thi rieng
 		$button_select_poem=<<<EOF
 <li class="dropdown">
