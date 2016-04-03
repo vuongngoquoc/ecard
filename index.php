@@ -803,8 +803,13 @@ Note: This product includes GeoLite data created by MaxMind, available from  htt
 		}
 		$ecard_url_www = str_replace('http://','http://www.',$ecard_url);
 		set_global_var('ecard_url_www',$ecard_url_www);
-		if($social)
-		print get_html_from_layout("templates/$cf_set_template/header_and_footer_social.html");
+		if($social) {
+            if(is_string($social) && $social == 'ecard') {
+                print get_html_from_layout("templates/$cf_set_template/no_header_but_footer.html");
+            } else if (is_bool($social) && $social == true) {
+                print get_html_from_layout("templates/$cf_set_template/header_and_footer_social.html");
+            }
+        }
 		else
 		print get_html_from_layout("templates/$cf_set_template/header_and_footer.html");
 	}

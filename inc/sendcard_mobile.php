@@ -435,7 +435,7 @@ Note: This product includes GeoLite data created by MaxMind, available from  htt
 	} //login
 	else{
 		
-		
+
 		if(!(strpos($ec_row[ec_group_relate_id],",$_SESSION[user_mg_id],")===false) || !(strpos($ec_row[ec_group_relate_id],",1,")===false)){//Match -> member ground can send this card
 			if ($can_send_ecard = get_dbvalue("max_member_group","mg_allow_send_card","mg_id='$_SESSION[user_mg_id]'")) { // if free member group is allowed to send cards
 				$show_balance_payment = false;
@@ -665,6 +665,6 @@ Note: This product includes GeoLite data created by MaxMind, available from  htt
 	$array_global_var[meta_description]=($ec_detail!="") ? ($ec_detail) : ($cf_main_description);
 
 	$array_global_var[print_object]=get_html_from_layout("templates/$cf_set_template/sendcard.html");
-	print_header_and_footer();
+	print_header_and_footer('ecard');
 
 ?>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="{'meta_keyword'}" />
+    <meta name="description" content="{'meta_description'}" />
+    <title>{'my_site_title'}</title>
+    <meta property="og:image" content="{'thumb_card_url'}" />
+    <meta property="og:title" content="{'my_site_title'}">
+    <meta property="og:description" content="{'meta_description'}" />
+    <meta property="og:url" content="{'current_url'}"/>
+    <link rel="image_src" href="{'thumb_card_url'}" />
+ 
+    <meta name="twitter:url" content="{'current_url'}"/>
+    <meta name="twitter:title" content="{'my_site_title'}"/>
+    <meta name="twitter:description" content="{'meta_description'}"/>
+    <meta name="twitter:image" content="{'thumb_card_url'}"/>
+    <meta name="twitter:domain" content="{'ecard_url'}">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/prettyPhoto.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/price-range.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/animate.css" rel="stylesheet">
+	<link href="{'ecard_url'}/templates/{'cf_set_template'}/css/main.css" rel="stylesheet">
+	<link href="{'ecard_url'}/templates/{'cf_set_template'}/css/responsive.css" rel="stylesheet">
+    <link href="{'ecard_url'}/templates/{'cf_set_template'}/css/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/html5shiv.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="stylesheet" type="text/css" href="{'ecard_url'}/templates/{'cf_set_template'}/css/tipped.css" />
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/bootstrap.min.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="{'ecard_url'}/templates/{'cf_set_template'}/js/tipped.js"></script>
+
+    <script>
+		var cardtype="{'cardtype'}";
+		var site_url="{'ecard_url'}";
+		var isMobile="{'isMobile'}";
+	</script>
+    <script type="text/javascript" src="{'ecard_url'}/ecardmax.js"> </script>
+    <script type="text/javascript">
+	function toggleMe(cls)
+	{
+		$('.'+cls).toggle();
+	}
+	function displayModal()
+	{
+		$("#myModal").modal();
+	}
+	function setModalValue(title,html)
+	{
+		if(title != '' && title != 'Click here to close')
+		{
+			$('#myModal .modal-title').html(title);
+		}
+		if(html != '')
+		{
+			$("#myModal #showResult").html(html);
+		}
+		$("#myModal").modal();
+	}
+	function showNotification(msg)
+	{
+		$("#myModal .modal-dialog").addClass('modal-sm');
+		setModalValue("{'notification'}",msg);
+	}
+	function ShowDivCenterPage(id,check)
+	{
+		var title = $('#'+id).attr('title');
+		var html = $('#'+id+' .data-get-for-modal').html();
+		if(id == 'show_loading')
+		{
+			$("#myModal .modal-dialog").addClass('modal-sm');
+			var html = $('#show_loading').html();
+			setModalValue(title,html);
+			$('#showResult').addClass('text-center');
+			setTimeout(function(){
+				$('#myModal').modal('hide'); 
+				$('#showResult').removeClass('text-center');
+			},1000);
+		}
+		else $("#myModal .modal-dialog").removeClass('modal-sm');
+		setModalValue(title,html);
+	}
+	function setCaption(caption)
+	{
+		caption = caption == '' ? '&nbsp;' : caption;
+		$('#myModal .modal-title').html(caption);
+	}
+	function checkMobile()
+	{
+		var mobile = false;
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			mobile = true;
+		}
+		return mobile;
+	}
+	</script>
+</head><!--/head-->
+
+<body style="background-color: #000000;" {'show_onload_javascript'}><!-- do not remove code show_onload_javascript -->
+    <div>
+        {'include_hidden_div'}
+        {'slider'}
+        <section>
+            <div class="container clearfix" style="margin-top: 10px;">
+                <div class="row" style="background-color: white;">
+                    {'print_object'}
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <ul class="nav nav-pills">
+                            <li><a class="f" href="{'url_home'}" >{'txt_home'}</a></li>
+                            <li><a href="{'url_hello'}">{'txt_help'}</a></li>
+                            <li><a href="{'url_feedback'}" >{'txt_feedback'}</a></li>
+                            <li><a href="{'url_policy'}" >{'txt_policy'}</a></li>
+                            <li><a href="{'url_tos'}" >{'txt_tos'}</a></li>
+                        </ul>
+                        <br />
+                        {'cf_ecardmax_copyright_footer'}
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+	
+	<script language="javascript" type="text/javascript">
+	function Subscribe2(){
+		if(!valid_email(document.ecardmax_newsletter2.list_email.value)){
+			showNotification("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_newsletter2.list_email.focus();
+		}		
+		else{
+			document.ecardmax_newsletter2.what.value="subscribe";
+			document.ecardmax_newsletter2.submit();
+		}
+	}
+	function UnSubscribe2(){
+		if(!valid_email(document.ecardmax_newsletter2.list_email_un.value)){
+			showNotification("{'addressbook_js_alert_must_enter_valid_email'}");
+			document.ecardmax_newsletter2.list_email_un.focus();
+		}		
+		else{
+			if(window.confirm("{'newsletter_js_alert_sure_to_remove_email'}")){
+				document.ecardmax_newsletter2.what.value="unsubscribe";
+				document.ecardmax_newsletter2.submit();
+			}
+		}
+	}
+	$('.table_title_bar').each(function(index, element) {
+        var title = $(this).html();
+		title = '<span>'+title+'</span>'; 
+		$(this).html(title);
+		var $ID = this.id;
+		var wTitle = $('#'+$ID+' span').width();
+		var $cssStr = '<style>#'+$ID+'.table_title_bar:before{width : '+wTitle+'px}</style>';
+		$($cssStr).insertAfter('#'+$ID);
+    });
+	$('#tab-content-custom li').click(function(e) {
+		$('#tab-content-custom li a span').addClass('display-desktop');
+		var elm = $(this).children().children()[1];
+		$(elm).removeClass('display-desktop');		
+    });
+	//$(window).load(function (){
+	$(".datepicker").datepicker(
+	{
+		changeMonth:true,
+		changeYear:true,
+		minDate: +0,
+		dateFormat:'mm/dd/yy'
+	});
+	$('.navbar-toggle').click(function(e) {
+		$('.navbar-toggle').removeClass('acti');
+		$('#'+this.id).addClass('acti');
+		if( $('.'+this.id).hasClass('in'))
+		{
+        	$('.'+this.id).removeClass('in');
+		}
+    });
+	function scrollToElm (id){
+		$('html,body').animate({
+        	scrollTop: $("#"+id).offset().top - 10
+		},'slow');
+	}
+	jQuery(document).ready(function ($) {
+		//Tipped.create('.box-tipped');
+		if(isMobile)
+		{
+			//$('.mainmenu').width(parseInt($('.mainmenu').width()) - 30 ); 
+			$('.only-desktop').each(function(index, element) {
+				$(this).remove();
+			});
+		}
+		else
+		{
+			$('.only-mobile').each(function(index, element) {
+				$(this).remove();
+			});
+
+		}
+		//$('#paging').addClass('pagination');
+	});
+	//});
+</script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/dropdown.enhancement.js"></script>
+	<script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.scrollUp.min.js"></script>
+	<script src="{'ecard_url'}/templates/{'cf_set_template'}/js/price-range.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/jquery.prettyPhoto.js"></script>
+    <script src="{'ecard_url'}/templates/{'cf_set_template'}/js/main.js"></script>
+</body>
+</html>

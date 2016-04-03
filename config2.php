@@ -17,7 +17,7 @@
 	$cf_card_expire_day_invite = "60"; 
 	$cf_cgi2k_java_keycode = ""; 
 	$cf_currecy = "$"; 
-	$cf_default_skin = "A_Blank_Skin_Blue"; 
+	$cf_default_skin = "_Default"; 
 	$cf_default_stamp = "_Default.gif"; 
 	$cf_dst = "1"; 
 	$cf_ds_java_keycode = ""; 
@@ -63,8 +63,8 @@
 	$cf_no_right_click = "0"; 
 	$cf_option_select_java = "0"; 
 	$cf_option_select_poem = "1"; 
-	$cf_option_select_skin = "1"; 
-	$cf_option_select_stamp = "1"; 
+	$cf_option_select_skin = "0"; 
+	$cf_option_select_stamp = "0"; 
 	$cf_option_upload_music = "1"; 
 	$cf_option_user_select_music = "1"; 
 	$cf_paypal_primary_email = "webmaster@ecardmax.com"; 
