@@ -115,7 +115,7 @@
 			else if (div_obj.firstChild.nodeValue){
 				get_text = div_obj.firstChild.nodeValue;
 			}
-			var print_poem=poem+"<br />"+get_text;
+			var print_poem=poem+get_text;
 		}
 		else{
 			var print_poem="";
@@ -139,7 +139,7 @@
 			showid2("send_thank_you","none");
 		}
 		var $autoplay = '';
-		var receive_body="<div class='elm-toggle-collapse' id=\"card_stamp_table\"><ul id=\"table_sender\"><li>"+icon+"<span style=\"color:"+text_color+";\">{'sendcard_txt_from'}:</span><span style=\"color:"+text_color+"\" id=\"card_from\">"+from_sender_name+"</span></li><li>"+icon+"<span style=\"color:"+text_color+";\">{'sendcard_txt_to'}:</span><span style=\"color:"+text_color+"\" id=\"card_to\">"+to_name+"</span></li></ul><br clear=\"all\" /></div>";
+		var receive_body="<div class='elm-toggle-collapse' id=\"card_stamp_table\"><ul id=\"table_sender\"><li>"+icon+"<span style=\"color:"+text_color+";\">{'sendcard_txt_from'}:</span><span style=\"color:"+text_color+"\" id=\"card_from\">"+from_sender_name+"</span></li><li>"+icon+"<span style=\"color:"+text_color+";\">{'sendcard_txt_to'}:</span><span style=\"color:"+text_color+"\" id=\"card_to\">"+to_name+"</span></li></ul></div>";
 		var audio_body='<div id="div_card_music" class="elm-toggle-collapse clearfix" ><div id="card_audio_title"></div>';
 		if(pickup!="pickup") $autoplay = 'autoplay="autoplay"';
 		audio_body+='<audio id="audio_tag" '+$autoplay+' controls="controls">';
@@ -177,10 +177,14 @@
 		var card_body = "<div id=\"table_card\" style=\"background: url('"+bkg+"'); \"><div id='card-boundary'>"+receive_body;
 		card_body += "<div style=\"color:"+text_color+"\" id=\"card_fullsize\">"+fullsize_card+"</div>";
 		card_body += "<div class='clearfix h-space-b-15'><div class='pull-left text-left'>";
-		card_body += "<div id=\"card_message\" style=\"color:"+text_color+"\">"+user_message+"</div></div>";
-		if(pickup!="pickup"){ card_body += "<div id='stamp-elm' class='pull-right'>"+stamp_body+"</div>"; };
-		card_body += audio_body;
-		card_body += "<div id=\"card_poem\" class='clearfix' style=\"text-align:"+poem_id_align+";color:"+text_color+"\"><a name=\"poem_bookmark\"></a>"+print_poem+"</div>";
+	
+		//if(pickup!="pickup"){ card_body += "<div id='stamp-elm' class='pull-right'>"+stamp_body+"</div>"; };
+		
+		card_body += "<div id=\"card_poem\" class='clearfix' style=\"text-align:"+poem_id_align+";color:"+text_color+"\"><a name=\"poem_bookmark\"></a>"+print_poem+"</div><br clear=\"all\"><hr style='min-width: 650px; text-align: center; border: 0;height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); ' />";
+		
+			card_body += "<div id=\"card_message\" style=\"color:"+text_color+"\">"+user_message+"</div></div>";
+			card_body += audio_body;
+			
 		card_body += "</div></div>";
 		document.getElementById('print_card').innerHTML=card_body;
 		if(audio_file!=""){			

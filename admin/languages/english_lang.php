@@ -553,6 +553,10 @@ $skin_message_upload_file_missing="One of file upload is missing. Please check a
 $skin_message_checkbox_first="You must select checkbox first. Please try again.";
 $skin_message_confirm_to_delete="Are you sure you want to delete your selected?";
 
+$message_artist_name_required="You must enter Artist name";
+$message_upload_file_missing="One of file upload is missing. Please check again.";
+$message_text_body_required="You must enter description";
+
 //Language for Manage Java page
 $java_tooltip_icon_not_found="Icon not found";
 $java_tooltip_click_here_to_rename="Click here to rename";

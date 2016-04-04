@@ -1,5 +1,7 @@
-<iframe id="modalbkg"></iframe>
-<div id="moz_modalbkg"></div>
+<iframe id="modalbkg" frameborder="0"
+	style="position: absolute; display: none; filter: Alpha(Opacity = 40); -moz-opacity: 0.4; opacity: 0.4; width: 1px; height: 1px; background-color: #999999; z-index: 1; top: 0px; left: 0px;"></iframe>
+<div id="moz_modalbkg"
+	style="position: absolute; display: none; filter: Alpha(Opacity = 40); -moz-opacity: 0.4; opacity: 0.4; width: 1px; height: 1px; background-color: #999999; z-index: 1; top: 0px; left: 0px;"></div>
 <div id="show_popup_preview"
 	style="position: absolute; display: none; top: 0; left: 0; z-index: 10"
 	onmouseover="this.style.display ='block';if(hide_pointer!='1')document.getElementById('pointer').style.display = 'block';"
@@ -8,7 +10,9 @@
 	<img id="show_loading_img" alt="Loading..." src="{'ecard_url'}/templates/{'cf_set_template'}/ajax_loader.gif" /><br />
 	<span id="show_loading_text"></span>
 </div>
-<iframe id="hidden_iframe"></iframe>
+<iframe id="hidden_iframe" frameborder="0"
+	style="position: absolute; display: none; top: 0; left: 0; border: 1px; z-index: 2; width: 1px; height: 1px"
+	scrolling="no"></iframe>
 <div id="div_search_ecard" class="div_menu_layer" style="width: 200px;">
 	<form method="post" action="index.php">
 		<input type="hidden" name="step" value="search_ecard" /> <input
@@ -46,7 +50,41 @@
   </div>
 </div>
 <!-- modal -->
+<style>
+/*POPUP*/
+#mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 10000;
+	background-color: #000;
+	display: none;
+}
 
+#boxes .window {
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: none;
+	z-index: 99999;
+	padding: 5px;
+	margin-top: 0px;
+	background-color: #FFF;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 7px #CCC;
+	-webkit-box-shadow: 0 0 7px #CCC;
+	box-shadow: 0 0 7px #CCC;
+}
+
+#boxes #dialog {
+	margin: 5px;
+}
+#showResult.center {
+	text-align:center;
+}
+</style>
 <!--
 <div id="boxes">
 	<div id="view_fullsize_table_center" class="window">
@@ -63,7 +101,7 @@
 	<div id="print_fullsize" class="data-get-for-modal" title="{'thumb_tooltip_click_to_close'}"></div>
 </div>
             
-<script>
+<script language="javascript" type="text/javascript">
 	var eCardMax_Keycode ="{'cf_ecardmax_keycode'}";
 	var Keycode ="{'cf_hoteditor_keycode'}";
 	var js_alert_edit_field_not_blank="{'js_alert_edit_field_not_blank'}";

@@ -1,6 +1,7 @@
 <form name="form1" method="post" action="index.php" enctype='multipart/form-data'>
 <input type="hidden" name="step" value="{'step'}" />
 <input type="hidden" name="what" value="" />
+<script src="html/ckeditor/ckeditor.js" language="javascript"></script>.
 <h1><img border="0" src="html/07_icon_ecard_skin2.gif" alt="" style="vertical-align:middle" /> Manage Artists
 ({'skin_txt_total'} {'count_total'})</h1>
 <div style="border:1px solid silver;padding:4px;cursor:pointer;line-height:20px;background-image: url(html/07_title_background2.gif);font-weight:bold" onclick="showid('show_add_table');"><img border="0" src="html/07_icon_add22.gif" alt="" style="vertical-align:middle" /> Click here to add new Artist</div><br />
@@ -17,7 +18,7 @@
 		</tr>
 		<tr style="background-color: #EAEAEA;line-height:17px">
 			<td width="20%">Website</td>
-			<td width="80%"><input type="text" name="artist_name" style="width:300px" placeholder="http://artist-domain.com" /></td>
+			<td width="80%"><input type="text" name="artist_website" style="width:300px" placeholder="http://artist-domain.com" /></td>
 		</tr>
 
 		<tr style="background-color: #EAEAEA;line-height:17px">
@@ -27,7 +28,11 @@
 		
 		<tr style="background-color: #EAEAEA;line-height:17px">
 			<td width="20%">Description</td>
-			<td width="80%"><input type="file" name="artist_picture" id="artist_picture" size="42" /></td>
+			<td width="80%">
+                <div id="editorContainer">
+			        <textarea name="mmess_body" id="mmess_body" style="width:90%;height:300px"></textarea>
+                </div>
+			</td>
 		</tr>
 		
 		<tr style="background-color: #EAEAEA;line-height:17px">
@@ -40,14 +45,13 @@
  
 <table width="100%" align="center" style="background-color: silver;" cellspacing="1" cellpadding="3">			
 	<tr style="line-height:20px;background-image: url(html/07_title_background.gif);font-weight:bold">
-		<td width="1%" align="center" style="padding:4px">{'skin_txt_column_name_icon'}</td>
-		<td width="7%" align="center" style="padding:4px">{'skin_txt_column_name_default'}</td>
-		<td width="*"  style="padding:4px">{'skin_txt_column_name_skin_name'}</td>
-		<td width="17%" style="padding:4px">{'skin_txt_column_name_text_color'}</td>
-		<td width="20%" style="padding:4px">{'skin_txt_column_name_folder_name'}</td>				
-		<td width="1%" align="center" style="padding:4px;white-space:nowrap">{'skin_txt_column_name_enable'}</td>
+		<td width="1%" align="center" style="padding:4px">Picture</td>
+		<td width="*"  style="padding:4px">Artist Name</td>
+		<td width="17%" style="padding:4px">Website</td>
+		<td width="20%" style="padding:4px">Discription</td>				
+		<!--td width="1%" align="center" style="padding:4px;white-space:nowrap">{'skin_txt_column_name_enable'}</td>
 		<td width="7%" align="center" style="padding:4px">{'skin_txt_column_name_preview'}</td>
-		<td width="1%" align="center" style="white-space:nowrap">{'skin_txt_column_name_sort_order'}</td>
+		<td width="1%" align="center" style="white-space:nowrap">{'skin_txt_column_name_sort_order'}</td-->
 		<td width="1%" align="center" style="padding:4px">{'skin_txt_column_name_sort_delete'}</td>
 		<td width="1%" align="center" style="padding:4px"><input onkeypress="return noEnterKey(event);" id="chk_all" title="{'skin_tooltip_select_all'}" type="checkbox" value="ON" onclick="check_uncheck_all('{'bk_id'}');" /></td>
 	</tr>	
@@ -121,18 +125,6 @@ function HideDefautl(){
 	}
 }
 
-function SetTextColor(color){
-	if(skin_id!="-1"){
-		document.getElementById('skin_text_color'+skin_id).value=color;
-		Editme('index.php?step=edit_me&table=max_skin&edit_id=skin_id&edit_id_value='+skin_id+'&edit_key=skin_text_color&edit_value=',color,'1',color,'skin_text_color'+skin_id);
-		document.getElementById('span_skin_text_color'+skin_id).style.backgroundColor=color;		
-	}
-	else{
-		document.form1.skin_text_color.value=color;
-		document.getElementById('addnew_skin_text_color').style.backgroundColor=color;
-	}
-	HideItAll();
-}
 
 function Previewskin(bar,bkg,bottom,icon,top){
 	bar=print_image(bar);
@@ -163,27 +155,25 @@ function print_image(data){
 }
 
 function AddNewSkin(){
-	if(document.form1.skin_name_display.value==""){
-		alert("{'skin_message_skin_name_required'}");
-		document.form1.skin_name_display.focus();
+	if(document.form1.artist_name.value==""){
+		alert("{'message_artist_name_required'}");
+		document.form1.artist_name.focus();
 	}
-	else if(document.form1.skin_text_color.value==""){
-		alert("{'skin_message_text_color_required'}");
-		document.form1.skin_text_color.focus();
+	else if($("#editorContainer iframe").contents().find("body").text() == ""){
+		alert("{'message_text_body_required'}");
 	}
 	else{
-		var file_upload=true;
-		for(i=1;i<=7;i++){
-			if(document.getElementById("file"+i).value==""){
-				file_upload=false;
-			}
-		}
+		var file_upload = true;
+        if(document.getElementById("artist_picture").value==""){
+            file_upload = false;
+        }
+
 		if(file_upload){
 			document.form1.what.value='add_new';
 			document.form1.submit();
 		}
 		else{
-			alert("{'skin_message_upload_file_missing'}");
+			alert("{'message_upload_file_missing'}");
 		}
 	}
 }
@@ -220,5 +210,6 @@ function DeleteSelected(){
 		check_uncheck_all('{'bk_id'}');
 	}
 }
-
+{'helpckeditor'}
+CKEDITOR.replace( 'mmess_body' );
 </script>
